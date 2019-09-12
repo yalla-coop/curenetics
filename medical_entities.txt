@@ -1,0 +1,15 @@
+medical entities from Sola Thurs 12 Sept
+
+-List of current medications
+-Past medical problems
+-How fit/well is the patient( ECOG 0-4)
+-Other active medical problems (other than cancer. e.g. bleeding, infection)
+-Scan report
+-Biopsy report
+-Active cancer therapy and what type( e.g. hormones, chemo, radiation or none at all)
+-Previous clinical trials
+-Latest treatment decision taken by clinical team
+-Allergies
+-Blood test result ( heamoglobin, kidney and liver blood test results etc)
+-Genetic test results
+-Patients previously expressed wishes for what type of cancer therapy he/she prefers ( e.g. chemo be surgery
