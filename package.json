@@ -1,0 +1,22 @@
+{
+  "name": "curenetics",
+  "version": "1.0.0",
+  "description": "A platform enabling medical professionals to more quickly find relevant clinical trials for their patients",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yalla-coop/curenetics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yalla-coop/curenetics/issues"
+  },
+  "homepage": "https://github.com/yalla-coop/curenetics#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
