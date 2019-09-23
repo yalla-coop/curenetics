@@ -57,6 +57,7 @@ const dataValidation = {
   OverallStatus: 'Unknown Status'
 };
 
+
 // 3. search by value
 const getTrialsByValue = ( dataType, resultArray, userCondition ) => {
   const keys = Object.keys(resultArray);
@@ -77,6 +78,50 @@ const getTrialsByValue = ( dataType, resultArray, userCondition ) => {
 };
 
 
+// use this to search data:
+// > functions that will format the data depending upon the type searched for
+
+// evaluate to true or false?
+const searchFuncs = {
+  Phase: n => n,
+  // Gender: n => n.toLowerCase()
+};
+
+
+const getTrialsByMatched = ( dataType, resultArray, userCondition ) => {
+  const keys = Object.keys(resultArray);
+  return keys.reduce( (acc, val) => {
+    const item = resultArray[val];
+    if (
+      item.hasOwnProperty(dataType) &&
+      item[dataType] &&
+      item[dataType] !== dataValidation[dataType] &&
+      // original value from object === data processing function
+      // > not going to work...
+      item[dataType] === searchFuncs[dataType](userCondition)
+
+
+      // if dataType === Phase, search exact userCondition (item[dataType] === userCondition)
+      // if dataType === Gender, item[dataType].toLowerCase() === userCondition.toLowerCase()
+      // if dataType === MaxAge, parseInt(item[dataType]) === parseInt(userCondition)
+
+
+
+      // > userCondition needs to be processed according to dataType
+      // searchFuncs[dataType](userCondition)
+
+      // item[dataType] === userCondition
+      // may want to put userCondition to lowercase, filter for age bracket, etc.
+      
+    ) {
+      acc.push({ [val] : resultArray[val] });
+    }
+    return acc;
+  }, []);
+};
+
+
 exports.getTrialsByKey = getTrialsByKey;
 exports.getValidTrialsByKey = getValidTrialsByKey;
 exports.getTrialsByValue = getTrialsByValue;
+exports.getTrialsByMatched = getTrialsByMatched;
