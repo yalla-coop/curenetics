@@ -54,7 +54,8 @@ const dataValidation = {
   Keywords: null,
   MaxAge: 'N/A',
   MinAge: 'N/A',
-  OverallStatus: 'Unknown Status'
+  OverallStatus: 'Unknown Status',
+  Conditions: undefined // can't filter on 'undefined'
 };
 
 
@@ -70,6 +71,7 @@ const getTrialsByValue = ( dataType, resultArray, userCondition ) => {
       item[dataType] === userCondition
       // may want to put userCondition to lowercase, filter for age bracket, etc.
       // > userCondition needs to be processed according to dataType
+      // v see below
     ) {
       acc.push({ [val] : resultArray[val] });
     }
@@ -81,10 +83,13 @@ const getTrialsByValue = ( dataType, resultArray, userCondition ) => {
 // use this to search data:
 // > functions that will format the data depending upon the type searched for
 
-// evaluate to true or false?
+// evaluate (presence of the search term) to true or false:
 const searchFuncs = {
-  Phase: n => n,
-  // Gender: n => n.toLowerCase()
+  Phase: (val, con) => val === con,
+  Gender: (val, con) => val.toLowerCase() === con.toLowerCase(),
+  MaxAge: (val, con) => parseInt(val) === parseInt(con),
+  // need to test the length as an empty array is truthy
+  Conditions: (val, con) => val.filter(item => item.toLowerCase().includes(`${con}`.toLowerCase())).length > 0
 };
 
 
@@ -96,22 +101,13 @@ const getTrialsByMatched = ( dataType, resultArray, userCondition ) => {
       item.hasOwnProperty(dataType) &&
       item[dataType] &&
       item[dataType] !== dataValidation[dataType] &&
-      // original value from object === data processing function
-      // > not going to work...
-      item[dataType] === searchFuncs[dataType](userCondition)
-
+      // pass in original value and condition
+      // > this will search data using searchFuncs specific to dataType
+      searchFuncs[dataType](item[dataType], userCondition)
 
       // if dataType === Phase, search exact userCondition (item[dataType] === userCondition)
       // if dataType === Gender, item[dataType].toLowerCase() === userCondition.toLowerCase()
       // if dataType === MaxAge, parseInt(item[dataType]) === parseInt(userCondition)
-
-
-
-      // > userCondition needs to be processed according to dataType
-      // searchFuncs[dataType](userCondition)
-
-      // item[dataType] === userCondition
-      // may want to put userCondition to lowercase, filter for age bracket, etc.
       
     ) {
       acc.push({ [val] : resultArray[val] });
