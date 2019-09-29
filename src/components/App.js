@@ -1,17 +1,20 @@
 import React from 'react';
 import '../styles/reset.css';
-
+import styled from 'styled-components';
+import Upload from './pages/upload/index';
 // icon testing
 // svgs downloaded from: https://material.io/resources/icons
-import Arrow from './common/icons/Arrow';
-import Avatar from './common/icons/Avatar';
-import Calendar from './common/icons/Calendar';
-import Tick from './common/icons/Tick';
-import Phase from './common/icons/Phase';
-import Marker from './common/icons/Marker';
+import Arrow from './common/icons/Arrow.jsx';
+import Avatar from './common/icons/Avatar.jsx';
+import Calendar from './common/icons/Calendar.jsx';
+import Tick from './common/icons/Tick.jsx';
+import Phase from './common/icons/Phase.jsx';
+import Marker from './common/icons/Marker.jsx';
 
-import styled from 'styled-components';
-import { breakpoint, colors, fontFamily, font } from '../styles/globalStyles'
+
+import {
+  breakpoint, colors, fontFamily, font,
+} from '../styles/globalStyles';
 
 
 const Main = styled.main`
@@ -76,6 +79,8 @@ function App() {
       <Marker />
       <Marker width={75} fill={colors.lightPrimary}/>
      </IconContainer>
+
+     <Upload />
 
    </Main>
   );
