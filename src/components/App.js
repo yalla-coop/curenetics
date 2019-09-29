@@ -11,6 +11,8 @@ import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
 import Enter from './pages/enter';
+// a dynamic route, added for testing - icons:
+import TrialList from './pages/trialList';
 
 import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
@@ -93,6 +95,9 @@ function App() {
                 <li>
                   <Link to="/enter">Enter</Link>
                 </li>
+                <li>
+                  <Link to="/trial-list">Trial List</Link>
+                </li>
               </ul>
             </Nav>
           </TopContainer>
@@ -104,6 +109,7 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/upload" component={Upload} />
             <Route path="/enter" component={Enter} />
+            <Route path="/trial-list" component={TrialList} />
             <Route component={NotFound} />
           </Switch>
         </Main>

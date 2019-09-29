@@ -17,6 +17,13 @@ const Header = styled.header`
   }
 `;
 
+const Container = styled.section`
+${sectionMixin};
+${props => props.isCenter ? 'text-align: center;' : ''}
+@media only screen and (min-width: ${breakpoint.tablet}) {
+  ${props => props.hasColumns ? 'display: flex;' : ''}
+}
+`;
 
 // half width
 const columnMixin = css`
@@ -76,7 +83,7 @@ const BreadCrumb = styled.nav`
 `;
 
 export {
-  sectionMixin, Header,
+  sectionMixin, Header, Container,
   columnMixin, Article,
   cardMixin, PatientCard, UploadCard,
   BreadCrumb,
