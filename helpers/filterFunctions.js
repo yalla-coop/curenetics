@@ -1,3 +1,5 @@
+// https://github.com/yalla-coop/curenetics/issues/44
+
 // filter the results with the following functions
 
 // functions we may need:
@@ -114,10 +116,56 @@ const getTrialsByMatched = ( dataType, resultArray, userCondition ) => {
 };
 
 
+
+
+// - - -
+
+// 5. get trials with uk locations only
+// > each result
+// > .Locations
+
+// .Facility.Address.Country !== 'United Kingdom'
+
+
+// put this in searchFuncs when done
+// > may want to match country to lowercase / case insensitive
+const hasUkLocation = (objArr, country) => {
+  return objArr.filter(item => item.Facility.Address.Country === country).length > 0
+};
+
+const getTrialsByCountry = (resultArray, country) => {
+  const keys = Object.keys(resultArray);
+
+  return keys.reduce( (acc, val) => {
+    const item = resultArray[val];
+
+    // check Locations exists and is an array:
+    if (
+      item.hasOwnProperty('Locations') &&
+      item['Locations'] &&
+      item['Locations'].length > 0 &&
+
+      // if any array items contain a uk location, add the trial
+      // > will want to filter out non-uk locations within a trial also
+      hasUkLocation(item['Locations'], country)
+
+    ) {
+
+      // modify this if we want to omit locations not in the country
+      acc.push({ [val] : item });
+    }
+    return acc;
+  }, []);
+};
+
+
+
+
 exports.getTrialsByKey = getTrialsByKey;
 exports.getValidTrialsByKey = getValidTrialsByKey;
 exports.getTrialsByValue = getTrialsByValue;
 exports.getTrialsByMatched = getTrialsByMatched;
+exports.getTrialsByCountry = getTrialsByCountry;
 
 
 // potential todo list:

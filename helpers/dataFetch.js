@@ -6,7 +6,8 @@ const {
   getTrialsByKey,
   getValidTrialsByKey,
   getTrialsByValue,
-  getTrialsByMatched
+  getTrialsByMatched,
+  getTrialsByCountry
 } = require("./filterFunctions");
 
 
@@ -66,6 +67,11 @@ const fetchFunc = url => {
       // - age range (get min and max age from a slider, for example)
       // - locations filtering -> see filterFunctions.js for further notes on this
       // ^ both of the above require getTrials.. function refactor or adapted version
+
+      console.log('--- 5: getTrialsByCountry --- ');
+      console.log('no. of trials that contain locations in "United Kingdom": ', getTrialsByCountry(resultArray, 'United Kingdom').length);
+      console.log('no. of trials that contain locations in "United States": ', getTrialsByCountry(resultArray, 'United States').length);
+      console.log('no. of trials that contain locations in "Germany": ', getTrialsByCountry(resultArray, 'Germany').length);
       
       
 
