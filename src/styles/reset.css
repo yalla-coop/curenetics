@@ -31,9 +31,6 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -45,4 +42,20 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-} 
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	line-height: 1.5;
+}
+
+a {
+	color: #58595b;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+a:hover,
+a:visited,
+a:visited:hover {
+	color: #070719;
+}
