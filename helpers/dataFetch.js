@@ -72,6 +72,9 @@ const fetchFunc = url => {
       console.log('no. of trials that contain locations in "United Kingdom": ', getTrialsByCountry(resultArray, 'United Kingdom').length);
       console.log('no. of trials that contain locations in "United States": ', getTrialsByCountry(resultArray, 'United States').length);
       console.log('no. of trials that contain locations in "Germany": ', getTrialsByCountry(resultArray, 'Germany').length);
+
+      // wont log enough levels deep in terminal:
+      console.log('Show trials with locations in "United Kingdom", omitting foreign results. JUST SHOW LENGTH because cant test in terminal', getTrialsByCountry(resultArray, 'United Kingdom', omitForeign = true).length);
       
       
 

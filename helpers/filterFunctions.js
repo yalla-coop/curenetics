@@ -133,7 +133,7 @@ const hasUkLocation = (objArr, country) => {
   return objArr.filter(item => item.Facility.Address.Country === country).length > 0
 };
 
-const getTrialsByCountry = (resultArray, country) => {
+const getTrialsByCountry = (resultArray, country, omitForeign = false) => {
   const keys = Object.keys(resultArray);
 
   return keys.reduce( (acc, val) => {
@@ -150,6 +150,18 @@ const getTrialsByCountry = (resultArray, country) => {
       hasUkLocation(item['Locations'], country)
 
     ) {
+
+      // > need to be able to test this, node only logs one level deep
+      // > perhaps filter in a console log?
+      if (omitForeign === true ) {
+        const filtererdLocations = item['Locations'].filter(item => item.Facility.Address.Country === country);
+        item.Locations = filtererdLocations;
+        // console.log('filtered location, should be uk: ', item.Locations);
+      }
+
+      console.log('---------');
+      console.log('uk trial, foreign locations filtered out: ', item.Locations);
+      console.log('---------');
 
       // modify this if we want to omit locations not in the country
       acc.push({ [val] : item });
