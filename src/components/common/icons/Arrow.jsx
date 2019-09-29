@@ -33,7 +33,3 @@ const Arrow = ({ titleTag = 'Arrow', width = 30, fill = '#000', direction = 'rig
 )};
 
 export default Arrow;
-
-// usage:
-// <Arrow direction="left" width={50}/>
-// <Arrow direction="down" fill="black"/>

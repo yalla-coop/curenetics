@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Arrow from '../../common/icons/Arrow';
 
-import { BreadCrumb, Container } from '../../common/Layout';
+import { BreadCrumb, Header } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
 import { Crumb, buttonReset, buttonMixin } from '../../common/Buttons';
 
@@ -28,11 +28,11 @@ const About = () => (
     <BreadCrumb>
       <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / About</Crumb>
     </BreadCrumb>
-    <Container isCenter>
+    <Header isCenter>
       <Title>About Curenetics</Title>
       <Paragraph>A page about this app etc.</Paragraph>
       <BackLink to='/'>Back to Home</BackLink>
-    </Container>
+    </Header>
   </Fragment>
 );
 

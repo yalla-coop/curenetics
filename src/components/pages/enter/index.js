@@ -5,7 +5,7 @@ import formFields from './formFields';
 import Arrow from '../../common/icons/Arrow';
 import Plus from '../../common/icons/Plus';
 
-import { BreadCrumb, sectionMixin, Container } from '../../common/Layout';
+import { BreadCrumb, sectionMixin, Header } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
 import {
   PatientForm, FormItem, Label, Input,
@@ -53,14 +53,14 @@ const Enter = () => {
   return (
     <Fragment>
   
-    <BreadCrumb>
-      <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Enter Details</Crumb>
-    </BreadCrumb>
+      <BreadCrumb>
+        <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Enter Details</Crumb>
+      </BreadCrumb>
 
-    <Container>
+      <Header>
         <Title>Enter patient data</Title>
         <Paragraph>Please enter the relevant medical details for each of  patients below. We can currently match clinical trials for you based on age, gender, cancer type, ECOG status, Gleason level and certain diseases within and outside the prostate.</Paragraph>
-      </Container>
+      </Header>
   
       <ContentContainer>
         <PatientForm>
@@ -93,7 +93,7 @@ const Enter = () => {
       </ContentContainer>
   
       <ButtonContainer>
-        <IconButton><Plus fill={colors.primary} addOutine />Click to add another patient’s medical details</IconButton>
+        <IconButton><Plus addOutine />Click to add another patient’s medical details</IconButton>
         <Button>Find Clinical Trials</Button>
       </ButtonContainer>
   

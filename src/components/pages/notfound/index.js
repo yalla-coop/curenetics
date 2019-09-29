@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Container } from '../../common/Layout';
+import { Header } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
 import { buttonReset, buttonMixin } from '../../common/Buttons';
 
@@ -23,11 +23,11 @@ const BackLink = styled(Link)`
 
 const NotFound = () => (
   <Fragment>
-    <Container isCenter>
+    <Header isCenter>
       <Title>404: Page not found</Title>
       <Paragraph>You have searched for a page that is not there</Paragraph>
       <BackLink to='/'>Back to Home</BackLink>
-    </Container>
+    </Header>
   </Fragment>
 );
 

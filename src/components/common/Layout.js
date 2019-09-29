@@ -9,7 +9,7 @@ const sectionMixin = css`
   max-width: ${breakpoint.massive};
 `;
 
-const Container = styled.section`
+const Header = styled.header`
   ${sectionMixin};
   ${props => props.isCenter ? 'text-align: center;' : ''}
   @media only screen and (min-width: ${breakpoint.tablet}) {
@@ -76,7 +76,7 @@ const BreadCrumb = styled.nav`
 `;
 
 export {
-  sectionMixin, Container,
+  sectionMixin, Header,
   columnMixin, Article,
   cardMixin, PatientCard, UploadCard,
   BreadCrumb,

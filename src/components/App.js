@@ -6,7 +6,6 @@ import {
 
 import styled, { css } from 'styled-components';
 
-// routes / layouts
 import Home from './pages/home';
 import About from './pages/about';
 import NotFound from './pages/notfound';
@@ -44,6 +43,9 @@ const TopBar = styled.div`
   left: 0;
   right: 0;
   height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @media only screen and (min-width: ${breakpoint.tablet}) {
     height: 5rem;
   }
@@ -51,6 +53,7 @@ const TopBar = styled.div`
 
 const TopContainer = styled.div`
   ${sectionMixin};
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,8 +72,8 @@ const Nav = styled.nav`
 
 
 function App() {
-  // add some logic here - if required
-  // - perhaps something to add metadata (e.g. title tag and description) depending upon the active route
+  // add logic here
+  // - add metadata (e.g. title tag and description) > depending upon the active route
   // - Helmet module could be useful here ^
   return (
     <Fragment>

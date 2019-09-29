@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Plus = ({ titleTag = 'Plus', width = 24, fill = '#000', addOutine = null }) => (
+const Plus = ({ titleTag = 'Plus', width = 24, fill = '#35348f', addOutine = null }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { sectionMixin, Container, columnMixin } from '../../common/Layout';
+import { sectionMixin, Header, columnMixin } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
 import { buttonReset, buttonMixin } from '../../common/Buttons';
 
@@ -45,11 +45,11 @@ const SearchLink = styled(Link)`
 const Home = () => (
   <Fragment>
 
-    <Container>
+    <Header>
       <Title>Match patient data to clinical trial criteria</Title>
       <Paragraph>This app automates the process of matching patients to suitable clinical trials. It narrows the selection making the final choice a simpler and quicker task.</Paragraph>
       <Paragraph>To start either select the button to upload one or more PDF files or click the icon to type in data manually</Paragraph>
-    </Container>
+    </Header>
 
     <LinkContainer hasColumns>
       <UploadLink to='/upload'>Upload PDFs of patient data</UploadLink>

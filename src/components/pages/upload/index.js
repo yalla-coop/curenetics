@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 import Arrow from '../../common/icons/Arrow';
 
-import { BreadCrumb, sectionMixin, Container, columnMixin, Article, UploadCard } from '../../common/Layout';
+import {
+  BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard,
+ } from '../../common/Layout';
 import { Title, SubHeading, OL, LI } from '../../common/Typography';
 import { Crumb, buttonReset } from '../../common/Buttons';
 
@@ -26,44 +28,48 @@ const UploadColumn = styled.div`
   }
 `;
 
-const SearchLink = styled(Link)`
+const EnterLink = styled(Link)`
   ${buttonReset};
   display: flex;
   align-items: center;
 `;
 
-const Upload = () => (
-  <Fragment>
+const Upload = () => {
 
-    <BreadCrumb>
-      <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Upload</Crumb>
-    </BreadCrumb>
-    
-    <Container>
-      <Title>Add your PDF files</Title>
-    </Container>
-
-    <ContentContainer hasColumns>
-
-      <Article isLeft>
-        <SubHeading>What to do:</SubHeading>
-        <OL>
-          <LI>Click on the Add your files button to select patients file(s). Only PDF files can be selected.</LI>
-          <LI>Delete any file at any time</LI>
-          <LI>When you’re ready click the Upload button to upload files.</LI>
-        </OL>
-      </Article>
-
-      <UploadColumn>
-        <UploadCard>
-          upload stuff to go here...
-        </UploadCard>
-        <SearchLink to='/search'>Or type in patient details</SearchLink>
-      </UploadColumn>
-
-    </ContentContainer>
-
-  </Fragment>
-);
+  // logic to go here - file upload state etc.
+  return (
+    <Fragment>
+  
+      <BreadCrumb>
+        <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Upload</Crumb>
+      </BreadCrumb>
+      
+      <Header>
+        <Title>Add your PDF files</Title>
+      </Header>
+  
+      <ContentContainer hasColumns>
+  
+        <Article isLeft>
+          <SubHeading>What to do:</SubHeading>
+          <OL>
+            <LI>Click on the Add your files button to select patients file(s). Only PDF files can be selected.</LI>
+            <LI>Delete any file at any time</LI>
+            <LI>When you’re ready click the Upload button to upload files.</LI>
+          </OL>
+        </Article>
+  
+        <UploadColumn>
+          <UploadCard>
+            upload stuff to go here...
+          </UploadCard>
+          <EnterLink to='/enter'>Or type in patient details</EnterLink>
+        </UploadColumn>
+  
+      </ContentContainer>
+  
+    </Fragment>
+  );
+};
 
 export default Upload;
