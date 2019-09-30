@@ -10,7 +10,7 @@ import {
 import { Title, SubHeading, OL, LI } from '../../common/Typography';
 import { Crumb, buttonReset } from '../../common/Buttons';
 
-import { breakpoint, colors } from '../../../styles/globalStyles';
+import { breakpoint } from '../../../styles/globalStyles';
 
 const ContentContainer = styled.div`
   ${sectionMixin};

@@ -9,6 +9,16 @@ import TestTube from '../../common/icons/TestTube';
 import Plus from '../../common/icons/Plus';
 import Stethiscope from '../../common/icons/Stethiscope';
 
+// not in this part of the design:
+// > here for testing purposes
+import Warning from '../../common/icons/Warning';
+import Pointer from '../../common/icons/Pointer';
+import Marker from '../../common/icons/Marker';
+import Spinner from '../../common/icons/Spinner';
+import ExportLink from '../../common/icons/ExportLink';
+import ExternalLink from '../../common/icons/ExternalLink';
+import Keyboard from '../../common/icons/Keyboard';
+
 import { breakpoint } from '../../../styles/globalStyles';
 
 const DetailGrid = styled.div`
@@ -80,6 +90,24 @@ const ResultDetails = ({
       <Stethiscope />
       Allocation: {allocation}
     </DetailItem>
+
+    <h2>Temporary icon test bed:</h2>
+
+    <Warning width={100}/>
+    <Warning width={70}/>
+    <Warning />
+    <Warning addOutine width={100}/>
+    <Warning addOutine width={70}/>
+    <Warning addOutine />
+    <Pointer />
+    <Marker />
+    <Spinner />
+    <Spinner width={50}/>
+    <ExportLink fill='#35348f' />
+    <ExternalLink />
+    <Keyboard fill='#35348f' />
+    <Keyboard fill='#35348f' width={50} />
+
   </DetailGrid>
 );
 
