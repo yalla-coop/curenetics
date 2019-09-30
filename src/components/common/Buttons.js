@@ -4,7 +4,7 @@ import {
   breakpoint, colors, font, fontFamily,
 } from '../../styles/globalStyles';
 
-const buttonReset = css`
+export const buttonReset = css`
   cursor: pointer;
   border: 0;
   padding: 0;
@@ -22,7 +22,7 @@ const buttonReset = css`
   }
 `;
 
-const buttonMixin = css`
+export const buttonMixin = css`
   background-color: ${colors.primary};
   color: ${colors.white};
   padding: 1rem 1.5rem;
@@ -37,12 +37,12 @@ const buttonMixin = css`
   }
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   ${buttonReset};
   ${buttonMixin};
 `;
 
-const IconButton = styled.button`
+export const IconButton = styled.button`
   ${buttonReset};
   color: ${colors.primary};
   padding: 1rem 1.5rem;
@@ -60,16 +60,20 @@ const IconButton = styled.button`
   }
 `;
 
-const LinkButton = styled.a`
+export const BackLink = styled(Link)`
   ${buttonReset};
   ${buttonMixin};
   text-align: center;
+  display: block;
+  @media only screen and (min-width: ${breakpoint.small}) {
+    margin-top: 2rem;
+  }
   &:hover {
     color: ${colors.white};
   }
 `;
 
-const Crumb = styled(Link)`
+export const Crumb = styled(Link)`
   ${buttonReset};
   color: ${colors.primary};
   text-transform: uppercase;
@@ -87,10 +91,3 @@ const Crumb = styled(Link)`
     }
   }
 `;
-
-
-export {
-  buttonReset, buttonMixin,
-  Button, LinkButton, IconButton,
-  Crumb,
-};

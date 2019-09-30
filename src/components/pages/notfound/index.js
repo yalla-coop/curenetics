@@ -1,25 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { Header } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
-import { buttonReset, buttonMixin } from '../../common/Buttons';
+import { BackLink } from '../../common/Buttons';
 
-import { breakpoint, colors } from '../../../styles/globalStyles';
-
-const BackLink = styled(Link)`
-  ${buttonReset};
-  ${buttonMixin};
-  text-align: center;
-  display: block;
-  @media only screen and (min-width: ${breakpoint.small}) {
-    margin-top: 2rem;
-  }
-  &:hover {
-    color: ${colors.white};
-  }
-`;
 
 const NotFound = () => (
   <>

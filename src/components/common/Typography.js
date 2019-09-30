@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { breakpoint, colors, font, fontFamily } from '../../styles/globalStyles';
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-family: ${fontFamily.main};
   font-weight: 700;
   color: ${colors.primary};
@@ -16,7 +16,7 @@ const Title = styled.h1`
   }
 `;
 
-const SubHeading = styled.h2`
+export const SubHeading = styled.h2`
   font-weight: 700;
   color: ${colors.primary};
   font-size: ${font.med};
@@ -25,7 +25,7 @@ const SubHeading = styled.h2`
   }
 `;
 
-const textMixin = css`
+export const textMixin = css`
   font-weight: 400;
   margin-bottom: 1rem;
   font-size: ${font.Xsmall};
@@ -37,20 +37,16 @@ const textMixin = css`
   } 
 `;
 
-const Paragraph = styled.p`
+export const Paragraph = styled.p`
   ${textMixin};
   ${props => props.isLight ? 'font-weight: 300' : ''};
 `;
 
-const OL = styled.ol`
+export const OL = styled.ol`
   margin: 1rem 0;
   padding-left: 1rem;
 `;
 
-const LI = styled.li`
+export const LI = styled.li`
   ${textMixin};
 `;
-
-export {
-  Title, SubHeading, Paragraph, OL, LI, textMixin,
-};

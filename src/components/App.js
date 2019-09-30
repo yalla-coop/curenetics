@@ -73,7 +73,7 @@ const Nav = styled.nav`
 `;
 
 
-function App() {
+const App = () => {
   // add logic here
   // - add metadata (e.g. title tag and description) > depending upon the active route
   // - Helmet module could be useful here ^

@@ -7,8 +7,8 @@ import {
   breakpoint, colors,
 } from '../../styles/globalStyles';
 
-// consider using metial ui or similar for select / dropdowns
-const PatientForm = styled.form`
+// consider using material ui or similar for select / dropdowns
+export const PatientForm = styled.form`
   ${cardMixin};
   padding: 2rem 1rem;
   width: 100%;
@@ -23,7 +23,7 @@ const PatientForm = styled.form`
   }
 `;
 
-const FormItem = styled.div`
+export const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   @media only screen and (min-width: ${breakpoint.Xsmall}) {
@@ -33,13 +33,13 @@ const FormItem = styled.div`
   }
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   ${textMixin};
   margin-bottom: 0;
   color: ${colors.primary};
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   ${textMixin};
   margin-bottom: 0;
   min-width: 65%;
@@ -51,7 +51,3 @@ const Input = styled.input`
     outline: none;
   }
 `;
-
-export {
-  PatientForm, FormItem, Label, Input,
-};
