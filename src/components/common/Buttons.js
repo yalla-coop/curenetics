@@ -26,7 +26,6 @@ export const buttonMixin = css`
   background-color: ${colors.primary};
   color: ${colors.white};
   padding: 1rem 1.5rem;
-  width: 100%;
   border-radius: 0.25rem;
   &:hover {
     background-color: ${colors.lightPrimary};
@@ -46,7 +45,6 @@ export const IconButton = styled.button`
   ${buttonReset};
   color: ${colors.primary};
   padding: 1rem 1.5rem;
-  width: 100%;
   border-radius: 0.25rem;
   @media only screen and (min-width: ${breakpoint.small}) {
     max-width: ${breakpoint.small};
@@ -75,19 +73,12 @@ export const BackLink = styled(Link)`
 
 export const Crumb = styled(Link)`
   ${buttonReset};
-  color: ${colors.primary};
-  text-transform: uppercase;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
   > svg {
-    margin-right: 0.5rem;
     transition: all 0.3s ease;
   }
-  &:hover {
-    color: ${colors.lightPrimary};
-    svg {
-      transform: translateX(-0.25rem);
-    }
+  &:hover svg {
+    transform: translateX(-0.25rem);
   }
 `;

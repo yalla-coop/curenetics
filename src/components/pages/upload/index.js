@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Arrow from '../../common/icons/Arrow';
+import Chevron from '../../common/icons/Chevron';
 
 import {
   BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard,
@@ -41,7 +41,7 @@ const Upload = () => {
     <>
   
       <BreadCrumb>
-        <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Upload</Crumb>
+        <Crumb to='/'><Chevron width={20}/></Crumb>
       </BreadCrumb>
       
       <Header>

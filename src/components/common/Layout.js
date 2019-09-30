@@ -76,8 +76,10 @@ export const UploadCard = styled.div`
 
 // breadcrumb
 export const BreadCrumb = styled.nav`
-  margin: 0 auto;
-  max-width: ${breakpoint.massive};
+  ${sectionMixin};
   display: flex;
   align-items: center;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding-top: 2rem;
+  }
 `;

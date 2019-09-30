@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import formFields from './formFields';
 
-import Arrow from '../../common/icons/Arrow';
+import Chevron from '../../common/icons/Chevron';
 import Plus from '../../common/icons/Plus';
 
 import { BreadCrumb, sectionMixin, Header } from '../../common/Layout';
@@ -12,7 +12,7 @@ import {
 } from '../../common/Forms';
 import { Crumb, Button, IconButton } from '../../common/Buttons';
 
-import { breakpoint, colors } from '../../../styles/globalStyles';
+import { breakpoint } from '../../../styles/globalStyles';
 
 const ContentContainer = styled.div`
   ${sectionMixin};
@@ -54,7 +54,7 @@ const Enter = () => {
     <>
   
       <BreadCrumb>
-        <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Enter Details</Crumb>
+        <Crumb to='/'><Chevron width={20}/></Crumb>
       </BreadCrumb>
 
       <Header>
