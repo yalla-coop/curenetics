@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -22,13 +22,13 @@ const BackLink = styled(Link)`
 `;
 
 const NotFound = () => (
-  <Fragment>
+  <>
     <Header isCenter>
       <Title>404: Page not found</Title>
       <Paragraph>You have searched for a page that is not there</Paragraph>
       <BackLink to='/'>Back to Home</BackLink>
     </Header>
-  </Fragment>
+  </>
 );
 
 export default NotFound;

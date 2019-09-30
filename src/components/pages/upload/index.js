@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -38,7 +38,7 @@ const Upload = () => {
 
   // logic to go here - file upload state etc.
   return (
-    <Fragment>
+    <>
   
       <BreadCrumb>
         <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Upload</Crumb>
@@ -68,7 +68,7 @@ const Upload = () => {
   
       </ContentContainer>
   
-    </Fragment>
+    </>
   );
 };
 

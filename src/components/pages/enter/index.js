@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import formFields from './formFields';
 
@@ -51,7 +51,7 @@ const Enter = () => {
   // 2. consider using material ui etc - select is impossible to style
 
   return (
-    <Fragment>
+    <>
   
       <BreadCrumb>
         <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / Enter Details</Crumb>
@@ -97,7 +97,7 @@ const Enter = () => {
         <Button>Find Clinical Trials</Button>
       </ButtonContainer>
   
-    </Fragment>
+    </>
   );
 };
 

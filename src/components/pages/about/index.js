@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -24,7 +24,7 @@ const BackLink = styled(Link)`
 `;
 
 const About = () => (
-  <Fragment>
+  <>
     <BreadCrumb>
       <Crumb to='/'><Arrow width={80} direction='left' fill={colors.primary}/>Home / About</Crumb>
     </BreadCrumb>
@@ -33,7 +33,7 @@ const About = () => (
       <Paragraph>A page about this app etc.</Paragraph>
       <BackLink to='/'>Back to Home</BackLink>
     </Header>
-  </Fragment>
+  </>
 );
 
 export default About;

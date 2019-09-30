@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -43,7 +43,7 @@ const SearchLink = styled(Link)`
 `;
 
 const Home = () => (
-  <Fragment>
+  <>
 
     <Header>
       <Title>Match patient data to clinical trial criteria</Title>
@@ -56,7 +56,7 @@ const Home = () => (
       <SearchLink to='/enter'>Or type in patient details</SearchLink>
     </LinkContainer>
 
-  </Fragment>
+  </>
 );
 
 export default Home;

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import '../styles/reset.css';
 import {
   BrowserRouter as Router, Switch, Route, Link,
@@ -78,7 +78,7 @@ function App() {
   // - add metadata (e.g. title tag and description) > depending upon the active route
   // - Helmet module could be useful here ^
   return (
-    <Fragment>
+    <>
       <Router>
 
         <TopBar>
@@ -115,7 +115,7 @@ function App() {
         </Main>
 
       </Router>
-    </Fragment>
+    </>
   );
 }
 
