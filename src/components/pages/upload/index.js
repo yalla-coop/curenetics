@@ -2,6 +2,7 @@ import React, { createRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import InputBox from './input';
+import Item from './listItem';
 import { Box } from './styles';
 
 import Chevron from '../../common/icons/Chevron.jsx';
