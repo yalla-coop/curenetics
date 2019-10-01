@@ -8,6 +8,9 @@ height: 25vh;
 border: 2px dashed grey;
 border-radius: 10px;
 margin: 1rem;
+overflow: auto;
+justify-content: center;
+justify-items: center;
 `;
 export const Span = styled.span`
 width:300px;

@@ -57,6 +57,11 @@ const Upload = () => {
     setFilenames(Array.from(e.target.files));
     console.log(e.target.files);
   };
+  const removeFile = (e) => {
+    const fileStr = e.target.parentNode.textContent;
+    const newFileArr = filenames.filter((file) => file.name !== fileStr);
+    setFilenames(newFileArr);
+  };
   return (<>
     <BreadCrumb >
     <Crumb to = '/' > < Chevron width = {
@@ -86,7 +91,7 @@ const Upload = () => {
     <Box>
     {filenames.length ? (filenames.map((file) => (
               <Item
-              // onClick={ removeFile }
+              onClick={ removeFile }
               key={ file.lastModified }
               text={ file.name}
               />)))
