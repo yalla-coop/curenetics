@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/reset.css';
 import {
-  BrowserRouter as Router, Switch, Route, Link,
+	BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
 
 import styled, { css } from 'styled-components';
@@ -16,6 +16,7 @@ import TrialList from './pages/trialList';
 
 import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
+import TrialDetail from './pages/trialDetail';
 
 const fontImport = css`
   @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
@@ -73,50 +74,55 @@ const Nav = styled.nav`
 `;
 
 
-const App = () => {
-  // add logic here
-  // - add metadata (e.g. title tag and description) > depending upon the active route
-  // - Helmet module could be useful here ^
-  return (
-    <>
-      <Router>
+const App = () =>
+	// add logic here
+	// - add metadata (e.g. title tag and description) > depending upon the active route
+	// - Helmet module could be useful here ^
+	(
+		<>
+			<Router>
 
-        <TopBar>
-          <TopContainer>
-            <Link to="/">[link to home - curenetics logo]</Link>
-            <Nav>
-              <ul>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/upload">Upload</Link>
-                </li>
-                <li>
-                  <Link to="/enter">Enter</Link>
-                </li>
-                <li>
-                  <Link to="/trial-list">Trial List</Link>
-                </li>
-              </ul>
-            </Nav>
-          </TopContainer>
-        </TopBar>
+				<TopBar>
+					<TopContainer>
+						<Link to="/">[link to home - curenetics logo]</Link>
+						<Nav>
+							<ul>
+								<li>
+									<Link to="/about">About</Link>
+								</li>
+								<li>
+									<Link to="/upload">Upload</Link>
+								</li>
+								<li>
+									<Link to="/enter">Enter</Link>
+								</li>
+								<li>
+									<Link to="/trial-list">Trial List</Link>
+								</li>
+								{/* this is only for testing can be removed later */}
+								<li>
+									<Link to="/trial-detail">Trial Detail</Link>
+								</li>
+							</ul>
+						</Nav>
+					</TopContainer>
+				</TopBar>
 
-        <Main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/upload" component={Upload} />
-            <Route path="/enter" component={Enter} />
-            <Route path="/trial-list" component={TrialList} />
-            <Route component={NotFound} />
-          </Switch>
-        </Main>
+				<Main>
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route path="/about" component={About} />
+						<Route path="/upload" component={Upload} />
+						<Route path="/enter" component={Enter} />
+						<Route path="/trial-list" component={TrialList} />
+						{/* this is only for testing can be removed later */}
+						<Route path="/trial-detail" component={TrialDetail} />
+						<Route component={NotFound} />
+					</Switch>
+				</Main>
 
-      </Router>
-    </>
-  );
-}
+			</Router>
+		</>
+	);
 
 export default App;
