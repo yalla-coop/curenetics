@@ -133,7 +133,17 @@ const hasUkLocation = (objArr, country) => {
   return objArr.filter(item => item.Facility.Address.Country === country).length > 0
 };
 
-const getTrialsByCountry = (resultArray, country, omitForeign = false) => {
+
+// each function outputs a modified (filtered) array:
+// const filterFuncs = {
+//   country: (locations, country) => locations.filter(item => item.Facility.Address.Country === country),
+//   status: (locations, status) =>
+// };
+
+
+
+// if overallStatus does not work, use status
+const getTrialsByCountry = (resultArray, country, omitForeign = false, status = null) => {
   const keys = Object.keys(resultArray);
 
   return keys.reduce( (acc, val) => {
@@ -151,24 +161,48 @@ const getTrialsByCountry = (resultArray, country, omitForeign = false) => {
 
     ) {
 
-      // > need to be able to test this, node only logs one level deep
-      // > perhaps filter in a console log?
+      // how can this be made more efficient?
+      // > filtering twice, or more
+
+
+      // here we are filtering out locations for each trial
+      // > locations NOT in the country the user specified
       if (omitForeign === true ) {
-        const filtererdLocations = item['Locations'].filter(item => item.Facility.Address.Country === country);
-        item.Locations = filtererdLocations;
-        // console.log('filtered location, should be uk: ', item.Locations);
+        const filteredByCountry = item['Locations'].filter(item => item.Facility.Address.Country === country);
+        item.Locations = filteredByCountry;
       }
 
-      console.log('---------');
-      console.log('uk trial, foreign locations filtered out: ', item.Locations);
-      console.log('---------');
 
-      // modify this if we want to omit locations not in the country
-      acc.push({ [val] : item });
+      // here we are omitting the WHOLE TRIAL if the status does not match the status specified
+      // > this potentially will return a shorted output array
+      if (typeof status === 'string'){
+        const filteredByStatus = item['Locations'].filter(item => item.Status === status);
+        item.Status = filteredByStatus;
+        if (filteredByStatus.length > 0) {
+          acc.push({ [val] : item });
+        }
+      }
+      
+      else {
+        acc.push({ [val] : item });
+      }
+
+      
+
+      
     }
     return acc;
   }, []);
 };
+
+
+// - - -
+
+// 6. search by location recruiting status
+// > trial overallStatus can be unknown, location statuses can be recruiting
+// > therefore, show in the ui the number of uk locations that are recruiting
+// > update the ui to reflect this
+// - add another flag to the above function
 
 
 
