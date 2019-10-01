@@ -3,5 +3,8 @@ module.exports = {
     "parser": "babel-eslint",
     "env":{ 
       "browser": true
-    }
+    },
+    "rules":{
+      "react/prop-types": 0,
+    },
   };

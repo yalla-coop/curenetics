@@ -1,35 +1,19 @@
-import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
+import React, { createRef } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {
-  Box,
-} from './styles';
+import InputBox from './input';
+import { Box } from './styles';
 
 import Chevron from '../../common/icons/Chevron.jsx';
 import Plus from '../../common/icons/Plus.jsx';
-
-
-
 import {
-  BreadCrumb,
-  sectionMixin,
-  Header,
-  columnMixin,
-  Article,
-  UploadCard,
+  BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard,
 } from '../../common/Layout';
 import {
-  Title,
-  SubHeading,
-  OL,
-  LI,
+  Title, SubHeading, OL, LI,
 } from '../../common/Typography';
 import {
-  Crumb,
-  buttonReset,
-  IconButton,
+  Crumb, buttonReset, IconButton,
 } from '../../common/Buttons';
 
 import {
@@ -60,7 +44,8 @@ const EnterLink = styled(Link)`
 
 const Upload = () => {
   // logic to go here - file upload state etc.
-  const onOpen = (e) =>{
+  const inputRef = createRef();
+  const onOpen = (e) => {
     console.log('here I am');
     console.log(e);
   };
@@ -81,6 +66,7 @@ const Upload = () => {
     <LI> When you’ re ready click the Upload button to upload files. </LI>
     </OL> </Article> <UploadColumn >
     <UploadCard >
+      <InputBox ref={ inputRef }/>
     upload stuff to go here...
     <IconButton
     color='red'
