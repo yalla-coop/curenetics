@@ -25,6 +25,7 @@ export const buttonReset = css`
 export const buttonMixin = css`
   background-color: ${colors.primary};
   color: ${colors.white};
+  color: white;
   padding: 1rem 1.5rem;
   border-radius: 0.25rem;
   &:hover {
@@ -43,7 +44,7 @@ export const Button = styled.button`
 
 export const IconButton = styled.button`
   ${buttonReset};
-  color: ${colors.primary};
+  color: ${colors.white};
   padding: 1rem 1.5rem;
   border-radius: 0.25rem;
   @media only screen and (min-width: ${breakpoint.small}) {
