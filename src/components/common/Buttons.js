@@ -82,3 +82,19 @@ export const Crumb = styled(Link)`
     transform: translateX(-0.25rem);
   }
 `;
+
+export const CustomButton = styled.button`
+  text-align: center;
+  background-color: ${colors.primary};
+  color: ${colors.white};
+  border: none;
+  width: 40%;
+  border-radius: 4px;
+  padding: ${({ padding }) => (padding || '.8rem 1rem')};
+  font-size: ${font.small};
+  cursor: pointer;
+  margin: 2rem 0;
+  @media only screen and (max-width: ${breakpoint.small}) {
+    width: 100%;
+  }
+`;
