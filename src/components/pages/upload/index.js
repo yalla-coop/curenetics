@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { createRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import InputBox from './input';
@@ -44,9 +44,16 @@ const EnterLink = styled(Link)`
 
 const Upload = () => {
   // logic to go here - file upload state etc.
+  const [filenames, setFilenames] = useState([]);
   const inputRef = createRef();
   const onButtonClick = () => {
     inputRef.current.click();
+  };
+  const selectFiles = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setFilenames(Array.from(e.target.files));
+    console.log(e.target.files);
   };
   return (<>
     <BreadCrumb >
@@ -65,7 +72,10 @@ const Upload = () => {
     <LI> When you’ re ready click the Upload button to upload files. </LI>
     </OL> </Article> <UploadColumn >
     <UploadCard >
-      <InputBox ref={ inputRef }/>
+      <InputBox
+      onChange={ selectFiles }
+      ref={ inputRef }
+      />
     upload stuff to go here...
     <IconButton
     color='red'
