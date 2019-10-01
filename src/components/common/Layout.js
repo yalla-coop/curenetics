@@ -4,7 +4,8 @@ import { breakpoint, colors } from '../../styles/globalStyles';
 
 // full width
 export const sectionMixin = css`
-  padding: 1rem;
+  // padding: 1rem;
+  padding: 0 8%;
   margin: 0 auto;
   max-width: ${breakpoint.massive};
 `;
