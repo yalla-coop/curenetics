@@ -5,7 +5,7 @@ const Input = styled.input`
 display: none;
 `;
 
-const InputBox = ({ onChange }, ref) => (
+const InputBox = React.forwardRef(({ onChange }, ref) => (
     <Input
     type='file'
     name='file'
@@ -14,5 +14,6 @@ const InputBox = ({ onChange }, ref) => (
     onChange={ (e) => onChange(e) }
     ref={ ref }
     />
-);
+));
+InputBox.displayName = InputBox;
 export default InputBox;

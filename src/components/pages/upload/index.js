@@ -45,9 +45,8 @@ const EnterLink = styled(Link)`
 const Upload = () => {
   // logic to go here - file upload state etc.
   const inputRef = createRef();
-  const onOpen = (e) => {
-    console.log('here I am');
-    console.log(e);
+  const onButtonClick = () => {
+    inputRef.current.click();
   };
   return (<>
     <BreadCrumb >
@@ -70,7 +69,7 @@ const Upload = () => {
     upload stuff to go here...
     <IconButton
     color='red'
-    onClick={(e) => onOpen(e) }
+    onClick={() => onButtonClick() }
     >{ Plus }</IconButton>
     <Box>
       clear
