@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Arrow = ({ titleTag = 'Arrow', width = 30, fill = '#000', direction = 'right' }) => {
+const Arrow = ({ titleTag = 'Arrow', width = 30, fill = '#35348f', direction = 'right' }) => {
 
   const degree = {
     'left': 90,
@@ -33,7 +33,3 @@ const Arrow = ({ titleTag = 'Arrow', width = 30, fill = '#000', direction = 'rig
 )};
 
 export default Arrow;
-
-// usage:
-// <Arrow direction="left" width={50}/>
-// <Arrow direction="down" fill="black"/>

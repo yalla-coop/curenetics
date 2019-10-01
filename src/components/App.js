@@ -1,83 +1,121 @@
 import React from 'react';
 import '../styles/reset.css';
+import {
+  BrowserRouter as Router, Switch, Route, Link,
+} from 'react-router-dom';
 
-// icon testing
-// svgs downloaded from: https://material.io/resources/icons
-import Arrow from './common/icons/Arrow';
-import Avatar from './common/icons/Avatar';
-import Calendar from './common/icons/Calendar';
-import Tick from './common/icons/Tick';
-import Phase from './common/icons/Phase';
-import Marker from './common/icons/Marker';
+import styled, { css } from 'styled-components';
 
-import styled from 'styled-components';
-import { breakpoint, colors, fontFamily, font } from '../styles/globalStyles'
+import Home from './pages/home';
+import About from './pages/about';
+import NotFound from './pages/notfound';
+import Upload from './pages/upload';
+import Enter from './pages/enter';
+// a dynamic route, added for testing - icons:
+import TrialList from './pages/trialList';
+
+import { sectionMixin } from './common/Layout';
+import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
+
+const fontImport = css`
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+`;
 
 
 const Main = styled.main`
-  @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+  ${fontImport};
   font-family: ${fontFamily.body};
-  min-height: 100vh;
-  padding: 1rem;
   background-color: ${colors.background};
-`;
-
-const Title = styled.h1`
-  font-size: ${font.massive};
-  font-family: ${fontFamily.main};
-  font-weight: 600;
-  margin-bottom: 2rem;
-`;
-
-const Paragraph = styled.p`
-  font-weight: 400;
-  font-size: ${font.small};
-  @media only screen and (min-width: ${breakpoint.Xsmall}) {
-    font-size: ${font.med};
+  min-height: 100vh;
+  padding: 4rem 1rem 1rem;
+  box-sizing: border-box;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 5rem 1rem 1rem;
   }
 `;
 
-const Container = styled.section`
-  padding: 1rem;
-  margin: 0 auto;
-  max-width: ${breakpoint.massive};
-`;
-
-const IconContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+const TopBar = styled.div`
+  ${fontImport};
+  font-family: ${fontFamily.body};
   background-color: ${colors.white};
   box-shadow: ${colors.boxShadow};
-  margin: 2rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    height: 5rem;
+  }
 `;
 
-function App() {
+const TopContainer = styled.div`
+  ${sectionMixin};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Nav = styled.nav`
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+  li {
+    margin-left: 1rem;
+  }
+`;
+
+
+const App = () => {
+  // add logic here
+  // - add metadata (e.g. title tag and description) > depending upon the active route
+  // - Helmet module could be useful here ^
   return (
-   <Main>
-     <Container>
-      <Title>And so it begins!!!!!!</Title>
-      <Paragraph>Here is a paragraph with Roboto font</Paragraph>
-     </Container>
+    <>
+      <Router>
 
-     <IconContainer>
-      <Arrow />
-      <Arrow width={60} fill={colors.confirm} direction='left' />
-      <Avatar/>
-      <Avatar width={75} fill={colors.primary}/>
-      <Tick/>
-      <Tick width={75} fill={colors.cancel}/>
-      <Calendar/>
-      <Calendar width={75} fill={colors.accent}/>
-      <Phase />
-      <Phase width={75} fill={colors.lightPrimary}/>
-      <Marker />
-      <Marker width={75} fill={colors.lightPrimary}/>
-     </IconContainer>
+        <TopBar>
+          <TopContainer>
+            <Link to="/">[link to home - curenetics logo]</Link>
+            <Nav>
+              <ul>
+                <li>
+                  <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <Link to="/upload">Upload</Link>
+                </li>
+                <li>
+                  <Link to="/enter">Enter</Link>
+                </li>
+                <li>
+                  <Link to="/trial-list">Trial List</Link>
+                </li>
+              </ul>
+            </Nav>
+          </TopContainer>
+        </TopBar>
 
-   </Main>
+        <Main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/upload" component={Upload} />
+            <Route path="/enter" component={Enter} />
+            <Route path="/trial-list" component={TrialList} />
+            <Route component={NotFound} />
+          </Switch>
+        </Main>
+
+      </Router>
+    </>
   );
 }
 

@@ -27,13 +27,16 @@ const fontFamily = {
   code: '\'Source Code Pro\', monospace',
 };
 
+
+// 16px = 1rem
 const font = {
-  Xsmall: '0.8125rem',
-  small: '1rem',
-  med: '1.25rem',
-  large: '1.5rem',
-  Xlarge: '2rem',
-  massive: '3rem',
+  XXsmall: '0.875rem', // 14px
+  Xsmall: '1rem', // 16px
+  small: '1.125rem', // 18px
+  med: '1.25rem', // 20px
+  large: '1.5rem', // 24px
+  Xlarge: '2rem', // 32px
+  massive: '3rem', // 48px
 };
 
 const breakpoint = {
