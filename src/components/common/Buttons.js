@@ -44,6 +44,7 @@ export const Button = styled.button`
 export const IconButton = styled.button`
   ${buttonReset};
   color: ${colors.primary};
+  background-color: ${(props) => props.color || colors.white};
   padding: 1rem 1.5rem;
   border-radius: 0.25rem;
   @media only screen and (min-width: ${breakpoint.small}) {
@@ -55,6 +56,7 @@ export const IconButton = styled.button`
   justify-content: center;
   > svg {
     margin-right: 1rem;
+    fill:${colors.white};
   }
 `;
 

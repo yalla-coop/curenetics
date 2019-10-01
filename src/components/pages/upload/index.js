@@ -1,18 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+} from 'react-router-dom';
 import styled from 'styled-components';
+import {
+  Box,
+} from './styles';
 
-import Chevron from '../../common/icons/Chevron';
+import Chevron from '../../common/icons/Chevron.jsx';
+import Plus from '../../common/icons/Plus.jsx';
+
+
 
 import {
-  BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard,
+  BreadCrumb,
+  sectionMixin,
+  Header,
+  columnMixin,
+  Article,
+  UploadCard,
 } from '../../common/Layout';
 import {
-  Title, SubHeading, OL, LI,
+  Title,
+  SubHeading,
+  OL,
+  LI,
 } from '../../common/Typography';
-import { Crumb, buttonReset } from '../../common/Buttons';
+import {
+  Crumb,
+  buttonReset,
+  IconButton,
+} from '../../common/Buttons';
 
-import { breakpoint } from '../../../styles/globalStyles';
+import {
+  breakpoint,
+} from '../../../styles/globalStyles';
 
 const ContentContainer = styled.div`
   ${sectionMixin};
@@ -38,33 +60,39 @@ const EnterLink = styled(Link)`
 
 const Upload = () => {
   // logic to go here - file upload state etc.
-  return (
-    <>
-      <BreadCrumb>
-        <Crumb to='/'><Chevron width={20}/></Crumb>
-      </BreadCrumb>
-      <Header>
-        <Title>Add your PDF files</Title>
-      </Header>
-      <ContentContainer hasColumns>
+  const onOpen = (e) =>{
+    console.log('here I am');
+    console.log(e);
+  };
+  return (<>
+    <BreadCrumb >
+    <Crumb to = '/' > < Chevron width = {
+      20
+    }
+    /></Crumb >
+    </BreadCrumb> <Header >
+    <Title > Add your PDF files </Title> </Header> <ContentContainer hasColumns >
 
-        <Article isLeft>
-          <SubHeading>What to do:</SubHeading>
-          <OL>
-            <LI>Click on the Add your files button to select patients file(s).
-              Only PDF files can be selected.</LI>
-            <LI>Delete any file at any time</LI>
-            <LI>When you’re ready click the Upload button to upload files.</LI>
-          </OL>
-        </Article>
-        <UploadColumn>
-          <UploadCard>
-            upload stuff to go here...
-          </UploadCard>
-          <EnterLink to='/enter'>Or type in patient details</EnterLink>
-        </UploadColumn>
-      </ContentContainer>
-    </>
+    <Article isLeft >
+    <SubHeading > What to do : </SubHeading> <OL >
+      <LI > Click on the Add your files button to select patients file(s).
+    Only PDF files can be selected. </LI>
+    <LI > Delete any file at any time </LI>
+    <LI> When you’ re ready click the Upload button to upload files. </LI>
+    </OL> </Article> <UploadColumn >
+    <UploadCard >
+    upload stuff to go here...
+    <IconButton
+    color='red'
+    onClick={(e) => onOpen(e) }
+    >{ Plus }</IconButton>
+    <Box>
+      clear
+    </Box>
+    </UploadCard>
+    <EnterLink to = '/enter' > Or type in patient details </EnterLink>
+    </UploadColumn>
+    </ContentContainer> </>
   );
 };
 
