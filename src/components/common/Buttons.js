@@ -84,3 +84,6 @@ export const Crumb = styled(Link)`
     transform: translateX(-0.25rem);
   }
 `;
+export const BigButton = styled(Button)`
+width: 30vw;
+`;

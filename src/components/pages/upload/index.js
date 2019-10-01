@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import InputBox from './input';
 import Item from './listItem';
 import { Box } from './styles';
+import filenameCheck from '../../../helpers';
 
 import Chevron from '../../common/icons/Chevron.jsx';
 import Plus from '../../common/icons/Plus.jsx';
@@ -14,7 +15,7 @@ import {
   Title, SubHeading, OL, LI,
 } from '../../common/Typography';
 import {
-  Crumb, buttonReset, IconButton,
+  Crumb, buttonReset, IconButton, BigButton,
 } from '../../common/Buttons';
 
 import {
@@ -83,8 +84,17 @@ const Upload = () => {
     onClick={() => onButtonClick() }
     >{ Plus }</IconButton>
     <Box>
-      clear
+    {filenames.length ? (filenames.map((file) => (
+              <Item
+              // onClick={ removeFile }
+              key={ file.lastModified }
+              text={ file.name}
+              />)))
+      : <span>No Files uploaded</span>}
     </Box>
+    <BigButton
+    disabled={ filenameCheck(filenames) !== filenames.length || filenames.length === 0}
+    >Upload File(s)</BigButton>
     </UploadCard>
     <EnterLink to = '/enter' > Or type in patient details </EnterLink>
     </UploadColumn>

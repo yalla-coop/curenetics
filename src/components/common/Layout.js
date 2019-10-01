@@ -70,7 +70,8 @@ export const UploadCard = styled.div`
   ${cardMixin};
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
 `;
 
