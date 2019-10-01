@@ -41,7 +41,7 @@ export const Button = styled.button`
   ${buttonMixin};
 `;
 
-export const IconButton = styled.button`
+export const iconButtonMixin = css`
   ${buttonReset};
   color: ${colors.primary};
   padding: 1rem 1.5rem;
@@ -58,16 +58,26 @@ export const IconButton = styled.button`
   }
 `;
 
-export const BackLink = styled(Link)`
+export const IconButton = styled.button`
+  ${iconButtonMixin};
+`;
+
+export const IconAnchor = styled(Link)`
+  ${iconButtonMixin};
+`;
+
+export const AnchorButton = styled(Link)`
   ${buttonReset};
   ${buttonMixin};
   text-align: center;
   display: block;
+  &:hover,
+  &:visited,
+  &:hover:visited {
+    color: ${colors.white};
+  }
   @media only screen and (min-width: ${breakpoint.small}) {
     margin-top: 2rem;
-  }
-  &:hover {
-    color: ${colors.white};
   }
 `;
 
