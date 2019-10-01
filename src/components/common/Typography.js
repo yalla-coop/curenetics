@@ -1,11 +1,14 @@
 import styled, { css } from 'styled-components';
-import { breakpoint, colors, font, fontFamily } from '../../styles/globalStyles';
+import {
+  breakpoint, colors, font, fontFamily
+} from '../../styles/globalStyles';
 
 export const Title = styled.h1`
   font-family: ${fontFamily.main};
   font-weight: 700;
   color: ${colors.primary};
   text-align: center;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: ${font.large};
   @media only screen and (min-width: ${breakpoint.Xsmall}) {
@@ -39,7 +42,8 @@ export const textMixin = css`
 
 export const Paragraph = styled.p`
   ${textMixin};
-  ${props => props.isLight ? 'font-weight: 300' : ''};
+  ${(props) => (props.isLight ? 'font-weight: 300' : '')};
+  text-align: ${(props) => props.textAlign};
 `;
 
 export const OL = styled.ol`
