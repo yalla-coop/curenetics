@@ -44,18 +44,17 @@ const EnterLink = styled(Link)`
 `;
 
 const Upload = () => {
-  // logic to go here - file upload state etc.
   const [filenames, setFilenames] = useState([]);
   const inputRef = createRef();
   const onButtonClick = () => {
     inputRef.current.click();
   };
-  const selectFiles = (e) => {
+  const selectFiles = (e) => { // files are saved to state
     e.stopPropagation();
     e.preventDefault();
     setFilenames(Array.from(e.target.files));
   };
-  const removeFile = (e) => {
+  const removeFile = (e) => { // files are removed (from screen & state) if red cross is clicked
     const fileStr = e.target.parentNode.textContent;
     const newFileArr = filenames.filter((file) => file.name !== fileStr);
     setFilenames(newFileArr);
@@ -99,6 +98,7 @@ const Upload = () => {
       : <Span>No Files uploaded</Span>}
     </Box>
     <BigButton
+    // buttton is disabled if there are no files selected or the file isn't a pdf
     disabled={ filenameCheck(filenames) !== filenames.length || filenames.length === 0}
     >Upload File(s)</BigButton>
     </UploadCard>

@@ -1,3 +1,4 @@
+// validation function for file uploads
 const filenameCheck = (filename) => {
   const check = filename.filter((file) => {
     const nameArr = file.name.split('.');
