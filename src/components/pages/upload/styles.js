@@ -5,17 +5,23 @@ import { colors, fontFamily, font } from '../../../styles/globalStyles';
 export const Box = styled.div`
 width: 30vw;
 height: 45vh;
-border: 2px dashed grey;
+border: 2px dashed ${colors.grey};
 border-radius: 10px;
 margin: 1rem;
 margin-top: 3rem;
 overflow: auto;
 justify-content: center;
-justify-items: center;
 `;
 export const Span = styled.span`
-width:300px;
-font-family:${fontFamily.body}; 
+display: flex;
+width:30vw;
+justify-content: center;
+margin-top: 20vh;
+color:${colors.disabled};
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+font-family:${fontFamily.body};
+font-size:${font.large};
+font-weight: 300; 
 `;
 export const Wrapper = styled.div`
 display: flex;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import InputBox from './input';
 import Item from './listItem';
-import { Box, Button } from './styles';
+import { Box, Button, Span } from './styles';
 import filenameCheck from '../../../helpers';
 
 import Chevron from '../../common/icons/Chevron.jsx';
@@ -54,7 +54,6 @@ const Upload = () => {
     e.stopPropagation();
     e.preventDefault();
     setFilenames(Array.from(e.target.files));
-    console.log(e.target.files);
   };
   const removeFile = (e) => {
     const fileStr = e.target.parentNode.textContent;
@@ -88,13 +87,16 @@ const Upload = () => {
     <SubHeading>Add your files</SubHeading>
     <span>PDF&apos;s Only</span>
     <Box>
-    {filenames.length ? (filenames.map((file) => (
-              <Item
+    {filenames.length ? (filenames.map((file) => {
+      const bgs = file.name.endsWith('.pdf') ? 'yes' : 'No';
+      return <Item
+              bg={ bgs }
               onClick={ removeFile }
               key={ file.lastModified }
               text={ file.name}
-              />)))
-      : <span>No Files uploaded</span>}
+              />;
+    }))
+      : <Span>No Files uploaded</Span>}
     </Box>
     <BigButton
     disabled={ filenameCheck(filenames) !== filenames.length || filenames.length === 0}

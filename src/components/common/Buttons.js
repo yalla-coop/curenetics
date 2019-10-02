@@ -86,4 +86,7 @@ export const Crumb = styled(Link)`
 `;
 export const BigButton = styled(Button)`
 width: 30vw;
+&:disabled{
+  background-color:${colors.disabled};
+}
 `;
