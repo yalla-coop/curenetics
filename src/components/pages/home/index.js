@@ -37,7 +37,6 @@ const SearchLink = styled(IconAnchor)`
 
 const Home = () => (
   <>
-
     <Header>
       <Title>Match patient data to clinical trial criteria</Title>
       <Paragraph>This app automates the process of matching patients to suitable clinical trials. It narrows the selection making the final choice a simpler and quicker task.</Paragraph>
@@ -47,8 +46,9 @@ const Home = () => (
     <LinkContainer hasColumns>
       <UploadLink to='/upload'>Upload PDFs of patient data</UploadLink>
       <SearchLink to='/enter'><Keyboard fill={colors.primary} width={30}/>Or type in patient details</SearchLink>
-    </LinkContainer>
 
+      <SearchLink isSolid to='/enter'><Keyboard fill={colors.white} width={30}/>Or type in patient details</SearchLink>
+    </LinkContainer>
   </>
 );
 

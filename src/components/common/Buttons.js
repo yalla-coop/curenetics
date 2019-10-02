@@ -43,7 +43,6 @@ export const Button = styled.button`
 
 export const iconButtonMixin = css`
   ${buttonReset};
-  color: ${colors.primary};
   padding: 1rem 1.5rem;
   border-radius: 0.25rem;
   @media only screen and (min-width: ${breakpoint.small}) {
@@ -60,10 +59,34 @@ export const iconButtonMixin = css`
 
 export const IconButton = styled.button`
   ${iconButtonMixin};
+  ${props => props.isSolid ? `
+    color: ${colors.white};
+    background-color: ${colors.primary};
+    &:hover {
+      background-color: ${colors.lightPrimary};
+      color: ${colors.white};
+    }
+  ` : `
+    color: ${colors.primary};
+  `};
 `;
 
 export const IconAnchor = styled(Link)`
   ${iconButtonMixin};
+  ${props => props.isSolid ? `
+    color: ${colors.white};
+    background-color: ${colors.primary};
+    &:visited {
+      color: ${colors.white};
+    }
+    &:hover,
+    &:visited:hover {
+      background-color: ${colors.lightPrimary};
+      color: ${colors.white};
+    }
+  ` : `
+    color: ${colors.primary};
+  `};
 `;
 
 export const AnchorButton = styled(Link)`
