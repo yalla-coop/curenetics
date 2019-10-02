@@ -1,13 +1,14 @@
 import styled from 'styled-components';
-import { colors, fontFamily } from '../../../styles/globalStyles';
+import { colors, fontFamily, font } from '../../../styles/globalStyles';
 
 
 export const Box = styled.div`
 width: 30vw;
-height: 25vh;
+height: 45vh;
 border: 2px dashed grey;
 border-radius: 10px;
 margin: 1rem;
+margin-top: 3rem;
 overflow: auto;
 justify-content: center;
 justify-items: center;
@@ -28,4 +29,19 @@ export const Main = styled.section`
 display: flex;
 width: 100vw;
 justify-content: center;
+`;
+export const Button = styled.button`
+position: relative;
+top: 9vh;
+right: 12vw;
+width: 5rem;
+height: 5rem;
+border: none;
+border-radius: 50%;
+outline: none;
+color:${colors.white}
+background-color:${colors.primary};
+font-size: ${font.massive};
+text-align: center;
+z-index: 1; 
 `;

@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import InputBox from './input';
 import Item from './listItem';
-import { Box } from './styles';
+import { Box, Button } from './styles';
 import filenameCheck from '../../../helpers';
 
 import Chevron from '../../common/icons/Chevron.jsx';
-import Plus from '../../common/icons/Plus.jsx';
 import {
   BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard,
 } from '../../common/Layout';
@@ -15,7 +14,7 @@ import {
   Title, SubHeading, OL, LI,
 } from '../../common/Typography';
 import {
-  Crumb, buttonReset, IconButton, BigButton,
+  Crumb, buttonReset, BigButton,
 } from '../../common/Buttons';
 
 import {
@@ -83,11 +82,11 @@ const Upload = () => {
       onChange={ selectFiles }
       ref={ inputRef }
       />
-    upload stuff to go here...
-    <IconButton
-    color='red'
+    <Button
     onClick={() => onButtonClick() }
-    >{ Plus }</IconButton>
+    >+</Button>
+    <SubHeading>Add your files</SubHeading>
+    <span>PDF&apos;s Only</span>
     <Box>
     {filenames.length ? (filenames.map((file) => (
               <Item
