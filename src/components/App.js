@@ -73,56 +73,55 @@ const Nav = styled.nav`
   }
 `;
 
-
-const App = () =>
 // add logic here
 // - add metadata (e.g. title tag and description) > depending upon the active route
 // - Helmet module could be useful here ^
-  (
-		<>
-			<Router>
 
-				<TopBar>
-					<TopContainer>
-						<Link to="/">[link to home - curenetics logo]</Link>
-						<Nav>
-							<ul>
-								<li>
-									<Link to="/about">About</Link>
-								</li>
-								<li>
-									<Link to="/upload">Upload</Link>
-								</li>
-								<li>
-									<Link to="/enter">Enter</Link>
-								</li>
-								<li>
-									<Link to="/trial-list">Trial List</Link>
-								</li>
-								{/* this is only for testing can be removed later */}
-								<li>
-									<Link to="/trial-detail">Trial Detail</Link>
-								</li>
-							</ul>
-						</Nav>
-					</TopContainer>
-				</TopBar>
+const App = () => (
+  <>
+    <Router>
 
-				<Main>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route path="/about" component={About} />
-						<Route path="/upload" component={Upload} />
-						<Route path="/enter" component={Enter} />
-						<Route path="/trial-list" component={TrialList} />
-						{/* this is only for testing can be removed later */}
-						<Route path="/trial-detail" component={TrialDetail} />
-						<Route component={NotFound} />
-					</Switch>
-				</Main>
+      <TopBar>
+        <TopContainer>
+          <Link to="/">[link to home - curenetics logo]</Link>
+          <Nav>
+            <ul>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/upload">Upload</Link>
+              </li>
+              <li>
+                <Link to="/enter">Enter</Link>
+              </li>
+              <li>
+                <Link to="/trial-list">Trial List</Link>
+              </li>
+              {/* this is only for testing can be removed later */}
+              <li>
+                <Link to="/trial-detail">Trial Detail</Link>
+              </li>
+            </ul>
+          </Nav>
+        </TopContainer>
+      </TopBar>
 
-			</Router>
-		</>
-  );
+      <Main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/upload" component={Upload} />
+          <Route path="/enter" component={Enter} />
+          <Route path="/trial-list" component={TrialList} />
+          {/* this is only for testing can be removed later */}
+          <Route path="/trial-detail" component={TrialDetail} />
+          <Route component={NotFound} />
+        </Switch>
+      </Main>
+
+    </Router>
+  </>
+);
 
 export default App;
