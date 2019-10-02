@@ -89,9 +89,10 @@ const App = () => {
     <>
       <Router>
         <TopBar>
-        
           <TopContainer>
-          <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
+          <Link aria-label='Curenetics Clinical Trials' to="/">
+            <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
+          </Link>
             <Nav>
               <ul>
                 <li>
@@ -103,9 +104,6 @@ const App = () => {
                 <li>
                   <Link to="/enter">Enter</Link>
                 </li>
-                {/* <li>
-                  <Link to="/trial-list">Trial List</Link>
-                </li> */}
               </ul>
             </Nav>
           </TopContainer>
