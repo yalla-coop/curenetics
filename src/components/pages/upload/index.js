@@ -8,7 +8,7 @@ import Plus from '../../common/icons/Plus'
 import {
   BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard,
  } from '../../common/Layout';
-import { Title, SubHeading, OL, LI } from '../../common/Typography';
+import { Title, SubHeading, Paragraph, OL, LI } from '../../common/Typography';
 import { Crumb, buttonReset, IconButton } from '../../common/Buttons';
 
 import { breakpoint, colors } from '../../../styles/globalStyles';
@@ -83,7 +83,9 @@ const Upload = () => {
               aria-label='Upload PDF'><Plus fill={colors.white} width={48} />
             </UploadButton>
 
-            upload stuff to go here...
+            <Paragraph>upload stuff to go here...</Paragraph>
+            <Paragraph isLight>this is a light paragaph</Paragraph>
+
           </UploadCard>
           <EnterLink to='/enter'>Or type in patient details</EnterLink>
         </UploadColumn>
