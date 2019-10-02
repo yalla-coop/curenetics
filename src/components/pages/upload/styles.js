@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { colors, fontFamily, font } from '../../../styles/globalStyles';
+import {
+  colors, fontFamily, font, breakpoint,
+} from '../../../styles/globalStyles';
 
 
 export const Box = styled.div`
@@ -11,6 +13,11 @@ margin: 1rem;
 margin-top: 3rem;
 overflow: auto;
 justify-content: center;
+@media(max-width:${breakpoint.tablet}){
+    width:50vw;
+    height: 35vh;
+}
+
 `;
 export const Span = styled.span`
 display: flex;
@@ -21,7 +28,11 @@ color:${colors.disabled};
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 font-family:${fontFamily.body};
 font-size:${font.large};
-font-weight: 300; 
+font-weight: 300;
+@media(max-width:${breakpoint.tablet}){
+    margin-top: 12vh;
+    margin-left: 12vw;
+} 
 `;
 export const Wrapper = styled.div`
 display: flex;
@@ -49,5 +60,10 @@ color:${colors.white}
 background-color:${colors.primary};
 font-size: ${font.massive};
 text-align: center;
-z-index: 1; 
+z-index: 1;
+@media(max-width:${breakpoint.tablet}){
+    width: 4rem;
+    height: 4rem;
+    right: 28vw;
+} 
 `;

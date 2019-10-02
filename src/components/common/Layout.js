@@ -15,6 +15,7 @@ export const Header = styled.header`
   @media only screen and (min-width: ${breakpoint.tablet}) {
     ${props => props.hasColumns ? 'display: flex;' : ''}
   }
+  z-index: 1;
 `;
 
 export const Container = styled.section`

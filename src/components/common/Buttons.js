@@ -89,4 +89,7 @@ width: 30vw;
 &:disabled{
   background-color:${colors.disabled};
 }
+@media(max-width:${breakpoint.tablet}){
+  width: 50vw;
+}
 `;
