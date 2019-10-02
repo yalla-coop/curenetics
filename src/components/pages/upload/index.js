@@ -88,9 +88,9 @@ const Upload = () => {
     <span>PDF&apos;s Only</span>
     <Box>
     {filenames.length ? (filenames.map((file) => {
-      const bgs = file.name.endsWith('.pdf') ? 'yes' : 'No';
+      const bgcolor = file.name.endsWith('.pdf') ? 'yes' : 'No';
       return <Item
-              bg={ bgs }
+              bg={ bgcolor }
               onClick={ removeFile }
               key={ file.lastModified }
               text={ file.name}
