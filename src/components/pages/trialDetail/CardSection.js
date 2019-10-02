@@ -17,7 +17,7 @@ const Section = styled.section`
   text-align: left;
   line-height: 1.2rem;
   margin-bottom: 1rem;
-  box-shadow: ${colors.boxShadow};
+  box-shadow: ${colors.cardBoxShadow};
 `;
 
 const CenterDev = styled.div`
