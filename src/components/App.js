@@ -13,6 +13,7 @@ import Upload from './pages/upload';
 import Enter from './pages/enter';
 // a dynamic route, added for testing - icons:
 import TrialList from './pages/trialList';
+import PatientList from './pages/patientList';
 
 import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
@@ -73,11 +74,11 @@ const Nav = styled.nav`
 `;
 
 
-const App = () => {
+const App = () =>
   // add logic here
   // - add metadata (e.g. title tag and description) > depending upon the active route
   // - Helmet module could be useful here ^
-  return (
+  (
     <>
       <Router>
 
@@ -110,6 +111,7 @@ const App = () => {
             <Route path="/upload" component={Upload} />
             <Route path="/enter" component={Enter} />
             <Route path="/trial-list" component={TrialList} />
+            <Route path="/patient-list" component={PatientList} />
             <Route component={NotFound} />
           </Switch>
         </Main>
@@ -117,6 +119,4 @@ const App = () => {
       </Router>
     </>
   );
-}
-
 export default App;
