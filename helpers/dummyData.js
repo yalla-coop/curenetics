@@ -1,5 +1,6 @@
 const dummyData = {
-  "results": [
+  size: 5,
+  results: [
     // 1
     {
       "Conditions": [
