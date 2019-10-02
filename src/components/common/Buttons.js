@@ -16,7 +16,7 @@ export const buttonReset = css`
   @media only screen and (min-width: ${breakpoint.small}) {
     font-size: ${font.med};
   }
-  line-height: 1;
+  line-height: 1.5;
   &:focus {
     outline: none;
   }
