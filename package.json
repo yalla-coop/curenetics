@@ -4,7 +4,8 @@
   "description": "A platform enabling medical professionals to more quickly find relevant clinical trials for their patients",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node helpers/filterFunctions.test.js | tap-spec",
+    "functions": "node helpers/dataFetch.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/yalla-coop/curenetics#readme",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
   }
 }
