@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/reset.css';
 import {
-	BrowserRouter as Router, Switch, Route, Link,
+  BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
 
 import styled, { css } from 'styled-components';
@@ -75,10 +75,10 @@ const Nav = styled.nav`
 
 
 const App = () =>
-	// add logic here
-	// - add metadata (e.g. title tag and description) > depending upon the active route
-	// - Helmet module could be useful here ^
-	(
+// add logic here
+// - add metadata (e.g. title tag and description) > depending upon the active route
+// - Helmet module could be useful here ^
+  (
 		<>
 			<Router>
 
@@ -123,6 +123,6 @@ const App = () =>
 
 			</Router>
 		</>
-	);
+  );
 
 export default App;
