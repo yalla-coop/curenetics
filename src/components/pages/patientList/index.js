@@ -49,10 +49,15 @@ const mapKeyToOptions = {
 };
 
 const mapKeyToDisplayField = {
-  cancerType: 'Type of cancers',
-  fileReference: 'File name',
-  ECOGStatus: 'ECOG status',
-  gleasonScore: 'Gleason score',
+  age: 'Age:*',
+  gender: 'Gender:*',
+  postcode: 'postcode:',
+  cancerType: 'Type of cancers:',
+  fileReference: 'File name:',
+  ECOGStatus: 'ECOG status:',
+  gleasonScore: 'Gleason score:',
+  'Disease in prostate': 'Disease in prostate:',
+  'Disease outside prostate': 'Disease outside prostate:',
 };
 
 export default class trialList extends Component {

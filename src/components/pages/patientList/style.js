@@ -10,6 +10,7 @@ export const MatchClinical = styled(Link)`
   ${buttonMixin};
   ${columnMixin};
   display: block;
+  cursor: pointer;
   text-align: center;
   color: ${colors.white} !important;
   &:hover {
