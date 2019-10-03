@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Select } from 'antd';
-import { Header } from '../../common/Layout';
+import { Header, Container } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
 import ExternalLink from '../../common/icons/ExternalLink.jsx';
 import * as S from './style';
@@ -170,7 +170,7 @@ export default class trialList extends Component {
   render() {
     return (
       <>
-        <S.Main>
+        <Container>
           <Header>
             <Title>Edit patient data</Title>
             <Paragraph>
@@ -205,7 +205,7 @@ export default class trialList extends Component {
           <section >
             <S.MatchClinical>Match Clinical Trials</S.MatchClinical>
           </section>
-        </S.Main>
+        </Container>
       </>
     );
   }
