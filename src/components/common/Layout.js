@@ -25,6 +25,9 @@ width:70%;
 @media only screen and (min-width: ${breakpoint.tablet}) {
   ${(props) => (props.hasColumns ? 'display: flex;' : '')}
 }
+@media only screen and (max-width: ${breakpoint.tablet}) {
+  width: 100%;  
+}
 `;
 
 // half width
