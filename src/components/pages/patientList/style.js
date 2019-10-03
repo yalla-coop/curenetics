@@ -23,7 +23,7 @@ export const MatchClinical = styled(Link)`
 export const OrignalFileLink = styled.span`
   color: ${colors.lightPrimary};
 `;
-export const PatientDetails = styled.section`
+export const PatientDetails = styled.div`
   margin: 1rem 0.5rem;
   padding: 1rem;
   background-color: white;
@@ -33,10 +33,10 @@ export const PatientDetails = styled.section`
   }
 `;
 
-export const PatientDetailsFields = styled.section`
+export const PatientDetailsFields = styled.div`
   display: flex;
   flex-flow: column wrap;
-  height: 9rem;
+  height: 9.8rem;
   @media only screen and (max-width: ${breakpoint.tablet}) {
     flex-flow: column nowrap;
     height: initial;
@@ -45,13 +45,19 @@ export const PatientDetailsFields = styled.section`
 
 export const Main = styled.section`
   @media only screen and (min-width: ${breakpoint.tablet}) {
-    padding: 0rem 10rem;
+    padding: initial;
+  }
+  @media only screen and (min-width: ${breakpoint.large}) {
+    padding: 0rem 4rem;
+  }
+  @media only screen and (min-width: ${breakpoint.large}) {
+    padding: 0rem 11rem;
   }
 `;
 
-export const Field = styled.span`
+export const Field = styled.label`
   width: 9rem;
-  color: ${colors.primary};
+  color: ${({ edit }) => (edit ? colors.accent : colors.primary)};
 `;
 
 export const FieldValue = styled.span`
@@ -60,11 +66,11 @@ export const FieldValue = styled.span`
 `;
 
 export const FieldFreeInput = styled.input`
-  border-style: solid;
-  border-color: black;
+  /* border-style: solid; */
+  /* border-color: black; */
   width: 100%;
   font-size: 0.9rem;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 0px 0px;
 `;
 
 export const FieldMultiOptions = styled.select`
@@ -75,10 +81,13 @@ export const FieldWrapper = styled.section`
   flex-direction: row;
   justify-content: space-between;
   /* height: 34px; */
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.2rem;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   width: 20rem;
-  border-bottom: solid 1px #f4f4f9;
+  border-bottom: solid 1px ${({ edit }) => (edit ? colors.accent : '#f4f4f9')};
+  @media only screen and (max-width: ${breakpoint.large}) {
+    width: 50%;
+  }
   @media only screen and (max-width: ${breakpoint.tablet}) {
     width: initial;
     height: initial;
@@ -89,6 +98,7 @@ export const FieldWrapper = styled.section`
 export const ButtonEidt = styled.button`
   font-weight: 600;
   border: none;
+  color: ${({ edit }) => (edit ? colors.accent : 'initial')};
   font-size: 0.8rem;
   background-color: white;
 `;

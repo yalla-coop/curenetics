@@ -8,7 +8,7 @@ import { colors } from '../../../styles/globalStyles';
 
 const { Option } = Select;
 
-const keysOrder = ['fileReference', 'age', 'gender', 'postcode', 'canserType', 'ECOGStatus', 'gleasonScore', 'Keywords'];
+const keysOrder = ['fileReference', 'age', 'gender', 'postcode', 'cancerType', 'ECOGStatus', 'gleasonScore', 'Keywords'];
 
 const dummyData = [
   {
@@ -16,7 +16,7 @@ const dummyData = [
     age: 15,
     gender: 'male',
     postcode: 'E5 6TT',
-    canserType: 'Brain cancer',
+    cancerType: 'Brain cancer',
     ECOGStatus: '0',
     gleasonScore: '3+3',
     Keywords: ['disease within prostate', 'focal disease'],
@@ -25,14 +25,14 @@ const dummyData = [
     age: 15,
     gender: 'female',
     postcode: 'E5 6TT',
-    canserType: 'Brain cancer',
+    cancerType: 'Brain cancer',
     ECOGStatus: '0',
     gleasonScore: '3+3',
     Keywords: ['disease outside prostate', 'metastatic disease', 'advanced disease'],
   }, {
-    fileReference: 123,
+    fileReference: 1234,
     postcode: 'E5 6TT',
-    canserType: 'Brain cancer',
+    cancerType: 'Brain cancer',
     ECOGStatus: '0',
     gleasonScore: '3+3',
     Keywords: ['disease within prostate', 'focal disease'],
@@ -45,7 +45,7 @@ const mapKeyToOptions = {
   'Disease in prostate': ['yes', 'no'],
   'Disease outside prostate': ['yes', 'no'],
   gleasonScore: ['3+3', '3+4', '4+3', '4+4', '9-10'],
-  canserType: ['Brain cancer', 'Skin cancer', '​Head and neck cancer'],
+  cancerType: ['Brain cancer', 'Skin cancer', '​Head and neck cancer'],
 };
 
 const mapKeyToDisplayField = {
@@ -116,22 +116,23 @@ export default class trialList extends Component {
   }) => {
     let filedType = <></>;
     if (!edit) {
-      filedType = <S.FieldValue>{value}</S.FieldValue>;
+      filedType = <S.FieldValue >{value}</S.FieldValue>;
     } else if (options) {
       filedType = this.renderFieldOptions(key, fileReference, options, value);
     } else {
       filedType = <S.FieldFreeInput
+        id={fileReference + key}
         onChange={this.handleChange(key, fileReference)}
         value={value} />;
     }
 
     return (
-      <S.FieldWrapper key={key}>
-        <S.Field>{display || key}</S.Field>
+      <S.FieldWrapper edit={edit} key={key}>
+        <S.Field edit={edit} htmlFor={fileReference + key}>{display || key}</S.Field>
         <section style={{ width: '6rem', height: '1.2rem' }}>
           {filedType}
         </section>
-        <S.ButtonEidt onClick={this.handleEditButton(key, fileReference)}>{edit ? 'save' : 'edit'}</S.ButtonEidt>
+        <S.ButtonEidt edit={edit} aria-label={`edit ${display || key} field`} onClick={this.handleEditButton(key, fileReference)}>{edit ? 'save' : 'edit'}</S.ButtonEidt>
       </S.FieldWrapper>
     );
   })
@@ -155,6 +156,7 @@ export default class trialList extends Component {
   }
 
   renderFieldOptions = (key, fileReference, options, defaultValue) => <Select
+    htmlFor={fileReference + key}
     showSearch
     defaultValue={defaultValue}
     placeholder={key}
@@ -186,11 +188,11 @@ export default class trialList extends Component {
             <S.MatchClinical href="#">Match Clinical Trials</S.MatchClinical>
           </section>
           <section>
-            {this.state.list.map((patient) => {
+            {this.state.list.map((patient, index) => {
               const fileReference = patient.find(({ key }) => key === 'fileReference').value;
               return (
                 <>
-                  <S.PatientDetails>
+                  <S.PatientDetails key={index}>
                     <S.PatientDetailsFields>
                       {this.renderField(patient, fileReference)}
                     </S.PatientDetailsFields>
