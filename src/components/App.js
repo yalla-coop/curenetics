@@ -15,6 +15,7 @@ import cureneticsLogo from './common/images/curenetics-logo.png';
 
 import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
+import TrialDetail from './pages/trialDetail';
 
 const fontImport = css`
   @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
@@ -81,48 +82,47 @@ const Nav = styled.nav`
   }
 `;
 
-const App = () => {
-  // add logic here
-  // - add metadata (e.g. title tag and description) > depending upon the active route
-  // - Helmet module could be useful here ^
-  return (
-    <>
-      <Router>
-        <TopBar>
-          <TopContainer>
+// add logic here
+// - add metadata (e.g. title tag and description) > depending upon the active route
+// - Helmet module could be useful here ^
+const App = () => (
+  <>
+    <Router>
+      <TopBar>
+        <TopContainer>
           <Link aria-label='Curenetics Clinical Trials' to="/">
             <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
           </Link>
-            <Nav>
-              <ul>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/upload">Upload</Link>
-                </li>
-                <li>
-                  <Link to="/enter">Enter</Link>
-                </li>
-              </ul>
-            </Nav>
-          </TopContainer>
-        </TopBar>
+          <Nav>
+            <ul>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/upload">Upload</Link>
+              </li>
+              <li>
+                <Link to="/enter">Enter</Link>
+              </li>
+            </ul>
+          </Nav>
+        </TopContainer>
+      </TopBar>
 
-        <Main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/upload" component={Upload} />
-            <Route path="/enter" component={Enter} />
-            {/* <Route path="/trial-list" component={TrialList} /> */}
-            <Route component={NotFound} />
-          </Switch>
-        </Main>
+      <Main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/upload" component={Upload} />
+          <Route path="/enter" component={Enter} />
+          {/* <Route path="/trial-list" component={TrialList} /> */}
+          {/* this is only for testing can be removed later */}
+          <Route path="/trial-detail" component={TrialDetail} />
+          <Route component={NotFound} />
+        </Switch>
+      </Main>
 
-      </Router>
-    </>
-  );
-}
-
+    </Router>
+  </>
+);
 export default App;

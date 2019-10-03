@@ -4,24 +4,29 @@ import { breakpoint, colors } from '../../styles/globalStyles';
 
 // full width
 export const sectionMixin = css`
-  padding: 1rem;
+  // padding: 1rem;
+  // padding: 0 8%;
   margin: 0 auto;
   max-width: ${breakpoint.massive};
 `;
 
 export const Header = styled.header`
   ${sectionMixin};
-  ${props => props.isCenter ? 'text-align: center;' : ''}
+  ${(props) => (props.isCenter ? 'text-align: center;' : '')}
   @media only screen and (min-width: ${breakpoint.tablet}) {
-    ${props => props.hasColumns ? 'display: flex;' : ''}
+    ${(props) => (props.hasColumns ? 'display: flex;' : '')}
   }
 `;
 
 export const Container = styled.section`
 ${sectionMixin};
-${props => props.isCenter ? 'text-align: center;' : ''}
+${(props) => (props.isCenter ? 'text-align: center;' : '')}
+width:70%;
 @media only screen and (min-width: ${breakpoint.tablet}) {
-  ${props => props.hasColumns ? 'display: flex;' : ''}
+  ${(props) => (props.hasColumns ? 'display: flex;' : '')}
+}
+@media only screen and (max-width: ${breakpoint.tablet}) {
+  width: 100%;  
 }
 `;
 
@@ -35,18 +40,18 @@ export const columnMixin = css`
 
 export const Article = styled.article`
   ${columnMixin};
-  ${props => props.isLeft ? 'margin-bottom: 1rem;' : ''}
-  ${props => props.isRight ? 'margin-top: 1rem;' : ''}
+  ${(props) => (props.isLeft ? 'margin-bottom: 1rem;' : '')}
+  ${(props) => (props.isRight ? 'margin-top: 1rem;' : '')}
   @media only screen and (min-width: ${breakpoint.tablet}) {
-    ${props => props.isLeft || props.isRight ? 'flex: 1;' : ''}
-    ${props => props.isLeft ? `
+    ${(props) => (props.isLeft || props.isRight ? 'flex: 1;' : '')}
+    ${(props) => (props.isLeft ? `
     margin-bottom: 0;
     padding-right: 1rem;
-    ` : ''}
-    ${props => props.isRight ? `
+    ` : '')}
+    ${(props) => (props.isRight ? `
     margin-top: 0;
     padding-left: 1rem;
-    ` : ''}
+    ` : '')}
   }
 `;
 
