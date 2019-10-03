@@ -16,7 +16,7 @@ export const buttonReset = css`
   @media only screen and (min-width: ${breakpoint.small}) {
     font-size: ${font.med};
   }
-  line-height: 1;
+  line-height: 1.5;
   &:focus {
     outline: none;
   }
@@ -41,9 +41,8 @@ export const Button = styled.button`
   ${buttonMixin};
 `;
 
-export const IconButton = styled.button`
+export const iconButtonMixin = css`
   ${buttonReset};
-  color: ${colors.primary};
   padding: 1rem 1.5rem;
   border-radius: 0.25rem;
   @media only screen and (min-width: ${breakpoint.small}) {
@@ -58,16 +57,50 @@ export const IconButton = styled.button`
   }
 `;
 
-export const BackLink = styled(Link)`
+export const IconButton = styled.button`
+  ${iconButtonMixin};
+  ${props => props.isSolid ? `
+    color: ${colors.white};
+    background-color: ${colors.primary};
+    &:hover {
+      background-color: ${colors.lightPrimary};
+      color: ${colors.white};
+    }
+  ` : `
+    color: ${colors.primary};
+  `};
+`;
+
+export const IconAnchor = styled(Link)`
+  ${iconButtonMixin};
+  ${props => props.isSolid ? `
+    color: ${colors.white};
+    background-color: ${colors.primary};
+    &:visited {
+      color: ${colors.white};
+    }
+    &:hover,
+    &:visited:hover {
+      background-color: ${colors.lightPrimary};
+      color: ${colors.white};
+    }
+  ` : `
+    color: ${colors.primary};
+  `};
+`;
+
+export const AnchorButton = styled(Link)`
   ${buttonReset};
   ${buttonMixin};
   text-align: center;
   display: block;
+  &:hover,
+  &:visited,
+  &:hover:visited {
+    color: ${colors.white};
+  }
   @media only screen and (min-width: ${breakpoint.small}) {
     margin-top: 2rem;
-  }
-  &:hover {
-    color: ${colors.white};
   }
 `;
 
