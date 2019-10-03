@@ -18,13 +18,13 @@ export const Header = styled.header`
 `;
 
 export const Container = styled.section`
-${sectionMixin};
+  ${sectionMixin};
   width: 100%;
-${(props) => (props.isCenter ? 'text-align: center;' : '')}
-@media only screen and (min-width: ${breakpoint.tablet}) {
-width: 70%;
-  ${(props) => (props.hasColumns ? 'display: flex;' : '')}
-}
+  ${(props) => (props.isCenter ? 'text-align: center;' : '')}
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    width: 70%;
+    ${(props) => (props.hasColumns ? 'display: flex;' : '')}
+  }
 `;
 
 // half width
