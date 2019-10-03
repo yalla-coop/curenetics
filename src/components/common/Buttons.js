@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import {
-  breakpoint, colors, font, fontFamily,
-} from '../../styles/globalStyles';
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
+import { breakpoint, colors, font, fontFamily } from "../../styles/globalStyles";
 
 export const buttonReset = css`
   cursor: pointer;
@@ -16,7 +14,7 @@ export const buttonReset = css`
   @media only screen and (min-width: ${breakpoint.small}) {
     font-size: ${font.med};
   }
-  line-height: 1;
+  line-height: 1.5;
   &:focus {
     outline: none;
   }
@@ -41,10 +39,9 @@ export const Button = styled.button`
   ${buttonMixin};
 `;
 
-export const IconButton = styled.button`
+// mixins can't recieve props
+export const iconButtonMixin = css`
   ${buttonReset};
-  color: ${colors.primary};
-  background-color: ${(props) => props.color || colors.white};
   padding: 1rem 1.5rem;
   border-radius: 0.25rem;
   @media only screen and (min-width: ${breakpoint.small}) {
@@ -56,20 +53,60 @@ export const IconButton = styled.button`
   justify-content: center;
   > svg {
     margin-right: 1rem;
-    fill:${colors.white};
+    fill: ${colors.white};
   }
 `;
 
-export const BackLink = styled(Link)`
+export const IconButton = styled.button`
+  ${iconButtonMixin};
+  ${props =>
+    props.isSolid
+      ? `
+    color: ${colors.white};
+    background-color: ${colors.primary};
+    &:hover {
+      background-color: ${colors.lightPrimary};
+      color: ${colors.white};
+    }
+  `
+      : `
+    color: ${colors.primary};
+  `};
+`;
+
+export const IconAnchor = styled(Link)`
+  ${iconButtonMixin};
+  ${props =>
+    props.isSolid
+      ? `
+    color: ${colors.white};
+    background-color: ${colors.primary};
+    &:visited {
+      color: ${colors.white};
+    }
+    &:hover,
+    &:visited:hover {
+      background-color: ${colors.lightPrimary};
+      color: ${colors.white};
+    }
+  `
+      : `
+    color: ${colors.primary};
+  `};
+`;
+
+export const AnchorButton = styled(Link)`
   ${buttonReset};
   ${buttonMixin};
   text-align: center;
   display: block;
+  &:hover,
+  &:visited,
+  &:hover:visited {
+    color: ${colors.white};
+  }
   @media only screen and (min-width: ${breakpoint.small}) {
     margin-top: 2rem;
-  }
-  &:hover {
-    color: ${colors.white};
   }
 `;
 
@@ -84,12 +121,32 @@ export const Crumb = styled(Link)`
     transform: translateX(-0.25rem);
   }
 `;
+
 export const BigButton = styled(Button)`
-width: 30vw;
-&:disabled{
-  background-color:${colors.disabled};
-}
-@media(max-width:${breakpoint.tablet}){
-  width: 50vw;
-}
+  width: 30vw;
+  &:disabled {
+    background-color: ${colors.disabled};
+  }
+  @media (max-width: ${breakpoint.tablet}) {
+    width: 50vw;
+  }
+`;
+
+export const CustomButton = styled.button`
+  text-align: center;
+  background-color: ${colors.primary};
+  color: ${colors.white};
+  border: none;
+  width: 40%;
+  border-radius: 4px;
+  padding: ${({ padding }) => padding || ".8rem 1rem"};
+  font-size: ${font.small};
+  cursor: pointer;
+  margin: 2rem 0;
+  @media only screen and (max-width: ${breakpoint.small}) {
+    width: 100%;
+  }
+  svg {
+    margin-right: 1rem;
+  }
 `;

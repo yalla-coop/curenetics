@@ -1,12 +1,12 @@
 const formFields = {
   inputs: {
     ref: {
-      label: 'Your ref:',
+      label: 'Your ref',
       id: 'ref',
       placeholder: '1 to 10 letters or numbers',
     },
     age: {
-      label: 'Age:',
+      label: 'Age',
       id: 'age',
       placeholder: 'Patient’s age (in years)',
     },
@@ -34,12 +34,12 @@ const formFields = {
   },
   dropdowns: {
     inside_prostate: {
-      label: 'Disease inside prostate:',
+      label: 'Disease inside prostate',
       id: 'inside-prostate',
       placeholder: 'Select relevant terms',
     },
     outside_prostate: {
-      label: 'Disease outside prostate:',
+      label: 'Disease outside prostate',
       id: 'outside-prostate',
       placeholder: 'Select relevant terms',
     },
