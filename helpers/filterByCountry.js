@@ -10,7 +10,7 @@ const filterByCountry = (resultObject, country, omitForeign = false, status = nu
   const resultArray = resultObject.results;
   const keys = Object.keys(resultArray);
 
-  return keys.reduce((acc, val) => {
+  const results = keys.reduce((acc, val) => {
     const item = resultArray[val];
 
     // check .Locations property exists and has an array as it's value:
@@ -29,18 +29,16 @@ const filterByCountry = (resultObject, country, omitForeign = false, status = nu
           acc.push({ [val]: item });
         }
       } else {
-        acc.push({ [val]: item });
+        acc.push(item);
       }
     }
     return acc;
   }, []);
-};
 
-// {
-//   size: size,
-//   results: [
-//     {}
-//   ]
-// }
+  return {
+    size: results.length,
+    results
+  };
+};
 
 exports.filterByCountry = filterByCountry;

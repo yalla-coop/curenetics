@@ -178,7 +178,15 @@ const ukLocations = {
           },
           Status: ""
         }
-      ]
+      ],
+      MESHTerms: ["Prostatic Neoplasms"],
+      MaxAge: "85 Years",
+      MinAge: "18 Years",
+      OverallStatus: "Completed",
+      XMLName: {
+        Space: "",
+        Local: "clinical_study"
+      }
     },
     // 3
     {
