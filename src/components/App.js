@@ -9,15 +9,12 @@ import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
 import Enter from './pages/enter';
-<<<<<<< HEAD
 // a dynamic route, added for testing - icons:
 import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
-=======
 // import TrialList from './pages/trialList';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
->>>>>>> b5f154203046ce83e7106779078d0b1a79c86bf6
 
 import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
@@ -87,7 +84,7 @@ const Nav = styled.nav`
   }
 `;
 
-const App = () => {
+const App = () =>
   // add logic here
   // - add metadata (e.g. title tag and description) > depending upon the active route
   // - Helmet module could be useful here ^
@@ -121,12 +118,8 @@ const App = () => {
             <Route path="/about" component={About} />
             <Route path="/upload" component={Upload} />
             <Route path="/enter" component={Enter} />
-<<<<<<< HEAD
             <Route path="/trial-list" component={TrialList} />
             <Route path="/patient-list" component={PatientList} />
-=======
-            {/* <Route path="/trial-list" component={TrialList} /> */}
->>>>>>> b5f154203046ce83e7106779078d0b1a79c86bf6
             <Route component={NotFound} />
           </Switch>
         </Main>
@@ -134,4 +127,6 @@ const App = () => {
       </Router>
     </>
   );
+
+
 export default App;
