@@ -22,7 +22,7 @@ const TrialDetailHeader = () => (
     </Header>
 
     <CustomButton>
-      <ExportLink margin="0 8px" />
+      <ExportLink />
       Export Results
     </CustomButton>
   </>

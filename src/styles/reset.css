@@ -49,14 +49,14 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 }
 
 a {
-	/* color: #58595b; */
+	color: #35348f;
 	text-decoration: none;
-	/* transition: color 0.3s ease; */
+	transition: color 0.3s ease;
 }
 
 a:hover,
 a:visited,
 a:visited:hover
 {
-	/* color: #070719; */
+	color: #070719;
 }

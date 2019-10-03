@@ -97,4 +97,5 @@ export const CustomButton = styled.button`
   @media only screen and (max-width: ${breakpoint.small}) {
     width: 100%;
   }
+  svg { margin-right: 1rem; }
 `;

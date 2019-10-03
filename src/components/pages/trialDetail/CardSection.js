@@ -2,32 +2,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../../../styles/globalStyles';
+import { sectionMixin, cardMixin } from '../../common/Layout';
 
 import Arrow from '../../common/icons/Arrow.jsx';
 import CardField from './CardField';
 
 const Section = styled.section`
-  width: 70%;
-  margin: 0 auto;
+  ${sectionMixin}
+  ${cardMixin}
+  box-shadow: ${colors.cardBoxShadow};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${colors.white};
-  padding: 1rem;
   text-align: left;
   line-height: 1.2rem;
   margin-bottom: 1rem;
-  box-shadow: ${colors.cardBoxShadow};
 `;
 
-const CenterDev = styled.div`
+const CenterLink = styled(Link)`
   display:flex;
   justify-content: space-evenly;
   align-items: center;
 `;
 
 const CardSection = ({
-  fileName = '3', age = '3', gender = 'male', trials = '2',
+  fileName = '3', age = '3', gender = 'male', trials = '0',
 }) => (
     <Section>
       <CardField>
@@ -46,16 +45,14 @@ const CardSection = ({
         Potentially <br />
         Eligible Trials:
     </CardField>
-      <CardField >
+      <CardField confirmState={trials !== '0'}>
         {trials}
       </CardField>
       <CardField flexGrow="2">
-        <Link to="/">
-          <CenterDev>
-            View more details
-            <Arrow />
-          </CenterDev>
-        </Link>
+        <CenterLink to="">
+          View more details
+            <Arrow width="40" />
+        </CenterLink>
       </CardField>
     </Section>
 );

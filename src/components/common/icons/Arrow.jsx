@@ -15,11 +15,8 @@ const Arrow = ({
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-944 179 34 34"
-      // style={{
-      //   width,
-      // }}
-      width = "30"
-      >
+      width={width}
+    >
       {titleTag && <title>{titleTag}</title>}
       <g transform="translate(-1323 -22)">
         <g
