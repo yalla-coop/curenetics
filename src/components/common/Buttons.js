@@ -123,12 +123,18 @@ export const Crumb = styled(Link)`
 `;
 
 export const BigButton = styled(Button)`
-  width: 30vw;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
   &:disabled {
     background-color: ${colors.disabled};
   }
-  @media (max-width: ${breakpoint.tablet}) {
-    width: 50vw;
+  @media only screen and (min-width: ${breakpoint.small}) {
+    max-width: 300px;
+  }
+  @media (min-width: ${breakpoint.tablet}) {
+    max-width: 100%;
   }
 `;
 

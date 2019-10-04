@@ -1,20 +1,35 @@
 import styled from "styled-components";
 import { colors, fontFamily, font, breakpoint } from "../../../styles/globalStyles";
 
-export const Box = styled.div`
-  width: 30vw;
+// can have mulitple headers i believe...
+export const CardHeader = styled.header`
+  display: flex;
+  align-items: center;
+`;
+
+export const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1rem;
+`;
+
+
+export const DottedBox = styled.div`
   height: 45vh;
+  max-height: 300px;
   border: 2px dashed ${colors.grey};
-  border-radius: 10px;
-  margin: 1rem;
-  margin-top: 3rem;
+  border-radius: 0.5rem;
+  margin: 3rem 1rem;
   overflow: auto;
   justify-content: center;
-  @media (max-width: ${breakpoint.tablet}) {
-    width: 50vw;
-    height: 35vh;
+  @media (min-width: ${breakpoint.tablet}) {
+    height: 45vh;
+    max-height: 400px;
   }
 `;
+
+
 export const Span = styled.span`
   display: flex;
   width: 30vw;
@@ -30,6 +45,7 @@ export const Span = styled.span`
     margin-left: 12vw;
   }
 `;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,6 +59,7 @@ export const Main = styled.section`
   width: 100vw;
   justify-content: center;
 `;
+
 export const Button = styled.button`
 position: relative;
 top: 9vh;

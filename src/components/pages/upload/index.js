@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import InputBox from "./input";
 import Item from "./listItem";
-import { Box, Span } from "./styles";
+import { CardHeader, CardContent, DottedBox, Span } from "./uploadStyles";
 import filenameCheck from "../../../helpers";
 
 import Chevron from "../../common/icons/Chevron";
 import Plus from "../../common/icons/Plus";
 
 import { BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard } from "../../common/Layout";
-import { Title, SubHeading, OL, LI } from "../../common/Typography";
+import { Title, SubHeading, Paragraph, OL, LI } from "../../common/Typography";
 import { Crumb, buttonReset, IconButton, BigButton } from "../../common/Buttons";
 
 import { breakpoint, colors } from "../../../styles/globalStyles";
@@ -35,6 +35,11 @@ const EnterLink = styled(Link)`
   ${buttonReset};
   display: flex;
   align-items: center;
+`;
+
+const AddFiles = styled(SubHeading)`
+  color: ${colors.black};
+  font-weight: 400;
 `;
 
 const UploadButton = styled(IconButton)`
@@ -94,14 +99,19 @@ const Upload = () => {
 
         <UploadColumn>
           <UploadCard>
-            <InputBox onChange={selectFiles} ref={inputRef} />
-            <UploadButton isSolid aria-label='Upload PDF'>
-              <Plus fill={colors.white} width={48} onClick={() => onButtonClick()} />
-            </UploadButton>
 
-            <SubHeading>Add your files</SubHeading>
-            <span>PDF&apos;s Only</span>
-            <Box>
+            <CardHeader>
+              <InputBox onChange={selectFiles} ref={inputRef} />
+              <UploadButton onClick={() => onButtonClick()} isSolid aria-label='Upload PDF'>
+                <Plus fill={colors.white} width={48} />
+              </UploadButton>
+              <CardContent>
+                <AddFiles>Add your files</AddFiles>
+                <Paragraph isLight>PDF&apos;s Only</Paragraph>
+              </CardContent>
+            </CardHeader>
+
+            <DottedBox>
               {filenames.length ? (
                 filenames.map(file => {
                   const bgcolor = file.name.endsWith(".pdf") ? "yes" : "No";
@@ -110,7 +120,8 @@ const Upload = () => {
               ) : (
                 <Span>No Files uploaded</Span>
               )}
-            </Box>
+            </DottedBox>
+
             <BigButton
               // button is disabled if there are no files selected or the file isn't a pdf
               disabled={filenameCheck(filenames) !== filenames.length || filenames.length === 0}>

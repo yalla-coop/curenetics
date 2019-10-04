@@ -79,10 +79,7 @@ export const PatientCard = styled.div`
 
 export const UploadCard = styled.div`
   ${cardMixin};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem;
   margin-bottom: 2rem;
 `;
 
