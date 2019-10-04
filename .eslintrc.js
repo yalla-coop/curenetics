@@ -16,6 +16,7 @@ module.exports = {
 	rules: {
 		"import/prefer-default-export": 0,
 		"react/jsx-no-undef": 1,
+		"no-confusing-arrow": 0,
 		// disables the windows/unix linebreak checks.
 		"linebreak-style": 0,
 		"linebreak-style": [0, "error", "windows"],

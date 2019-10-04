@@ -4,18 +4,19 @@ import {
   BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+
 import Home from './pages/home';
 import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
 import Enter from './pages/enter';
-// import TrialList from './pages/trialList';
+import TrialList from './pages/trialList';
+import TrialDetail from './pages/trialDetail';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 
 import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
-import TrialDetail from './pages/trialDetail';
 
 const fontImport = css`
   @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
@@ -115,9 +116,8 @@ const App = () => (
           <Route path="/about" component={About} />
           <Route path="/upload" component={Upload} />
           <Route path="/enter" component={Enter} />
-          {/* <Route path="/trial-list" component={TrialList} /> */}
-          {/* this is only for testing can be removed later */}
           <Route path="/trial-detail" component={TrialDetail} />
+          <Route path="/trial-list" component={TrialList} />
           <Route component={NotFound} />
         </Switch>
       </Main>
