@@ -19,6 +19,7 @@ const colors = {
   confirm: '#58b773', // green
 
   boxShadow: '0px 4px 7px rgba(159, 159, 159, 0.25)',
+  cardBoxShadow: '0px 2px 3px #6362b7',
 };
 
 const fontFamily = {
