@@ -51,8 +51,8 @@ const mapKeyToOptions = {
 const mapKeyToDisplayField = {
   age: 'Age:*',
   gender: 'Gender:*',
-  postcode: 'postcode:',
-  cancerType: 'Type of cancers:',
+  postcode: 'Postcode:',
+  cancerType: 'Type of cancer:',
   fileReference: 'File name:',
   ECOGStatus: 'ECOG status:',
   gleasonScore: 'Gleason score:',
@@ -192,7 +192,7 @@ export default class trialList extends Component {
           <section >
             <S.MatchClinical href="#">Match Clinical Trials</S.MatchClinical>
           </section>
-          <section>
+          <S.PatientListcontainer >
             {this.state.list.map((patient, index) => {
               const fileReference = patient.find(({ key }) => key === 'fileReference').value;
               return (
@@ -206,7 +206,7 @@ export default class trialList extends Component {
                 </>
               );
             })}
-          </section>
+          </S.PatientListcontainer>
           <section >
             <S.MatchClinical>Match Clinical Trials</S.MatchClinical>
           </section>

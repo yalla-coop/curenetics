@@ -24,10 +24,21 @@ export const MatchClinical = styled(Link)`
 export const OrignalFileLink = styled.span`
   color: ${colors.lightPrimary};
 `;
+
+export const PatientListcontainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 export const PatientDetails = styled.div`
   margin: 1rem 0.5rem;
   padding: 1rem;
   background-color: white;
+  max-width: ${breakpoint.tablet};
+  width: 100%;
   @media only screen and (max-width: ${breakpoint.tablet}) {
     margin: 1rem 0rem;
     padding: 0.5rem;
