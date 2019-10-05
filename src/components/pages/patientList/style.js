@@ -49,6 +49,7 @@ export const PatientDetailsFields = styled.div`
   display: flex;
   flex-flow: column wrap;
   height: 9.8rem;
+  align-items: center;
   @media only screen and (max-width: ${breakpoint.large}) {
     flex-flow: column nowrap;
     height: initial;
@@ -81,7 +82,7 @@ export const FieldWrapper = styled.section`
   padding-bottom: 0.4rem;
   margin-bottom: 0.3rem;
   border-bottom: solid 1px ${({ edit }) => (edit ? colors.accent : '#f4f4f9')};
-  width: 49%;
+  width: 47%;
   @media only screen and (max-width: ${breakpoint.large}) {
     width: initial;
     height: initial;
