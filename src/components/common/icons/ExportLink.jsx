@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExternalLink = ({ titleTag = 'External Link', width = 24, fill = '#ffffff' }) => (
+const ExportLink = ({ titleTag = 'External Link', width = 24, fill = '#ffffff' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 20"
@@ -14,4 +14,4 @@ const ExternalLink = ({ titleTag = 'External Link', width = 24, fill = '#ffffff'
   </svg>
 );
 
-export default ExternalLink;
+export default ExportLink;
