@@ -2,12 +2,16 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { columnMixin } from '../../common/Layout';
-import { buttonReset, buttonMixin } from '../../common/Buttons';
+import { buttonBase, Button } from '../../common/Buttons';
 import { breakpoint, colors } from '../../../styles/globalStyles';
 
+export const MatchButton = styled(Button)`
+  display: block;
+  margin: 2rem auto;
+`;
+
 export const MatchClinical = styled(Link)`
-  ${buttonReset};
-  ${buttonMixin};
+  ${buttonBase};
   ${columnMixin};
   display: block;
   cursor: pointer;

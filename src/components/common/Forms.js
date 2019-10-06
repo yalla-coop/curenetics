@@ -53,8 +53,8 @@ export const Input = styled.input`
   border-bottom: 0.125rem solid ${colors.lightPrimary};
   transition: all 0.3s ease;
   &:focus {
-    border-bottom-color: ${colors.primary};
-    background-color: ${colors.background};
+    border-bottom-color: ${colors.accent};
+    background-color: ${colors.lightAccent};
     outline: none;
   }
 `;

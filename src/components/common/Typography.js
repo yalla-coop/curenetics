@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import {
-  breakpoint, colors, font, fontFamily
+  breakpoint,
+  colors,
+  font,
+  fontFamily,
 } from '../../styles/globalStyles';
 
 export const Title = styled.h1`

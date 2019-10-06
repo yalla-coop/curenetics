@@ -25,8 +25,7 @@ const fontImport = css`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 `;
 
-
-const Logo = styled.img` 
+const Logo = styled.img`
   max-height: 2rem;
   @media only screen and (min-width: ${breakpoint.Xsmall}) {
     max-height: 3rem;
@@ -42,6 +41,12 @@ const Main = styled.main`
   box-sizing: border-box;
   @media only screen and (min-width: ${breakpoint.Xsmall}) {
     padding: 5rem 1rem 1rem;
+  }
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 5rem 4rem 2rem;
+  }
+  @media only screen and (min-width: ${breakpoint.large}) {
+    padding: 5rem 6rem 2rem;
   }
 `;
 
@@ -93,7 +98,7 @@ const App = () => (
     <Router>
       <TopBar>
         <TopContainer>
-          <Link aria-label='Curenetics Clinical Trials' to="/">
+          <Link aria-label="Curenetics Clinical Trials" to="/">
             <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
           </Link>
           <Nav>
@@ -124,7 +129,6 @@ const App = () => (
           <Route component={NotFound} />
         </Switch>
       </Main>
-
     </Router>
   </>
 );
