@@ -21,7 +21,10 @@ const filterByCountry = (
 	// we have to clone the array because we are overriding
 	// the Locations reference in line 45
 	// this one> item.Locations = filteredByCountry;
-	// this is easy or we can use recursion
+	// this is easy using JSON but sometimes could cause a problem
+	// or we can use recursion
+	// a better solution would be using a library like lodash or clone-deep
+	// https://www.npmjs.com/package/clone-deep
 	const clonedArr = JSON.parse(JSON.stringify(resultArray));
 	// why are we using Object.keys??
 	// this is array and we can use reduce directly on it
@@ -33,6 +36,9 @@ const filterByCountry = (
 
 		// check .Locations property exists and has an array as it's value:
 		if (
+			// I don't think that we need hasOwnProperty
+			// as item['Locations'] does the job
+			// won't continue if it is undefined
 			item.hasOwnProperty("Locations") &&
 			item["Locations"] &&
 			item["Locations"].length > 0 &&
