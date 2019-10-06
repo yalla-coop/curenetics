@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Spinner from './icons/Spinner';
-import { breakpoint } from '../../styles/globalStyles';
 import { Header, Container } from './Layout';
 import { Title, Paragraph } from './Typography';
 
