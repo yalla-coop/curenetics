@@ -78,7 +78,7 @@ const Upload = () => {
   return (
     <>
       <BreadCrumb>
-        <Crumb to='/'>
+        <Crumb to="/">
           <Chevron width={20} />
         </Crumb>
       </BreadCrumb>
@@ -99,10 +99,13 @@ const Upload = () => {
 
         <UploadColumn>
           <UploadCard>
-
             <CardHeader>
               <InputBox onChange={selectFiles} ref={inputRef} />
-              <UploadButton onClick={() => onButtonClick()} isSolid aria-label='Upload PDF'>
+              <UploadButton
+                onClick={() => onButtonClick()}
+                isSolid
+                aria-label="Upload PDF"
+              >
                 <Plus fill={colors.white} width={48} />
               </UploadButton>
               <CardContent>
@@ -114,8 +117,15 @@ const Upload = () => {
             <DottedBox>
               {filenames.length ? (
                 filenames.map(file => {
-                  const bgcolor = file.name.endsWith(".pdf") ? "yes" : "No";
-                  return <Item bg={bgcolor} onClick={removeFile} key={file.lastModified} text={file.name} />;
+                  const bgcolor = file.name.endsWith('.pdf') ? 'yes' : 'No';
+                  return (
+                    <Item
+                      bg={bgcolor}
+                      onClick={removeFile}
+                      key={file.lastModified}
+                      text={file.name}
+                    />
+                  );
                 })
               ) : (
                 <Span>No Files uploaded</Span>
@@ -124,12 +134,16 @@ const Upload = () => {
 
             <BigButton
               // button is disabled if there are no files selected or the file isn't a pdf
-              disabled={filenameCheck(filenames) !== filenames.length || filenames.length === 0}>
+              disabled={
+                filenameCheck(filenames) !== filenames.length ||
+                filenames.length === 0
+              }
+            >
               Upload File(s)
             </BigButton>
           </UploadCard>
 
-          <EnterLink to='/enter'>Or type in patient details</EnterLink>
+          <EnterLink to="/enter">Or type in patient details</EnterLink>
         </UploadColumn>
       </ContentContainer>
     </>

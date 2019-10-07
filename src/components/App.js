@@ -12,6 +12,7 @@ import Upload from './pages/upload';
 import Enter from './pages/enter';
 import TrialList from './pages/trialList';
 import TrialDetail from './pages/trialDetail';
+import Loading from '../components/common/Loading';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 
@@ -118,10 +119,10 @@ const App = () => (
           <Route path="/enter" component={Enter} />
           <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/trial-list" component={TrialList} />
+          <Route path="/load" component={Loading} />
           <Route component={NotFound} />
         </Switch>
       </Main>
-
     </Router>
   </>
 );
