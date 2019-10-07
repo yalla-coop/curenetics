@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 import { sectionMixin, twoColumnGrid } from '../../common/Layout';
-import { FormItem, Label } from '../../common/Forms';
+import { FormItem, Input, Label } from '../../common/Forms';
 import { Button, IconButton } from '../../common/Buttons';
 import { textMixin, fontImport } from '../../common/Typography';
-import { breakpoint, colors, font, fontFamily } from '../../../styles/globalStyles';
+import {
+  breakpoint,
+  colors,
+  font,
+  fontFamily,
+} from '../../../styles/globalStyles';
 
 export const PatientlistContainer = styled.div`
   ${sectionMixin};
@@ -64,22 +69,10 @@ export const PatientFormItem = styled(FormItem)`
   .ant-select-selection__rendered {
     padding: 0.5rem 0.25rem;
   }
+`;
 
-  /* sits at the same level as bundle files  */
-  /* .ant-select-open .ant-select-selection {
-    background-color: ${colors.lightAccent};
-    border-color: ${colors.accent};
-    box-shadow: none;
-  }
-  .ant-select-dropdown-menu {
-    font-family: ${fontFamily.body};
-  }
-  .ant-select-dropdown-menu-item {
-    padding: 0.5rem 1rem;
-  }
-  .ant-select-dropdown-menu-item-active {
-    background-color: ${colors.lightAccent};
-  } */
+export const PatientInput = styled(Input)`
+  background-color: ${colors.background};
 `;
 
 export const PatientLabel = styled(Label)`

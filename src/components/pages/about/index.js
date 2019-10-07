@@ -22,9 +22,7 @@ const About = () => (
     <Header isCenter>
       <Title>About Curenetics</Title>
       <Paragraph>A page about this app etc.</Paragraph>
-      <HomeAnchor isCenter to="/">
-        Back to Home
-      </HomeAnchor>
+      <HomeAnchor to="/">Back to Home</HomeAnchor>
     </Header>
   </>
 );

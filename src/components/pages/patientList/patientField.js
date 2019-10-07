@@ -1,7 +1,12 @@
 // this handles rendering of all patient fields
 import React from 'react';
-import { Input } from '../../common/Forms';
-import { PatientFormItem, PatientLabel, EditButton, Span } from './style';
+import {
+  PatientFormItem,
+  PatientInput,
+  PatientLabel,
+  EditButton,
+  Span,
+} from './style';
 
 const PatientField = ({
   patient,
@@ -19,7 +24,7 @@ const PatientField = ({
     fieldType = renderFieldOptions(key, fileReference, options, value);
   } else {
     fieldType = (
-      <Input
+      <PatientInput
         id={fileReference}
         onChange={handleChange(key, fileReference)}
         value={value}
