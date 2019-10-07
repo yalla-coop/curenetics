@@ -6,7 +6,7 @@ import { breakpoint, colors } from '../../styles/globalStyles';
 export const sectionMixin = css`
   padding: 1rem;
   margin: 0 auto;
-  max-width: ${breakpoint.massive};
+  max-width: ${breakpoint.large};
 `;
 
 export const Header = styled.header`
@@ -89,5 +89,20 @@ export const BacklinkContainer = styled.nav`
   align-items: center;
   @media only screen and (min-width: ${breakpoint.tablet}) {
     padding-top: 2rem;
+  }
+`;
+
+// grids
+export const twoColumnGrid = css`
+  padding: 2rem 1rem;
+  width: 100%;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  @media only screen and (min-width: ${breakpoint.large}) {
+    grid-gap: 2rem 4rem;
   }
 `;

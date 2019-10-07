@@ -1,26 +1,13 @@
 import styled from 'styled-components';
 
-import { cardMixin } from './Layout';
+import { cardMixin, twoColumnGrid } from './Layout';
 import { textMixin } from './Typography';
 
-import {
-  breakpoint, colors,
-} from '../../styles/globalStyles';
+import { breakpoint, colors } from '../../styles/globalStyles';
 
-// consider using material ui or similar for select / dropdowns
 export const PatientForm = styled.form`
   ${cardMixin};
-  padding: 2rem 1rem;
-  width: 100%;
-  @media only screen and (min-width: ${breakpoint.tablet}) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
-    padding-bottom: 4rem;
-  }
-  @media only screen and (min-width: ${breakpoint.large}) {
-    grid-gap: 2rem 4rem;
-  }
+  ${twoColumnGrid};
 `;
 
 export const FormItem = styled.div`

@@ -1,5 +1,4 @@
 const colors = {
-
   background: '#f4f4f9', // pale grey
 
   primary: '#35348f', // purple
@@ -25,11 +24,10 @@ const colors = {
 };
 
 const fontFamily = {
-  main: '\'Lato\', sans-serif',
-  body: '\'Roboto\', sans-serif',
-  code: '\'Source Code Pro\', monospace',
+  main: "'Lato', sans-serif",
+  body: "'Roboto', sans-serif",
+  code: "'Source Code Pro', monospace",
 };
-
 
 // 16px = 1rem
 const font = {

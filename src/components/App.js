@@ -1,29 +1,21 @@
 import React from 'react';
 import '../styles/reset.css';
-import {
-  BrowserRouter as Router, Switch, Route, Link,
-} from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import Home from './pages/home';
 import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
 import Enter from './pages/enter';
-// a dynamic route, added for testing - icons:
 import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import TrialDetail from './pages/trialDetail';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 
-import { sectionMixin } from './common/Layout';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
-
-const fontImport = css`
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-`;
+import { fontImport } from './common/Typography';
 
 const Logo = styled.img`
   max-height: 2rem;
@@ -41,12 +33,6 @@ const Main = styled.main`
   box-sizing: border-box;
   @media only screen and (min-width: ${breakpoint.Xsmall}) {
     padding: 5rem 1rem 1rem;
-  }
-  @media only screen and (min-width: ${breakpoint.tablet}) {
-    padding: 5rem 4rem 2rem;
-  }
-  @media only screen and (min-width: ${breakpoint.large}) {
-    padding: 5rem 6rem 2rem;
   }
 `;
 
@@ -70,8 +56,9 @@ const TopBar = styled.div`
 `;
 
 const TopContainer = styled.div`
-  ${sectionMixin};
   padding: 1rem 2rem;
+  margin: 0 auto;
+  max-width: ${breakpoint.massive};
   position: relative;
   width: 100%;
   display: flex;

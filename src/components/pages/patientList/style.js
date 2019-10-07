@@ -1,105 +1,108 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import { columnMixin } from '../../common/Layout';
-import { buttonBase, Button } from '../../common/Buttons';
-import { breakpoint, colors } from '../../../styles/globalStyles';
+import { sectionMixin, twoColumnGrid } from '../../common/Layout';
+import { FormItem, Label } from '../../common/Forms';
+import { Button, IconButton } from '../../common/Buttons';
+import { textMixin, fontImport } from '../../common/Typography';
+import { breakpoint, colors, font, fontFamily } from '../../../styles/globalStyles';
+
+export const PatientlistContainer = styled.div`
+  ${sectionMixin};
+`;
 
 export const MatchButton = styled(Button)`
   display: block;
   margin: 2rem auto;
 `;
 
-export const MatchClinical = styled(Link)`
-  ${buttonBase};
-  ${columnMixin};
-  display: block;
-  cursor: pointer;
-  text-align: center;
-  color: ${colors.white} !important;
+export const ViewFileButton = styled(IconButton)`
+  color: ${colors.lightPrimary};
   &:hover {
-    color: ${colors.white};
+    fill: ${colors.lightPrimary};
+  }
+  padding: 0.8rem;
+  @media only screen and (min-width: ${breakpoint.small}) {
+    padding: 0.8rem;
+    font-size: ${font.small};
+  }
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 0.8rem;
+  }
+`;
+
+// form
+export const PatientDetailsGrid = styled.form`
+  ${twoColumnGrid};
+  padding-left: 0;
+  padding-right: 0;
+`;
+
+// form fields
+export const PatientFormItem = styled(FormItem)`
+  padding-bottom: 1rem;
+  border-bottom: 0.125rem solid;
+  border-bottom-color: ${({ edit }) =>
+    edit ? colors.accent : colors.background};
+
+  /* dropdown */
+  .ant-select {
+    ${fontImport};
+    ${textMixin};
+    margin: 0;
+    font-family: ${fontFamily.body};
+  }
+  .ant-select-focused {
+    box-shadow: none;
+  }
+  .ant-select-selection--single {
+    height: auto;
+  }
+  .ant-select-selection {
+    border: 0;
+    border-radius: 0;
+  }
+  .ant-select-selection__rendered {
+    padding: 0.5rem 0.25rem;
+  }
+
+  /* sits at the same level as bundle files  */
+  /* .ant-select-open .ant-select-selection {
+    background-color: ${colors.lightAccent};
+    border-color: ${colors.accent};
+    box-shadow: none;
+  }
+  .ant-select-dropdown-menu {
+    font-family: ${fontFamily.body};
+  }
+  .ant-select-dropdown-menu-item {
+    padding: 0.5rem 1rem;
+  }
+  .ant-select-dropdown-menu-item-active {
+    background-color: ${colors.lightAccent};
+  } */
+`;
+
+export const PatientLabel = styled(Label)`
+  color: ${({ edit }) => (edit ? colors.accent : colors.primary)};
+  margin-right: 0.8rem;
+`;
+
+export const EditButton = styled(Button)`
+  padding: 0.8rem;
+  color: ${colors.lightPrimary};
+  &:hover {
+    color: ${colors.primary};
   }
   @media only screen and (min-width: ${breakpoint.small}) {
-    margin-bottom: 1rem;
-    color: #fff;
+    font-size: ${font.small};
+    padding: 0.8rem;
   }
-`;
-export const OrignalFileLink = styled.span`
-  color: ${colors.lightPrimary};
-`;
-
-export const PatientListcontainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-export const PatientDetails = styled.div`
-  margin: 1rem 0.5rem;
-  padding: 1rem;
-  background-color: white;
-  max-width: ${breakpoint.tablet};
-  width: 100%;
-  @media only screen and (max-width: ${breakpoint.tablet}) {
-    margin: 1rem 0rem;
-    padding: 0.5rem;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 0.8rem;
   }
 `;
 
-export const PatientDetailsFields = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  height: 9.8rem;
-  align-items: center;
-  @media only screen and (max-width: ${breakpoint.large}) {
-    flex-flow: column nowrap;
-    height: initial;
-  }
-`;
-
-export const Field = styled.label`
-  width: 9rem;
-  color: ${({ edit }) => (edit ? colors.accent : colors.primary)};
-`;
-
-export const FieldValue = styled.span`
-  width: 6rem;
-  font-size: 0.9rem;
-`;
-
-export const FieldFreeInput = styled.input`
-  width: 100%;
-  font-size: 0.9rem;
-  border-width: 0px 0px 0px 0px;
-`;
-
-export const FieldMultiOptions = styled.select`
-`;
-
-export const FieldWrapper = styled.section`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 0.4rem;
-  margin-bottom: 0.3rem;
-  border-bottom: solid 1px ${({ edit }) => (edit ? colors.accent : '#f4f4f9')};
-  width: 47%;
-  @media only screen and (max-width: ${breakpoint.large}) {
-    width: initial;
-    height: initial;
-  }
-  @media only screen and (max-width: ${breakpoint.tablet}) {
-    padding: 0.5rem 0rem;
-  }
-`;
-
-export const ButtonEidt = styled.button`
-  font-weight: 600;
-  border: none;
-  color: ${({ edit }) => (edit ? colors.accent : 'initial')};
-  font-size: 0.8rem;
-  background-color: white;
+export const Span = styled.span`
+  ${textMixin};
+  margin: 0;
 `;

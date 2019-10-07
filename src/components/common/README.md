@@ -37,8 +37,8 @@
 
 ## Layout
 - Found in `Layout.js`.
-- Mixins from this file can be used if you want to use styles defined here, but not the html element. For example, you may wish to have an `<img>` at 50% of it's parent container's width, but not use the html element of `<Article>`. This pattern is repeated for Cards and content containers.
-- `<Container>` and `sectionMixin` set a `max-width` of 1440px on all content containers, including those in the `TopBar` (defined in `App.js`). Content containers within the `<Main>` body of the page are more narrow than in the header, with left and right padding set to `4rem` above tablet (768px), and `6rem` above large (1024px) screen width.
+- Mixins from this file can be used if you want to use specific styles, but not be confined to a specific html element. For example, you may wish to have an `<img>` at 50% of it's parent container's width, but not use the html element of `<Article>`. This pattern is repeated for Cards and content containers.
+- `<Container>` and `sectionMixin` have a `max-width` of 1024px. These are used for page content containers (within `<Main>`), and are narrower than the container in `<TopBar />` in `App.js`, which has a `max-width` of `1440px`.
 - `columnMixin` is designed to be used for two column layouts. Under tablet size (768px), these are single column layouts. `<Article>` makes use `columnMixin`, also applying a margin to space the column out, depending upon the `isLeft` or `isRight` prop.
 
 ## Icons
@@ -52,11 +52,10 @@
 - As with the above components, if you get stuck, see the source code.
 - If you need to add more svg styles, this is best done contextually, for example:
 
-```
+```javascript
 const CustomButton = styled(Button)`
-  &:hover svg {
-    fill={colors.lightPrimary};
-  }
+  padding: 0 2rem;
+  border-radius: 0.5rem;
 `;
 
 <CustomButton>
