@@ -11,7 +11,7 @@ export const patientDummyData = [
     cancerType: 'Brain cancer',
     ECOGStatus: '0',
     gleasonScore: '3+3',
-    Keywords: ['disease within prostate', 'focal disease']
+    Keywords: ['disease within prostate', 'focal disease'],
   },
   {
     id: 2,
@@ -22,7 +22,11 @@ export const patientDummyData = [
     cancerType: 'Brain cancer',
     ECOGStatus: '0',
     gleasonScore: '3+3',
-    Keywords: ['disease outside prostate', 'metastatic disease', 'advanced disease']
+    Keywords: [
+      'disease outside prostate',
+      'metastatic disease',
+      'advanced disease',
+    ],
   },
   {
     id: 3,
@@ -31,6 +35,6 @@ export const patientDummyData = [
     cancerType: 'Brain cancer',
     ECOGStatus: '0',
     gleasonScore: '3+3',
-    Keywords: ['disease within prostate', 'focal disease']
-  }
+    Keywords: ['disease within prostate', 'focal disease'],
+  },
 ];

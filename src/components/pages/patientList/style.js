@@ -94,8 +94,3 @@ export const EditButton = styled(Button)`
     padding: 0.8rem;
   }
 `;
-
-export const Span = styled.span`
-  ${textMixin};
-  margin: 0;
-`;

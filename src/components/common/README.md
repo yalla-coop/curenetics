@@ -33,7 +33,8 @@
 
 ## Forms
 - Found in `Forms.js`.
-- Includes `<input>`, `<label>`, `<textarea>`, and styles for **antd** dropdown, which we are using in place of `<select>`.
+- Includes `<PatientForm>`, `<FormItem>`, `<Label>`, and `<Input>`
+- Styles for **antd** dropdown, which we are using in place of `<select>` have so far (7/10/2019) been added in `reset.css` and `<PatientFormItem />` in styles for **PatientList** page. This component has to be styled contextually.
 
 ## Layout
 - Found in `Layout.js`.
@@ -42,7 +43,7 @@
 - `columnMixin` is designed to be used for two column layouts. Under tablet size (768px), these are single column layouts. `<Article>` makes use `columnMixin`, also applying a margin to space the column out, depending upon the `isLeft` or `isRight` prop.
 
 ## Icons
-- Found in the **/icons** folder.
+- Found in the [icons](https://github.com/yalla-coop/curenetics/tree/feature/list-patients/src/components/common/icons) folder.
 - Props:
     - icons have default props passed into them, to style them out of the box. You can override them by passing in your own props, as follows:
     - `fill` - a colour string. Usually the colour of the icon. For example `<Icon fill={colors.primary} />`

@@ -62,3 +62,8 @@ export const OL = styled.ol`
 export const LI = styled.li`
   ${textMixin};
 `;
+
+export const Span = styled.span`
+  ${textMixin};
+  margin: 0;
+`;

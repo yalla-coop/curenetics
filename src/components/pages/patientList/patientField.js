@@ -5,8 +5,9 @@ import {
   PatientInput,
   PatientLabel,
   EditButton,
-  Span,
 } from './style';
+
+import { Span } from '../../common/Typography';
 
 const PatientField = ({
   patient,
