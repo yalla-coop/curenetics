@@ -1,8 +1,27 @@
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { breakpoint, colors, font, fontFamily } from "../../styles/globalStyles";
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import {
+  breakpoint,
+  colors,
+  font,
+  fontFamily,
+} from '../../styles/globalStyles';
 
-export const buttonReset = css`
+// NOTES
+// > 8 basic varieties of buttons / links:
+// - (1 - 4): <button> (clear and purple), plus each type with an icon
+// - (5 - 8): <a> anchor link (clear and purple), plus each type with an icon
+
+// > mixins can't recieve props. Mixins are declared with css``;
+// - add props in the component declaration styled``;
+
+// - - - -
+// mixins
+
+// base:
+// - applies to all buttons and links that look like buttons
+// - does not set colour
+export const buttonBase = css`
   cursor: pointer;
   border: 0;
   padding: 0;
@@ -10,108 +29,108 @@ export const buttonReset = css`
   box-shadow: none;
   font-family: ${fontFamily.body};
   font-size: ${font.small};
-  transition: all 0.3s ease;
-  @media only screen and (min-width: ${breakpoint.small}) {
-    font-size: ${font.med};
-  }
+  text-align: center;
   line-height: 1.5;
+  transition: all 0.3s ease;
+  padding: 0.65rem 1rem;
+  border-radius: 0.15rem;
   &:focus {
     outline: none;
   }
+  @media only screen and (min-width: ${breakpoint.small}) {
+    font-size: ${font.med};
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.25rem;
+    max-width: ${breakpoint.small};
+  }
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 0.8rem 3rem;
+  }
 `;
 
-export const buttonMixin = css`
+export const purpleButton = css`
   background-color: ${colors.primary};
   color: ${colors.white};
-  padding: 1rem 1.5rem;
-  border-radius: 0.25rem;
   &:hover {
     background-color: ${colors.lightPrimary};
-  }
-  @media only screen and (min-width: ${breakpoint.small}) {
-    max-width: ${breakpoint.small};
-    margin: 0 auto;
+    color: ${colors.white};
   }
 `;
 
-export const Button = styled.button`
-  ${buttonReset};
-  ${buttonMixin};
+export const clearButton = css`
+  background-color: transparent;
+  color: ${colors.primary};
+  &:hover {
+    background-color: transparent;
+    color: ${colors.primary};
+  }
 `;
 
-// mixins can't recieve props
+export const purpleAnchor = css`
+  ${purpleButton};
+  &:visited {
+    color: ${colors.white};
+  }
+  &:visited:hover {
+    background-color: ${colors.lightPrimary};
+    color: ${colors.white};
+  }
+`;
+
+export const clearAnchor = css`
+  ${clearButton};
+  &:visited {
+    color: ${colors.primary};
+  }
+  &:visited:hover {
+    background-color: transparent;
+    color: ${colors.primary};
+  }
+`;
+
 export const iconButtonMixin = css`
-  ${buttonReset};
-  padding: 1rem 1.5rem;
-  border-radius: 0.25rem;
-  @media only screen and (min-width: ${breakpoint.small}) {
-    max-width: ${breakpoint.small};
-    margin: 0 auto;
-  }
   display: flex;
   align-items: center;
   justify-content: center;
   > svg {
-    margin-right: 1rem;
     fill: ${colors.white};
   }
 `;
 
-export const IconButton = styled.button`
-  ${iconButtonMixin};
-  ${props =>
-    props.isSolid
-      ? `
-    color: ${colors.white};
-    background-color: ${colors.primary};
-    &:hover {
-      background-color: ${colors.lightPrimary};
-      color: ${colors.white};
-    }
-  `
-      : `
-    color: ${colors.primary};
-  `};
+// - - - -
+// buttons
+export const Button = styled.button`
+  ${buttonBase};
+  ${props => (props.isClear ? clearButton : purpleButton)};
+  ${props => (props.isCenter ? `margin: 0 auto;` : ``)};
 `;
 
-export const IconAnchor = styled(Link)`
+export const IconButton = styled(Button)`
   ${iconButtonMixin};
-  ${props =>
-    props.isSolid
-      ? `
-    color: ${colors.white};
-    background-color: ${colors.primary};
-    &:visited {
-      color: ${colors.white};
-    }
-    &:hover,
-    &:visited:hover {
-      background-color: ${colors.lightPrimary};
-      color: ${colors.white};
-    }
-  `
-      : `
-    color: ${colors.primary};
-  `};
-`;
-
-export const AnchorButton = styled(Link)`
-  ${buttonReset};
-  ${buttonMixin};
-  text-align: center;
-  display: block;
-  &:hover,
-  &:visited,
-  &:hover:visited {
-    color: ${colors.white};
-  }
-  @media only screen and (min-width: ${breakpoint.small}) {
-    margin-top: 2rem;
+  ${props => (props.iconRight ? `flex-direction: row-reverse;` : '')}
+  > svg {
+    ${props => (props.iconRight ? `margin-left: 1rem;` : `margin-right: 1rem;`)}
   }
 `;
 
-export const Crumb = styled(Link)`
-  ${buttonReset};
+// - - - -
+// anchors
+export const Anchor = styled(Link)`
+  ${buttonBase};
+  ${props => (props.isClear ? clearAnchor : purpleAnchor)};
+  ${props => (props.isCenter ? `margin: 0 auto;` : ``)};
+`;
+
+export const IconAnchor = styled(Anchor)`
+  ${iconButtonMixin};
+  ${props => (props.iconRight ? `flex-direction: row-reverse;` : '')}
+  > svg {
+    ${props => (props.iconRight ? `margin-left: 1rem;` : `margin-right: 1rem;`)}
+  }
+`;
+
+export const BackLink = styled(Link)`
+  ${buttonBase};
   display: flex;
   align-items: center;
   > svg {
@@ -120,39 +139,10 @@ export const Crumb = styled(Link)`
   &:hover svg {
     transform: translateX(-0.25rem);
   }
-`;
-
-export const BigButton = styled(Button)`
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  display: block;
-  &:disabled {
-    background-color: ${colors.disabled};
-  }
   @media only screen and (min-width: ${breakpoint.small}) {
-    max-width: 300px;
+    padding: 0.8rem;
   }
-  @media (min-width: ${breakpoint.tablet}) {
-    max-width: 100%;
-  }
-`;
-
-export const CustomButton = styled.button`
-  text-align: center;
-  background-color: ${colors.primary};
-  color: ${colors.white};
-  border: none;
-  width: 40%;
-  border-radius: 4px;
-  padding: ${({ padding }) => padding || ".8rem 1rem"};
-  font-size: ${font.small};
-  cursor: pointer;
-  margin: 2rem 0;
-  @media only screen and (max-width: ${breakpoint.small}) {
-    width: 100%;
-  }
-  svg {
-    margin-right: 1rem;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 0.8rem;
   }
 `;

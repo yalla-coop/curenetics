@@ -1,5 +1,4 @@
 const colors = {
-
   background: '#f4f4f9', // pale grey
 
   primary: '#35348f', // purple
@@ -18,16 +17,17 @@ const colors = {
   cancel: '#f05358', // red
   confirm: '#58b773', // green
 
+  lightAccent: '#ffecdd',
+
   boxShadow: '0px 4px 7px rgba(159, 159, 159, 0.25)',
   cardBoxShadow: '0px 2px 3px #6362b7',
 };
 
 const fontFamily = {
-  main: '\'Lato\', sans-serif',
-  body: '\'Roboto\', sans-serif',
-  code: '\'Source Code Pro\', monospace',
+  main: "'Lato', sans-serif",
+  body: "'Roboto', sans-serif",
+  code: "'Source Code Pro', monospace",
 };
-
 
 // 16px = 1rem
 const font = {
@@ -49,6 +49,4 @@ const breakpoint = {
   massive: '1440px',
 };
 
-export {
-  colors, fontFamily, font, breakpoint,
-};
+export { colors, fontFamily, font, breakpoint };

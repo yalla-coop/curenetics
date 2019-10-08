@@ -1,29 +1,28 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { breakpoint, colors } from "../../styles/globalStyles";
+import { breakpoint, colors } from '../../styles/globalStyles';
 
 // full width
 export const sectionMixin = css`
   padding: 1rem;
   margin: 0 auto;
-  max-width: ${breakpoint.massive};
+  max-width: ${breakpoint.large};
 `;
 
 export const Header = styled.header`
   ${sectionMixin};
-  ${props => props.isCenter ? "text-align: center;" : ""}
+  ${props => (props.isCenter ? 'text-align: center;' : '')}
   @media only screen and (min-width: ${breakpoint.tablet}) {
-    ${props => props.hasColumns ? "display: flex;" : ""}
+    ${props => (props.hasColumns ? 'display: flex;' : '')}
   }
   z-index: 1;
 `;
 
 export const Container = styled.section`
   ${sectionMixin};
-  ${props => (props.isCenter ? "text-align: center;" : "")}
-  width: 70%;
+  ${props => (props.isCenter ? 'text-align: center;' : '')}
   @media only screen and (min-width: ${breakpoint.tablet}) {
-    ${props => (props.hasColumns ? "display: flex;" : "")}
+    ${props => (props.hasColumns ? 'display: flex;' : '')}
   }
   @media only screen and (max-width: ${breakpoint.tablet}) {
     width: 100%;
@@ -40,24 +39,24 @@ export const columnMixin = css`
 
 export const Article = styled.article`
   ${columnMixin};
-  ${props => (props.isLeft ? "margin-bottom: 1rem;" : "")}
-  ${props => (props.isRight ? "margin-top: 1rem;" : "")}
+  ${props => (props.isLeft ? 'margin-bottom: 1rem;' : '')}
+  ${props => (props.isRight ? 'margin-top: 1rem;' : '')}
   @media only screen and (min-width: ${breakpoint.tablet}) {
-    ${props => (props.isLeft || props.isRight ? "flex: 1;" : "")}
+    ${props => (props.isLeft || props.isRight ? 'flex: 1;' : '')}
     ${props =>
       props.isLeft
         ? `
     margin-bottom: 0;
     padding-right: 1rem;
     `
-        : ""}
+        : ''}
     ${props =>
       props.isRight
         ? `
     margin-top: 0;
     padding-left: 1rem;
     `
-        : ""}
+        : ''}
   }
 `;
 
@@ -84,11 +83,26 @@ export const UploadCard = styled.div`
 `;
 
 // breadcrumb
-export const BreadCrumb = styled.nav`
+export const BacklinkContainer = styled.nav`
   ${sectionMixin};
   display: flex;
   align-items: center;
   @media only screen and (min-width: ${breakpoint.tablet}) {
     padding-top: 2rem;
+  }
+`;
+
+// grids
+export const twoColumnGrid = css`
+  padding: 2rem 1rem;
+  width: 100%;
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  @media only screen and (min-width: ${breakpoint.large}) {
+    grid-gap: 2rem 4rem;
   }
 `;

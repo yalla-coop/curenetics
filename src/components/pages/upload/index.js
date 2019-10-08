@@ -1,19 +1,25 @@
-import React, { createRef, useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import InputBox from "./input";
-import Item from "./listItem";
-import { CardHeader, CardContent, DottedBox, Span } from "./uploadStyles";
-import filenameCheck from "../../../helpers";
+import React, { createRef, useState } from 'react';
+import styled from 'styled-components';
+import InputBox from './input';
+import Item from './listItem';
+import { CardHeader, CardContent, DottedBox, Span } from './uploadStyles';
+import filenameCheck from '../../../helpers';
 
-import Chevron from "../../common/icons/Chevron";
-import Plus from "../../common/icons/Plus";
+import Chevron from '../../common/icons/Chevron';
+import Plus from '../../common/icons/Plus';
 
-import { BreadCrumb, sectionMixin, Header, columnMixin, Article, UploadCard } from "../../common/Layout";
-import { Title, SubHeading, Paragraph, OL, LI } from "../../common/Typography";
-import { Crumb, buttonReset, IconButton, BigButton } from "../../common/Buttons";
+import {
+  BacklinkContainer,
+  sectionMixin,
+  Header,
+  columnMixin,
+  Article,
+  UploadCard,
+} from '../../common/Layout';
+import { Title, SubHeading, Paragraph, OL, LI } from '../../common/Typography';
+import { BackLink, IconButton, Button } from '../../common/Buttons';
 
-import { breakpoint, colors } from "../../../styles/globalStyles";
+import { breakpoint, colors } from '../../../styles/globalStyles';
 
 const ContentContainer = styled.div`
   ${sectionMixin};
@@ -31,29 +37,44 @@ const UploadColumn = styled.div`
   }
 `;
 
-const EnterLink = styled(Link)`
-  ${buttonReset};
-  display: flex;
-  align-items: center;
-`;
-
 const AddFiles = styled(SubHeading)`
   color: ${colors.black};
   font-weight: 400;
 `;
 
-const UploadButton = styled(IconButton)`
-  border-radius: 50%;
+const AddFileButton = styled(IconButton)`
   width: 4rem;
   height: 4rem;
-  padding: 0.5rem;
   margin: 0;
+  padding: 0.5rem;
+  border-radius: 2rem;
   @media only screen and (min-width: ${breakpoint.small}) {
     max-width: 4rem;
     margin: 0;
+    padding: 0.5rem;
+    border-radius: 2rem;
+  }
+  @media only screen and (min-width: ${breakpoint.tablet}) {
+    padding: 0.5rem;
   }
   svg {
     margin-right: 0;
+  }
+`;
+
+const UploadButton = styled(Button)`
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+  &:disabled {
+    background-color: ${colors.disabled};
+  }
+  @media only screen and (min-width: ${breakpoint.small}) {
+    max-width: 300px;
+  }
+  @media (min-width: ${breakpoint.tablet}) {
+    max-width: 100%;
   }
 `;
 
@@ -77,11 +98,11 @@ const Upload = () => {
   };
   return (
     <>
-      <BreadCrumb>
-        <Crumb to='/'>
+      <BacklinkContainer>
+        <BackLink to="/">
           <Chevron width={20} />
-        </Crumb>
-      </BreadCrumb>
+        </BackLink>
+      </BacklinkContainer>
 
       <Header>
         <Title>Add your PDF files</Title>
@@ -91,7 +112,10 @@ const Upload = () => {
         <Article isLeft>
           <SubHeading>What to do:</SubHeading>
           <OL>
-            <LI>Click on the Add your files button to select patients file(s). Only PDF files can be selected.</LI>
+            <LI>
+              Click on the Add your files button to select patients file(s).
+              Only PDF files can be selected.
+            </LI>
             <LI>Delete any file at any time</LI>
             <LI>When you’re ready click the Upload button to upload files.</LI>
           </OL>
@@ -99,37 +123,48 @@ const Upload = () => {
 
         <UploadColumn>
           <UploadCard>
-
             <CardHeader>
               <InputBox onChange={selectFiles} ref={inputRef} />
-              <UploadButton onClick={() => onButtonClick()} isSolid aria-label='Upload PDF'>
+              <AddFileButton
+                onClick={() => onButtonClick()}
+                aria-label="Upload PDF"
+              >
                 <Plus fill={colors.white} width={48} />
-              </UploadButton>
+              </AddFileButton>
               <CardContent>
                 <AddFiles>Add your files</AddFiles>
-                <Paragraph isLight>PDF&apos;s Only</Paragraph>
+                <Paragraph isLight>PDFs Only</Paragraph>
               </CardContent>
             </CardHeader>
 
             <DottedBox>
               {filenames.length ? (
                 filenames.map(file => {
-                  const bgcolor = file.name.endsWith(".pdf") ? "yes" : "No";
-                  return <Item bg={bgcolor} onClick={removeFile} key={file.lastModified} text={file.name} />;
+                  const bgcolor = file.name.endsWith('.pdf') ? 'yes' : 'No';
+                  return (
+                    <Item
+                      bg={bgcolor}
+                      onClick={removeFile}
+                      key={file.lastModified}
+                      text={file.name}
+                    />
+                  );
                 })
               ) : (
                 <Span>No Files uploaded</Span>
               )}
             </DottedBox>
 
-            <BigButton
+            <UploadButton
               // button is disabled if there are no files selected or the file isn't a pdf
-              disabled={filenameCheck(filenames) !== filenames.length || filenames.length === 0}>
+              disabled={
+                filenameCheck(filenames) !== filenames.length ||
+                filenames.length === 0
+              }
+            >
               Upload File(s)
-            </BigButton>
+            </UploadButton>
           </UploadCard>
-
-          <EnterLink to='/enter'>Or type in patient details</EnterLink>
         </UploadColumn>
       </ContentContainer>
     </>
