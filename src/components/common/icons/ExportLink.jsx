@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ExportLink = ({ titleTag = 'External Link', width = 24, fill = '#ffffff' }) => (
+const ExportLink = ({ titleTag = 'External Link', width = 24, fill = '#ffffff', margin = "initial" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 20"
     style={{
-      width
+      width,
+      margin
     }}>
     {titleTag && <title>{titleTag}</title>}
     <path
