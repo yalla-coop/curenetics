@@ -1,0 +1,64 @@
+{
+"patients": [{
+    "fileReference": "001001",
+    "age": "72",
+    "gender": "male",
+    "postcode": "E1 7AX",
+    "cancerType": "Prostate cancer",
+    "ECOGStatus": "1",
+    "gleasonScore": "3+3",
+    "Keywords": [
+      "disease within prostate",
+      "focal disease",
+      "disease outside prostate",
+      "metastatic disease",
+      "advanced disease"
+     ]
+   },{
+    "fileReference": "001131",
+    "age": "50",
+    "gender": "male",
+    "postcode": "B1 1HN",
+    "cancerType": "Prostate cancer",
+    "ECOGStatus": "1",
+    "gleasonScore": "3+3",
+    "Keywords": [
+      "disease within prostate",
+      "focal disease",
+      "disease outside prostate",
+      "metastatic disease",
+      "advanced disease"
+     ]
+   },{
+    "fileReference": "001221",
+    "age": "72",
+    "gender": "male",
+    "postcode": "E1 7AX",
+    "cancerType": "Prostate cancer",
+    "ECOGStatus": "1",
+    "gleasonScore": "3+3",
+    "Keywords": [
+      "disease within prostate",
+      "focal disease",
+      "disease outside prostate",
+      "metastatic disease",
+      "advanced disease"
+     ]
+   },{
+    "fileReference": "00901",
+    "age": "72",
+    "gender": "male",
+    "postcode": "E1 7AX",
+    "cancerType": "Prostate cancer",
+    "ECOGStatus": "1",
+    "gleasonScore": "3+3",
+    "Keywords": [
+      "disease within prostate",
+      "focal disease",
+      "disease outside prostate",
+      "metastatic disease",
+      "advanced disease"
+     ]
+   }
+   ]
+}

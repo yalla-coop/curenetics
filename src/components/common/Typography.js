@@ -1,7 +1,15 @@
 import styled, { css } from 'styled-components';
 import {
-  breakpoint, colors, font, fontFamily
+  breakpoint,
+  colors,
+  font,
+  fontFamily,
 } from '../../styles/globalStyles';
+
+export const fontImport = css`
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+`;
 
 export const Title = styled.h1`
   font-family: ${fontFamily.main};
@@ -53,4 +61,9 @@ export const OL = styled.ol`
 
 export const LI = styled.li`
   ${textMixin};
+`;
+
+export const Span = styled.span`
+  ${textMixin};
+  margin: 0;
 `;
