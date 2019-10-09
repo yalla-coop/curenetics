@@ -98,7 +98,6 @@ const Upload = () => {
   };
   return (
     <>
-
       <BacklinkContainer>
         <BackLink to="/">
           <Chevron width={20} />
@@ -164,9 +163,7 @@ const Upload = () => {
             >
               Upload File(s)
             </UploadButton>
-          </Upload>
-
-          <EnterLink to="/enter">Or type in patient details</EnterLink>
+          </UploadCard>
         </UploadColumn>
       </ContentContainer>
     </>
