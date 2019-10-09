@@ -8,14 +8,14 @@ const Spacer = styled.div`
   padding-top: 6rem;
 `;
 
-const title1 = 'Processing....';
-const para1a =
+const processTitle = 'Processing....';
+const processPara =
   'We are currently analysing the data to extract the relevant medical entities.';
-const para1b =
+const refresh =
   'This can take a few minutes so please do not refresh this page.';
 
-const title2 = 'Finding Clinical Trials....';
-const para2a =
+const clinicTitle = 'Finding Clinical Trials....';
+const clinicPara =
   'We are currently filtering Clinical Trials across the UK to find matches for each of the entries provided.';
 
 const Loading = ({ processing }) => (
@@ -24,9 +24,9 @@ const Loading = ({ processing }) => (
     <Header isCenter>
       <Spacer />
       <Spinner />
-      <Title>{processing ? title1 : title2}</Title>
-      <Paragraph>{processing ? para1a : para2a}</Paragraph>
-      <Paragraph>{para1b}</Paragraph>    
+      <Title>{processing ? processTitle : clinicTitle}</Title>
+      <Paragraph>{processing ? processPara : clinicPara}</Paragraph>
+      <Paragraph>{refresh}</Paragraph>    
     </Header>
   </>
 );
