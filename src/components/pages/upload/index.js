@@ -1,8 +1,4 @@
 import React, { createRef, useState } from 'react';
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-=======
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
 import styled from 'styled-components';
 import InputBox from './input';
 import Item from './listItem';
@@ -13,11 +9,7 @@ import Chevron from '../../common/icons/Chevron';
 import Plus from '../../common/icons/Plus';
 
 import {
-<<<<<<< HEAD
-  BreadCrumb,
-=======
   BacklinkContainer,
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
   sectionMixin,
   Header,
   columnMixin,
@@ -25,16 +17,7 @@ import {
   UploadCard,
 } from '../../common/Layout';
 import { Title, SubHeading, Paragraph, OL, LI } from '../../common/Typography';
-<<<<<<< HEAD
-import {
-  Crumb,
-  buttonReset,
-  IconButton,
-  BigButton,
-} from '../../common/Buttons';
-=======
 import { BackLink, IconButton, Button } from '../../common/Buttons';
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
 
 import { breakpoint, colors } from '../../../styles/globalStyles';
 
@@ -115,16 +98,9 @@ const Upload = () => {
   };
   return (
     <>
-<<<<<<< HEAD
-      <BreadCrumb>
-        <Crumb to="/">
-<<<<<<< HEAD
-=======
-=======
+
       <BacklinkContainer>
         <BackLink to="/">
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
->>>>>>> master
           <Chevron width={20} />
         </BackLink>
       </BacklinkContainer>
@@ -149,20 +125,8 @@ const Upload = () => {
           <UploadCard>
             <CardHeader>
               <InputBox onChange={selectFiles} ref={inputRef} />
-<<<<<<< HEAD
-              <UploadButton
-                onClick={() => onButtonClick()}
-                isSolid
-=======
-<<<<<<< HEAD
-              <UploadButton
-                onClick={() => onButtonClick()}
-                isSolid
-=======
               <AddFileButton
                 onClick={() => onButtonClick()}
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
->>>>>>> master
                 aria-label="Upload PDF"
               >
                 <Plus fill={colors.white} width={48} />
@@ -200,15 +164,9 @@ const Upload = () => {
             >
               Upload File(s)
             </UploadButton>
-          </UploadCard>
-<<<<<<< HEAD
+          </Upload>
 
           <EnterLink to="/enter">Or type in patient details</EnterLink>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
->>>>>>> master
         </UploadColumn>
       </ContentContainer>
     </>

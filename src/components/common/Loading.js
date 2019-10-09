@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Spinner from './icons/Spinner';
-import { Header, Container } from './Layout';
+import { Header } from './Layout';
 import { Title, Paragraph } from './Typography';
 
 const Spacer = styled.div`
@@ -9,21 +9,25 @@ const Spacer = styled.div`
 `;
 
 const title1 = 'Processing....';
-const para1a = 'We are currently analysing the data to extract the relevant medical entities.';
-const para1b = 'This can take a few minutes so please do not refresh this page.';
+const para1a =
+  'We are currently analysing the data to extract the relevant medical entities.';
+const para1b =
+  'This can take a few minutes so please do not refresh this page.';
 
 const title2 = 'Finding Clinical Trials....';
-const para2a = 'We are currently filtering Clinical Trials across the UK to find matches for each of the entries provided.';
-const para2b = 'This can take a few minutes so please do not refresh this page.';
+const para2a =
+  'We are currently filtering Clinical Trials across the UK to find matches for each of the entries provided.';
 
-const Loading = () => (
-  <>  
-      <Header isCenter><Spacer />
+const Loading = ({ processing }) => (
+  <>
+      
+    <Header isCenter>
+      <Spacer />
       <Spinner />
-      <Title>{title1}</Title>
-      <Paragraph>{para1a}</Paragraph>
+      <Title>{processing ? title1 : title2}</Title>
+      <Paragraph>{processing ? para1a : para2a}</Paragraph>
       <Paragraph>{para1b}</Paragraph>    
-      </Header>
+    </Header>
   </>
 );
 
