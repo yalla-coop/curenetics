@@ -11,6 +11,7 @@ import Enter from './pages/enter';
 import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import TrialDetail from './pages/trialDetail';
+import EnterPatients from './pages/enterPatients';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 
@@ -113,6 +114,7 @@ const App = () => (
           <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/patient-list" component={PatientList} />
           <Route path="/trial-list" component={TrialList} />
+          <Route path="/enter-patients" component={EnterPatients} />
           <Route component={NotFound} />
         </Switch>
       </Main>
