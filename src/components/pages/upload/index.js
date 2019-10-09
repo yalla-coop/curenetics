@@ -107,7 +107,6 @@ const Upload = () => {
       <Header>
         <Title>Add your PDF files</Title>
       </Header>
-
       <ContentContainer hasColumns>
         <Article isLeft>
           <SubHeading>What to do:</SubHeading>
