@@ -115,13 +115,8 @@ const Upload = () => {
   };
   return (
     <>
-<<<<<<< HEAD
-      <BreadCrumb>
-        <Crumb to="/">
-=======
       <BacklinkContainer>
         <BackLink to="/">
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
           <Chevron width={20} />
         </BackLink>
       </BacklinkContainer>
@@ -146,14 +141,8 @@ const Upload = () => {
           <UploadCard>
             <CardHeader>
               <InputBox onChange={selectFiles} ref={inputRef} />
-<<<<<<< HEAD
-              <UploadButton
-                onClick={() => onButtonClick()}
-                isSolid
-=======
               <AddFileButton
                 onClick={() => onButtonClick()}
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
                 aria-label="Upload PDF"
               >
                 <Plus fill={colors.white} width={48} />
@@ -192,11 +181,6 @@ const Upload = () => {
               Upload File(s)
             </UploadButton>
           </UploadCard>
-<<<<<<< HEAD
-
-          <EnterLink to="/enter">Or type in patient details</EnterLink>
-=======
->>>>>>> 4a07e6606e9f4a38efb517a3e3093682cc87d624
         </UploadColumn>
       </ContentContainer>
     </>
