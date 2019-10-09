@@ -13,6 +13,9 @@ import {
 
 export const PatientlistContainer = styled.div`
   ${sectionMixin};
+  @media only screen and (max-width: ${breakpoint.tablet}) {
+    padding: 0px;
+  }
 `;
 
 export const MatchButton = styled(Button)`
@@ -40,11 +43,14 @@ export const PatientDetailsGrid = styled.form`
   ${twoColumnGrid};
   padding-left: 0;
   padding-right: 0;
+  @media only screen and (min-width: ${breakpoint.large}) {
+    grid-gap: 1rem 1rem;
+  }
 `;
 
 // form fields
 export const PatientFormItem = styled(FormItem)`
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border-bottom: 0.125rem solid;
   border-bottom-color: ${({ edit }) =>
     edit ? colors.accent : colors.background};
@@ -67,12 +73,27 @@ export const PatientFormItem = styled(FormItem)`
     border-radius: 0;
   }
   .ant-select-selection__rendered {
-    padding: 0.5rem 0.25rem;
+    /* padding: 0.5rem 0.25rem; */
+  }
+  @media only screen and (max-width: ${breakpoint.tablet}) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rem;
   }
 `;
 
 export const PatientInput = styled(Input)`
   background-color: ${colors.background};
+  /* width: 0rem; */
+  padding: 0.5rem 0.25rem;
+  max-width: 0px;
+  @media only screen and (max-width: ${breakpoint.tablet}) {
+    width: 100%;
+    min-width: initial;
+    padding: 0px;
+    max-width: 100%;
+  }
 `;
 
 export const PatientLabel = styled(Label)`
@@ -81,7 +102,8 @@ export const PatientLabel = styled(Label)`
 `;
 
 export const EditButton = styled(Button)`
-  padding: 0.8rem;
+  padding: 0.1rem;
+  margin: 0.1rem;
   color: ${colors.lightPrimary};
   &:hover {
     color: ${colors.primary};
