@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import '~antd/dist/antd.css';
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -59,4 +60,20 @@ a:visited,
 a:visited:hover
 {
 	color: #070719;
+}
+
+/* dropdown stuff outside of react */
+.ant-select-open .ant-select-selection,
+.ant-select-dropdown-menu-item-active,
+.ant-select-dropdown-menu-item:hover:not(.ant-select-dropdown-menu-item-disabled) {
+	background-color: #ffecdd;
+	border-color: #f89e51;
+	box-shadow: none;
+}
+.ant-select-dropdown-menu-item {
+	padding: 0.5rem 1rem;
+	font-family: 'Roboto', sans-serif;
+}
+.ant-select-dropdown-menu-item-active {
+	background-color: #ffecdd;
 }
