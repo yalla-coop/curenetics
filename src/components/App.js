@@ -115,11 +115,8 @@ const App = () => (
           <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/patient-list" component={PatientList} />
           <Route path="/trial-list" component={TrialList} />
-<<<<<<< HEAD
           <Route path="/match-trial" component={MatchTrial} />
-=======
           <Route path="/enter-patients" component={EnterPatients} />
->>>>>>> 1b1c105acfac9dccaa1591233c18e8a43a192892
           <Route component={NotFound} />
         </Switch>
       </Main>
