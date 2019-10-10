@@ -103,6 +103,6 @@ export const twoColumnGrid = css`
     padding-bottom: 4rem;
   }
   @media only screen and (min-width: ${breakpoint.large}) {
-    grid-gap: 2rem 4rem;
+    grid-gap: 1rem 1rem;
   }
 `;
