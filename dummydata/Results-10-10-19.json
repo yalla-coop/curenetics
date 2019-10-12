@@ -69,14 +69,14 @@
 				"inclusion": {
 					"ECOG status": "fit",
 					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": false
 				},
 				"Exclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": true
 				}
 			}
 		},
@@ -1303,16 +1303,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "fit",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -1363,16 +1363,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
+					"ECOG status": "",
 					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -1461,16 +1461,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -1597,16 +1597,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": false
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -3801,16 +3801,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "not fit",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -3862,16 +3862,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
+					"ECOG status": "",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -3921,16 +3921,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -4559,16 +4559,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": true
 				}
 			}
 		},
@@ -4615,16 +4615,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "not fit",
+					"Gleason": "high risk",
+          "DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
           "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"Gleason": "low risk",
+					"DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": false
 				}
 			}
 		},
@@ -4677,16 +4677,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "high risk",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -4735,16 +4735,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -4801,16 +4801,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -4861,16 +4861,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
           "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -4918,16 +4918,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "low risk",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -4980,29 +4980,29 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": null
 				},
 				"Eligibility": {
 					"inclusion": {
-						"ECOG status": "fit",
-						"Gleason": "low risk",
-						"DiseaseWithinProstate": "True",
-						"DiseaseOutsideProstate": "False"
+						"ECOG status": "",
+						"Gleason": "",
+						"DiseaseWithinProstate": null,
+						"DiseaseOutsideProstate": null
 					},
 					"Exclusion": {
-						"ECOG status": "not fit",
-						"Gleason": "high risk",
-						"DiseaseWithinProstate": "True",
-						"DiseaseOutsideProstate": "False"
+						"ECOG status": "",
+						"Gleason": "",
+						"DiseaseWithinProstate": null,
+						"DiseaseOutsideProstate": false
 					}
 				}
 			}
@@ -5055,16 +5055,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
-				},
-				"Exclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": false
+				},
+				"Exclusion": {
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -7527,15 +7527,15 @@
 			"Eligibility": {
 				"inclusion": {
           "ECOG status": "not fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"Gleason": "high risk",
+          "DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -7965,16 +7965,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": false
 				}
 			}
 		},
@@ -8117,15 +8117,15 @@
 			"Eligibility": {
 				"inclusion": {
 					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"Gleason": "high risk",
+					"DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": false
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "not fit",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -8175,16 +8175,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "fit",
+					"Gleason": "high risk",
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": false
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "low risk",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -8956,16 +8956,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
-				},
-				"Exclusion": {
           "ECOG status": "fit",
 					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": true
+				},
+				"Exclusion": {
+          "ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -9587,16 +9587,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
-				},
-				"Exclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
+				},
+				"Exclusion": {
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -10682,16 +10682,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
+          "ECOG status": "fit",
 					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -10742,16 +10742,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": true
 				}
 			}
 		},
@@ -11133,16 +11133,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
+          "ECOG status": "",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11192,16 +11192,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11261,16 +11261,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+          "ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11323,16 +11323,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11472,16 +11472,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"ECOG status": "",
+					"Gleason": "",
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11757,15 +11757,15 @@
 			"Eligibility": {
 				"inclusion": {
           "ECOG status": "not fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
+          "ECOG status": "",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11815,14 +11815,14 @@
 				"inclusion": {
 					"ECOG status": "fit",
 					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": false
 				},
 				"Exclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -11901,14 +11901,14 @@
 				"inclusion": {
           "ECOG status": "not fit",
 					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": false,
+					"DiseaseOutsideProstate": true
 				}
 			}
 		},
@@ -12301,16 +12301,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-          "ECOG status": "not fit",
+          "ECOG status": "",
 					"Gleason": "low risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
+          "ECOG status": "",
 					"Gleason": "high risk",
-					"DiseaseWithinProstate": "True",
-					"DiseaseOutsideProstate": "False"
+					"DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": null
 				}
 			}
 		},
@@ -12563,16 +12563,16 @@
 			},
 			"Eligibility": {
 				"inclusion": {
-					"ECOG status": "fit",
-					"Gleason": "low risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-					"ECOG status": "not fit",
-					"Gleason": "high risk",
-          "DiseaseWithinProstate": "False",
-					"DiseaseOutsideProstate": "True"
+					"ECOG status": "",
+					"Gleason": "",
+          "DiseaseWithinProstate": null,
+					"DiseaseOutsideProstate": false
 				}
 			}
 		}
