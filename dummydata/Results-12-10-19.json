@@ -66,7 +66,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "fit",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": false,
@@ -1302,7 +1302,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "fit",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -1362,7 +1362,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "low risk",
           "DiseaseWithinProstate": null,
@@ -1460,7 +1460,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": false,
@@ -1596,7 +1596,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -3800,7 +3800,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -3861,7 +3861,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
           "DiseaseWithinProstate": null,
@@ -3920,7 +3920,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -4558,7 +4558,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -4614,7 +4614,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
           "DiseaseWithinProstate": true,
@@ -4676,7 +4676,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": null,
@@ -4734,7 +4734,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
           "DiseaseWithinProstate": true,
@@ -4800,7 +4800,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -4860,7 +4860,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
           "DiseaseWithinProstate": null,
@@ -4917,7 +4917,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -4979,7 +4979,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -4992,7 +4992,7 @@
 					"DiseaseOutsideProstate": null
 				},
 				"Eligibility": {
-					"inclusion": {
+					"Inclusion": {
 						"ECOG status": "",
 						"Gleason": "",
 						"DiseaseWithinProstate": null,
@@ -5054,7 +5054,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": true,
@@ -7525,7 +7525,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "not fit",
 					"Gleason": "high risk",
           "DiseaseWithinProstate": false,
@@ -7964,7 +7964,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -8115,7 +8115,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": false,
@@ -8174,7 +8174,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": true,
@@ -8955,7 +8955,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": false,
@@ -9586,7 +9586,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": null,
@@ -10681,7 +10681,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "fit",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": null,
@@ -10741,7 +10741,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": true,
@@ -11132,7 +11132,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": true,
@@ -11191,7 +11191,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -11260,7 +11260,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -11322,7 +11322,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -11471,7 +11471,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
@@ -11755,7 +11755,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "not fit",
 					"Gleason": "",
           "DiseaseWithinProstate": null,
@@ -11812,7 +11812,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "fit",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": true,
@@ -11898,7 +11898,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "not fit",
 					"Gleason": "low risk",
           "DiseaseWithinProstate": null,
@@ -12300,7 +12300,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
           "ECOG status": "",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": true,
@@ -12562,7 +12562,7 @@
 				"Local": "clinical_study"
 			},
 			"Eligibility": {
-				"inclusion": {
+				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
           "DiseaseWithinProstate": true,
