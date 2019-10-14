@@ -1,6 +1,7 @@
 import React from 'react';
 import MatchHeader from './matchHeader';
 import MatchTable from './matchTable';
+import Location from './location';
 
 const SingleTrialPdf = ({ data, isPotential = null }) => {
   const { trialInfo, matchingInfo } = data;
@@ -14,6 +15,7 @@ const SingleTrialPdf = ({ data, isPotential = null }) => {
     <>
       <MatchHeader trialInfo={trialInfo} />
       <MatchTable trialPatientData={trialPatient} isPotential={isPotential} />
+      <Location trialInfo={trialInfo} />
     </>
   );
 };
