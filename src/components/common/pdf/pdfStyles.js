@@ -8,19 +8,24 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'normal',
-    fontFamily: 'Roboto',
+    // fontFamily: 'Roboto',
     fontSize: 13,
     lineHeight: 1.5,
   },
   boldText: {
     fontWeight: 'bold',
-    fontFamily: 'Roboto-bold',
+    // fontFamily: 'Roboto-bold',
     fontSize: 13,
     lineHeight: 1.5,
   },
   icon: {
     width: 18,
     height: 18,
+    marginRight: 8,
+  },
+  markerIconStyle: {
+    width: 'auto',
+    height: 20,
     marginRight: 8,
   },
   rowContainer: {
@@ -46,7 +51,7 @@ export const styles = StyleSheet.create({
   },
   nctText: {
     fontWeight: 'normal',
-    fontFamily: 'Roboto',
+    // fontFamily: 'Roboto',
     fontSize: 13,
     lineHeight: 1.5,
     color: colors.primary,
@@ -77,7 +82,7 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontWeight: 'bold',
-    fontFamily: 'Roboto-bold',
+    // fontFamily: 'Roboto-bold',
     fontSize: 18,
   },
   subtitles: {
@@ -91,13 +96,13 @@ export const styles = StyleSheet.create({
   subtitleTrial: {
     flex: 3,
     fontWeight: 'bold',
-    fontFamily: 'Roboto-bold',
+    // fontFamily: 'Roboto-bold',
     fontSize: 13,
   },
   subtitlePatient: {
     flex: 2,
     fontWeight: 'bold',
-    fontFamily: 'Roboto-bold',
+    // fontFamily: 'Roboto-bold',
     fontSize: 13,
   },
   // columns

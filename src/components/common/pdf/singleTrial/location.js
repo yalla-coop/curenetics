@@ -1,23 +1,32 @@
 import React from 'react';
-import { View, Text } from '@react-pdf/renderer';
+import { View, Text, Image } from '@react-pdf/renderer';
 import { styles } from '../pdfStyles';
+import { icons } from '../pdfIcons';
 
-const Location = ({ trialInfo }) => {
-  const { boldText, columnContainer, text, rowContainer } = styles;
-  return (
-    <View style={[columnContainer, { marginTop: 40 }]}>
-      <Text style={boldText}>Trial Location(s):</Text>
-      {trialInfo.locations.map(item => {
-        return (
+const {
+  boldText,
+  columnContainer,
+  text,
+  rowContainer,
+  markerIconStyle,
+} = styles;
+
+const { markerIcon } = icons;
+
+const Location = ({ trialInfo }) => (
+  <View style={[columnContainer, { marginTop: 40 }]}>
+    <Text style={boldText}>Trial Location(s):</Text>
+    {trialInfo.locations.map(item => {
+      return (
+        <View style={rowContainer} key={item.name}>
+          <Image style={markerIconStyle} src={markerIcon} />
           <View style={rowContainer}>
-            <Text style={[text, { lineHeight: 0.5 }]}>{item.name}</Text>
-            <Text style={[text, { paddingLeft: 8, lineHeight: 0.5 }]}>
-              {item.address}
-            </Text>
+            <Text style={[text, { lineHeight: 0.5 }]}>{item.name}, </Text>
+            <Text style={[text, { lineHeight: 0.5 }]}>{item.address}</Text>
           </View>
-        );
-      })}
-    </View>
-  );
-};
+        </View>
+      )
+    })}
+  </View>
+);
 export default Location;

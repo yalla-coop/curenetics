@@ -1,22 +1,22 @@
 import React from 'react';
-import { Font, Document, Page } from '@react-pdf/renderer';
+import { Document, Page } from '@react-pdf/renderer';
 import { styles } from './pdfStyles';
 
-import Roboto from '../fonts/Roboto-Regular.ttf';
-import RobotoBold from '../fonts/Roboto-Bold.ttf';
+// import Roboto from '../fonts/Roboto-Regular.ttf';
+// import RobotoBold from '../fonts/Roboto-Bold.ttf';
 
 // import templates for single trial and mulitple trials here:
 import SingleTrial from './singleTrial';
 
-Font.register({
-  family: 'Roboto',
-  src: Roboto,
-});
+// Font.register({
+//   family: 'Roboto',
+//   src: Roboto,
+// });
 
-Font.register({
-  family: 'Roboto-bold',
-  src: RobotoBold,
-});
+// Font.register({
+//   family: 'Roboto-bold',
+//   src: RobotoBold,
+// });
 
 // data = result data
 // isPotential = green or orange colour

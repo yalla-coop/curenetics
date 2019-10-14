@@ -78,7 +78,7 @@ export const matchData = [
         },
         {
           name: 'Clinic A',
-          address: '',
+          address: 'Test Address, needs to be entered',
           contact: '',
           recruitingStatus: 'recruiting',
         },
