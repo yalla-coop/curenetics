@@ -1,6 +1,3 @@
-// runs on componentDidMount
-// > useRef if using hooks in the future
-
 const keysOrder = [
   'fileReference',
   'ECOGStatus',
@@ -18,7 +15,7 @@ const mapKeyToOptions = {
   'Disease within prostate': ['yes', 'no'],
   'Disease outside prostate': ['yes', 'no'],
   gleasonScore: ['3+3', '3+4', '4+3', '4+4', '9-10'],
-  cancerType: ['Brain cancer', 'Skin cancer', '​Head and neck cancer']
+  cancerType: ['Brain cancer', 'Skin cancer', '​Head and neck cancer'],
 };
 
 const mapKeyToDisplayField = {
@@ -34,6 +31,12 @@ const mapKeyToDisplayField = {
 };
 
 export const addOptionsFunc = data => {
+  // this massive code is just for convrting the list from a simple array
+  // to array of object that suitable for the form
+  // did the user press edit-field for that one? (edit)
+  // what the user should see instead of key name? (display)
+  // what the value the field? (value)
+  // if options have value then it's select input if not its just a text input
   return data.map(object =>
     keysOrder.reduce((acc, key) => {
       if (key === 'Keywords') {
@@ -47,7 +50,7 @@ export const addOptionsFunc = data => {
               : 'no',
             edit: false,
             options: mapKeyToOptions['Disease in prostate'],
-            display: mapKeyToDisplayField['Disease in prostate']
+            display: mapKeyToDisplayField['Disease in prostate'],
           },
           {
             key: 'Disease outside prostate',
@@ -60,8 +63,8 @@ export const addOptionsFunc = data => {
               : 'no',
             edit: false,
             options: mapKeyToOptions['Disease outside prostate'],
-            display: mapKeyToDisplayField['Disease outside prostate']
-          }
+            display: mapKeyToDisplayField['Disease outside prostate'],
+          },
         ]);
       }
 

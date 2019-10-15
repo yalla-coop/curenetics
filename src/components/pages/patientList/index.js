@@ -48,14 +48,45 @@ class patientList extends Component {
   }
 
   handleChange = (key, fileReference) => e => {
+    // if we need to change any field? what should we know?
+    // who is the patient? (fileReference)
+    // what field? (key)
+    // what value? (e)
     const { list } = this.state;
+    // list contain array of arrays of objects [[{},{}],[{},{}]]
+    // outter array is the patients
+    // inner array of objects represent the status of
+    // the fields of the patient like (edit, display, key, ...)
+    // I explained it more on addOptionsFunc.js
     const newState = list.map(patientFields => {
       const fileReferencefound = patientFields.find(
         ({ key: keyFind }) => keyFind === 'fileReference'
       ).value;
+      // is it the patient that we looking for?
       if (fileReferencefound === fileReference) {
+        /*
+          an example of patientFields structure is
+          [{
+            id: patient-1
+            key: "age"
+            eidt: false
+            display: "Age:"
+            options: undefined
+          },{
+            id: patient-1
+            key: "cancerType"
+            eidt: false
+            display: "Type of Cancer:"
+            options: ['Brain cancer']
+          },...]
+        */
         return patientFields.map(patientField => {
+          // loop throgh the keys for the patient
           if (patientField.key === key) {
+            // destrucre the object for not mutating the state
+            // changeing the value depeding on
+            // value of the (e) > string || number? it came from select input
+            // otherwise came from text input
             return {
               ...patientField,
               value:
@@ -107,8 +138,7 @@ class patientList extends Component {
       optionFilterProp="children"
       onChange={this.handleChange(key, fileReference)}
       filterOption={(inp, opt) =>
-        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0
-      }
+        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0}
     >
       {options.map(value => (
         <Option key={value} value={value}>
@@ -125,6 +155,7 @@ class patientList extends Component {
   };
 
   viewOrginalFile = fileReference => () => {
+    // fileReference its like the id of the patient or the name of the file
     const { medicalRecords } = this.state;
     const medicalRecordFound = medicalRecords.find(({ name }) => {
       return name.split('.')[0] === fileReference;
@@ -149,6 +180,7 @@ class patientList extends Component {
 
         {list.length > 0 && (
           <PatientlistContainer>
+            {/* array contain all patients */}
             {list.map(patient => {
               const fileReference = patient.find(
                 ({ key }) => key === 'fileReference'
@@ -158,11 +190,12 @@ class patientList extends Component {
               return (
                 <PatientCard key={id}>
                   <PatientDetailsGrid>
-                    {patient.map(item => (
+                    {/* loop throgh the fields of the patient */}
+                    {patient.map(field => (
                       <PatientField
-                        key={`${item.id}-${item.key}`}
+                        key={`${field.id}-${field.key}`}
                         fileReference={fileReference}
-                        patient={item}
+                        patient={field}
                         handleEdit={handleEditButton}
                         handleChange={handleChange}
                         renderFieldOptions={renderFieldOptions}
