@@ -134,7 +134,6 @@ const Upload = () => {
               <CardContent>
                 <AddFiles>Add your files</AddFiles>
                 <Tooltip />
-                <Paragraph isLight>PDFs Only</Paragraph>
               </CardContent>
             </CardHeader>
 
