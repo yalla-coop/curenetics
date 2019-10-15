@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef } from 'react';
 import styled from 'styled-components';
 import InputBox from './input';
 import Item from './listItem';
@@ -7,6 +7,7 @@ import filenameCheck from '../../../helpers';
 
 import Chevron from '../../common/icons/Chevron';
 import Plus from '../../common/icons/Plus';
+import patientdata from './patientdata.json';
 
 import {
   BacklinkContainer,
@@ -78,8 +79,8 @@ const UploadButton = styled(Button)`
   }
 `;
 
-const Upload = () => {
-  const [filenames, setFilenames] = useState([]);
+const Upload = props => {
+  const { filenames, setFilenames } = props;
   const inputRef = createRef();
   const onButtonClick = () => {
     inputRef.current.click();
@@ -160,6 +161,14 @@ const Upload = () => {
                 filenameCheck(filenames) !== filenames.length ||
                 filenames.length === 0
               }
+              // basic simulation of api call
+              onClick={() => {
+                setTimeout(() => {
+                  props.history.push('/patient-list', {
+                    list: patientdata.patients,
+                  });
+                }, 500);
+              }}
             >
               Upload File(s)
             </UploadButton>
