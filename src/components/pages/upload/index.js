@@ -7,7 +7,7 @@ import filenameCheck from '../../../helpers';
 
 import Chevron from '../../common/icons/Chevron';
 import Plus from '../../common/icons/Plus';
-import patientdata from './patientdata.json';
+import patientdata from '../../../dummydata/patientdata.json';
 
 import {
   BacklinkContainer,
