@@ -1,5 +1,6 @@
 import React, { createRef, useState } from 'react';
 import styled from 'styled-components';
+import Modual from './modal';
 import InputBox from './input';
 import Item from './listItem';
 import { CardHeader, CardContent, DottedBox, Span } from './uploadStyles';
@@ -98,6 +99,7 @@ const Upload = () => {
   };
   return (
     <>
+      <Modual />
       <BacklinkContainer>
         <BackLink to="/">
           <Chevron width={20} />
