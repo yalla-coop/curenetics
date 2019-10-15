@@ -111,7 +111,6 @@ const App = () => {
         <Main>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/view" component={PdfView} />
             <Route path="/about" component={About} />
             <Route
               path="/upload"
