@@ -4,6 +4,7 @@ import { Select } from 'antd';
 import PatientIntro from './patientIntro';
 import PatientField from './patientField';
 import PatientFooter from './patientFooter';
+import PatientOrginalFile from './patientOrginalFile';
 
 import { addOptionsFunc } from './addOptionsFunc';
 import { patientDummyData } from './patientDummyData';
@@ -34,10 +35,17 @@ class patientList extends Component {
   componentDidMount() {
     // format input data
     // > get options for dropdowns
-    const list = addOptionsFunc(patientDummyData);
-    this.setState({ list });
+    const {
+      location: {
+        state: { list },
+      },
+      filenames,
+    } = this.props;
+    this.setState({
+      list: list ? addOptionsFunc(list) : addOptionsFunc(patientDummyData),
+      medicalRecords: filenames,
+    });
   }
-
 
   handleChange = (key, fileReference) => e => {
     const { list } = this.state;
@@ -99,7 +107,8 @@ class patientList extends Component {
       optionFilterProp="children"
       onChange={this.handleChange(key, fileReference)}
       filterOption={(inp, opt) =>
-        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0}
+        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0
+      }
     >
       {options.map(value => (
         <Option key={value} value={value}>
@@ -109,12 +118,33 @@ class patientList extends Component {
     </Select>
   );
 
-  render() {
-    const { list } = this.state;
-    const { handleEditButton, handleChange, renderFieldOptions } = this;
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
+  };
 
+  viewOrginalFile = fileReference => () => {
+    const { medicalRecords } = this.state;
+    const medicalRecordFound = medicalRecords.find(({ name }) => {
+      return name.split('.')[0] === fileReference;
+    });
+    this.setState({
+      showModal: true,
+      medicalRecord: medicalRecordFound,
+    });
+  };
+
+  render() {
+    const { list, showModal, medicalRecord } = this.state;
+    const { handleEditButton, handleChange, renderFieldOptions } = this;
     return (
       <>
+        <PatientOrginalFile
+          showModal={showModal}
+          medicalRecord={medicalRecord}
+          toggleModal={this.toggleModal}
+        />
         <PatientIntro />
 
         {list.length > 0 && (
@@ -139,8 +169,10 @@ class patientList extends Component {
                       />
                     ))}
                   </PatientDetailsGrid>
-
-                  <ViewFileButton isClear>
+                  <ViewFileButton
+                    isClear
+                    onClick={this.viewOrginalFile(fileReference)}
+                  >
                     <ExternalLink fill={colors.lightPrimary} width={24} />
                     Click to view original file
                   </ViewFileButton>
