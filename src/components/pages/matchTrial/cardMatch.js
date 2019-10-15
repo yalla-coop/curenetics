@@ -1,5 +1,4 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import Table from './table';
 
 import ExportLink from '../../common/icons/ExportLink';
@@ -10,103 +9,117 @@ import Tick from '../../common/icons/Tick';
 import TestTube from '../../common/icons/TestTube';
 import Plus from '../../common/icons/Plus';
 import Marker from '../../common/icons/Marker';
+import Stethiscope from '../../common/icons/Stethiscope';
+import {
+  Wrapper,
+  HeadSection,
+  PrimarySpam,
+  HeadPragraph,
+  ColumnSection,
+  FieldWrapper,
+  BoldParagraph,
+  ExportButton,
+  LocationSection,
+  BottomSection,
+  ThreeColumnSection,
+  TwoColumnSection,
+  ViewFullTrial,
+} from './style';
 
-import * as S from './style';
-
-const matchCard = ({ windowWidth }) => {
+const matchCard = () => {
   return (
-    <S.Wrapper>
-      <S.HeadSection>
+    <Wrapper>
+      <HeadSection>
         <div>
-          <S.PrimarySpam>NCT Number: </S.PrimarySpam>
+          <PrimarySpam>NCT Number: </PrimarySpam>
           <span>NCT0355514</span>
         </div>
-        <S.PrimarySpam style={{ fontWeight: 'bold' }}>PRONOUNCE</S.PrimarySpam>
-      </S.HeadSection>
-      <S.HeadPragraph>
+        <PrimarySpam bold>PRONOUNCE</PrimarySpam>
+      </HeadSection>
+      <HeadPragraph>
         A Trial Comparing Cardiovascular Safety of Degarelix Versus Leuprolide
         in Patients With Advanced Prostate Cancer and Cardiovascular Disease
-      </S.HeadPragraph>
-      <S.RowSection>
-        <S.ColumnSection>
-          <S.FieldWrapper>
+      </HeadPragraph>
+      <ThreeColumnSection>
+        <ColumnSection>
+          <FieldWrapper>
             <div>
-              <Calendar></Calendar>
+              <Calendar />
             </div>
-            <div>
+            <ColumnSection>
               <span>Starting Date: Sept 27, 2018</span>
               <span>Finish Date: Ongoing</span>
-            </div>
-          </S.FieldWrapper>
-        </S.ColumnSection>
-        <S.ColumnSection>
-          <S.FieldWrapper>
+            </ColumnSection>
+          </FieldWrapper>
+        </ColumnSection>
+        <ColumnSection>
+          <FieldWrapper>
             <div>
-              <Avatar></Avatar>
+              <Avatar />
             </div>
             <span>Phase: 3</span>
-          </S.FieldWrapper>
-          <S.FieldWrapper>
+          </FieldWrapper>
+          <FieldWrapper>
             <div>
-              <Tick></Tick>
+              <Tick />
             </div>
             <span>Recruiting</span>
-          </S.FieldWrapper>
-        </S.ColumnSection>
-        <S.FieldWrapper>
+          </FieldWrapper>
+        </ColumnSection>
+        <FieldWrapper>
           <div>
-            <Avatar></Avatar>
+            <Avatar />
           </div>
           <span>Enrolled: 6,000,000</span>
-        </S.FieldWrapper>
-      </S.RowSection>
-      <S.RowSection>
-        <S.FieldWrapper>
+        </FieldWrapper>
+      </ThreeColumnSection>
+      <TwoColumnSection>
+        <FieldWrapper>
           <div>
-            <TestTube></TestTube>
+            <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
           <span>Interventions: Degarelix, Leuprolide</span>
-        </S.FieldWrapper>
-        <S.FieldWrapper style={{ gridColumn: '2/4' }}>
+        </FieldWrapper>
+        <FieldWrapper>
           <div>
-            <Plus></Plus>
+            <Plus />
           </div>
           <span>
             Sponsor/Collaborators: Ferring Pharmaceuticals, Memorial Sloan
             Kettering
           </span>
-        </S.FieldWrapper>
-      </S.RowSection>
-      <S.FieldWrapper style={{ gridColumn: '2/4' }}>
+        </FieldWrapper>
+      </TwoColumnSection>
+      <FieldWrapper>
         <div>
-          <Plus></Plus>
+          <Stethiscope />
         </div>
         <span>
           Allocation: Randomized. Intervention Model: Paralle. Assignment.
           Masking: Single (Outcomes Assessor). Primary Purpose: Treatment
         </span>
-      </S.FieldWrapper>
-      <Table windowWidth={windowWidth} />
+      </FieldWrapper>
+      <Table />
       <section>
-        <S.BoldParagraph>Nearest Trial Locations: </S.BoldParagraph>
-        <S.LocationSection>
+        <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
+        <LocationSection>
           <span>
-            <Marker width="14px"></Marker>5 miles
+            <Marker width="14px" />5 miles
           </span>
           <span>St Bartholomew’s Hospital, London EC1A 7JQ</span>
-        </S.LocationSection>
-        <S.BottomSection>
-          <span style={{ gridColumn: '1 / 3' }}>
-            <ExternalLink></ExternalLink>
+        </LocationSection>
+        <BottomSection>
+          <ViewFullTrial>
+            <ExternalLink />
             Click here to view full Clinical Trial details
-          </span>
-          <S.ExportButton style={{ gridColumn: '3 / 4' }}>
-            Export all trials to PDF
-            <ExportLink margin="0px 0px 0px 10px"></ExportLink>
-          </S.ExportButton>
-        </S.BottomSection>
+          </ViewFullTrial>
+          <ExportButton>
+            Export trial to pdf
+            <ExportLink style={{ marginLeft: '10px' }} />
+          </ExportButton>
+        </BottomSection>
       </section>
-    </S.Wrapper>
+    </Wrapper>
   );
 };
 

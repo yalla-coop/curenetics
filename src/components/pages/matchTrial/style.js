@@ -3,6 +3,7 @@ import { colors, breakpoint } from '../../../styles/globalStyles';
 
 export const Wrapper = styled.section`
   background-color: white;
+  color: ${colors.black};
   padding: 1.7rem 1rem 1rem 1rem;
 `;
 
@@ -13,10 +14,14 @@ export const DetailWrapper = styled.div`
   display: 'flex';
   flex-direction: 'column';
 `;
+
 export const DetailSection = styled.div`
   display: flex;
   justify-content: space-between;
   line-height: 28px;
+  & > div {
+    display: 'flex';
+  }
   @media only screen and (max-width: ${breakpoint.tablet}) {
     display: flex;
     flex-direction: column;
@@ -34,13 +39,14 @@ export const HighLight = styled.span`
 `;
 
 export const HighLightNumber = styled.span`
-  color: ${colors.cancel};
+  color: ${({ color }) => color};
   font-size: 2rem;
   padding-left: 1rem;
 `;
 
 export const PrimarySpam = styled.span`
   color: ${colors.primary};
+  font-weight: ${({ bold }) => (bold ? 'bold' : 'inherit')};
 `;
 
 export const PrimaryParagraph = styled.p`
@@ -49,8 +55,8 @@ export const PrimaryParagraph = styled.p`
 
 export const BoldParagraph = styled.p`
   color: ${colors.black};
-  padding: 0.7rem 0rem 0rem;
-  font-weight: bold;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 `;
 
 export const HeadSection = styled.div`
@@ -61,42 +67,74 @@ export const HeadSection = styled.div`
 export const ExportButton = styled.button`
   border: none;
   outline: none;
-  color: #fff;
-  background-color: #35348f;
+  color: ${colors.white};
+  background-color: ${colors.primary};
   text-align: center;
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 6px;
+  font-size: small;
 `;
 
 export const HeadPragraph = styled.p`
   padding: 1rem 0rem;
-  font-weight: 900;
+  line-height: inherit;
 `;
 
-export const ColumnSection = styled.section`
+export const ColumnSection = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const RowSection = styled.section`
-  display: grid;
-  grid-template-columns: 1.7fr 2fr 1fr;
-  grid-gap: 0.5rem;
+export const ThreeColumnSection = styled.section`
+  display: flex;
+  & > div {
+    flex: 1;
+  }
   & > span {
     color: ${colors.primary};
   }
 
   @media only screen and (max-width: ${breakpoint.tablet}) {
-    display: block;
-    grid-template-columns: initial;
-    grid-gap: initial;
+    flex-direction: column;
   }
+`;
+
+export const TableHeaderText = styled.h2`
+  text-align: center;
+  font-size: 1.2rem;
+`;
+
+export const TwoColumnSection = styled.section`
+  display: flex;
+  margin: 1rem 0rem;
+  & > div:first-child {
+    flex: 1;
+  }
+  & > div:nth-child(2) {
+    flex: 2;
+  }
+  & > span {
+    color: ${colors.primary};
+  }
+  @media only screen and (max-width: ${breakpoint.tablet}) {
+    flex-direction: column;
+  }
+`;
+
+export const ViewFullTrial = styled.span`
+  color: ${colors.primary};
+  margin-bottom: 0.7rem;
+  margin-right: 1rem;
 `;
 
 export const FieldWrapper = styled.div`
   display: flex;
+  font-size: smaller;
   & > div:first-child {
     padding-right: 5px;
+  }
+  @media only screen and (max-width: ${breakpoint.tablet}) {
+    font-size: inherit;
   }
 `;
 
@@ -111,9 +149,7 @@ export const LocationSection = styled.div`
 export const BottomSection = styled.div`
   display: flex;
   justify-content: space-between;
-  & > :first-child {
-    margin-right: 1rem;
-  }
+  margin-top: 1rem;
   @media only screen and (max-width: ${breakpoint.tablet}) {
     flex-direction: column;
     & > button {
@@ -122,12 +158,15 @@ export const BottomSection = styled.div`
   }
 `;
 
-export const rowTable = styled.div`
-  padding: 0rem 1rem;
-  display: flex;
-  & > :first-child {
-    width: 70%;
-  }
+export const TableWrapper = styled.div`
+  padding: 0rem 0rem;
+  margin: 1rem 0rem;
+  border: solid 1px ${colors.darkGrey};
+  border-radius: 8px;
+`;
+
+export const TableBody = styled.div`
+  padding: '0rem 0rem 1rem 0rem';
 `;
 
 export const TableHeadColor = styled.div`
@@ -138,13 +177,7 @@ export const TableHeadColor = styled.div`
   border-radius: 5px 5px 0px 0px;
 `;
 
-export const tableLarge = styled.div`
-  padding: 0rem 0rem;
-  border: solid 1px ${colors.darkGrey};
-  border-radius: 8px;
-`;
-
-export const rowTableHead = styled.div`
+export const TableRowHead = styled.div`
   display: flex;
   border-bottom: solid 1px;
   padding: 0rem 1rem;
@@ -154,5 +187,17 @@ export const rowTableHead = styled.div`
   @media only screen and (max-width: ${breakpoint.tablet}) {
     border: 0px;
     padding: 0rem 2rem 1rem 2rem;
+  }
+`;
+
+export const TableRow = styled.div`
+  padding: 0rem 1rem;
+  margin: 0.5rem 0rem;
+  display: flex;
+  & > :first-child {
+    width: 70%;
+  }
+  & > :nth-child(2) {
+    width: 30%;
   }
 `;

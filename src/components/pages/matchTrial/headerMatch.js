@@ -1,34 +1,37 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import ExportLink from '../../common/icons/ExportLink';
 
-import * as S from './style';
+import {
+  ExportButton,
+  DetailWrapper,
+  HighLight,
+  HighLightNumber,
+  DetailSection,
+  PrimaryParagraph,
+} from './style';
+
 import { colors } from '../../../styles/globalStyles';
 
 const HeaderMatch = () => {
   return (
     <>
-      <S.DetailWrapper>
+      <DetailWrapper>
         <div>
-          <S.HighLight>Potentialy eligible trials:</S.HighLight>
-          <S.HighLightNumber style={{ color: colors.confirm }}>
-            4
-          </S.HighLightNumber>
+          <HighLight>Potentialy eligible trials:</HighLight>
+          <HighLightNumber color={colors.confirm}>4</HighLightNumber>
         </div>
-        <S.DetailSection>
-          <div style={{ display: 'flex' }}>
-            <S.HighLight>Nearly eligible Trials:</S.HighLight>
-            <S.HighLightNumber style={{ color: colors.accent }}>
-              3
-            </S.HighLightNumber>
+        <DetailSection>
+          <div>
+            <HighLight>Nearly eligible Trials:</HighLight>
+            <HighLightNumber color={colors.accent}>3</HighLightNumber>
           </div>
-          <S.ExportButton>
+          <ExportButton>
             Export all trials to PDF
-            <ExportLink margin="0px 0px 0px 10px"></ExportLink>
-          </S.ExportButton>
-        </S.DetailSection>
-      </S.DetailWrapper>
-      <S.PrimaryParagraph>Potentially Eligible trials</S.PrimaryParagraph>
+            <ExportLink style={{ marginLeft: '10px' }}></ExportLink>
+          </ExportButton>
+        </DetailSection>
+      </DetailWrapper>
+      <PrimaryParagraph>Potentially Eligible trials</PrimaryParagraph>
     </>
   );
 };
