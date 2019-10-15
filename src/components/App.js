@@ -12,7 +12,6 @@ import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import TrialDetail from './pages/trialDetail';
 import EnterPatients from './pages/enterPatients';
-import PdfView from './pages/pdfView';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 
