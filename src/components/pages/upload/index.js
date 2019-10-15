@@ -97,9 +97,13 @@ const Upload = () => {
     const newFileArr = filenames.filter(file => file.name !== fileStr);
     setFilenames(newFileArr);
   };
+  const closeModule = e => {
+    const parentObj = e.target.parentNode;
+    parentObj.parentNode.parentNode.style.display = 'none';
+  };
   return (
     <>
-      <Modual />
+      <Modual onClick={closeModule} />
       <BacklinkContainer>
         <BackLink to="/">
           <Chevron width={20} />

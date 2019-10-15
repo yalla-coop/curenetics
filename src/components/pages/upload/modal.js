@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import exclamation from './exclamation.svg';
 import { SubHeading, Paragraph } from '../../common/Typography';
-import { colors, fontFamily } from '../../../styles/globalStyles';
+import { colors, breakpoint } from '../../../styles/globalStyles';
 import { OrangeButton } from '../../common/Buttons';
 
 const Bkground = styled.section`
@@ -19,6 +19,9 @@ const Bkground = styled.section`
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
     border-radius: 5px;
+    @media (max-width: ${breakpoint.Xsmall}) {
+      width: 70vw;
+    }
   }
 `;
 const Head = styled.section`
