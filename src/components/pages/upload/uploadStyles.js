@@ -41,7 +41,9 @@ export const Span = styled.span`
   font-size: ${font.large};
   font-weight: 300;
   @media (max-width: ${breakpoint.tablet}) {
-    margin-top: 12vh;
+    margin-top: 5vh auto;
+  }
+  @media (max-width: ${breakpoint.small}) {
     margin-left: 12vw;
   }
 `;

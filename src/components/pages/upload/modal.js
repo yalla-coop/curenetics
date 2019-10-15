@@ -14,7 +14,7 @@ const Bkground = styled.section`
   div {
     width: 45vw;
     height: auto;
-    margin: -5vh auto;
+    margin: -7vh auto;
     padding: 2vw;
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
