@@ -1,5 +1,6 @@
 import React, { createRef, useState } from 'react';
 import styled from 'styled-components';
+import Tooltip from './tooltip';
 import InputBox from './input';
 import Item from './listItem';
 import { CardHeader, CardContent, DottedBox, Span } from './uploadStyles';
@@ -132,6 +133,7 @@ const Upload = () => {
               </AddFileButton>
               <CardContent>
                 <AddFiles>Add your files</AddFiles>
+                <Tooltip />
                 <Paragraph isLight>PDFs Only</Paragraph>
               </CardContent>
             </CardHeader>
