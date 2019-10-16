@@ -14,7 +14,7 @@ const Bkground = styled.section`
   div {
     width: 45vw;
     height: auto;
-    margin: -7vh auto;
+    margin: -10vh auto;
     padding: 2vw;
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
@@ -29,6 +29,7 @@ const Head = styled.section`
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  margin-top: -3vh;
 `;
 
 const Modual = ({ onClick }) => (
@@ -41,16 +42,18 @@ const Modual = ({ onClick }) => (
         </SubHeading>
       </Head>
       <Paragraph>
-        If you are a medical professional you must use this app on a secure
-        computer
+        Medical professionals must only used this app on a secure or
+        trust-approved computer. The uploaded files(s) will be stored locally
+        but wiped when you close the app.
       </Paragraph>
       <Paragraph>
-        The PDF files will be stored locally. Any data will be wiped clean when
-        you close the app or return to the home page.
+        Medical information extracted is immediately pseudo-anonymised and then
+        encrypted before analyses. However, please do not use any sensitive
+        information within the actual filename.
       </Paragraph>
       <Paragraph>
-        Data will be encrypted before being sent to a secure API to be analysed,
-        but not stored.
+        This current software iteration is only optimised for scientific and
+        research purposes. It must not serve as aid in clinical decision making.
       </Paragraph>
       <Paragraph>By using this app you consent to this data use.</Paragraph>
       <Head>
