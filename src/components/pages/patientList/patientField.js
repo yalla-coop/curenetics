@@ -19,7 +19,7 @@ const PatientField = ({
   const { key, display, edit, options, value } = patient;
 
   let fieldType = <></>;
-  if (!edit) {
+  if (!edit || key === 'fileReference') {
     fieldType = <Span>{value}</Span>;
   } else if (options) {
     fieldType = renderFieldOptions(key, fileReference, options, value);
