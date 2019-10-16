@@ -148,10 +148,10 @@ export const BackLink = styled(Link)`
 `;
 export const OrangeButton = styled(Button)`
   ${buttonBase};
-  background-color: ${colors.disabled};
+  background-color: ${props => (props.color ? colors.cancel : colors.disabled)};
   color: ${colors.white};
   &:hover {
-    background-color: ${colors.accent};
+    background-color: ${props => (props.color ? colors.cancel : colors.accent)};
     color: ${colors.white};
   }
 `;
