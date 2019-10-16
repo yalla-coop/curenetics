@@ -14,6 +14,7 @@ import TrialDetail from './pages/trialDetail';
 import EnterPatients from './pages/enterPatients';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
+import MatchTrial from './pages/matchTrial';
 
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
 import { fontImport } from './common/Typography';
@@ -114,6 +115,7 @@ const App = () => (
           <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/patient-list" component={PatientList} />
           <Route path="/trial-list" component={TrialList} />
+          <Route path="/match-trial" component={MatchTrial} />
           <Route path="/enter-patients" component={EnterPatients} />
           <Route component={NotFound} />
         </Switch>
