@@ -18,7 +18,48 @@ const mapKeyToOptions = {
   'Disease within prostate': ['yes', 'no'],
   'Disease outside prostate': ['yes', 'no'],
   gleasonScore: ['3+3', '3+4', '4+3', '4+4', '9-10'],
-  cancerType: ['Brain cancer', 'Skin cancer', '​Head and neck cancer']
+  cancerType: [
+    'Adrenal cancer',
+    'Anal cancer',
+    'Appendix cancer',
+    'Bile duct cancer',
+    'Bladder cancer',
+    'Bone cancer',
+    'Brain cancer',
+    '​Breast cancer',
+    '​Cervical cancer',
+    '​Colorectal cancer',
+    '​Esophageal cancer',
+    '​Gallbladder cancer',
+    'Gestational trophoblastic disease',
+    '​Head and neck cancer',
+    '​Hodgkin lymphoma',
+    '​Intestinal cancer',
+    'Kidney cancer',
+    'Leukemia',
+    '​Liver cancer',
+    '​Lung cancer',
+    '​Melanoma',
+    '​Mesothelioma',
+    '​Multiple myeloma',
+    '​Neuroendocrine tumors',
+    '​Non-Hodgkin lymphoma',
+    '​Oral cancer',
+    '​Ovarian cancer',
+    '​Pancreatic cancer',
+    '​Prostate cancer',
+    '​Sinus cancer',
+    'Skin cancer',
+    'Soft tissue sarcoma',
+    '​Spinal cancer',
+    '​Stomach cancer',
+    '​Testicular cancer',
+    '​Throat cancer',
+    '​Thyroid cancer',
+    '​Uterine cancer',
+    'Vaginal cancer',
+    '​Vulvar cancer',
+  ],
 };
 
 const mapKeyToDisplayField = {
@@ -47,7 +88,7 @@ export const addOptionsFunc = data => {
               : 'no',
             edit: false,
             options: mapKeyToOptions['Disease in prostate'],
-            display: mapKeyToDisplayField['Disease in prostate']
+            display: mapKeyToDisplayField['Disease in prostate'],
           },
           {
             key: 'Disease outside prostate',
@@ -60,8 +101,8 @@ export const addOptionsFunc = data => {
               : 'no',
             edit: false,
             options: mapKeyToOptions['Disease outside prostate'],
-            display: mapKeyToDisplayField['Disease outside prostate']
-          }
+            display: mapKeyToDisplayField['Disease outside prostate'],
+          },
         ]);
       }
 

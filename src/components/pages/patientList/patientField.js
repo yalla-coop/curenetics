@@ -19,7 +19,7 @@ const PatientField = ({
   const { key, display, edit, options, value } = patient;
 
   let fieldType = <></>;
-  if (!edit) {
+  if (!edit || key === 'fileReference') {
     fieldType = <Span>{value}</Span>;
   } else if (options) {
     fieldType = renderFieldOptions(key, fileReference, options, value);
@@ -41,6 +41,7 @@ const PatientField = ({
       {fieldType}
       <EditButton
         isClear
+        hide={key === 'fileReference'}
         edit={edit}
         aria-label={`edit ${display || key} field`}
         onClick={e => handleEdit(key, fileReference, e)}
