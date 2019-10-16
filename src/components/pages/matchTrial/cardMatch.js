@@ -26,20 +26,37 @@ import {
   ViewFullTrial,
 } from './style';
 
-const matchCard = () => {
+const matchCard = ({
+  trial: {
+    id,
+    eligibilityStatus,
+    trialInfo: {
+      nct,
+      title,
+      startingDate,
+      endingDate,
+      phase,
+      overallStatus,
+      enrolled,
+      interventions,
+      sponsors,
+      allocation,
+      detailsLink,
+      locations,
+    },
+    matchingInfo,
+  },
+}) => {
   return (
-    <Wrapper>
+    <Wrapper key={id + nct}>
       <HeadSection>
         <div>
           <PrimarySpam>NCT Number: </PrimarySpam>
-          <span>NCT0355514</span>
+          <span>{nct}</span>
         </div>
         <PrimarySpam bold>PRONOUNCE</PrimarySpam>
       </HeadSection>
-      <HeadPragraph>
-        A Trial Comparing Cardiovascular Safety of Degarelix Versus Leuprolide
-        in Patients With Advanced Prostate Cancer and Cardiovascular Disease
-      </HeadPragraph>
+      <HeadPragraph>{title}</HeadPragraph>
       <ThreeColumnSection>
         <ColumnSection>
           <FieldWrapper>
@@ -47,8 +64,8 @@ const matchCard = () => {
               <Calendar />
             </div>
             <ColumnSection>
-              <span>Starting Date: Sept 27, 2018</span>
-              <span>Finish Date: Ongoing</span>
+              <span>Starting Date: {startingDate}</span>
+              <span>Finish Date: {endingDate}</span>
             </ColumnSection>
           </FieldWrapper>
         </ColumnSection>
@@ -57,20 +74,20 @@ const matchCard = () => {
             <div>
               <Avatar />
             </div>
-            <span>Phase: 3</span>
+            <span>Phase: {phase}</span>
           </FieldWrapper>
           <FieldWrapper>
             <div>
               <Tick />
             </div>
-            <span>Recruiting</span>
+            <span>{overallStatus}</span>
           </FieldWrapper>
         </ColumnSection>
         <FieldWrapper>
           <div>
             <Avatar />
           </div>
-          <span>Enrolled: 6,000,000</span>
+          <span>Enrolled: {enrolled}</span>
         </FieldWrapper>
       </ThreeColumnSection>
       <TwoColumnSection>
@@ -78,36 +95,34 @@ const matchCard = () => {
           <div>
             <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
-          <span>Interventions: Degarelix, Leuprolide</span>
+          <span>Interventions: {interventions.map(i => `${i}, `)}</span>
         </FieldWrapper>
         <FieldWrapper>
           <div>
             <Plus />
           </div>
-          <span>
-            Sponsor/Collaborators: Ferring Pharmaceuticals, Memorial Sloan
-            Kettering
-          </span>
+          <span>Sponsor/Collaborators: {sponsors.map(i => `${i}, `)}</span>
         </FieldWrapper>
       </TwoColumnSection>
       <FieldWrapper>
         <div>
           <Stethiscope />
         </div>
-        <span>
-          Allocation: Randomized. Intervention Model: Paralle. Assignment.
-          Masking: Single (Outcomes Assessor). Primary Purpose: Treatment
-        </span>
+        <span>Allocation: {allocation}</span>
       </FieldWrapper>
-      <Table />
+      <Table matchingInfo={matchingInfo} />
       <section>
         <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
-        <LocationSection>
-          <span>
-            <Marker width="14px" />5 miles
-          </span>
-          <span>St Bartholomew’s Hospital, London EC1A 7JQ</span>
-        </LocationSection>
+        {locations.map((location, index) => {
+          return (
+            <LocationSection key={location.name + id}>
+              <span>
+                <Marker width="14px" />5 miles
+              </span>
+              <span>{`${location.name}, ${location.address}`}</span>
+            </LocationSection>
+          );
+        })}
         <BottomSection>
           <ViewFullTrial>
             <ExternalLink />

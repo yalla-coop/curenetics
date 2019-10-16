@@ -11,7 +11,10 @@ import {
   TableHeaderText,
 } from './style';
 
-const Table = () => {
+const Table = ({
+  matchingInfo: { trialCriteria = {}, patientCriteria = {} },
+}) => {
+  console.log('trialCriteria', trialCriteria);
   const { IsSmall } = useIsSmall();
   if (IsSmall) {
     return (
@@ -24,40 +27,37 @@ const Table = () => {
             <span>Patient</span>
           </TableRowHead>
           <TableRow>
-            <span>Age: 18-85</span>
+            <span>Age: {trialCriteria.age}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>
-              Condition: Prostate Cancer Metastatic, Castration-resistant
-              Prostate Cancer
-            </span>
+            <span>Condition: {trialCriteria.conditons.map(i => `${i}, `)}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>Gender: Male</span>
+            <span>Gender: {trialCriteria.gender}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>ECOG status: 2 </span>
+            <span>ECOG status: {trialCriteria.ecog} </span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>Gleason score: 0-2</span>
+            <span>Gleason score: {trialCriteria.gleason}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>prostate: Yes</span>
+            <span>prostate: {trialCriteria.inProstate ? 'yes' : 'no'}</span>
             <span>
               <Tick></Tick>
             </span>
@@ -76,31 +76,34 @@ const Table = () => {
           <span>Patient details</span>
         </TableRowHead>
         <TableRow>
-          <span>Age: 18-85</span>
-          <span>Age: 72</span>
+          <span>Age: {trialCriteria.age}</span>
+          <span>Age: {patientCriteria.age}</span>
+        </TableRow>
+        <TableRow>
+          <span>Condition: {trialCriteria.conditons.map(i => `${i}, `)}</span>
+          <span>
+            Condition: {patientCriteria.conditons.map(i => `${i}, `)}{' '}
+          </span>
+        </TableRow>
+        <TableRow>
+          <span>Gender: {trialCriteria.gender}</span>
+          <span>Gender: {patientCriteria.gender}</span>
+        </TableRow>
+        <TableRow>
+          <span>ECOG status: {trialCriteria.ecog} </span>
+          <span>ECOG status: {patientCriteria.ecog}</span>
+        </TableRow>
+        <TableRow>
+          <span>Gleason score: {trialCriteria.gleason}</span>
+          <span>Gleason score: {patientCriteria.gleason}</span>
         </TableRow>
         <TableRow>
           <span>
-            Condition: Prostate Cancer Metastatic, Castration-resistant Prostate
-            Cancer
+            Disease within prostate: {trialCriteria.inProstate ? 'yes' : 'no'}
           </span>
-          <span>Condition: Prostate Cancer </span>
-        </TableRow>
-        <TableRow>
-          <span>Gender: Male</span>
-          <span>Gender: Male</span>
-        </TableRow>
-        <TableRow>
-          <span>ECOG status: 2 </span>
-          <span>ECOG status: 2 </span>
-        </TableRow>
-        <TableRow>
-          <span>Gleason score: 0-2</span>
-          <span>Gleason score: 0-2</span>
-        </TableRow>
-        <TableRow>
-          <span>Disease within prostate: Yes</span>
-          <span>Disease within prostate: Yes</span>
+          <span>
+            Disease within prostate: {patientCriteria.inProstate ? 'yes' : 'no'}
+          </span>
         </TableRow>
       </TableBody>
     </TableWrapper>

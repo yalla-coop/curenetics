@@ -5,6 +5,7 @@ export const Wrapper = styled.section`
   background-color: white;
   color: ${colors.black};
   padding: 1.7rem 1rem 1rem 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const DetailWrapper = styled.div`
