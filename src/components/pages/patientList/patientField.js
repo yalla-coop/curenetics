@@ -41,6 +41,7 @@ const PatientField = ({
       {fieldType}
       <EditButton
         isClear
+        hide={key === 'fileReference'}
         edit={edit}
         aria-label={`edit ${display || key} field`}
         onClick={e => handleEdit(key, fileReference, e)}
