@@ -1,5 +1,10 @@
-import styled from "styled-components";
-import { colors, fontFamily, font, breakpoint } from "../../../styles/globalStyles";
+import styled from 'styled-components';
+import {
+  colors,
+  fontFamily,
+  font,
+  breakpoint,
+} from '../../../styles/globalStyles';
 
 // can have mulitple headers i believe...
 export const CardHeader = styled.header`
@@ -13,7 +18,6 @@ export const CardContent = styled.div`
   justify-content: space-between;
   margin-left: 1rem;
 `;
-
 
 export const DottedBox = styled.div`
   height: 45vh;
@@ -29,14 +33,13 @@ export const DottedBox = styled.div`
   }
 `;
 
-
 export const Span = styled.span`
   display: flex;
   width: 30vw;
   justify-content: center;
   margin-top: 20vh;
   color: ${colors.disabled};
-  @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
   font-family: ${fontFamily.body};
   font-size: ${font.large};
   font-weight: 300;
@@ -53,7 +56,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: 35vw;
   height: 55vh;
-  background-color: ${props => (props.color === "white" ? colors.white : "none")};
+  background-color: ${props =>
+    props.color === 'white' ? colors.white : 'none'};
   padding: 1rem;
 `;
 export const Main = styled.section`
@@ -81,4 +85,12 @@ z-index: 1;
     height: 4rem;
     right: 28vw;
 } 
+`;
+export const Tooltip = styled.span`
+  visiability: hidden;
+  width: 30vw;
+  background-color: ${colors.background};
+  text-align: center;
+  padding: 1vw;
+  border-radius: 5px;
 `;
