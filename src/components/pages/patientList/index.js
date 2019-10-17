@@ -35,14 +35,17 @@ class patientList extends Component {
   componentDidMount() {
     // format input data
     // > get options for dropdowns
+
     const {
-      location: {
-        state: { list },
-      },
+      location: { state },
+      history,
       filenames,
     } = this.props;
+    if (!state) return history.push('/');
     this.setState({
-      list: list ? addOptionsFunc(list) : addOptionsFunc(patientDummyData),
+      list: state.list
+        ? addOptionsFunc(state.list)
+        : addOptionsFunc(patientDummyData),
       medicalRecords: filenames,
     });
   }
