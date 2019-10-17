@@ -7,7 +7,6 @@ import Home from './pages/home';
 import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
-import Enter from './pages/enter';
 import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import TrialDetail from './pages/trialDetail';
@@ -100,7 +99,7 @@ const App = () => (
                 <Link to="/upload">Upload</Link>
               </li>
               <li>
-                <Link to="/enter">Enter</Link>
+                <Link to="/enter-patients">Enter</Link>
               </li>
             </ul>
           </Nav>
@@ -112,7 +111,6 @@ const App = () => (
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/upload" component={Upload} />
-          <Route path="/enter" component={Enter} />
           <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/patient-list" component={PatientList} />
           <Route path="/trial-list" component={TrialList} />

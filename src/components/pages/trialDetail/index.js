@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import TrialDetailHeader from './TrialDetailHeader';
 import CardSection from './CardSection';
@@ -35,15 +35,18 @@ const dummyData = [
 ];
 // this is going to be a class component
 // the data is placeholder for the state
-const TrialDetail = () => (
-  <>
-    <TrialDetailHeader />
-    <CardContainer>
-      {dummyData.map(i =>
-        <CardSection key={i.fileName} data={i} />
-      )}
-    </CardContainer>
-  </>
-);
+const TrialDetail = () => {
+  const [list, setList] = useState(dummyData);
+  return (
+    <>
+      <TrialDetailHeader setList={setList} />
+      <CardContainer>
+        {list.map(i => (
+          <CardSection key={i.fileName} data={i} />
+        ))}
+      </CardContainer>
+    </>
+  );
+};
 
 export default TrialDetail;

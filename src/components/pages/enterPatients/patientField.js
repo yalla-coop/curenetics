@@ -6,6 +6,8 @@ import {
   PatientLabel,
 } from '../patientList/style';
 
+import { mapKeyToOptions } from '../patientList/addOptionsFunc';
+
 export const keysOrder = [
   'fileReference',
   'age',
@@ -16,15 +18,6 @@ export const keysOrder = [
   'Disease within prostate',
   'Disease outside prostate',
 ];
-
-const mapKeyToOptions = {
-  gender: ['male', 'female'],
-  ECOGStatus: [0, 1, 2, 3, 4],
-  'Disease within prostate': ['yes', 'no'],
-  'Disease outside prostate': ['yes', 'no'],
-  gleasonScore: ['3+3', '3+4', '4+3', '4+4', '9-10'],
-  cancerType: ['Brain cancer', 'Skin cancer', '​Head and neck cancer'],
-};
 
 const mapKeyToDisplayField = {
   age: 'Age:',
@@ -37,6 +30,17 @@ const mapKeyToDisplayField = {
   'Disease outside prostate': 'Disease outside prostate:',
 };
 
+const mapKeyToPlaceHolder = {
+  age: "Patient's age (in years)",
+  gender: "Patient's gender",
+  cancerType: "Patient's cancer type",
+  fileReference: '1 to 10 letters or numbers',
+  ECOGStatus: "Patient's ECOG status:",
+  gleasonScore: "Patient's gleason status",
+  'Disease within prostate': 'Select relevant terms',
+  'Disease outside prostate': 'Select relevant terms ',
+};
+
 const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
   const { id } = patient;
 
@@ -47,11 +51,13 @@ const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
         key,
         id,
         mapKeyToOptions[key],
-        patient[key]
+        patient[key],
+        mapKeyToPlaceHolder[key]
       );
     } else {
       fieldType = (
         <PatientInput
+          placeholder={mapKeyToPlaceHolder[key]}
           id={id + key}
           onChange={handleChange(id, key)}
           value={patient[key]}
@@ -60,7 +66,9 @@ const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
     }
     return (
       <PatientFormItem key={id + key}>
-        <PatientLabel>{mapKeyToDisplayField[key] || key}</PatientLabel>
+        <PatientLabel style={{ width: '45%' }}>
+          {mapKeyToDisplayField[key] || key}
+        </PatientLabel>
         {fieldType}
       </PatientFormItem>
     );

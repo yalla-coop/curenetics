@@ -1,7 +1,7 @@
 // runs on componentDidMount
 // > useRef if using hooks in the future
 
-const keysOrder = [
+export const keysOrder = [
   'fileReference',
   'ECOGStatus',
   'age',
@@ -12,7 +12,7 @@ const keysOrder = [
   'postcode',
 ];
 
-const mapKeyToOptions = {
+export const mapKeyToOptions = {
   gender: ['male', 'female'],
   ECOGStatus: [0, 1, 2, 3, 4],
   'Disease within prostate': ['yes', 'no'],
