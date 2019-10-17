@@ -62,12 +62,11 @@ class EnterPatients extends Component {
     }));
   };
 
-  renderFieldOptions = (key, id, options, defaultValue) => (
+  renderFieldOptions = (key, id, options, defaultValue, placeholder) => (
     <Select
       htmlFor={id}
       showSearch
-      defaultValue={defaultValue}
-      placeholder={key}
+      placeholder={placeholder}
       optionFilterProp="children"
       onChange={this.handleChange(id, key)}
       filterOption={(inp, opt) =>

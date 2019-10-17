@@ -55,7 +55,7 @@ const Home = () => (
 
     <LinkContainer hasColumns>
       <UploadLink to="/upload">Upload PDFs of patient data</UploadLink>
-      <SearchLink to="/enter" isClear>
+      <SearchLink to="/enter-patients" isClear>
         <Keyboard fill={colors.primary} width={40} />
         Or type in patient details
       </SearchLink>

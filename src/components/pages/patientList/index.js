@@ -224,5 +224,4 @@ class patientList extends Component {
 		);
 	}
 }
-
 export default patientList;
