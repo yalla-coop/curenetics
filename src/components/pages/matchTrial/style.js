@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+
 import { colors, breakpoint } from '../../../styles/globalStyles';
 
 export const Wrapper = styled.section`
@@ -65,7 +67,7 @@ export const HeadSection = styled.div`
   justify-content: space-between;
 `;
 
-export const ExportButton = styled.button`
+export const ExportButton = styled(PDFDownloadLink)`
   border: none;
   outline: none;
   color: ${colors.white};

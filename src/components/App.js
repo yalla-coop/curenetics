@@ -11,9 +11,10 @@ import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import TrialDetail from './pages/trialDetail';
 import EnterPatients from './pages/enterPatients';
+// pdf example here
+import MatchTrial from './pages/matchTrial';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
-import MatchTrial from './pages/matchTrial';
 
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
 import { fontImport } from './common/Typography';
