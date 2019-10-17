@@ -75,6 +75,10 @@ export const PatientFormItem = styled(FormItem)`
   .ant-select-selection__rendered {
     /* padding: 0.5rem 0.25rem; */
   }
+  .ant-select-arrow-icon {
+    font-size: 20px;
+    color: ${colors.primary};
+  }
   @media only screen and (max-width: ${breakpoint.tablet}) {
     flex-direction: row;
     justify-content: space-between;
@@ -102,6 +106,7 @@ export const PatientLabel = styled(Label)`
 `;
 
 export const EditButton = styled(Button)`
+  visibility: ${({ hide }) => (hide ? 'hidden' : 'visible')}
   padding: 0.1rem;
   margin: 0.1rem;
   color: ${colors.lightPrimary};

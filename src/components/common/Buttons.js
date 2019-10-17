@@ -146,3 +146,12 @@ export const BackLink = styled(Link)`
     padding: 0.8rem;
   }
 `;
+export const OrangeButton = styled(Button)`
+  ${buttonBase};
+  background-color: ${colors.disabled};
+  color: ${colors.white};
+  &:hover {
+    background-color: ${colors.accent};
+    color: ${colors.white};
+  }
+`;

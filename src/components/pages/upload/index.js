@@ -1,5 +1,8 @@
 import React, { createRef, useState } from 'react';
 import styled from 'styled-components';
+import Tooltip from './tooltip';
+import Modual from './modal';
+
 import InputBox from './input';
 import Item from './listItem';
 import { CardHeader, CardContent, DottedBox, Span } from './uploadStyles';
@@ -96,8 +99,13 @@ const Upload = () => {
     const newFileArr = filenames.filter(file => file.name !== fileStr);
     setFilenames(newFileArr);
   };
+  const closeModule = e => {
+    const parentObj = e.target.parentNode;
+    parentObj.parentNode.parentNode.style.display = 'none';
+  };
   return (
     <>
+      <Modual onClick={closeModule} />
       <BacklinkContainer>
         <BackLink to="/">
           <Chevron width={20} />
@@ -132,7 +140,7 @@ const Upload = () => {
               </AddFileButton>
               <CardContent>
                 <AddFiles>Add your files</AddFiles>
-                <Paragraph isLight>PDFs Only</Paragraph>
+                <Tooltip />
               </CardContent>
             </CardHeader>
 

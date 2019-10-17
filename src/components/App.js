@@ -116,8 +116,8 @@ const App = () => (
           <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/patient-list" component={PatientList} />
           <Route path="/trial-list" component={TrialList} />
-          <Route path="/enter-patients" component={EnterPatients} />
           <Route path="/match-trial" component={MatchTrial} />
+          <Route path="/enter-patients" component={EnterPatients} />
           <Route component={NotFound} />
         </Switch>
       </Main>
