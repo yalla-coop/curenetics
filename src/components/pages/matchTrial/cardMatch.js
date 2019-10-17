@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Table from './table';
+import PdfTemplate from '../../common/pdf/pdfTemplate';
 
 import ExportLink from '../../common/icons/ExportLink';
 import ExternalLink from '../../common/icons/ExternalLink';
@@ -46,6 +48,8 @@ const matchCard = ({
     },
     matchingInfo,
   },
+  trial,
+  isPotential,
 }) => {
   return (
     <Wrapper key={id + nct}>
@@ -128,7 +132,9 @@ const matchCard = ({
             <ExternalLink />
             Click here to view full Clinical Trial details
           </ViewFullTrial>
-          <ExportButton>
+          <ExportButton
+            document={<PdfTemplate data={trial} isPotential={isPotential} />}
+          >
             Export trial to pdf
             <ExportLink style={{ marginLeft: '10px' }} />
           </ExportButton>
