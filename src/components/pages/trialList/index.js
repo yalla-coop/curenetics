@@ -1,23 +1,99 @@
-import React from 'react';
-import ResultDetails from './ResultDetails'
+import React, { Component } from "react";
+import { Spin, message } from "antd";
+import axios from "axios";
+import {
+	filterByOverallStatus,
+	filterByAllCriteria
+} from "../../../helpers/filter";
 
-import { Header, Container } from '../../common/Layout';
-import { Title } from '../../common/Typography';
+import styled from "styled-components";
+import TrialDetailHeader from "./TrialDetailHeader";
+import CardSection from "./CardSection";
 
+const CardContainer = styled.div`
+	padding: 1rem;
+`;
 
-const TrialList = () => (
-  <>
+const LoadingContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 50vh;
+`;
 
-    <Header>
-      <Title>Matched Trials for Patient</Title>
-    </Header>
+class TrialList extends Component {
+	state = {
+		loading: true,
+		patientsInfo: [],
+		trialsArr: []
+	};
 
-    <Container>
-      <ResultDetails />
-    </Container>
+	async componentDidMount() {
+		const { history, location } = this.props;
 
-  </>
-);
+		if (location.state && location.state.length > 0) {
+			const [patientsInfo] = location.state;
+			if (Array.isArray(patientsInfo)) {
+				const trialsArr = await this.getTrials();
 
-export default TrialList
-;
+				patientsInfo.forEach(patient => {
+					const matchedTrials = filterByAllCriteria(trialsArr, patient);
+					return (patient.matchedTrials = matchedTrials);
+				});
+
+				this.setState({ patientsInfo, trialsArr, loading: false });
+			} else {
+				history.push("/");
+			}
+		} else {
+			history.push("/");
+		}
+	}
+
+	getTrials = async () => {
+		try {
+			const {
+				data: { results }
+			} = await axios.get(
+				"https://raw.githubusercontent.com/yalla-coop/curenetics/master/src/dummydata/Results-12-10-19.json"
+			);
+			//filter for recruiting and unknown status
+			return filterByOverallStatus(results);
+		} catch (err) {
+			message.error("something went wrong! please try again");
+		}
+	};
+
+	sortList = value => {
+		const sortedList = [...this.state.patientsInfo].sort((a, b) => {
+			if (a[value] < b[value]) {
+				return -1;
+			}
+			if (a[value] > b[value]) {
+				return 1;
+			}
+			return 0;
+		});
+		this.setState({ patientsInfo: sortedList });
+	};
+
+	render() {
+		const { loading, patientsInfo } = this.state;
+		return loading ? (
+			<LoadingContainer>
+				<Spin tip="Loading..." size="large" />
+			</LoadingContainer>
+		) : (
+			<>
+				<TrialDetailHeader sortList={this.sortList} />
+				<CardContainer>
+					{patientsInfo.map(patient => (
+						<CardSection key={patient.fileReference} data={patient} />
+					))}
+				</CardContainer>
+			</>
+		);
+	}
+}
+
+export default TrialList;
