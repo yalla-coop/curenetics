@@ -4,7 +4,6 @@ import HeaderMatch from './headerMatch';
 import MatchCard from './cardMatch';
 
 import { breakpoint } from '../../../styles/globalStyles';
-
 import { matchData } from './dummyData';
 
 import { BacklinkContainer, Container } from '../../common/Layout';
@@ -21,10 +20,18 @@ export default class index extends Component {
     this.setState({
       list: matchData,
     });
+    /**
+     * Export all trials to PDF will not work without setTimeout
+     */
+    setTimeout(() => {
+      this.setState({
+        wait: true
+      });
+    },500);
   }
 
   render() {
-    const { list } = this.state;
+    const { list=[] } = this.state;
     return (
       <>
         <BacklinkContainer>
@@ -34,7 +41,7 @@ export default class index extends Component {
         </BacklinkContainer>
         <Title>Matched trials for patient: </Title>
         <Container style={{ maxWidth: breakpoint.tablet }}>
-          <HeaderMatch />
+          <HeaderMatch trial={list} wait={this.state.wait}/>
           {list &&
             list.map(trial => {
               return (
