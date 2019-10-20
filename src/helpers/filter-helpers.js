@@ -1,3 +1,4 @@
+import cloneDeep from "clone-deep";
 import {
 	ECOG_FIT_TOP,
 	AGE_DIFF,
@@ -7,7 +8,13 @@ import {
 } from "../constants/filter-criteria";
 
 export const cloneAndEditPatientInfo = patientInfo => {
-	let { ECOGStatus, gleasonScore, Keywords, ...rest } = patientInfo;
+	const clonedPatientInfo = cloneDeep(patientInfo);
+
+	let { ECOGStatus, gleasonScore, Keywords, ...rest } = clonedPatientInfo;
+	let Gleason = "",
+		DiseaseWithinProstate = false,
+		DiseaseOutsideProstate = false;
+
 	if (ECOGStatus <= +2) {
 		ECOGStatus = "fit";
 	} else {
@@ -23,25 +30,38 @@ export const cloneAndEditPatientInfo = patientInfo => {
 		Gleason = "high risk";
 	}
 
-	if (
-		Keywords.includes("disease within prostate") ||
-		Keywords.includes("focal disease")
-	) {
-		DiseaseWithinProstate = true;
-	} else {
-		DiseaseWithinProstate = false;
-	}
+	if (Keywords) {
+		if (
+			Keywords.includes("disease within prostate") ||
+			Keywords.includes("focal disease")
+		) {
+			DiseaseWithinProstate = true;
+		} else {
+			DiseaseWithinProstate = false;
+		}
 
-	if (
-		Keywords.includes("disease outside prostate") ||
-		Keywords.includes("metastatic disease") ||
-		Keywords.includes("advanced disease")
-	) {
-		DiseaseOutsideProstate = true;
+		if (
+			Keywords.includes("disease outside prostate") ||
+			Keywords.includes("metastatic disease") ||
+			Keywords.includes("advanced disease")
+		) {
+			DiseaseOutsideProstate = true;
+		} else {
+			DiseaseOutsideProstate = false;
+		}
 	} else {
-		DiseaseOutsideProstate = false;
-	}
+		if (rest["Disease within prostate"]) {
+			DiseaseWithinProstate = true;
+		} else {
+			DiseaseWithinProstate = false;
+		}
 
+		if (rest["Disease outside prostate"]) {
+			DiseaseOutsideProstate = true;
+		} else {
+			DiseaseOutsideProstate = false;
+		}
+	}
 	return {
 		...rest,
 		"ECOG status": ECOGStatus,
@@ -77,10 +97,10 @@ export const isEligibilityMatched = (
 			trial
 		)
 	) {
-		console.log("inclusion match1");
+		// console.log("inclusion match1");
 		return true;
 	} else {
-		console.log("inclusion no match");
+		// console.log("inclusion no match");
 		return false;
 		/* else if (
 		!isTheTwoEligibilityTheSame(
@@ -170,9 +190,46 @@ export const checkAgeEligibility = (trial, { ageInRange, ageNearly }) => {
 };
 
 export const isCancerMatched = (patientCancer, trialConditions) => {
-	return trialConditions.some(cancerType =>
-		cancerType.toLowerCase().includes(patientCancer.toLowerCase())
-	);
+	const patientCancerLow = patientCancer.trim().toLowerCase();
+	// console.log("patientCancerLow ->", patientCancerLow);
+	for (let cancerType of trialConditions) {
+		// console.log(cancerType.toLowerCase());
+		// if (cancerType.toLowerCase().includes(patientCancerLow)) {
+		if (
+			cancerType
+				.trim()
+				.toLowerCase()
+				.includes(patientCancerLow)
+		) {
+			console.log(
+				typeof cancerType.toLowerCase(),
+				typeof patientCancerLow,
+				[cancerType.toLowerCase()],
+				[patientCancerLow],
+				cancerType.toLowerCase().localeCompare(patientCancerLow),
+				"included:: ",
+				cancerType.toLowerCase().includes(patientCancerLow),
+				"MATCHED"
+			);
+			return true;
+		} else {
+			console.log(
+				typeof cancerType.toLowerCase(),
+				typeof patientCancerLow,
+				[cancerType.toLowerCase()],
+				[patientCancerLow],
+				cancerType.toLowerCase().localeCompare(patientCancerLow),
+				"included:: ",
+				cancerType.toLowerCase().includes(patientCancerLow),
+				"NOT MATCHED"
+			);
+		}
+	}
+	console.log("NOT MATCHED");
+	return false;
+	// return trialConditions.some(cancerType => {
+	// 	return cancerType.toLowerCase().includes(patientCancer.toLowerCase());
+	// });
 };
 
 const hasContactDetails = contact => {
