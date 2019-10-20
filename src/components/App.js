@@ -9,7 +9,6 @@ import NotFound from './pages/notfound';
 import Upload from './pages/upload';
 import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
-import TrialDetail from './pages/trialDetail';
 import EnterPatients from './pages/enterPatients';
 // pdf example here
 import MatchTrial from './pages/matchTrial';
@@ -111,7 +110,6 @@ const App = () => (
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/upload" component={Upload} />
-          <Route path="/trial-detail" component={TrialDetail} />
           <Route path="/patient-list" component={PatientList} />
           <Route path="/trial-list" component={TrialList} />
           <Route path="/match-trial" component={MatchTrial} />

@@ -19,7 +19,7 @@ import {
   Article,
   UploadCard,
 } from '../../common/Layout';
-import { Title, SubHeading, Paragraph, OL, LI } from '../../common/Typography';
+import { Title, SubHeading, OL, LI } from '../../common/Typography';
 import { BackLink, IconButton, Button } from '../../common/Buttons';
 
 import { breakpoint, colors } from '../../../styles/globalStyles';
