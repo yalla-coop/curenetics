@@ -25,14 +25,19 @@ import SingleTrial from './singleTrial';
 const PdfTemplate = ({ data, isPotential = null, type = 'single' }) => {
   const documentTitle =
     type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
-
+    // console.log("data => ", data);
   return (
     <Document title={documentTitle} creator="Curenetics Clinical Trials">
-      <Page style={styles.page}>
-        {type === 'single' && (
-          <SingleTrial data={data} isPotential={isPotential} />
-        )}
-      </Page>
+      <>
+      {data.map((item) => {
+        // console.log("item", item.trialInfo)
+        return(
+          <Page style={styles.page}>
+              <SingleTrial data={item} isPotential={item.eligibilityStatus} />
+          </Page>
+        )
+      })}
+      </>
     </Document>
   );
 };

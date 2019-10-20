@@ -1,5 +1,6 @@
 import React from 'react';
 import ExportLink from '../../common/icons/ExportLink';
+import PdfTemplate from '../../common/pdf/pdfTemplate';
 
 import {
   ExportButton,
@@ -12,7 +13,7 @@ import {
 
 import { colors } from '../../../styles/globalStyles';
 
-const HeaderMatch = () => {
+const HeaderMatch = ({ trial, wait }) => {
   return (
     <>
       <DetailWrapper>
@@ -25,10 +26,12 @@ const HeaderMatch = () => {
             <HighLight>Nearly eligible Trials:</HighLight>
             <HighLightNumber color={colors.accent}>3</HighLightNumber>
           </div>
-          <ExportButton>
-            Export all trials to PDF
-            <ExportLink style={{ marginLeft: '10px' }}></ExportLink>
-          </ExportButton>
+            <ExportButton
+              document={<PdfTemplate data={wait ? trial : [] } />}
+            >
+              Export all trials to PDF
+              <ExportLink style={{ marginLeft: '10px' }}></ExportLink>
+            </ExportButton>
         </DetailSection>
       </DetailWrapper>
       <PrimaryParagraph>Potentially Eligible trials</PrimaryParagraph>

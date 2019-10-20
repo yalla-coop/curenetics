@@ -133,7 +133,7 @@ const matchCard = ({
             Click here to view full Clinical Trial details
           </ViewFullTrial>
           <ExportButton
-            document={<PdfTemplate data={trial} isPotential={isPotential} />}
+            document={<PdfTemplate data={[trial]} />}
           >
             Export trial to pdf
             <ExportLink style={{ marginLeft: '10px' }} />
