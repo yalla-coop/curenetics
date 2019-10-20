@@ -9,8 +9,8 @@ import NotFound from "./pages/notfound";
 import Upload from "./pages/upload";
 import TrialList from "./pages/trialList";
 import PatientList from "./pages/patientList";
-import TrialDetail from "./pages/trialDetail";
 import EnterPatients from "./pages/enterPatients";
+// pdf example here
 import MatchTrial from "./pages/matchTrial";
 
 import cureneticsLogo from "./common/images/curenetics-logo.png";
@@ -121,7 +121,6 @@ const App = () => {
 								/>
 							)}
 						/>
-						<Route path="/trial-detail" component={TrialDetail} />
 						<Route
 							path="/patient-list"
 							render={props => (

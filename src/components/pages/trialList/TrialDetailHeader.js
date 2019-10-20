@@ -22,7 +22,7 @@ const SortSecation = styled.div`
   }
 `;
 
-const TrialDetailHeader = ({ setList }) => {
+const TrialListHeader = ({ setList }) => {
   const onChange = value => {
     setList(list => {
       const sortedList = [...list].sort((a, b) => {
@@ -67,4 +67,4 @@ const TrialDetailHeader = ({ setList }) => {
   );
 };
 
-export default TrialDetailHeader;
+export default TrialListHeader;
