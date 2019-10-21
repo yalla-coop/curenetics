@@ -28,39 +28,47 @@ import {
   ViewFullTrial,
 } from './style';
 
-const matchCard = ({
-  trial: {
-    id,
-    eligibilityStatus,
-    trialInfo: {
-      nct,
-      title,
-      startingDate,
-      endingDate,
-      phase,
-      overallStatus,
-      enrolled,
-      interventions,
-      sponsors,
-      allocation,
-      detailsLink,
-      locations,
-    },
-    matchingInfo,
-  },
-  trial,
-  isPotential,
-}) => {
+// const matchCard = ({
+//   trial: {
+//     id,
+//     eligibilityStatus,
+//     trialInfo: {
+//       nct,
+//       title,
+//       startingDate,
+//       endingDate,
+//       phase,
+//       overallStatus,
+//       enrolled,
+//       interventions,
+//       sponsors,
+//       allocation,
+//       detailsLink,
+//       locations,
+//     },
+//     matchingInfo,
+//   },
+//   trial,
+//   isPotential,
+// }) => {
+const matchCard = props => {
+  const { trial } = props;
+  const {
+    Phase,
+    OverallStatus,
+    Locations,
+    IDInfo: { NCTID, Title },
+  } = trial;
   return (
-    <Wrapper key={id + nct}>
+    <Wrapper key={Date.now() + NCTID}>
       <HeadSection>
         <div>
           <PrimarySpam>NCT Number: </PrimarySpam>
-          <span>{nct}</span>
+          <span>{NCTID}</span>
         </div>
         <PrimarySpam bold>PRONOUNCE</PrimarySpam>
       </HeadSection>
-      <HeadPragraph>{title}</HeadPragraph>
+      <HeadPragraph>{Title}</HeadPragraph>
       <ThreeColumnSection>
         <ColumnSection>
           <FieldWrapper>
@@ -68,8 +76,8 @@ const matchCard = ({
               <Calendar />
             </div>
             <ColumnSection>
-              <span>Starting Date: {startingDate}</span>
-              <span>Finish Date: {endingDate}</span>
+              <span>Starting Date: {'startingDate'}</span>
+              <span>Finish Date: {'endingDate'}</span>
             </ColumnSection>
           </FieldWrapper>
         </ColumnSection>
@@ -78,20 +86,20 @@ const matchCard = ({
             <div>
               <Avatar />
             </div>
-            <span>Phase: {phase}</span>
+            <span>Phase: {Phase}</span>
           </FieldWrapper>
           <FieldWrapper>
             <div>
               <Tick />
             </div>
-            <span>{overallStatus}</span>
+            <span>{OverallStatus}</span>
           </FieldWrapper>
         </ColumnSection>
         <FieldWrapper>
           <div>
             <Avatar />
           </div>
-          <span>Enrolled: {enrolled}</span>
+          <span>Enrolled: {'enrolled'}</span>
         </FieldWrapper>
       </ThreeColumnSection>
       <TwoColumnSection>
@@ -99,31 +107,37 @@ const matchCard = ({
           <div>
             <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
-          <span>Interventions: {interventions.map(i => `${i}, `)}</span>
+          {/* <span>Interventions: {interventions.map(i => `${i}, `)}</span> */}
         </FieldWrapper>
         <FieldWrapper>
           <div>
             <Plus />
           </div>
-          <span>Sponsor/Collaborators: {sponsors.map(i => `${i}, `)}</span>
+          {/* <span>Sponsor/Collaborators: {sponsors.map(i => `${i}, `)}</span> */}
         </FieldWrapper>
       </TwoColumnSection>
       <FieldWrapper>
         <div>
           <Stethiscope />
         </div>
-        <span>Allocation: {allocation}</span>
+        {/* <span>Allocation: {allocation}</span> */}
       </FieldWrapper>
-      <Table matchingInfo={matchingInfo} />
+      {/* <Table matchingInfo={matchingInfo} /> */}
       <section>
         <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
-        {locations.map((location, index) => {
+        {Locations.map(location => {
+          const {
+            Facility: {
+              Name,
+              Address: { City, Zip },
+            },
+          } = location;
           return (
-            <LocationSection key={location.name + id}>
+            <LocationSection key={Date.now() + Zip}>
               <span>
                 <Marker width="14px" />5 miles
               </span>
-              <span>{`${location.name}, ${location.address}`}</span>
+              <span>{`${Name}, ${City} ${Zip}`}</span>
             </LocationSection>
           );
         })}
@@ -132,9 +146,8 @@ const matchCard = ({
             <ExternalLink />
             Click here to view full Clinical Trial details
           </ViewFullTrial>
-          <ExportButton
-            document={<PdfTemplate data={[trial]} />}
-          >
+          {/* <ExportButton document={<PdfTemplate data={[trial]} />}> */}
+          <ExportButton document={<PdfTemplate data={[]} />}>
             Export trial to pdf
             <ExportLink style={{ marginLeft: '10px' }} />
           </ExportButton>

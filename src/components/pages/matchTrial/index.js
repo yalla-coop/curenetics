@@ -41,7 +41,9 @@ export default class index extends Component {
   }
 
   render() {
-    const { loading, list, patientsInfo, wait } = this.state;
+    const { loading, patientsInfo, wait } = this.state;
+    const { matchedTrials = {} } = patientsInfo;
+
     return loading ? (
       <h1>LOADING...</h1>
     ) : (
@@ -54,16 +56,15 @@ export default class index extends Component {
         <Title>Matched trials for patient: </Title>
         <Container style={{ maxWidth: breakpoint.tablet }}>
           <HeaderMatch patientsInfo={patientsInfo} wait={wait} />
-          {list &&
-            list.map(trial => {
-              return (
-                <MatchCard
-                  key={trial.id}
-                  trial={trial}
-                  isPotential={trial.eligibilityStatus === 'potential'}
-                />
-              );
-            })}
+          {matchedTrials.data.map(trial => {
+            return (
+              <MatchCard
+                key={trial.IDInfo.NCTID + Date.now()}
+                trial={trial}
+                isPotential={trial.eligibilityStatus === 'potential'}
+              />
+            );
+          })}
         </Container>
       </>
     );
