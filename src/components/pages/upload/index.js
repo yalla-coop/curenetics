@@ -53,6 +53,9 @@ const AddFileButton = styled(IconButton)`
 	margin: 0;
 	padding: 0.5rem;
 	border-radius: 2rem;
+	&:disabled {
+		background-color: ${colors.disabled};
+	}
 	@media only screen and (min-width: ${breakpoint.small}) {
 		max-width: 4rem;
 		margin: 0;
@@ -135,6 +138,16 @@ const Upload = props => {
 						<CardHeader>
 							<InputBox onChange={selectFiles} ref={inputRef} />
 							<AddFileButton
+
+                            // AddFileButton is disabled if there are already files selected ready to uploaded
+							disabled={
+								filenameCheck(filenames) !== filenames.length ||
+								filenames.length > 0	
+							}
+
+
+							// <Plus fill={colors.white} width={20} />
+
 								onClick={() => onButtonClick()}
 								aria-label="Upload PDF"
 							>
