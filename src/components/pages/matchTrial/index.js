@@ -14,25 +14,37 @@ import Chevron from '../../common/icons/Chevron';
 // isPotential determines green or orange colour
 // - this comes from dummyData.js (and actual data when we get there)
 export default class index extends Component {
-  state = {};
+  state = {
+    loading: true,
+    list: [],
+    patientsInfo: {},
+  };
 
   componentDidMount() {
-    this.setState({
-      list: matchData,
-    });
+    const { location } = this.props;
+
+    if (location.state && location.state.length > 0) {
+      this.setState({
+        loading: false,
+        list: matchData,
+        patientsInfo: location.state[0],
+      });
+    }
     /**
      * Export all trials to PDF will not work without setTimeout
      */
     setTimeout(() => {
       this.setState({
-        wait: true
+        wait: true,
       });
-    },500);
+    }, 500);
   }
 
   render() {
-    const { list=[] } = this.state;
-    return (
+    const { loading, list, patientsInfo, wait } = this.state;
+    return loading ? (
+      <h1>LOADING...</h1>
+    ) : (
       <>
         <BacklinkContainer>
           <BackLink to="/">
@@ -41,7 +53,7 @@ export default class index extends Component {
         </BacklinkContainer>
         <Title>Matched trials for patient: </Title>
         <Container style={{ maxWidth: breakpoint.tablet }}>
-          <HeaderMatch trial={list} wait={this.state.wait}/>
+          <HeaderMatch patientsInfo={patientsInfo} wait={wait} />
           {list &&
             list.map(trial => {
               return (
