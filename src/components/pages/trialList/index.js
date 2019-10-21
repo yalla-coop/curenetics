@@ -79,6 +79,8 @@ class TrialList extends Component {
 
 	render() {
 		const { loading, patientsInfo } = this.state;
+		console.log(this.state.trialsArr)
+		console.log('patient', this.state.patientsInfo)
 		return loading ? (
 			<LoadingContainer>
 				<Spin tip="Loading..." size="large" />

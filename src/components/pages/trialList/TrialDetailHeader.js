@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { PDFDownload, PDFDownloadLink } from '@react-pdf/renderer';
 import { Select } from "antd";
 
 import { Header } from "../../common/Layout";
 import { IconButton } from "../../common/Buttons";
 import { Title, Paragraph } from "../../common/Typography";
+import PdfTemplate from '../../common/pdf/pdfTemplate';
+import {matchData} from '../matchTrial/dummyData';
 import ExportLink from "../../common/icons/ExportLink";
 
 const { Option } = Select;
 
 const ExportButton = styled(IconButton)`
+    color: white;
 	margin: 2rem auto;
 `;
 
@@ -22,7 +26,7 @@ const SortSecation = styled.div`
 	}
 `;
 
-const TrialListHeader = ({ sortList }) => {
+const TrialListHeader = ({ sortList, listAll }) => {
 	const onChange = value => {
 		sortList(value);
 	};
@@ -40,8 +44,10 @@ const TrialListHeader = ({ sortList }) => {
 				<strong>Export Results</strong> button below.
 			</Paragraph>
 			<ExportButton isCenter>
-				<ExportLink />
-				Export Results
+			 <PDFDownloadLink document={<PdfTemplate data={ matchData } />}>
+			  {({loading}) => (loading ? 'Export' : 'Export Results')}
+			 </PDFDownloadLink>
+				{/* <ExportLink /> */}
 			</ExportButton>
 			<SortSecation>
 				<Select onChange={onChange} defaultValue="sort result">
