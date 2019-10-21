@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import exclamation from './images/exclamation.svg';
-import { OrangeButton } from './Buttons';
+import { OrangeButton, buttonBase, purpleAnchor } from './Buttons';
 import { colors, breakpoint } from '../../styles/globalStyles';
 import { Title, Paragraph } from './Typography';
 
@@ -37,25 +38,39 @@ const End = styled.section`
   justify-content: space-around;
   padding-top: 1vh;
 `;
+const ConfirmLink = styled(Link)`
+  ${buttonBase};
+  color: ${colors.white};
+  background-color: ${colors.disabled};
+  &:hover {
+    background-color: ${colors.accent};
+  }
+`;
 
-const SmallModal = ({ onClick }) => (
-  <Bkground>
-    <div>
-      <Head>
-        <img src={exclamation} alt="exclamation mark icon" />
-      </Head>
-      <Title>Are you sure?</Title>
-      <Paragraph>
-        If you continue you will lose all the data you have so far uploaded and
-        analysed along with any clinical trials found.
-      </Paragraph>
-      <End>
-        <OrangeButton color onClick={e => onClick(e)}>
-          Cancel
-        </OrangeButton>
-        <OrangeButton onClick={e => onClick(e)}>Confirm</OrangeButton>
-      </End>
-    </div>
-  </Bkground>
-);
+const SmallModal = () => {
+  const closeModule = e => {
+    const parentObj = e.target.parentNode;
+    parentObj.parentNode.parentNode.style.display = 'none';
+  };
+  return (
+    <Bkground>
+      <div>
+        <Head>
+          <img src={exclamation} alt="exclamation mark icon" />
+        </Head>
+        <Title>Are you sure?</Title>
+        <Paragraph>
+          If you continue you will lose all the data you have so far uploaded
+          and analysed along with any clinical trials found.
+        </Paragraph>
+        <End>
+          <OrangeButton color onClick={e => closeModule(e)}>
+            Cancel
+          </OrangeButton>
+          <ConfirmLink to="/">Confirm</ConfirmLink>
+        </End>
+      </div>
+    </Bkground>
+  );
+};
 export default SmallModal;
