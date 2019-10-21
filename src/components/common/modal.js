@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import exclamation from './images/exclamation.svg';
-import { OrangeButton, buttonBase, purpleAnchor } from './Buttons';
+import { OrangeButton, buttonBase } from './Buttons';
 import { colors, breakpoint } from '../../styles/globalStyles';
 import { Title, Paragraph } from './Typography';
 

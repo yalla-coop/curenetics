@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import SmallModal from '../../common/modal';
 
 import Chevron from '../../common/icons/Chevron';
 
@@ -23,7 +22,6 @@ const About = () => (
         <Chevron width={20} />
       </BackLink>
     </BacklinkContainer>
-    <SmallModal />
     <Header isCenter>
       <Title>About Curenetics</Title>
       <Paragraph style={pStyle}>
