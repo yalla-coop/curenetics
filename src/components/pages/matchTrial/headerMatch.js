@@ -13,12 +13,21 @@ import {
 
 import { colors } from '../../../styles/globalStyles';
 
-const renderHeader = (matchedTrials, size, wait) => {
+const getEligibilityTrialsCount = (matchedTrials, size) => {
   const nearlyEligibleTrials = matchedTrials.filter(trial => {
     const { ECOGNearlyEligible = false, ageNearlyEligible = false } = trial;
     return ECOGNearlyEligible === true || ageNearlyEligible === true;
   }).length;
   const potentiallyEligibleTrials = size - nearlyEligibleTrials;
+
+  return { nearlyEligibleTrials, potentiallyEligibleTrials };
+};
+
+const renderHeader = (matchedTrials, size, wait) => {
+  const {
+    nearlyEligibleTrials,
+    potentiallyEligibleTrials,
+  } = getEligibilityTrialsCount(matchedTrials, size);
 
   return (
     <>
