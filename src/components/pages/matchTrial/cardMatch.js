@@ -52,7 +52,7 @@ import {
 //   isPotential,
 // }) => {
 const matchCard = props => {
-  const { trial } = props;
+  const { trial, patientsInfo } = props;
   const {
     Phase,
     OverallStatus,
@@ -76,8 +76,8 @@ const matchCard = props => {
               <Calendar />
             </div>
             <ColumnSection>
-              <span>Starting Date: {'startingDate'}</span>
-              <span>Finish Date: {'endingDate'}</span>
+              <span>Starting Date: {'No data found'}</span>
+              <span>Finish Date: {'No data found'}</span>
             </ColumnSection>
           </FieldWrapper>
         </ColumnSection>
@@ -99,7 +99,7 @@ const matchCard = props => {
           <div>
             <Avatar />
           </div>
-          <span>Enrolled: {'enrolled'}</span>
+          <span>Enrolled: {'No data found'}</span>
         </FieldWrapper>
       </ThreeColumnSection>
       <TwoColumnSection>
@@ -107,22 +107,24 @@ const matchCard = props => {
           <div>
             <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
-          {/* <span>Interventions: {interventions.map(i => `${i}, `)}</span> */}
+          <span>Interventions: {['No data found'].map(i => `${i}, `)}</span>
         </FieldWrapper>
         <FieldWrapper>
           <div>
             <Plus />
           </div>
-          {/* <span>Sponsor/Collaborators: {sponsors.map(i => `${i}, `)}</span> */}
+          <span>
+            Sponsor/Collaborators: {['No data found'].map(i => `${i}, `)}
+          </span>
         </FieldWrapper>
       </TwoColumnSection>
       <FieldWrapper>
         <div>
           <Stethiscope />
         </div>
-        {/* <span>Allocation: {allocation}</span> */}
+        <span>Allocation: {'No data found'}</span>
       </FieldWrapper>
-      {/* <Table matchingInfo={matchingInfo} /> */}
+      <Table trial={trial} patientsInfo={patientsInfo} />
       <section>
         <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
         {Locations.map(location => {

@@ -61,6 +61,7 @@ export default class index extends Component {
               <MatchCard
                 key={trial.IDInfo.NCTID + Date.now()}
                 trial={trial}
+                patientsInfo={patientsInfo}
                 isPotential={trial.eligibilityStatus === 'potential'}
               />
             );
