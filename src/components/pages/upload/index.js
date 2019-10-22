@@ -141,7 +141,6 @@ const Upload = props => {
 
                             // AddFileButton is disabled if there are already files selected ready to uploaded
 							disabled={
-								filenameCheck(filenames) !== filenames.length ||
 								filenames.length > 0	
 							}
 
