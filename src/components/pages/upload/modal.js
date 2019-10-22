@@ -27,6 +27,7 @@ const Bkground = styled.section`
 const Head = styled.section`
   display: flex;
   flex-direction: column;
+  padding: 1vw;
   justify-items: center;
   align-items: center;
   margin-top: -3vh;
@@ -57,7 +58,7 @@ const Modual = ({ onClick }) => (
       </Paragraph>
       <Paragraph>By using this app you consent to this data use.</Paragraph>
       <Head>
-        <OrangeButton onClick={e => onClick(e)}>consent</OrangeButton>
+        <OrangeButton onClick={e => onClick(e)}>OK</OrangeButton>
       </Head>
     </div>
   </Bkground>
