@@ -20,7 +20,8 @@ const Bkground = styled.section`
     border: 3px solid ${colors.accent};
     border-radius: 5px;
     @media (max-width: ${breakpoint.Xsmall}) {
-      width: 70vw;
+      width: 85vw;
+      margin: -9.5vh auto;
     }
   }
 `;
@@ -34,6 +35,9 @@ const Head = styled.section`
 `;
 const Img = styled.img`
   padding-bottom: 2vh;
+  @media (max-width: ${breakpoint.Xsmall}) {
+    margin-top: 1vh;
+  }
 `;
 
 const Modual = ({ onClick }) => (
