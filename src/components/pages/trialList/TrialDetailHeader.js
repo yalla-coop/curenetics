@@ -33,7 +33,7 @@ const TrialListHeader = ({ sortList }) => {
 			<Paragraph textAlign="left">
 				Below find a list of matching clinical trials. Eligibility for clinical
 				trials are currently based on age, gender, cancer type, ECOG status,
-				Gleason level and certain diseases within and outside the prostate.
+				Gleason score and certain diseases within and outside the prostate.
 			</Paragraph>
 			<Paragraph textAlign="left">
 				To export the details of all eligible trials, click the{" "}
