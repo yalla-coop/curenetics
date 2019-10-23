@@ -28,31 +28,8 @@ import {
   ViewFullTrial,
 } from './style';
 
-// const matchCard = ({
-//   trial: {
-//     id,
-//     eligibilityStatus,
-//     trialInfo: {
-//       nct,
-//       title,
-//       startingDate,
-//       endingDate,
-//       phase,
-//       overallStatus,
-//       enrolled,
-//       interventions,
-//       sponsors,
-//       allocation,
-//       detailsLink,
-//       locations,
-//     },
-//     matchingInfo,
-//   },
-//   trial,
-//   isPotential,
-// }) => {
 const matchCard = props => {
-  const { trial, patientsInfo } = props;
+  const { trial, patientsInfo, isPotential } = props;
   const {
     Phase,
     OverallStatus,
@@ -124,7 +101,11 @@ const matchCard = props => {
         </div>
         <span>Allocation: {'No data found'}</span>
       </FieldWrapper>
-      <Table trial={trial} patientsInfo={patientsInfo} />
+      <Table
+        trial={trial}
+        patientsInfo={patientsInfo}
+        isPotential={isPotential}
+      />
       <section>
         <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
         {Locations.map(location => {
@@ -148,8 +129,15 @@ const matchCard = props => {
             <ExternalLink />
             Click here to view full Clinical Trial details
           </ViewFullTrial>
-          {/* <ExportButton document={<PdfTemplate data={[trial]} />}> */}
-          <ExportButton document={<PdfTemplate data={[]} />}>
+          <ExportButton
+            document={
+              <PdfTemplate
+                data={[trial]}
+                patientsInfo={patientsInfo}
+                isPotential={isPotential}
+              />
+            }
+          >
             Export trial to pdf
             <ExportLink style={{ marginLeft: '10px' }} />
           </ExportButton>

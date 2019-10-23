@@ -22,21 +22,22 @@ import SingleTrial from './singleTrial';
 // isPotential = green or orange colour
 // type = the type of pdf template to use. Single trial by default
 
-const PdfTemplate = ({ data, isPotential = null, type = 'single' }) => {
+const PdfTemplate = ({ data, patientsInfo, isPotential, type = 'single' }) => {
   const documentTitle =
     type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
-    // console.log("data => ", data);
+
   return (
     <Document title={documentTitle} creator="Curenetics Clinical Trials">
       <>
-      {data.map((item) => {
-        // console.log("item", item.trialInfo)
-        return(
-          <Page style={styles.page}>
-              <SingleTrial data={item} isPotential={item.eligibilityStatus} />
+        {data.map(item => (
+          <Page style={styles.page} key={Date.now() / Math.random()}>
+            <SingleTrial
+              data={item}
+              patientsInfo={patientsInfo}
+              isPotential={isPotential}
+            />
           </Page>
-        )
-      })}
+        ))}
       </>
     </Document>
   );

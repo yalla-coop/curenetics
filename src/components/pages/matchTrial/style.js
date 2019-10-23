@@ -175,7 +175,8 @@ export const TableBody = styled.div`
 export const TableHeadColor = styled.div`
   width: 100%;
   height: 1rem;
-  background-color: ${colors.confirm};
+  background-color: ${props =>
+    props.isPotential ? colors.confirm : colors.accent};
   border: solid 1px ${colors.darkGrey};
   border-radius: 5px 5px 0px 0px;
 `;

@@ -23,7 +23,7 @@ const getEligibilityTrialsCount = (matchedTrials, size) => {
   return { nearlyEligibleTrials, potentiallyEligibleTrials };
 };
 
-const renderHeader = (matchedTrials, size, wait) => {
+const renderHeader = (matchedTrials, patientsInfo, isPotential, size) => {
   const {
     nearlyEligibleTrials,
     potentiallyEligibleTrials,
@@ -45,8 +45,14 @@ const renderHeader = (matchedTrials, size, wait) => {
           </HighLightNumber>
         </div>
         <ExportButton
-          // document={<PdfTemplate data={wait ? matchedTrials : []} />}
-          document={<PdfTemplate data={wait ? [] : []} />}
+          document={
+            <PdfTemplate
+              data={matchedTrials}
+              patientsInfo={patientsInfo}
+              isPotential={isPotential}
+              type="multiple"
+            />
+          }
         >
           Export all trials to PDF
           <ExportLink style={{ marginLeft: '10px' }}></ExportLink>
@@ -56,14 +62,16 @@ const renderHeader = (matchedTrials, size, wait) => {
   );
 };
 
-const HeaderMatch = ({ patientsInfo, wait }) => {
+const HeaderMatch = ({ patientsInfo, isPotential }) => {
   const {
     matchedTrials: { data, size },
   } = patientsInfo;
-  console.log(111, data);
+
   return (
     <>
-      <DetailWrapper>{renderHeader(data, size, wait)}</DetailWrapper>
+      <DetailWrapper>
+        {renderHeader(data, patientsInfo, isPotential, size)}
+      </DetailWrapper>
       <PrimaryParagraph>Potentially Eligible trials</PrimaryParagraph>
     </>
   );

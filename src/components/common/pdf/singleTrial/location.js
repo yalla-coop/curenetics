@@ -16,16 +16,22 @@ const { markerIcon } = icons;
 const Location = ({ trialInfo }) => (
   <View style={[columnContainer, { marginTop: 40 }]}>
     <Text style={boldText}>Trial Location(s):</Text>
-    {trialInfo.locations.map(item => {
+    {trialInfo.Locations.map(location => {
+      const {
+        Facility: {
+          Name,
+          Address: { City, Zip },
+        },
+      } = location;
       return (
-        <View style={rowContainer} key={item.name}>
+        <View style={rowContainer} key={Date.now() / Math.random()}>
           <Image style={markerIconStyle} src={markerIcon} />
           <View style={rowContainer}>
-            <Text style={[text, { lineHeight: 0.5 }]}>{item.name}, </Text>
-            <Text style={[text, { lineHeight: 0.5 }]}>{item.address}</Text>
+            <Text style={[text, { lineHeight: 0.5 }]}>{Name}, </Text>
+            <Text style={[text, { lineHeight: 0.5 }]}>{(City, Zip)}</Text>
           </View>
         </View>
-      )
+      );
     })}
   </View>
 );

@@ -43,13 +43,10 @@ class TrialList extends Component {
           patient.matchedTrials = matchedTrials;
         });
 
-        this.setState({ patientsInfo, trialsArr, loading: false });
-      } else {
-        history.push('/');
+        return this.setState({ patientsInfo, trialsArr, loading: false });
       }
-    } else {
-      history.push('/');
     }
+    return history.push('/');
   }
 
   getTrials = async () => {

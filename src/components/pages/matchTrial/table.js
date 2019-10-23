@@ -11,10 +11,7 @@ import {
   TableHeaderText,
 } from './style';
 
-// const Table = ({
-//   matchingInfo: { trialCriteria = {}, patientCriteria = {} },
-// }) => {
-const Table = ({ trial, patientsInfo }) => {
+const Table = ({ trial, patientsInfo, isPotential }) => {
   const {
     Conditions,
     MinAge,
@@ -26,7 +23,7 @@ const Table = ({ trial, patientsInfo }) => {
   } = trial;
 
   const {
-    'Disease within prostate': mm,
+    'Disease within prostate': DiseaseWithinProstate,
     ECOGStatus,
     gleasonScore,
     age,
@@ -41,7 +38,7 @@ const Table = ({ trial, patientsInfo }) => {
   if (IsSmall) {
     return (
       <TableWrapper>
-        <TableHeadColor />
+        <TableHeadColor isPotential={isPotential} />
         <TableBody>
           <TableHeaderText>Matching criteria</TableHeaderText>
           <TableRowHead>
@@ -57,7 +54,9 @@ const Table = ({ trial, patientsInfo }) => {
             </span>
           </TableRow>
           <TableRow>
-            <span>Condition: {Conditions.map(i => `${i}, `)}</span>
+            <span>
+              Condition: {Conditions.map(condition => `${condition}, `)}
+            </span>
             <span>
               <Tick></Tick>
             </span>
@@ -94,7 +93,7 @@ const Table = ({ trial, patientsInfo }) => {
   }
   return (
     <TableWrapper>
-      <TableHeadColor></TableHeadColor>
+      <TableHeadColor isPotential={isPotential} />
       <TableBody>
         <TableHeaderText>Matching criteria</TableHeaderText>
         <TableRowHead>
@@ -130,7 +129,9 @@ const Table = ({ trial, patientsInfo }) => {
             Disease within prostate:{' '}
             {Inclusion.DiseaseWithinProstate ? 'yes' : 'no'}
           </span>
-          <span>Disease within prostate: {mm ? 'yes' : 'no'}</span>
+          <span>
+            Disease within prostate: {DiseaseWithinProstate ? 'yes' : 'no'}
+          </span>
         </TableRow>
       </TableBody>
     </TableWrapper>
