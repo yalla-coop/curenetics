@@ -108,6 +108,21 @@ const Upload = props => {
 		const parentObj = e.target.parentNode;
 		parentObj.parentNode.parentNode.style.display = "none";
 	};
+	const sendFiles = () => {
+		const formData = new FormData ();
+		filenames.forEach((file, i) => {
+			formData.append(i, file)
+		})
+
+		fetch('',{
+			method: 'post',
+			body: formData,
+		})
+		  .then(res => console.log(res))
+		  .catch(err => console.log('There is an error with the post request',err))
+
+		  setFilenames([]);
+	}
 	return (
 		<>
 			<Modual onClick={closeModule} />
@@ -182,14 +197,15 @@ const Upload = props => {
 								filenameCheck(filenames) !== filenames.length ||
 								filenames.length === 0
 							}
+							onClick={sendFiles}
 							// basic simulation of api call
-							onClick={() => {
-								setTimeout(() => {
-									props.history.push("/patient-list", {
-										list: patientdata.patients
-									});
-								}, 500);
-							}}
+							// onClick={() => {
+							// 	setTimeout(() => {
+							// 		props.history.push("/patient-list", {
+							// 			list: patientdata.patients
+							// 		});{}
+							// 	}, 500);
+							// }}
 						>
 							Upload File(s)
 						</UploadButton>
