@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import deleteIcon from './deleteIcon.svg';
+import deleteIcon from './delete-cross.svg';
 import { fontFamily, font, colors } from '../../../styles/globalStyles';
 
 const Div = styled.li`
   width: 30vw;
   display: flex;
   background-color: ${props =>
-    props.bg === 'yes' ? colors.white : colors.accent};
+    props.bg === 'yes' ? colors.white : colors.lightAccent};
   font-family: ${fontFamily.body};
   font-size: ${font.small};
   list-style-type: none;
   padding: 0.2rem;
   > img {
     left: 0.5rem;
+    padding-left: 0.8rem;
   }
   > div {
     margin-left: 0.8rem;
