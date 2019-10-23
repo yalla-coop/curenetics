@@ -8,7 +8,7 @@ const PatientIntro = () => (
     <Paragraph>
       Please enter the relevant medical details for each of patients below. We
       can currently match clinical trials for you based on age, gender, cancer
-      type, ECOG status, Gleason level and certain diseases within and outside
+      type, ECOG status, Gleason score and certain diseases within and outside
       the prostate.
     </Paragraph>
   </Header>

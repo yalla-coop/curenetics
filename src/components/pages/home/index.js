@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Keyboard from '../../common/icons/Keyboard';
 
@@ -38,6 +39,13 @@ const SearchLink = styled(IconAnchor)`
   }
 `;
 
+const LinkOnly = styled.div`
+text-decoration: underline;
+.pointer {cursor: pointer;}
+           color: ${colors.primary};
+  &:hover {color: ${colors.lightPrimary}; 
+  }
+`
 const Home = () => (
   <>
     <Header>
@@ -51,15 +59,19 @@ const Home = () => (
         To start either select the button to upload one or more PDF files or
         click the icon to type in data manually
       </Paragraph>
+      <Paragraph><LinkOnly><Link to="/about"> Find out more about Curenetics</Link>
+       </LinkOnly></Paragraph>
     </Header>
 
     <LinkContainer hasColumns>
       <UploadLink to="/upload">Upload PDFs of patient data</UploadLink>
-      <SearchLink to="/enter" isClear>
+      <SearchLink to="/enter-patients" isClear>
         <Keyboard fill={colors.primary} width={40} />
         Or type in patient details
       </SearchLink>
     </LinkContainer>
+    <Paragraph textAlign={'center'}>Connect to local hospital electronic records
+(coming soon)</Paragraph>
   </>
 );
 
