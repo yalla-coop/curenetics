@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Spin } from 'antd';
 import styled from 'styled-components';
-import cloneDeep from 'clone-deep';
+
+import { filterByEligibility } from '../../../helpers/eligibility';
 
 import HeaderMatch from './headerMatch';
 import MatchCard from './cardMatch';
@@ -20,7 +21,6 @@ const LoadingContainer = styled.div`
   padding-top: 50vh;
 `;
 
-// isPotential determines green or orange colour
 export default class index extends Component {
   state = {
     loading: true,
@@ -49,23 +49,6 @@ export default class index extends Component {
     // }, 500);
   }
 
-  filterByEligibility = trials => {
-    return cloneDeep(trials).sort((a, b) => {
-      if (this.isPotential(a) === this.isPotential(b)) {
-        return 0;
-      }
-      if (this.isPotential(a)) {
-        return -1;
-      }
-      return 1;
-    });
-  };
-
-  isPotential = trial => {
-    const { ageNearlyEligible = false, ECOGNearlyEligible = false } = trial;
-    return ageNearlyEligible === false && ECOGNearlyEligible === false;
-  };
-
   render() {
     const { loading, patientsInfo } = this.state;
     const { matchedTrials } = patientsInfo;
@@ -84,13 +67,12 @@ export default class index extends Component {
         <Title>Matched trials for patient: </Title>
         <Container style={{ maxWidth: breakpoint.tablet }}>
           <HeaderMatch patientsInfo={patientsInfo} />
-          {this.filterByEligibility(matchedTrials.data).map(trial => {
+          {filterByEligibility(matchedTrials.data).map(trial => {
             return (
               <MatchCard
                 key={trial.IDInfo.NCTID + Date.now()}
                 trial={trial}
                 patientsInfo={patientsInfo}
-                isPotential={this.isPotential(trial)}
               />
             );
           })}

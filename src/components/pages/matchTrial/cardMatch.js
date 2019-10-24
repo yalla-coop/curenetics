@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Table from './table';
 import PdfTemplate from '../../common/pdf/pdfTemplate';
 
@@ -28,7 +27,7 @@ import {
   ViewFullTrial,
 } from './style';
 
-const matchCard = ({ trial, patientsInfo, isPotential }) => {
+const matchCard = ({ trial, patientsInfo }) => {
   const {
     Phase,
     OverallStatus,
@@ -103,11 +102,7 @@ const matchCard = ({ trial, patientsInfo, isPotential }) => {
         </div>
         <span>Allocation: {'No data found'}</span>
       </FieldWrapper>
-      <Table
-        trial={trial}
-        patientsInfo={patientsInfo}
-        isPotential={isPotential}
-      />
+      <Table trial={trial} patientsInfo={patientsInfo} />
       <section>
         <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
         {Locations.map(location => {
@@ -127,17 +122,19 @@ const matchCard = ({ trial, patientsInfo, isPotential }) => {
           );
         })}
         <BottomSection>
-          <ViewFullTrial>
-            <ExternalLink />
-            Click here to view full Clinical Trial details
-          </ViewFullTrial>
+          <a
+            href={`https://ClinicalTrials.gov/show/${NCTID}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ViewFullTrial>
+              <ExternalLink />
+              Click here to view full Clinical Trial details
+            </ViewFullTrial>
+          </a>
           <ExportButton
             document={
-              <PdfTemplate
-                data={[trial]}
-                patientsInfo={patientsInfo}
-                isPotential={isPotential}
-              />
+              <PdfTemplate data={[trial]} patientsInfo={patientsInfo} />
             }
           >
             Export trial to pdf

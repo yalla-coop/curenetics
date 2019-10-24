@@ -1,7 +1,7 @@
 import React from 'react';
 import { Document, Page } from '@react-pdf/renderer';
 import { styles } from './pdfStyles';
-
+import { isPotential, filterByEligibility } from '../../../helpers/eligibility';
 // import Roboto from '../fonts/Roboto-Regular.ttf';
 // import RobotoBold from '../fonts/Roboto-Bold.ttf';
 
@@ -22,19 +22,19 @@ import SingleTrial from './singleTrial';
 // isPotential = green or orange colour
 // type = the type of pdf template to use. Single trial by default
 
-const PdfTemplate = ({ data, patientsInfo, isPotential, type = 'single' }) => {
+const PdfTemplate = ({ data, patientsInfo, type = 'single' }) => {
   const documentTitle =
     type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
 
   return (
     <Document title={documentTitle} creator="Curenetics Clinical Trials">
       <>
-        {data.map(item => (
+        {filterByEligibility(data).map(trial => (
           <Page style={styles.page} key={Date.now() / Math.random()}>
             <SingleTrial
-              data={item}
+              data={trial}
               patientsInfo={patientsInfo}
-              isPotential={isPotential}
+              isPotential={isPotential(trial)}
             />
           </Page>
         ))}

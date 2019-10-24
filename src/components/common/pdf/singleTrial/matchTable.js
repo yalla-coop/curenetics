@@ -3,13 +3,12 @@ import { View, Text } from '@react-pdf/renderer';
 import { styles } from '../pdfStyles';
 
 import { colors } from '../../../../styles/globalStyles';
+import { getAgeNum } from '../../../../helpers/eligibility';
 
-const renderBasedOnObject = (item, index) => {
+const renderBasedOnObject = (item, index, trialPatientData) => {
   if (index === 0) {
-    const minAgeNum = item.MinAge !== 'N/A' ? item.MinAge.split(' ')[0] : 18;
-    const maxAgeNum = item.MaxAge.split(' ')[0];
     return {
-      age: `${minAgeNum} - ${maxAgeNum}`,
+      age: `${getAgeNum(item.MinAge)} - ${getAgeNum(item.MaxAge)}`,
       conditons: item.Conditions.map(condition => `${condition},`),
       gender: item.Gender,
       ecog: item.Eligibility.Inclusion['ECOG status'], // this need more work
@@ -18,10 +17,12 @@ const renderBasedOnObject = (item, index) => {
     };
   }
   return {
-    age: item.age,
-    conditons: item.canerType,
+    age: trialPatientData[0].ageNearlyEligible ? `${item.age}*` : item.age,
+    conditons: item.cancerType,
     gender: item.gender,
-    ecog: item.ECOGStatus,
+    ecog: trialPatientData[0].ECOGNearlyEligible
+      ? `${item.ECOGStatus}*`
+      : item.ECOGStatus,
     gleason: item.gleasonScore,
     inProstate: item['Disease within prostate'],
   };
@@ -66,7 +67,7 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
             ecog,
             gleason,
             inProstate,
-          } = renderBasedOnObject(item, index);
+          } = renderBasedOnObject(item, index, trialPatientData);
           return (
             <View
               key={Date.now() / Math.random()}

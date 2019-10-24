@@ -23,7 +23,7 @@ const getEligibilityTrialsCount = (matchedTrials, size) => {
   return { nearlyEligibleTrials, potentiallyEligibleTrials };
 };
 
-const renderHeader = (matchedTrials, patientsInfo, isPotential, size) => {
+const renderHeader = (matchedTrials, patientsInfo, size) => {
   const {
     nearlyEligibleTrials,
     potentiallyEligibleTrials,
@@ -49,7 +49,6 @@ const renderHeader = (matchedTrials, patientsInfo, isPotential, size) => {
             <PdfTemplate
               data={matchedTrials}
               patientsInfo={patientsInfo}
-              isPotential={isPotential}
               type="multiple"
             />
           }
@@ -62,16 +61,14 @@ const renderHeader = (matchedTrials, patientsInfo, isPotential, size) => {
   );
 };
 
-const HeaderMatch = ({ patientsInfo, isPotential }) => {
+const HeaderMatch = ({ patientsInfo }) => {
   const {
     matchedTrials: { data, size },
   } = patientsInfo;
 
   return (
     <>
-      <DetailWrapper>
-        {renderHeader(data, patientsInfo, isPotential, size)}
-      </DetailWrapper>
+      <DetailWrapper>{renderHeader(data, patientsInfo, size)}</DetailWrapper>
       <PrimaryParagraph>Potentially Eligible trials</PrimaryParagraph>
     </>
   );

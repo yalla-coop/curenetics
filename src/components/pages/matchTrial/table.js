@@ -1,6 +1,7 @@
 import React from 'react';
 import Tick from '../../common/icons/Tick';
 import useIsSmall from '../../common/useIsSmall';
+import { isPotential, getAgeNum } from '../../../helpers/eligibility';
 
 import {
   TableWrapper,
@@ -11,7 +12,7 @@ import {
   TableHeaderText,
 } from './style';
 
-const Table = ({ trial, patientsInfo, isPotential }) => {
+const Table = ({ trial, patientsInfo }) => {
   const {
     Conditions,
     MinAge,
@@ -31,14 +32,16 @@ const Table = ({ trial, patientsInfo, isPotential }) => {
     cancerType,
   } = patientsInfo;
 
-  const minAgeNum = MinAge !== 'N/A' ? +MinAge.split(' ')[0] : 18;
-  const maxAgeNum = MaxAge.split(' ')[0];
+  const minAgeNum = getAgeNum(MinAge);
+  const maxAgeNum = getAgeNum(MaxAge);
+
+  const isPotentialRes = isPotential(trial);
 
   const { IsSmall } = useIsSmall();
   if (IsSmall) {
     return (
       <TableWrapper>
-        <TableHeadColor isPotential={isPotential} />
+        <TableHeadColor isPotential={isPotentialRes} />
         <TableBody>
           <TableHeaderText>Matching criteria</TableHeaderText>
           <TableRowHead>
@@ -47,7 +50,7 @@ const Table = ({ trial, patientsInfo, isPotential }) => {
           </TableRowHead>
           <TableRow>
             <span>
-              Age: {minAgeNum}-{maxAgeNum}
+              Age: {minAgeNum} - {maxAgeNum}
             </span>
             <span>
               <Tick></Tick>
@@ -93,7 +96,7 @@ const Table = ({ trial, patientsInfo, isPotential }) => {
   }
   return (
     <TableWrapper>
-      <TableHeadColor isPotential={isPotential} />
+      <TableHeadColor isPotential={isPotentialRes} />
       <TableBody>
         <TableHeaderText>Matching criteria</TableHeaderText>
         <TableRowHead>
@@ -102,7 +105,7 @@ const Table = ({ trial, patientsInfo, isPotential }) => {
         </TableRowHead>
         <TableRow>
           <span>
-            Age: {minAgeNum}-{maxAgeNum}
+            Age: {minAgeNum} - {maxAgeNum}
           </span>
           <span>Age: {ageNearlyEligible ? `${age}*` : age}</span>
         </TableRow>

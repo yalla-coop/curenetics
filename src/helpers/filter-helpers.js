@@ -5,15 +5,16 @@ import cloneDeep from 'clone-deep';
 import {
   ECOG_FIT_TOP,
   AGE_DIFF,
-  ADULT_MIN_AGE,
   EMPTY_ELIGIBILITY_AC_CRITERIA,
   acceptanceCriteria,
 } from '../constants/filter-criteria';
+import { getAgeNum } from './eligibility';
 
 export const cloneAndEditPatientInfo = patientInfo => {
   const clonedPatientInfo = cloneDeep(patientInfo);
 
-  let { ECOGStatus, gleasonScore, Keywords, ...rest } = clonedPatientInfo;
+  const { gleasonScore, Keywords, ...rest } = clonedPatientInfo;
+  let { ECOGStatus } = clonedPatientInfo;
   let Gleason = '';
   let DiseaseWithinProstate = false;
   let DiseaseOutsideProstate = false;
@@ -166,9 +167,8 @@ export const isEligibilityMatched = (
 };
 
 export const checkAge = (patientAge, trialMinAge, trialMaxAge) => {
-  const minAge =
-    trialMinAge !== 'N/A' ? +trialMinAge.split(' ')[0] : ADULT_MIN_AGE;
-  const maxAge = +trialMaxAge.split(' ')[0];
+  const minAge = getAgeNum(trialMinAge);
+  const maxAge = getAgeNum(trialMaxAge);
   const pAge = +patientAge;
 
   if (pAge >= minAge && pAge <= maxAge) {
