@@ -30,6 +30,8 @@ module.exports = {
 				extensions: [".js", ".jsx"]
 			}
 		],
+		"react/jsx-props-no-spreading": 0,
+		"react/state-in-constructor": ["enable", "mode"],
 		quotes: [
 			2,
 			"single",
