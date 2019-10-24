@@ -41,7 +41,7 @@ const End = styled.section`
 const ConfirmLink = styled(Link)`
   ${buttonBase};
   color: ${colors.white};
-  background-color: ${colors.disabled};
+  background-color: ${colors.accent};
   &:hover {
     background-color: ${colors.accent};
   }
@@ -67,7 +67,7 @@ const SmallModal = () => {
           <OrangeButton color onClick={e => closeModule(e)}>
             Cancel
           </OrangeButton>
-          <ConfirmLink to="/">Confirm</ConfirmLink>
+          <ConfirmLink style={{ color: 'white' }} to="/">Confirm</ConfirmLink>
         </End>
       </div>
     </Bkground>
