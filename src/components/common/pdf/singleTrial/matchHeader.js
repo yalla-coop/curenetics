@@ -64,14 +64,16 @@ const MatchHeader = ({ trialInfo }) => {
       <View style={rowContainer}>
         <Image style={icon} src={testTubeIcon} />
         <Text style={text}>
-          Interventions: {['No data found'].map(i => `${i}, `)}
+          {/* Interventions: {['No data found'].map(i => `${i}, `)} */}
+          Interventions: {'No data found'}
         </Text>
       </View>
 
       <View style={rowContainer}>
         <Image style={icon} src={plusIcon} />
         <Text style={text}>
-          Sponsors: {['No data found'].map(i => `${i}, `)}
+          {/* Sponsors: {['No data found'].map(i => `${i}, `)} */}
+          Sponsors: {'No data found'}
         </Text>
       </View>
 

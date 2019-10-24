@@ -59,7 +59,6 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
 
       <View style={tableContent}>
         {trialPatientData.map((item, index) => {
-          // console.log('item==>', index);
           const {
             age,
             conditons,

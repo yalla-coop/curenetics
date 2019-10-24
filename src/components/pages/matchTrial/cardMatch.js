@@ -28,14 +28,14 @@ import {
   ViewFullTrial,
 } from './style';
 
-const matchCard = props => {
-  const { trial, patientsInfo, isPotential } = props;
+const matchCard = ({ trial, patientsInfo, isPotential }) => {
   const {
     Phase,
     OverallStatus,
     Locations,
     IDInfo: { NCTID, Title },
   } = trial;
+
   return (
     <Wrapper key={Date.now() + NCTID}>
       <HeadSection>
@@ -84,14 +84,16 @@ const matchCard = props => {
           <div>
             <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
-          <span>Interventions: {['No data found'].map(i => `${i}, `)}</span>
+          {/* <span>Interventions: {['No data found'].map(i => `${i}, `)}</span> */}
+          <span>Interventions: {'No data found'}</span>
         </FieldWrapper>
         <FieldWrapper>
           <div>
             <Plus />
           </div>
           <span>
-            Sponsor/Collaborators: {['No data found'].map(i => `${i}, `)}
+            {/* Sponsor/Collaborators: {['No data found'].map(i => `${i}, `)} */}
+            Sponsor/Collaborators: {'No data found'}
           </span>
         </FieldWrapper>
       </TwoColumnSection>
