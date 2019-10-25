@@ -15,8 +15,8 @@ const renderBasedOnObject = (item, index, trialPatientData) => {
       age: `${getAgeNum(item.MinAge)} - ${getAgeNum(item.MaxAge)}`,
       conditons: item.Conditions.map(condition => `${condition},`),
       gender: item.Gender,
-      ecog: InclusionOrExclusion.ECOGStatus, // this need more work
-      gleason: InclusionOrExclusion.Gleason, // this also,
+      ecog: InclusionOrExclusion.ECOGStatus,
+      gleason: InclusionOrExclusion.Gleason,
       DiseaseWithinProstate: InclusionOrExclusion.DiseaseWithinProstate,
       DiseaseOutsideProstate: InclusionOrExclusion.DiseaseOutsideProstate,
     };
