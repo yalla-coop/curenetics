@@ -199,9 +199,9 @@ export const TableRow = styled.div`
   margin: 0.5rem 0rem;
   display: flex;
   & > :first-child {
-    width: 70%;
+    width: 67%;
   }
   & > :nth-child(2) {
-    width: 30%;
+    width: 32%;
   }
 `;

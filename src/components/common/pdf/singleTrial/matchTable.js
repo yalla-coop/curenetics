@@ -3,17 +3,22 @@ import { View, Text } from '@react-pdf/renderer';
 import { styles } from '../pdfStyles';
 
 import { colors } from '../../../../styles/globalStyles';
-import { getAgeNum } from '../../../../helpers/eligibility';
+import {
+  getAgeNum,
+  displayInclusionOrExclusion,
+} from '../../../../helpers/eligibility';
 
 const renderBasedOnObject = (item, index, trialPatientData) => {
   if (index === 0) {
+    const InclusionOrExclusion = displayInclusionOrExclusion(item);
     return {
       age: `${getAgeNum(item.MinAge)} - ${getAgeNum(item.MaxAge)}`,
       conditons: item.Conditions.map(condition => `${condition},`),
       gender: item.Gender,
-      ecog: item.Eligibility.Inclusion['ECOG status'], // this need more work
-      gleason: item.Eligibility.Inclusion.Gleason, // this also,
-      inProstate: item.Eligibility.Inclusion.DiseaseWithinProstate,
+      ecog: InclusionOrExclusion.ECOGStatus, // this need more work
+      gleason: InclusionOrExclusion.Gleason, // this also,
+      DiseaseWithinProstate: InclusionOrExclusion.DiseaseWithinProstate,
+      DiseaseOutsideProstate: InclusionOrExclusion.DiseaseOutsideProstate,
     };
   }
   return {
@@ -24,7 +29,8 @@ const renderBasedOnObject = (item, index, trialPatientData) => {
       ? `${item.ECOGStatus}*`
       : item.ECOGStatus,
     gleason: item.gleasonScore,
-    inProstate: item['Disease within prostate'],
+    DiseaseWithinProstate: item['Disease within prostate'],
+    DiseaseOutsideProstate: item['Disease outside prostate'],
   };
 };
 
@@ -66,7 +72,8 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
             gender,
             ecog,
             gleason,
-            inProstate,
+            DiseaseWithinProstate,
+            DiseaseOutsideProstate,
           } = renderBasedOnObject(item, index, trialPatientData);
           return (
             <View
@@ -79,7 +86,10 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
               <Text style={text}>ECOG: {ecog}</Text>
               <Text style={text}>Gleason Score: {gleason}</Text>
               <Text style={text}>
-                Disease within Prostate: {inProstate ? 'yes' : 'no'}
+                Disease within Prostate: {DiseaseWithinProstate}
+              </Text>
+              <Text style={text}>
+                Disease outside Prostate: {DiseaseOutsideProstate}
               </Text>
             </View>
           );

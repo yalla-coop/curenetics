@@ -1,7 +1,11 @@
 import React from 'react';
 import Tick from '../../common/icons/Tick';
 import useIsSmall from '../../common/useIsSmall';
-import { isPotential, getAgeNum } from '../../../helpers/eligibility';
+import {
+  isPotential,
+  getAgeNum,
+  displayInclusionOrExclusion,
+} from '../../../helpers/eligibility';
 
 import {
   TableWrapper,
@@ -18,13 +22,13 @@ const Table = ({ trial, patientsInfo }) => {
     MinAge,
     MaxAge,
     Gender,
-    Eligibility: { Inclusion },
     ageNearlyEligible = false,
     ECOGNearlyEligible = false,
   } = trial;
 
   const {
     'Disease within prostate': DiseaseWithinProstate,
+    'Disease outside prostate': DiseaseOutsideProstate,
     ECOGStatus,
     gleasonScore,
     age,
@@ -36,6 +40,7 @@ const Table = ({ trial, patientsInfo }) => {
   const maxAgeNum = getAgeNum(MaxAge);
 
   const isPotentialRes = isPotential(trial);
+  const InclusionOrExclusion = displayInclusionOrExclusion(trial);
 
   const { IsSmall } = useIsSmall();
   if (IsSmall) {
@@ -71,20 +76,30 @@ const Table = ({ trial, patientsInfo }) => {
             </span>
           </TableRow>
           <TableRow>
-            <span>ECOG status: {Inclusion['ECOG status']} </span>
+            <span>ECOG status: {InclusionOrExclusion.ECOGStatus}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>Gleason score: {Inclusion.Gleason}</span>
+            <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
             <span>
-              prostate: {Inclusion.DiseaseWithinProstate ? 'yes' : 'no'}
+              Disease within prostate:{' '}
+              {InclusionOrExclusion.DiseaseWithinProstate}
+            </span>
+            <span>
+              <Tick></Tick>
+            </span>
+          </TableRow>
+          <TableRow>
+            <span>
+              Disease outside prostate:{' '}
+              {InclusionOrExclusion.DiseaseOutsideProstate}
             </span>
             <span>
               <Tick></Tick>
@@ -118,23 +133,28 @@ const Table = ({ trial, patientsInfo }) => {
           <span>Gender: {gender}</span>
         </TableRow>
         <TableRow>
-          <span>ECOG status: {Inclusion['ECOG status']} </span>
+          <span>ECOG status: {InclusionOrExclusion.ECOGStatus} </span>
           <span>
             ECOG status: {ECOGNearlyEligible ? `${ECOGStatus}*` : ECOGStatus}
           </span>
         </TableRow>
         <TableRow>
-          <span>Gleason score: {Inclusion.Gleason}</span>
+          <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
           <span>Gleason score: {gleasonScore}</span>
         </TableRow>
         <TableRow>
           <span>
             Disease within prostate:{' '}
-            {Inclusion.DiseaseWithinProstate ? 'yes' : 'no'}
+            {InclusionOrExclusion.DiseaseWithinProstate}
           </span>
+          <span>Disease within prostate: {DiseaseWithinProstate}</span>
+        </TableRow>
+        <TableRow>
           <span>
-            Disease within prostate: {DiseaseWithinProstate ? 'yes' : 'no'}
+            Disease outside prostate:{' '}
+            {InclusionOrExclusion.DiseaseOutsideProstate}
           </span>
+          <span>Disease outside prostate: {DiseaseOutsideProstate}</span>
         </TableRow>
       </TableBody>
     </TableWrapper>

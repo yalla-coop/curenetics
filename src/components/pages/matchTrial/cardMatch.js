@@ -102,7 +102,9 @@ const matchCard = ({ trial, patientsInfo }) => {
         </div>
         <span>Allocation: {'No data found'}</span>
       </FieldWrapper>
+      {/* the matching trials table */}
       <Table trial={trial} patientsInfo={patientsInfo} />
+
       <section>
         <BoldParagraph>Nearest Trial Locations: </BoldParagraph>
         {Locations.map(location => {

@@ -120,6 +120,15 @@ export const isEligibilityMatched = (
   const { Inclusion, Exclusion } = trial.Eligibility;
   if (isEligibilityWithNoDetails(Inclusion)) {
     if (isEligibilityWithNoDetails(Exclusion)) {
+      /* 
+        this is used to decide what to display
+        on the screen
+        1- Matched=Any then it's OK to display
+        inclusion or exclusion
+        2-Matched=Inclusion then display inclusion
+        3-no Matched then display exclusion
+       */
+      trial.Eligibility.Matched = 'Any';
       return true;
     }
     return isTheTwoEligibilityTheSame(
@@ -129,6 +138,7 @@ export const isEligibilityMatched = (
       trial
     );
   }
+
   if (
     isTheTwoEligibilityTheSame(
       formatedPatientInfo,
@@ -138,6 +148,7 @@ export const isEligibilityMatched = (
     )
   ) {
     // console.log("inclusion match1");
+    trial.Eligibility.Matched = 'Inclusion';
     return true;
   }
   // console.log("inclusion no match");
