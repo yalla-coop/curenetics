@@ -22,24 +22,34 @@ import SingleTrial from './singleTrial';
 // isPotential = green or orange colour
 // type = the type of pdf template to use. Single trial by default
 
-const PdfTemplate = ({ data, patientsInfo, type = 'single' }) => {
-  const documentTitle =
-    type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
+// const PdfTemplate = ({ data, patientsInfo, type = 'single' }) => {
 
-  return (
-    <Document title={documentTitle} creator="Curenetics Clinical Trials">
-      <>
-        {filterByEligibility(data).map(trial => (
-          <Page style={styles.page} key={Date.now() / Math.random()}>
-            <SingleTrial
-              data={trial}
-              patientsInfo={patientsInfo}
-              isPotential={isPotential(trial)}
-            />
-          </Page>
-        ))}
-      </>
-    </Document>
-  );
-};
+class PdfTemplate extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    const { data } = this.props;
+    return data !== nextProps.data;
+  }
+
+  render() {
+    const { data, patientsInfo, type = 'single' } = this.props;
+    const documentTitle =
+      type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
+
+    return (
+      <Document title={documentTitle} creator="Curenetics Clinical Trials">
+        <>
+          {filterByEligibility(data).map(trial => (
+            <Page style={styles.page} key={Date.now() / Math.random()}>
+              <SingleTrial
+                data={trial}
+                patientsInfo={!patientsInfo ? trial.patientInfo : patientsInfo}
+                isPotential={isPotential(trial)}
+              />
+            </Page>
+          ))}
+        </>
+      </Document>
+    );
+  }
+}
 export default PdfTemplate;

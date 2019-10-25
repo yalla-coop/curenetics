@@ -73,9 +73,12 @@ export const ExportButton = styled(PDFDownloadLink)`
   color: ${colors.white};
   background-color: ${colors.primary};
   text-align: center;
-  padding: 0.5rem 0.8rem;
+  padding: 1rem;
   border-radius: 6px;
-  font-size: small;
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const HeadPragraph = styled.p`

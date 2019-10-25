@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Spin, message } from 'antd';
 import styled from 'styled-components';
-import {
-  filterByOverallStatus,
-  filterByAllCriteria,
-} from '../../../helpers/filter';
-import { TRIAL_API } from '../../../constants/urls';
-// import result from '../../../dummydata/Results-12-10-19.json';
+import { Spin, message } from 'antd';
 import TrialDetailHeader from './TrialDetailHeader';
 import CardSection from './CardSection';
+import { sortList, getFilteredData } from './trialList-helpers';
 
 const CardContainer = styled.div`
   padding: 1rem;
@@ -26,7 +20,8 @@ class TrialList extends Component {
   state = {
     loading: true,
     patientsInfo: [],
-    trialsArr: [],
+    formatedPatients: [],
+    // trialsArr: [], //if needed
   };
 
   async componentDidMount() {
@@ -35,59 +30,45 @@ class TrialList extends Component {
     if (location.state && location.state.length > 0) {
       const [patientsInfo] = location.state;
       if (Array.isArray(patientsInfo)) {
-        const trialsArr = await this.getTrials();
+        try {
+          const {
+            patientsInfo: filteredPatientsInfo,
+            formatedPatients,
+            // trialsArr: originalTrialsArr,
+          } = await getFilteredData(patientsInfo);
 
-        patientsInfo.forEach(patient => {
-          const matchedTrials = filterByAllCriteria(trialsArr, patient);
-          // eslint-disable-next-line no-param-reassign
-          patient.matchedTrials = matchedTrials;
-        });
-
-        return this.setState({ patientsInfo, trialsArr, loading: false });
+          return this.setState({
+            patientsInfo: filteredPatientsInfo,
+            formatedPatients,
+            loading: false,
+            // trialsArr: originalTrialsArr,
+          });
+        } catch (err) {
+          return message.error('something went wrong! please try again');
+        }
       }
     }
     return history.push('/');
   }
 
-  getTrials = async () => {
-    try {
-      // // this is just for test
-      // const { results } = result;
-
-      const {
-        data: { results },
-      } = await axios.get(TRIAL_API);
-
-      // filter for recruiting and unknown status
-      return filterByOverallStatus(results);
-    } catch (err) {
-      return message.error('something went wrong! please try again');
-    }
-  };
-
   sortList = value => {
     const { patientsInfo } = this.state;
-    const sortedList = [...patientsInfo].sort((a, b) => {
-      if (a[value] < b[value]) {
-        return -1;
-      }
-      if (a[value] > b[value]) {
-        return 1;
-      }
-      return 0;
-    });
+    const sortedList = sortList(patientsInfo, value);
     this.setState({ patientsInfo: sortedList });
   };
 
   render() {
-    const { loading, patientsInfo } = this.state;
+    const { loading, patientsInfo, formatedPatients } = this.state;
     return loading ? (
       <LoadingContainer>
         <Spin tip="Loading..." size="large" />
       </LoadingContainer>
     ) : (
       <>
-        <TrialDetailHeader sortList={this.sortList} />
+        <TrialDetailHeader
+          patientsInfo={formatedPatients}
+          sortList={this.sortList}
+        />
         <CardContainer>
           {patientsInfo.map(patient => (
             <CardSection key={patient.fileReference} data={patient} />

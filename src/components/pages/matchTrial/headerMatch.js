@@ -54,7 +54,7 @@ const renderHeader = (matchedTrials, patientsInfo, size) => {
           }
         >
           Export all trials to PDF
-          <ExportLink style={{ marginLeft: '10px' }}></ExportLink>
+          <ExportLink style={{ marginLeft: '10px' }} />
         </ExportButton>
       </DetailSection>
     </>
