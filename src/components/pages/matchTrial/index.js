@@ -27,26 +27,22 @@ export default class index extends Component {
     patientsInfo: {},
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { location, history } = this.props;
 
     if (location.state && location.state.length > 0) {
-      return this.setState({
+      // this is just a temp solution for long time rendering
+      await Promise.all([
+        location.state,
+        new Promise(res => setTimeout(res, 500)),
+      ]);
+      this.setState({
         patientsInfo: location.state[0],
         loading: false,
       });
+    } else {
+      history.push('/');
     }
-
-    return history.push('/');
-
-    /**
-     * Export all trials to PDF will not work without setTimeout
-     */
-    // setTimeout(() => {
-    //   this.setState({
-    //     wait: true,
-    //   });
-    // }, 500);
   }
 
   render() {

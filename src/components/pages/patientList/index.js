@@ -141,8 +141,7 @@ class patientList extends Component {
       optionFilterProp="children"
       onChange={this.handleChange(key, fileReference)}
       filterOption={(inp, opt) =>
-        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0
-      }
+        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0}
     >
       {options.map(value => (
         <Option key={value} value={value}>
@@ -206,7 +205,7 @@ class patientList extends Component {
               const fileReference = patient.find(
                 ({ key }) => key === 'fileReference'
               ).value;
-              const { id } = patient[0];
+              // const { id } = patient[0];
 
               return (
                 <PatientCard key={Date.now() / Math.random()}>
