@@ -7,7 +7,7 @@ import {
   filterByAllCriteria,
 } from '../../../helpers/filter';
 import { TRIAL_API } from '../../../constants/urls';
-import result from '../../../dummydata/Results-12-10-19.json';
+// import result from '../../../dummydata/Results-12-10-19.json';
 import TrialDetailHeader from './TrialDetailHeader';
 import CardSection from './CardSection';
 
@@ -51,12 +51,12 @@ class TrialList extends Component {
 
   getTrials = async () => {
     try {
-      // this is just for test
-      const { results } = result;
+      // // this is just for test
+      // const { results } = result;
 
-      // const {
-      //   data: { results },
-      // } = await axios.get(TRIAL_API);
+      const {
+        data: { results },
+      } = await axios.get(TRIAL_API);
 
       // filter for recruiting and unknown status
       return filterByOverallStatus(results);
