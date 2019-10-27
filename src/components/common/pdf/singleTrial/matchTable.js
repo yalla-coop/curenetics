@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text } from '@react-pdf/renderer';
 import { styles } from '../pdfStyles';
-
 import { colors } from '../../../../styles/globalStyles';
+
+import renderBasedOnObject from './renderBasedObj-helper';
 
 const MatchTable = ({ trialPatientData, isPotential }) => {
   const {
@@ -19,8 +20,8 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
     patientColumn,
   } = styles;
   const headerStyle = {
-    backgroundColor: isPotential ? colors.confirm : colors.accent,
     ...topBorder,
+    backgroundColor: isPotential ? colors.confirm : colors.accent,
   };
 
   return (
@@ -35,23 +36,35 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
       </View>
 
       <View style={tableContent}>
-        {trialPatientData.map((item, index) => (
-          <View
-            key={item.age}
-            style={index === 0 ? trialColumn : patientColumn}
-          >
-            <Text style={text}>Age: {item.age}</Text>
-            <Text style={text}>
-              Conditons: {item.conditons.map(condition => `${condition},`)}
-            </Text>
-            <Text style={text}>Gender: {item.gender}</Text>
-            <Text style={text}>ECOG: {item.ecog}</Text>
-            <Text style={text}>Gleason Score: {item.gleason}</Text>
-            <Text style={text}>
-              Disease within Prostate: {item.inProstate ? 'yes' : 'no'}
-            </Text>
-          </View>
-        ))}
+        {trialPatientData.map((item, index) => {
+          const {
+            age,
+            conditons,
+            gender,
+            ecog,
+            gleason,
+            DiseaseWithinProstate,
+            DiseaseOutsideProstate,
+          } = renderBasedOnObject(item, index, trialPatientData);
+          return (
+            <View
+              key={Date.now() / Math.random()}
+              style={index === 0 ? trialColumn : patientColumn}
+            >
+              <Text style={text}>Age: {age}</Text>
+              <Text style={text}>Conditons: {conditons}</Text>
+              <Text style={text}>Gender: {gender}</Text>
+              <Text style={text}>ECOG: {ecog}</Text>
+              <Text style={text}>Gleason Score: {gleason}</Text>
+              <Text style={text}>
+                Disease within Prostate: {DiseaseWithinProstate}
+              </Text>
+              <Text style={text}>
+                Disease outside Prostate: {DiseaseOutsideProstate}
+              </Text>
+            </View>
+          );
+        })}
       </View>
     </View>
   );

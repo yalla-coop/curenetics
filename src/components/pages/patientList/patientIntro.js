@@ -1,10 +1,10 @@
 import React from 'react';
 
+import PatientMatchButton from './PatientMatchButton';
 import { Header } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
-import { MatchButton } from './style';
 
-const PatientIntro = () => (
+const PatientIntro = ({ onClick }) => (
   <Header>
     <Title>Edit patient data</Title>
     <Paragraph>
@@ -17,9 +17,7 @@ const PatientIntro = () => (
       Please check below and select edit to change any data that is incorrect.
       When you’re ready select Find Clinical Trials
     </Paragraph>
-    <MatchButton isCenter aria-label="Match Clinical Trials">
-      Match Clinical Trials
-    </MatchButton>
+    <PatientMatchButton onClick={onClick} />
   </Header>
 );
 

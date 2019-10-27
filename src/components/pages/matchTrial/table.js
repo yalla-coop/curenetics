@@ -1,6 +1,11 @@
 import React from 'react';
 import Tick from '../../common/icons/Tick';
 import useIsSmall from '../../common/useIsSmall';
+import {
+  isPotential,
+  getAgeNum,
+  displayInclusionOrExclusion,
+} from '../../../helpers/eligibility';
 
 import {
   TableWrapper,
@@ -11,15 +16,37 @@ import {
   TableHeaderText,
 } from './style';
 
-const Table = ({
-  matchingInfo: { trialCriteria = {}, patientCriteria = {} },
-}) => {
-  console.log('trialCriteria', trialCriteria);
+const Table = ({ trial, patientsInfo }) => {
+  const {
+    Conditions,
+    MinAge,
+    MaxAge,
+    Gender,
+    ageNearlyEligible = false,
+    ECOGNearlyEligible = false,
+  } = trial;
+
+  const {
+    'Disease within prostate': DiseaseWithinProstate,
+    'Disease outside prostate': DiseaseOutsideProstate,
+    ECOGStatus,
+    gleasonScore,
+    age,
+    gender,
+    cancerType,
+  } = patientsInfo;
+
+  const minAgeNum = getAgeNum(MinAge);
+  const maxAgeNum = getAgeNum(MaxAge);
+
+  const isPotentialRes = isPotential(trial);
+  const InclusionOrExclusion = displayInclusionOrExclusion(trial);
+
   const { IsSmall } = useIsSmall();
   if (IsSmall) {
     return (
       <TableWrapper>
-        <TableHeadColor />
+        <TableHeadColor isPotential={isPotentialRes} />
         <TableBody>
           <TableHeaderText>Matching criteria</TableHeaderText>
           <TableRowHead>
@@ -27,37 +54,53 @@ const Table = ({
             <span>Patient</span>
           </TableRowHead>
           <TableRow>
-            <span>Age: {trialCriteria.age}</span>
+            <span>
+              Age: {minAgeNum} - {maxAgeNum}
+            </span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>Condition: {trialCriteria.conditons.map(i => `${i}, `)}</span>
+            <span>
+              Condition: {Conditions.map(condition => `${condition}, `)}
+            </span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>Gender: {trialCriteria.gender}</span>
+            <span>Gender: {Gender}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>ECOG status: {trialCriteria.ecog} </span>
+            <span>ECOG status: {InclusionOrExclusion.ECOGStatus}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>Gleason score: {trialCriteria.gleason}</span>
+            <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
             <span>
               <Tick></Tick>
             </span>
           </TableRow>
           <TableRow>
-            <span>prostate: {trialCriteria.inProstate ? 'yes' : 'no'}</span>
+            <span>
+              Disease within prostate:{' '}
+              {InclusionOrExclusion.DiseaseWithinProstate}
+            </span>
+            <span>
+              <Tick></Tick>
+            </span>
+          </TableRow>
+          <TableRow>
+            <span>
+              Disease outside prostate:{' '}
+              {InclusionOrExclusion.DiseaseOutsideProstate}
+            </span>
             <span>
               <Tick></Tick>
             </span>
@@ -68,7 +111,7 @@ const Table = ({
   }
   return (
     <TableWrapper>
-      <TableHeadColor></TableHeadColor>
+      <TableHeadColor isPotential={isPotentialRes} />
       <TableBody>
         <TableHeaderText>Matching criteria</TableHeaderText>
         <TableRowHead>
@@ -76,34 +119,42 @@ const Table = ({
           <span>Patient details</span>
         </TableRowHead>
         <TableRow>
-          <span>Age: {trialCriteria.age}</span>
-          <span>Age: {patientCriteria.age}</span>
+          <span>
+            Age: {minAgeNum} - {maxAgeNum}
+          </span>
+          <span>Age: {ageNearlyEligible ? `${age}*` : age}</span>
         </TableRow>
         <TableRow>
-          <span>Condition: {trialCriteria.conditons.map(i => `${i}, `)}</span>
+          <span>Condition: {Conditions.map(i => `${i}, `)}</span>
+          <span>Condition: {cancerType} </span>
+        </TableRow>
+        <TableRow>
+          <span>Gender: {Gender}</span>
+          <span>Gender: {gender}</span>
+        </TableRow>
+        <TableRow>
+          <span>ECOG status: {InclusionOrExclusion.ECOGStatus} </span>
           <span>
-            Condition: {patientCriteria.conditons.map(i => `${i}, `)}{' '}
+            ECOG status: {ECOGNearlyEligible ? `${ECOGStatus}*` : ECOGStatus}
           </span>
         </TableRow>
         <TableRow>
-          <span>Gender: {trialCriteria.gender}</span>
-          <span>Gender: {patientCriteria.gender}</span>
-        </TableRow>
-        <TableRow>
-          <span>ECOG status: {trialCriteria.ecog} </span>
-          <span>ECOG status: {patientCriteria.ecog}</span>
-        </TableRow>
-        <TableRow>
-          <span>Gleason score: {trialCriteria.gleason}</span>
-          <span>Gleason score: {patientCriteria.gleason}</span>
+          <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
+          <span>Gleason score: {gleasonScore}</span>
         </TableRow>
         <TableRow>
           <span>
-            Disease within prostate: {trialCriteria.inProstate ? 'yes' : 'no'}
+            Disease within prostate:{' '}
+            {InclusionOrExclusion.DiseaseWithinProstate}
           </span>
+          <span>Disease within prostate: {DiseaseWithinProstate}</span>
+        </TableRow>
+        <TableRow>
           <span>
-            Disease within prostate: {patientCriteria.inProstate ? 'yes' : 'no'}
+            Disease outside prostate:{' '}
+            {InclusionOrExclusion.DiseaseOutsideProstate}
           </span>
+          <span>Disease outside prostate: {DiseaseOutsideProstate}</span>
         </TableRow>
       </TableBody>
     </TableWrapper>
