@@ -26,7 +26,7 @@ export const cloneAndEditPatientInfo = patientInfo => {
   }
   // we are not sure yet of this gleasonScore
   if (
-    ['3+3', '3+4', "'6 or less'"].includes(gleasonScore) ||
+    ['3+3', '3+4', '6 or less'].includes(gleasonScore) ||
     +gleasonScore <= 6
   ) {
     Gleason = 'low risk';
@@ -182,7 +182,10 @@ export const checkAge = (patientAge, trialMinAge, trialMaxAge) => {
   const maxAge = getAgeNum(trialMaxAge);
   const pAge = +patientAge;
 
-  if (pAge >= minAge && pAge <= maxAge) {
+  // if the user doesn't provide age then
+  // consider it as matching with the criteria
+
+  if (!patientAge || (pAge >= minAge && pAge <= maxAge)) {
     return { ageInRange: true, ageNearly: false };
   }
   if (pAge > maxAge && Math.abs(pAge - maxAge) <= AGE_DIFF) {
@@ -204,45 +207,10 @@ export const checkAgeEligibility = (trial, { ageInRange, ageNearly }) => {
 };
 
 export const isCancerMatched = (patientCancer, trialConditions) => {
-  const patientCancerLow = patientCancer.trim().toLowerCase();
-  // console.log("patientCancerLow ->", patientCancerLow);
-  for (const cancerType of trialConditions) {
-    // console.log(cancerType.toLowerCase());
-    // if (cancerType.toLowerCase().includes(patientCancerLow)) {
-    if (
-      cancerType
-        .trim()
-        .toLowerCase()
-        .includes(patientCancerLow)
-    ) {
-      console.log(
-        typeof cancerType.toLowerCase(),
-        typeof patientCancerLow,
-        [cancerType.toLowerCase()],
-        [patientCancerLow],
-        cancerType.toLowerCase().localeCompare(patientCancerLow),
-        'included:: ',
-        cancerType.toLowerCase().includes(patientCancerLow),
-        'MATCHED'
-      );
-      return true;
-    }
-    console.log(
-      typeof cancerType.toLowerCase(),
-      typeof patientCancerLow,
-      [cancerType.toLowerCase()],
-      [patientCancerLow],
-      cancerType.toLowerCase().localeCompare(patientCancerLow),
-      'included:: ',
-      cancerType.toLowerCase().includes(patientCancerLow),
-      'NOT MATCHED'
-    );
-  }
-  console.log('NOT MATCHED');
-  return false;
-  // return trialConditions.some(cancerType => {
-  // 	return cancerType.toLowerCase().includes(patientCancer.toLowerCase());
-  // });
+  if (!patientCancer) return true;
+  return trialConditions.some(cancerType =>
+    cancerType.toLowerCase().includes(patientCancer.toLowerCase())
+  );
 };
 
 const hasContactDetails = contact => {
