@@ -14,24 +14,35 @@ export const cloneAndEditPatientInfo = patientInfo => {
   const clonedPatientInfo = cloneDeep(patientInfo);
 
   const { gleasonScore, Keywords, ...rest } = clonedPatientInfo;
-  let { ECOGStatus } = clonedPatientInfo;
-  let Gleason = '';
-  let DiseaseWithinProstate = false;
-  let DiseaseOutsideProstate = false;
 
-  if (ECOGStatus <= +2) {
-    ECOGStatus = 'fit';
-  } else {
-    ECOGStatus = 'not fit';
+  let {
+    ECOGStatus,
+    'Disease outside prostate': DiseaseOutsideProstate,
+    'Disease within prostate': DiseaseWithinProstate,
+  } = clonedPatientInfo;
+
+  let Gleason = '';
+
+  if (ECOGStatus) {
+    if (+ECOGStatus <= 2) {
+      ECOGStatus = 'fit';
+    } else {
+      ECOGStatus = 'not fit';
+    }
   }
   // we are not sure yet of this gleasonScore
-  if (
-    ['3+3', '3+4', '6 or less'].includes(gleasonScore) ||
-    +gleasonScore <= 6
-  ) {
-    Gleason = 'low risk';
-  } else if (['4+3', '7 or over'].includes(gleasonScore) || +gleasonScore > 7) {
-    Gleason = 'high risk';
+  if (gleasonScore) {
+    if (
+      ['3+3', '3+4', '6 or less'].includes(gleasonScore) ||
+      +gleasonScore <= 6
+    ) {
+      Gleason = 'low risk';
+    } else if (
+      ['4+3', '7 or over'].includes(gleasonScore) ||
+      +gleasonScore > 7
+    ) {
+      Gleason = 'high risk';
+    }
   }
 
   if (Keywords) {
@@ -54,18 +65,22 @@ export const cloneAndEditPatientInfo = patientInfo => {
       DiseaseOutsideProstate = false;
     }
   } else {
-    if (rest['Disease within prostate']) {
-      DiseaseWithinProstate = true;
-    } else {
-      DiseaseWithinProstate = false;
+    if (DiseaseWithinProstate) {
+      if (rest['Disease within prostate'] === 'yes') {
+        DiseaseWithinProstate = true;
+      } else {
+        DiseaseWithinProstate = false;
+      }
     }
-
-    if (rest['Disease outside prostate']) {
-      DiseaseOutsideProstate = true;
-    } else {
-      DiseaseOutsideProstate = false;
+    if (DiseaseOutsideProstate) {
+      if (rest['Disease outside prostate'] === 'yes') {
+        DiseaseOutsideProstate = true;
+      } else {
+        DiseaseOutsideProstate = false;
+      }
     }
   }
+
   return {
     ...rest,
     'ECOG status': ECOGStatus,
@@ -77,26 +92,33 @@ export const cloneAndEditPatientInfo = patientInfo => {
 
 const isTheTwoEligibilityTheSame = (
   formatedPatientInfo,
-  patientInfoBeforeFormat,
   trialEligibility,
   trial
 ) => {
   // check for ECOG Threshold
   // if patient ECOG higher than the trail by 1 then
   // it is nearly match
-  const ECOGThreshold = +patientInfoBeforeFormat.ECOGStatus - ECOG_FIT_TOP;
-  // eslint-disable-next-line no-restricted-syntax
+  let ECOGThreshold = null;
+  if (formatedPatientInfo.ECOGStatus) {
+    ECOGThreshold = +formatedPatientInfo.ECOGStatus - ECOG_FIT_TOP;
+  }
+
   for (const key in trialEligibility) {
-    if (
-      trialEligibility[key] !== formatedPatientInfo[key] &&
-      trialEligibility[key] !== EMPTY_ELIGIBILITY_AC_CRITERIA[key]
-    ) {
-      if (key === 'ECOG status' && (ECOGThreshold > 0 && ECOGThreshold <= 1)) {
-        // add value nearly eligible
-        trial.ECOGNearlyEligible = true;
-        continue;
+    if (formatedPatientInfo[key]) {
+      if (
+        trialEligibility[key] !== formatedPatientInfo[key] &&
+        trialEligibility[key] !== EMPTY_ELIGIBILITY_AC_CRITERIA[key]
+      ) {
+        if (
+          trialEligibility[key] === 'ECOG status' &&
+          (ECOGThreshold > 0 && ECOGThreshold <= 1)
+        ) {
+          // add value nearly eligible
+          trial.ECOGNearlyEligible = true;
+          return true;
+        }
+        return false;
       }
-      return false;
     }
   }
   return true;
@@ -112,11 +134,7 @@ const isEligibilityWithNoDetails = InclusionOrExclusion => {
 };
 
 // need to do some refactor later
-export const isEligibilityMatched = (
-  formatedPatientInfo,
-  patientInfoBeforeFormat,
-  trial
-) => {
+export const isEligibilityMatched = (formatedPatientInfo, trial) => {
   const { Inclusion, Exclusion } = trial.Eligibility;
   if (isEligibilityWithNoDetails(Inclusion)) {
     if (isEligibilityWithNoDetails(Exclusion)) {
@@ -131,50 +149,14 @@ export const isEligibilityMatched = (
       trial.Eligibility.Matched = 'Any';
       return true;
     }
-    return isTheTwoEligibilityTheSame(
-      formatedPatientInfo,
-      patientInfoBeforeFormat,
-      Exclusion,
-      trial
-    );
+    return isTheTwoEligibilityTheSame(formatedPatientInfo, Exclusion, trial);
   }
 
-  if (
-    isTheTwoEligibilityTheSame(
-      formatedPatientInfo,
-      patientInfoBeforeFormat,
-      Inclusion,
-      trial
-    )
-  ) {
-    // console.log("inclusion match1");
+  if (isTheTwoEligibilityTheSame(formatedPatientInfo, Inclusion, trial)) {
     trial.Eligibility.Matched = 'Inclusion';
     return true;
   }
-  // console.log("inclusion no match");
   return false;
-  /* else if (
-		!isTheTwoEligibilityTheSame(
-			formatedPatientInfo,
-			patientInfoBeforeFormat,
-			Inclusion,
-			trial
-		)
-	) {
-		console.log("inclusion no match ");
-		return false;
-	} else if (
-		!isEligibilityWithNoDetails(Exclusion) &&
-		isTheTwoEligibilityTheSame(
-			formatedPatientInfo,
-			patientInfoBeforeFormat,
-			Exclusion,
-			trial
-		)
-	) {
-		console.log("inclusion match2");
-		return true;
-	} */
 };
 
 export const checkAge = (patientAge, trialMinAge, trialMaxAge) => {
@@ -202,6 +184,16 @@ export const checkAgeEligibility = (trial, { ageInRange, ageNearly }) => {
     // add age nearly to the trial object
     trial.ageNearlyEligible = true;
     return true;
+  }
+  return true;
+};
+
+export const isGenderMatched = (trialGender, patientGender) => {
+  if (patientGender) {
+    return (
+      trialGender === 'All' ||
+      trialGender.toLowerCase() === patientGender.toLowerCase()
+    );
   }
   return true;
 };

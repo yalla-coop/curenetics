@@ -4,6 +4,7 @@ import {
   cloneAndEditPatientInfo,
   isEligibilityMatched,
   checkAge,
+  isGenderMatched,
   isCancerMatched,
   checkAgeEligibility,
   filterLocationsByCountry,
@@ -23,20 +24,22 @@ export const filterByOverallStatus = trails => {
 export const filterByAllCriteria = (trials, patientInfo) => {
   const clonedTrial = cloneDeep(trials);
 
-  const { cancerType, gender, age: patientAge } = patientInfo;
-
+  const { cancerType, gender: patientGender, age: patientAge } = patientInfo;
+  let count = 0;
   const matchedTrials = clonedTrial.filter(trial => {
-    const { Conditions, Gender, MinAge, MaxAge } = trial;
+    const { Conditions, Gender: trialGender, MinAge, MaxAge } = trial;
 
     if (
       isEligibilityMatched(
         cloneAndEditPatientInfo(patientInfo),
-        patientInfo,
+        // patientInfo,
         trial
       ) &&
       isCancerMatched(cancerType, Conditions) &&
-      (gender ? Gender.toLowerCase() === gender.toLowerCase() : true)
+      isGenderMatched(trialGender, patientGender)
     ) {
+      count++;
+      console.log(count);
       const ageConditionObj = checkAge(patientAge, MinAge, MaxAge);
       return (
         checkAgeEligibility(trial, ageConditionObj) &&
