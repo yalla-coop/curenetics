@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Spin, message } from 'antd';
+import { message } from 'antd';
 import TrialDetailHeader from './TrialDetailHeader';
 import CardSection from './CardSection';
 import { sortList, getFilteredData } from './trialList-helpers';
+import Loading from '../../common/Loading';
 
 const CardContainer = styled.div`
   padding: 1rem;
-`;
-
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50vh;
 `;
 
 class TrialList extends Component {
@@ -60,9 +54,7 @@ class TrialList extends Component {
   render() {
     const { loading, patientsInfo, formatedPatients } = this.state;
     return loading ? (
-      <LoadingContainer>
-        <Spin tip="Loading..." size="large" />
-      </LoadingContainer>
+      <Loading />
     ) : (
       <>
         <TrialDetailHeader

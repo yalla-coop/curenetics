@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Spinner from './icons/Spinner';
+import { Spin } from 'antd';
+
 import { Header } from './Layout';
 import { Title, Paragraph } from './Typography';
 
@@ -20,13 +21,12 @@ const clinicPara =
 
 const Loading = ({ processing }) => (
   <>
-      
     <Header isCenter>
       <Spacer />
-      <Spinner />
+      <Spin size="large" />
       <Title>{processing ? processTitle : clinicTitle}</Title>
       <Paragraph>{processing ? processPara : clinicPara}</Paragraph>
-      <Paragraph>{refresh}</Paragraph>    
+      <Paragraph>{refresh}</Paragraph>
     </Header>
   </>
 );
