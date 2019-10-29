@@ -20,10 +20,13 @@ const getEligibilityTrialsCount = (matchedTrials, size) => {
   }).length;
   const potentiallyEligibleTrials = size - nearlyEligibleTrials;
 
-  return { nearlyEligibleTrials, potentiallyEligibleTrials };
+  return {
+    nearlyEligibleTrials,
+    potentiallyEligibleTrials,
+  };
 };
 
-const renderHeader = (matchedTrials, patientsInfo, size) => {
+const renderHeader = (matchedTrials, patientsInfo, size, fileReference) => {
   const {
     nearlyEligibleTrials,
     potentiallyEligibleTrials,
@@ -31,6 +34,10 @@ const renderHeader = (matchedTrials, patientsInfo, size) => {
 
   return (
     <>
+      <div>
+        <HighLight>File name:</HighLight>
+        <HighLightNumber>{fileReference}</HighLightNumber>
+      </div>
       <div>
         <HighLight>Potentialy eligible trials:</HighLight>
         <HighLightNumber color={colors.confirm}>
@@ -63,12 +70,14 @@ const renderHeader = (matchedTrials, patientsInfo, size) => {
 
 const HeaderMatch = ({ patientsInfo }) => {
   const {
-    matchedTrials: { data, size },
+    matchedTrials: { data, size, fileReference },
   } = patientsInfo;
 
   return (
     <>
-      <DetailWrapper>{renderHeader(data, patientsInfo, size)}</DetailWrapper>
+      <DetailWrapper>
+        {renderHeader(data, patientsInfo, size, fileReference)}
+      </DetailWrapper>
       <PrimaryParagraph>Potentially Eligible trials</PrimaryParagraph>
     </>
   );

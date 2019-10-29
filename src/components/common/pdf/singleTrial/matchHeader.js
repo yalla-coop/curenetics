@@ -23,7 +23,7 @@ const {
   stethiscopeIcon,
 } = icons;
 
-const MatchHeader = ({ trialInfo }) => {
+const MatchHeader = ({ trialInfo, fileReference }) => {
   const {
     Phase,
     OverallStatus,
@@ -32,6 +32,10 @@ const MatchHeader = ({ trialInfo }) => {
 
   return (
     <View style={matchTopContainer}>
+      <View style={rowContainer}>
+        <Text style={nctText}>File Name: </Text>
+        <Text style={text}>{fileReference}</Text>
+      </View>
       <View style={rowContainer}>
         <Text style={nctText}>NCT Number: </Text>
         <Text style={text}>{NCTID}</Text>

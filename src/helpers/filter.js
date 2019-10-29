@@ -25,7 +25,6 @@ export const filterByAllCriteria = (trials, patientInfo) => {
   const clonedTrial = cloneDeep(trials);
 
   const { cancerType, gender: patientGender, age: patientAge } = patientInfo;
-  let count = 0;
   const matchedTrials = clonedTrial.filter(trial => {
     const { Conditions, Gender: trialGender, MinAge, MaxAge } = trial;
 
@@ -38,8 +37,6 @@ export const filterByAllCriteria = (trials, patientInfo) => {
       isCancerMatched(cancerType, Conditions) &&
       isGenderMatched(trialGender, patientGender)
     ) {
-      count++;
-      console.log(count);
       const ageConditionObj = checkAge(patientAge, MinAge, MaxAge);
       return (
         checkAgeEligibility(trial, ageConditionObj) &&

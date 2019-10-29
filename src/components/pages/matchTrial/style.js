@@ -38,12 +38,13 @@ export const DetailSection = styled.div`
 export const HighLight = styled.span`
   color: ${colors.primary};
   text-decoration: underline;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 `;
 
 export const HighLightNumber = styled.span`
   color: ${({ color }) => color};
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding-left: 1rem;
 `;
 
