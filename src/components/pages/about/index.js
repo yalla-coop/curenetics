@@ -32,13 +32,13 @@ const About = () => (
         save costs and reduce time to trial completion.
       </Paragraph>
       <Paragraph style={pStyle}>
-        Although over over 70% of patients saying they would like to be offered
+        Although over 70% of patients saying they would like to be offered
         the opportunity to be involved in a clinical trial, only 4% of patients
         in the UK end up being recruited to clinical trials. Two thirds of
         clinical trials still fail in the UK despite best efforts. We are
         determined to turn around this trend by improving patient access and
         engagement with trials to provide hope of new treatments—and even a
-        cure—for various diseases to millions of people around the world
+        cure—for various diseases to millions of people around the world.
       </Paragraph>
       <HomeAnchor to="/">Back to Home</HomeAnchor>
     </Header>

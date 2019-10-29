@@ -13,26 +13,70 @@ import {
 
 import { colors } from '../../../styles/globalStyles';
 
-const HeaderMatch = ({ trial, wait }) => {
+const getEligibilityTrialsCount = (matchedTrials, size) => {
+  const nearlyEligibleTrials = matchedTrials.filter(trial => {
+    const { ECOGNearlyEligible = false, ageNearlyEligible = false } = trial;
+    return ECOGNearlyEligible === true || ageNearlyEligible === true;
+  }).length;
+  const potentiallyEligibleTrials = size - nearlyEligibleTrials;
+
+  return {
+    nearlyEligibleTrials,
+    potentiallyEligibleTrials,
+  };
+};
+
+const renderHeader = (matchedTrials, patientsInfo, size, fileReference) => {
+  const {
+    nearlyEligibleTrials,
+    potentiallyEligibleTrials,
+  } = getEligibilityTrialsCount(matchedTrials, size);
+
+  return (
+    <>
+      <div>
+        <HighLight>File name:</HighLight>
+        <HighLightNumber>{fileReference}</HighLightNumber>
+      </div>
+      <div>
+        <HighLight>Potentialy eligible trials:</HighLight>
+        <HighLightNumber color={colors.confirm}>
+          {potentiallyEligibleTrials}
+        </HighLightNumber>
+      </div>
+      <DetailSection>
+        <div>
+          <HighLight>Nearly eligible Trials:</HighLight>
+          <HighLightNumber color={colors.accent}>
+            {nearlyEligibleTrials}
+          </HighLightNumber>
+        </div>
+        <ExportButton
+          document={
+            <PdfTemplate
+              data={matchedTrials}
+              patientsInfo={patientsInfo}
+              type="multiple"
+            />
+          }
+        >
+          Export all trials to PDF
+          <ExportLink style={{ marginLeft: '10px' }} />
+        </ExportButton>
+      </DetailSection>
+    </>
+  );
+};
+
+const HeaderMatch = ({ patientsInfo }) => {
+  const {
+    matchedTrials: { data, size, fileReference },
+  } = patientsInfo;
+
   return (
     <>
       <DetailWrapper>
-        <div>
-          <HighLight>Potentialy eligible trials:</HighLight>
-          <HighLightNumber color={colors.confirm}>4</HighLightNumber>
-        </div>
-        <DetailSection>
-          <div>
-            <HighLight>Nearly eligible Trials:</HighLight>
-            <HighLightNumber color={colors.accent}>3</HighLightNumber>
-          </div>
-            <ExportButton
-              document={<PdfTemplate data={wait ? trial : [] } />}
-            >
-              Export all trials to PDF
-              <ExportLink style={{ marginLeft: '10px' }}></ExportLink>
-            </ExportButton>
-        </DetailSection>
+        {renderHeader(data, patientsInfo, size, fileReference)}
       </DetailWrapper>
       <PrimaryParagraph>Potentially Eligible trials</PrimaryParagraph>
     </>

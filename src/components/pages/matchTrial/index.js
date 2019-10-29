@@ -1,38 +1,59 @@
 import React, { Component } from 'react';
+import { Spin } from 'antd';
+import styled from 'styled-components';
+
+import { filterByEligibility } from '../../../helpers/eligibility';
 
 import HeaderMatch from './headerMatch';
 import MatchCard from './cardMatch';
 
 import { breakpoint } from '../../../styles/globalStyles';
-import { matchData } from './dummyData';
 
 import { BacklinkContainer, Container } from '../../common/Layout';
 import { Title } from '../../common/Typography';
 import { BackLink } from '../../common/Buttons';
 import Chevron from '../../common/icons/Chevron';
 
-// isPotential determines green or orange colour
-// - this comes from dummyData.js (and actual data when we get there)
-export default class index extends Component {
-  state = {};
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50vh;
+`;
 
-  componentDidMount() {
-    this.setState({
-      list: matchData,
-    });
-    /**
-     * Export all trials to PDF will not work without setTimeout
-     */
-    setTimeout(() => {
+export default class index extends Component {
+  state = {
+    loading: true,
+    patientsInfo: {},
+  };
+
+  async componentDidMount() {
+    const { location, history } = this.props;
+
+    if (location.state && location.state.length > 0) {
+      // this is just a temp solution for long time rendering
+      await Promise.all([
+        location.state,
+        new Promise(res => setTimeout(res, 500)),
+      ]);
       this.setState({
-        wait: true
+        patientsInfo: location.state[0],
+        loading: false,
       });
-    },500);
+    } else {
+      history.push('/');
+    }
   }
 
   render() {
-    const { list=[] } = this.state;
-    return (
+    const { loading, patientsInfo } = this.state;
+    const { matchedTrials } = patientsInfo;
+
+    return loading ? (
+      <LoadingContainer>
+        <Spin tip="Loading..." size="large" />
+      </LoadingContainer>
+    ) : (
       <>
         <BacklinkContainer>
           <BackLink to="/">
@@ -41,17 +62,16 @@ export default class index extends Component {
         </BacklinkContainer>
         <Title>Matched trials for patient: </Title>
         <Container style={{ maxWidth: breakpoint.tablet }}>
-          <HeaderMatch trial={list} wait={this.state.wait}/>
-          {list &&
-            list.map(trial => {
-              return (
-                <MatchCard
-                  key={trial.id}
-                  trial={trial}
-                  isPotential={trial.eligibilityStatus === 'potential'}
-                />
-              );
-            })}
+          <HeaderMatch patientsInfo={patientsInfo} />
+          {filterByEligibility(matchedTrials.data).map(trial => {
+            return (
+              <MatchCard
+                key={trial.IDInfo.NCTID + Date.now()}
+                trial={trial}
+                patientsInfo={patientsInfo}
+              />
+            );
+          })}
         </Container>
       </>
     );

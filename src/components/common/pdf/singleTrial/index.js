@@ -3,19 +3,17 @@ import MatchHeader from './matchHeader';
 import MatchTable from './matchTable';
 import Location from './location';
 
-const SingleTrialPdf = ({ data, isPotential = null }) => {
-  const { trialInfo, matchingInfo } = data;
-
-  const trialPatient = [
-    matchingInfo.trialCriteria,
-    matchingInfo.patientCriteria,
-  ];
+const SingleTrialPdf = ({ data, patientsInfo, isPotential }) => {
+  const trialPatient = [data, patientsInfo];
 
   return (
     <>
-      <MatchHeader trialInfo={trialInfo} />
+      <MatchHeader
+        trialInfo={data}
+        fileReference={patientsInfo.fileReference}
+      />
       <MatchTable trialPatientData={trialPatient} isPotential={isPotential} />
-      <Location trialInfo={trialInfo} />
+      <Location trialInfo={data} />
     </>
   );
 };

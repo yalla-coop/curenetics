@@ -38,12 +38,13 @@ export const DetailSection = styled.div`
 export const HighLight = styled.span`
   color: ${colors.primary};
   text-decoration: underline;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 `;
 
 export const HighLightNumber = styled.span`
   color: ${({ color }) => color};
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding-left: 1rem;
 `;
 
@@ -73,9 +74,15 @@ export const ExportButton = styled(PDFDownloadLink)`
   color: ${colors.white};
   background-color: ${colors.primary};
   text-align: center;
-  padding: 0.5rem 0.8rem;
+  padding: 1rem;
   border-radius: 6px;
-  font-size: small;
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    color: white;
+  }
 `;
 
 export const HeadPragraph = styled.p`
@@ -175,7 +182,8 @@ export const TableBody = styled.div`
 export const TableHeadColor = styled.div`
   width: 100%;
   height: 1rem;
-  background-color: ${colors.confirm};
+  background-color: ${props =>
+    props.isPotential ? colors.confirm : colors.accent};
   border: solid 1px ${colors.darkGrey};
   border-radius: 5px 5px 0px 0px;
 `;
@@ -198,9 +206,9 @@ export const TableRow = styled.div`
   margin: 0.5rem 0rem;
   display: flex;
   & > :first-child {
-    width: 70%;
+    width: 67%;
   }
   & > :nth-child(2) {
-    width: 30%;
+    width: 32%;
   }
 `;

@@ -38,7 +38,7 @@ export const matchData = [
           'Prostate Cancer Metastatic',
           'Castration-resistant Prostate Cancer',
         ],
-        gender: 'male',
+        gender: 'Male',
         ecog: '0-2',
         gleason: 2,
         inProstate: true,
@@ -46,7 +46,7 @@ export const matchData = [
       patientCriteria: {
         age: '72',
         conditons: ['Prostate Cancer'],
-        gender: 'male',
+        gender: 'Male',
         ecog: '0-2',
         gleason: 2,
         inProstate: true,
@@ -88,7 +88,7 @@ export const matchData = [
       trialCriteria: {
         age: '56-92',
         conditons: ['Breast Cancer', 'Castration-resistant Breast Cancer'],
-        gender: 'male',
+        gender: 'Male',
         ecog: '0-2',
         gleason: 2,
         inProstate: false,
@@ -96,7 +96,7 @@ export const matchData = [
       patientCriteria: {
         age: '52',
         conditons: ['Breast Cancer'],
-        gender: 'female',
+        gender: 'Female',
         ecog: '0-2',
         gleason: 3,
         inProstate: false,

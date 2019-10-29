@@ -1,9 +1,9 @@
 {
 	"size": 36,
-	"results": [{
+	"results": [
+		{
 			"Conditions": [
 				"Prostate Cancer"
-
 			],
 			"Gender": "Male",
 			"Phase": 3,
@@ -18,7 +18,8 @@
 				"stage III prostate cancer",
 				"stage IV prostate cancer"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "r.t.oliver@qmul.ac.uk",
 						"Note": "R. T. Oliver, MD",
@@ -90,7 +91,7 @@
 				"OrgStudyID": "ARI109924",
 				"SecondaryID": "",
 				"NCTID": "NCT00558363",
-        "Title": "ARTS - AVODART After Radical Therapy For Prostate Cancer Study (ARTS)"
+				"Title": "ARTS - AVODART After Radical Therapy For Prostate Cancer Study (ARTS)"
 			},
 			"Keywords": [
 				"Prostate Cancer",
@@ -102,7 +103,8 @@
 				"radical therapy",
 				"doubling time"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -1303,13 +1305,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "fit",
+					"ECOG status": "fit",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -1326,31 +1328,33 @@
 				"OrgStudyID": "STH18645",
 				"SecondaryID": "",
 				"NCTID": "NCT02785627",
-        "Title": "Assessment of Bone Loss in Men Receiving Treatment for Prostate Cancer (ANTELOPE)"
+				"Title": "Assessment of Bone Loss in Men Receiving Treatment for Prostate Cancer (ANTELOPE)"
 			},
 			"Keywords": [
 				"Bone health",
 				"Bone microarchitecture",
 				"Androgen deprivation therapy (ADT)"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "c.handforth@sheffield.ac.uk",
-					"Note": "Catherine Handforth, MBChB",
-					"Phone": "0114 2265202",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Sheffield",
-						"Country": "United Kingdom",
-						"State": "South Yorkshire",
-						"Zip": "S10 2SJ"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "c.handforth@sheffield.ac.uk",
+						"Note": "Catherine Handforth, MBChB",
+						"Phone": "0114 2265202",
+						"PhoneExt": ""
 					},
-					"Name": "Cancer Clinical Trials Centre"
-				},
-				"Status": "Not yet recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Sheffield",
+							"Country": "United Kingdom",
+							"State": "South Yorkshire",
+							"Zip": "S10 2SJ"
+						},
+						"Name": "Cancer Clinical Trials Centre"
+					},
+					"Status": "Not yet recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -1365,7 +1369,7 @@
 				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "low risk",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
@@ -1386,7 +1390,7 @@
 				"OrgStudyID": "220262",
 				"SecondaryID": "",
 				"NCTID": "NCT03317990",
-        "Title": "Evaluating the Effects of Frozen Section Technology on Oncological and Functional Outcomes at Radical Prostatectomy. (NSAFEPROOF)"
+				"Title": "Evaluating the Effects of Frozen Section Technology on Oncological and Functional Outcomes at Radical Prostatectomy. (NSAFEPROOF)"
 			},
 			"Keywords": [
 				"Prostate Cancer",
@@ -1394,7 +1398,8 @@
 				"NeuroSAFE",
 				"Frozen section"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "Raj Persad",
@@ -1461,13 +1466,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
-					"Gleason": "",
-					"DiseaseWithinProstate": false,
-					"DiseaseOutsideProstate": null
+					"ECOG status": "fit",
+					"Gleason": "low risk",
+					"DiseaseWithinProstate": true,
+					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -1484,7 +1489,7 @@
 				"OrgStudyID": "PCa004",
 				"SecondaryID": "",
 				"NCTID": "NCT01226576",
-        "Title": "Focal MR-Guided Focused Ultrasound Treatment of Localized Low-Intermediate Risk Prostate Cancer: Feasibility Study"
+				"Title": "Focal MR-Guided Focused Ultrasound Treatment of Localized Low-Intermediate Risk Prostate Cancer: Feasibility Study"
 			},
 			"Keywords": [
 				"MRgFUS",
@@ -1494,7 +1499,8 @@
 				"InSightec",
 				"ExAblate"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -1605,7 +1611,7 @@
 				"Exclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				}
 			}
@@ -1620,7 +1626,7 @@
 				"OrgStudyID": "CDR0000455008",
 				"SecondaryID": "2004-000193-31",
 				"NCTID": "NCT00268476",
-        "Title": "Systemic Therapy in Advancing or Metastatic Prostate Cancer: Evaluation of Drug Efficacy (STAMPEDE)"
+				"Title": "Systemic Therapy in Advancing or Metastatic Prostate Cancer: Evaluation of Drug Efficacy (STAMPEDE)"
 			},
 			"Keywords": [
 				"Stage III Prostate Cancer",
@@ -1628,7 +1634,8 @@
 				"Recurrent Prostate Cancer",
 				"Adenocarcinoma of the prostate"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -3801,13 +3808,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "not fit",
+					"ECOG status": "not fit",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -3824,7 +3831,7 @@
 				"OrgStudyID": "IFR01-2013",
 				"SecondaryID": "14482",
 				"NCTID": "NCT01950143",
-        "Title": "Effect of Sulforaphane on Prostate CAncer PrEvention (ESCAPE)"
+				"Title": "Effect of Sulforaphane on Prostate CAncer PrEvention (ESCAPE)"
 			},
 			"Keywords": [
 				"prostate cancer prevention",
@@ -3832,24 +3839,26 @@
 				"global gene expression",
 				"metabolic changes"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Norwich",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "NR4 7UY"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Norfolk and Norwich University Hospital"
-				},
-				"Status": ""
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Norwich",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "NR4 7UY"
+						},
+						"Name": "Norfolk and Norwich University Hospital"
+					},
+					"Status": ""
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -3862,9 +3871,9 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
@@ -3885,7 +3894,7 @@
 				"OrgStudyID": "IFR01/2016",
 				"SecondaryID": "",
 				"NCTID": "NCT02821728",
-        "Title": "Sulphate Accumulation in Prostate (SAP)"
+				"Title": "Sulphate Accumulation in Prostate (SAP)"
 			},
 			"Keywords": [
 				"Prostate",
@@ -3893,24 +3902,26 @@
 				"ATP",
 				"PTEN"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Norwich",
-						"Country": "United Kingdom",
-						"State": "Norfolk",
-						"Zip": "NR4 7UA"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Institute of Food Research"
-				},
-				"Status": ""
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Norwich",
+							"Country": "United Kingdom",
+							"State": "Norfolk",
+							"Zip": "NR4 7UA"
+						},
+						"Name": "Institute of Food Research"
+					},
+					"Status": ""
+				}
+			],
 			"MESHTerms": null,
 			"MaxAge": "80 Years",
 			"MinAge": "18 Years",
@@ -3927,7 +3938,7 @@
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": null
@@ -3945,14 +3956,15 @@
 				"OrgStudyID": "OGX-011-10",
 				"SecondaryID": "",
 				"NCTID": "NCT01083615",
-        "Title": "A Study Evaluating the Pain Palliation Benefit of Adding Custirsen to Docetaxel Retreatment or Cabazitaxel as Second Line Therapy in Men With Metastatic Castrate Resistant Prostate Cancer (mCRPC)"
+				"Title": "A Study Evaluating the Pain Palliation Benefit of Adding Custirsen to Docetaxel Retreatment or Cabazitaxel as Second Line Therapy in Men With Metastatic Castrate Resistant Prostate Cancer (mCRPC)"
 			},
 			"Keywords": [
 				"CRPC patients with cancer related pain",
 				"CRPC",
 				"HRPC"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -4559,7 +4571,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -4567,7 +4579,7 @@
 				"Exclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": true
 				}
 			}
@@ -4582,27 +4594,29 @@
 				"OrgStudyID": "RDD547",
 				"SecondaryID": "",
 				"NCTID": "NCT02125175",
-        "Title": "BIOPROP20: Biologically Optimised IMRT for Prostate Radiotherapy Hypofractionated Radiotherapy With Intra-prostatic Boosts to Tumour Nodules in Men With Intermediate and High Risk Prostate Cancer (BIOPROP20)"
+				"Title": "BIOPROP20: Biologically Optimised IMRT for Prostate Radiotherapy Hypofractionated Radiotherapy With Intra-prostatic Boosts to Tumour Nodules in Men With Intermediate and High Risk Prostate Cancer (BIOPROP20)"
 			},
 			"Keywords": null,
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Bebington",
-						"Country": "United Kingdom",
-						"State": "Wirral",
-						"Zip": "CH63 4JY"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "The Clatterbridge Cancer Centre NHS Foundation Trust"
-				},
-				"Status": ""
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Bebington",
+							"Country": "United Kingdom",
+							"State": "Wirral",
+							"Zip": "CH63 4JY"
+						},
+						"Name": "The Clatterbridge Cancer Centre NHS Foundation Trust"
+					},
+					"Status": ""
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4617,11 +4631,11 @@
 				"Inclusion": {
 					"ECOG status": "not fit",
 					"Gleason": "high risk",
-          "DiseaseWithinProstate": true,
+					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
+					"ECOG status": "fit",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": false,
 					"DiseaseOutsideProstate": false
@@ -4639,7 +4653,7 @@
 				"OrgStudyID": "A094516",
 				"SecondaryID": "228575",
 				"NCTID": "NCT03321864",
-        "Title": "Capture of Prostatic Trans-rectal Ultrasound Scans for Research (CAPTURE)"
+				"Title": "Capture of Prostatic Trans-rectal Ultrasound Scans for Research (CAPTURE)"
 			},
 			"Keywords": [
 				"Transperineal biopsy",
@@ -4647,24 +4661,26 @@
 				"Transrectal ultrasound",
 				"Fusion biopsy techniques"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "david.thurtle@addenbrookes.nhs.uk",
-					"Note": "David Thurtle",
-					"Phone": "01223348841",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Cambridge",
-						"Country": "United Kingdom",
-						"State": "Cambridgeshire",
-						"Zip": "CB2 0QQ"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "david.thurtle@addenbrookes.nhs.uk",
+						"Note": "David Thurtle",
+						"Phone": "01223348841",
+						"PhoneExt": ""
 					},
-					"Name": "Addenbrookes Hospital"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Cambridge",
+							"Country": "United Kingdom",
+							"State": "Cambridgeshire",
+							"Zip": "CB2 0QQ"
+						},
+						"Name": "Addenbrookes Hospital"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4677,7 +4693,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -4700,29 +4716,31 @@
 				"OrgStudyID": "CDR0000589199",
 				"SecondaryID": "MREC-SEARCH-PROSTATE",
 				"NCTID": "NCT00758173",
-        "Title": "Study of Genes and the Environment in Patients With Prostate Cancer Residing in the East Anglia, Trent, or West Midlands Regions of the United Kingdom"
+				"Title": "Study of Genes and the Environment in Patients With Prostate Cancer Residing in the East Anglia, Trent, or West Midlands Regions of the United Kingdom"
 			},
 			"Keywords": [
 				"prostate cancer"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "paul.pharoah@srl.cam.ac.uk",
-					"Note": "Contact Person",
-					"Phone": "44-122-374-0166",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Cambridge",
-						"Country": "United Kingdom",
-						"State": "England",
-						"Zip": "CB1 8RN"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "paul.pharoah@srl.cam.ac.uk",
+						"Note": "Contact Person",
+						"Phone": "44-122-374-0166",
+						"PhoneExt": ""
 					},
-					"Name": "University of Cambridge Cancer Research UK"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Cambridge",
+							"Country": "United Kingdom",
+							"State": "England",
+							"Zip": "CB1 8RN"
+						},
+						"Name": "University of Cambridge Cancer Research UK"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4735,13 +4753,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": true,
+					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -4758,7 +4776,7 @@
 				"OrgStudyID": "CaNCaP03",
 				"SecondaryID": "2014-004417-86",
 				"NCTID": "NCT02324998",
-        "Title": "Study of Olaparib (± Degarelix) Given to Men With Intermediate/High Risk Prostate Cancer Before Prostatectomy (CaNCaP03)"
+				"Title": "Study of Olaparib (± Degarelix) Given to Men With Intermediate/High Risk Prostate Cancer Before Prostatectomy (CaNCaP03)"
 			},
 			"Keywords": [
 				"Radical Prostatectomy",
@@ -4771,24 +4789,26 @@
 				"Pharmacokinetics",
 				"Biomarkers"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "ruth.tysoe@addenbrookes.nhs.uk",
-					"Note": "Ruth Tysoe, BSc.",
-					"Phone": "01223 348089",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Cambridge",
-						"Country": "United Kingdom",
-						"State": "Cambridgeshire",
-						"Zip": "CB2 0QQ"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "ruth.tysoe@addenbrookes.nhs.uk",
+						"Note": "Ruth Tysoe, BSc.",
+						"Phone": "01223 348089",
+						"PhoneExt": ""
 					},
-					"Name": "Addenbrooke's Hospital, Cambridge University Hospitals Foundation Trust,"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Cambridge",
+							"Country": "United Kingdom",
+							"State": "Cambridgeshire",
+							"Zip": "CB2 0QQ"
+						},
+						"Name": "Addenbrooke's Hospital, Cambridge University Hospitals Foundation Trust,"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4824,31 +4844,33 @@
 				"OrgStudyID": "IFR02/2014",
 				"SecondaryID": "",
 				"NCTID": "NCT02404428",
-        "Title": "Utilizing MRI to Study the Effect of Sulforaphane on Prostate Cancer (ESCAPE-ING)"
+				"Title": "Utilizing MRI to Study the Effect of Sulforaphane on Prostate Cancer (ESCAPE-ING)"
 			},
 			"Keywords": [
 				"active surveillance",
 				"MRI",
 				"diet"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Cambridge",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "CB2 0QQ"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Cambridge University Hospitals NHS Foundation Trust_Addenbrooke's Hospital"
-				},
-				"Status": ""
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Cambridge",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "CB2 0QQ"
+						},
+						"Name": "Cambridge University Hospitals NHS Foundation Trust_Addenbrooke's Hospital"
+					},
+					"Status": ""
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4863,11 +4885,11 @@
 				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "fit",
+					"ECOG status": "fit",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -4885,27 +4907,29 @@
 				"OrgStudyID": "AO93224",
 				"SecondaryID": "",
 				"NCTID": "NCT02375035",
-        "Title": "Developing a Safer and More Accurate Device for Biopsies of Suspected Prostate Cancer (CAMPROBE)"
+				"Title": "Developing a Safer and More Accurate Device for Biopsies of Suspected Prostate Cancer (CAMPROBE)"
 			},
 			"Keywords": null,
-			"Locations": [{
-				"Contact": {
-					"Email": "r&denquiries@addenbrookes.nhs.uk",
-					"Note": "Stephen Kelleher",
-					"Phone": "+44 1223 217418",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Cambridge",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "CB2 0QQ"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "r&denquiries@addenbrookes.nhs.uk",
+						"Note": "Stephen Kelleher",
+						"Phone": "+44 1223 217418",
+						"PhoneExt": ""
 					},
-					"Name": "Cambridge University Hospitals NHS Foundation Trust"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Cambridge",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "CB2 0QQ"
+						},
+						"Name": "Cambridge University Hospitals NHS Foundation Trust"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4918,7 +4942,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -4941,7 +4965,7 @@
 				"OrgStudyID": "11/H0311/2",
 				"SecondaryID": "",
 				"NCTID": "NCT01852864",
-        "Title": "Degarelix Before Radical Prostatectomy"
+				"Title": "Degarelix Before Radical Prostatectomy"
 			},
 			"Keywords": [
 				"Prostate cancer",
@@ -4950,24 +4974,26 @@
 				"degarelix",
 				"proliferation"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "Greg Shaw",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Cambridge",
-						"Country": "United Kingdom",
-						"State": "Cambridgeshire",
-						"Zip": "CB20QQ"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "Greg Shaw",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Cambridge University Hopital NHS Trust"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Cambridge",
+							"Country": "United Kingdom",
+							"State": "Cambridgeshire",
+							"Zip": "CB20QQ"
+						},
+						"Name": "Cambridge University Hopital NHS Trust"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -4980,15 +5006,15 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": false,
+					"DiseaseWithinProstate": false,
 					"DiseaseOutsideProstate": null
 				},
 				"Eligibility": {
@@ -5017,7 +5043,7 @@
 				"OrgStudyID": "MULTIPROS Study",
 				"SecondaryID": "",
 				"NCTID": "NCT02745496",
-        "Title": "Advanced Magnetic Resonance Imaging (MRI) in Men With Suspected Prostate Cancer (MULTIPROS)"
+				"Title": "Advanced Magnetic Resonance Imaging (MRI) in Men With Suspected Prostate Cancer (MULTIPROS)"
 			},
 			"Keywords": [
 				"Image-guided biopsy",
@@ -5025,24 +5051,26 @@
 				"Diagnostic",
 				"Biomarkers"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "k.z.coll@dundee.ac.uk",
-					"Note": "Katherine Coll",
-					"Phone": "01382 383116",
-					"PhoneExt": "83116"
-				},
-				"Facility": {
-					"Address": {
-						"City": "Dundee",
-						"Country": "United Kingdom",
-						"State": "Tayside",
-						"Zip": "DD5 4NT"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "k.z.coll@dundee.ac.uk",
+						"Note": "Katherine Coll",
+						"Phone": "01382 383116",
+						"PhoneExt": "83116"
 					},
-					"Name": "Ninewells Hospital and Medical School"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Dundee",
+							"Country": "United Kingdom",
+							"State": "Tayside",
+							"Zip": "DD5 4NT"
+						},
+						"Name": "Ninewells Hospital and Medical School"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -5078,12 +5106,13 @@
 				"OrgStudyID": "D081SC00001",
 				"SecondaryID": "2018-002011-10",
 				"NCTID": "NCT03732820",
-        "Title": "Study on Olaparib Plus Abiraterone as First-line Therapy in Men With Metastatic Castration-resistant Prostate Cancer"
+				"Title": "Study on Olaparib Plus Abiraterone as First-line Therapy in Men With Metastatic Castration-resistant Prostate Cancer"
 			},
 			"Keywords": [
 				"metastatic castration-resistant prostate cancer (mCRPC)"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -7526,13 +7555,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "not fit",
+					"ECOG status": "not fit",
 					"Gleason": "high risk",
-          "DiseaseWithinProstate": false,
+					"DiseaseWithinProstate": false,
 					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -7549,14 +7578,15 @@
 				"OrgStudyID": "91695",
 				"SecondaryID": "2008-000879-26",
 				"NCTID": "NCT00751205",
-        "Title": "Prevention of Sagopilone-induced Neurotoxicity With Acetyl-L-Carnitine (ALC)"
+				"Title": "Prevention of Sagopilone-induced Neurotoxicity With Acetyl-L-Carnitine (ALC)"
 			},
 			"Keywords": [
 				"Peripheral Neuropathy",
 				"Prostate Carcinoma",
 				"Ovarian Carcinoma"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -7965,7 +7995,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -7988,14 +8018,15 @@
 				"OrgStudyID": "isrctn91422391",
 				"SecondaryID": "",
 				"NCTID": "NCT03103152",
-        "Title": "A Study to Examine the Effectiveness of Aspirin and/or Vitamin D3 to Prevent Prostate Cancer Progression (PROVENT)"
+				"Title": "A Study to Examine the Effectiveness of Aspirin and/or Vitamin D3 to Prevent Prostate Cancer Progression (PROVENT)"
 			},
 			"Keywords": [
 				"Prostate Cancer",
 				"Active Surveillance",
 				"Chemo-prevention"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -8122,9 +8153,9 @@
 					"DiseaseOutsideProstate": false
 				},
 				"Exclusion": {
-          "ECOG status": "not fit",
+					"ECOG status": "not fit",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				}
 			}
@@ -8139,7 +8170,7 @@
 				"OrgStudyID": "16/0128",
 				"SecondaryID": "",
 				"NCTID": "NCT03151512",
-        "Title": "UNDISTORT Correction of Distortions in Diffusion MRI V1.0 (UNDISTORT)"
+				"Title": "UNDISTORT Correction of Distortions in Diffusion MRI V1.0 (UNDISTORT)"
 			},
 			"Keywords": [
 				"MRI",
@@ -8147,24 +8178,26 @@
 				"Magnetic Resonance Imaging",
 				"prostheses"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "Elizabeth.Isaac@uclh.nhs.uk",
-					"Note": "Elizabeth Isaac",
-					"Phone": "020 3447 9044",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "London",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "NW1 2BU"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "Elizabeth.Isaac@uclh.nhs.uk",
+						"Note": "Elizabeth Isaac",
+						"Phone": "020 3447 9044",
+						"PhoneExt": ""
 					},
-					"Name": "University College London Hospital"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "London",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "NW1 2BU"
+						},
+						"Name": "University College London Hospital"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": null,
 			"MaxAge": "120 Years",
 			"MinAge": "18 Years",
@@ -8175,7 +8208,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "fit",
+					"ECOG status": "fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": false
@@ -8198,14 +8231,15 @@
 				"OrgStudyID": "D081DC00008",
 				"SecondaryID": "UVA97934",
 				"NCTID": "NCT01972217",
-        "Title": "Ph II Study to Evaluate Olaparib With Abiraterone in Treating Metastatic Castration Resistant Prostate Cancer."
+				"Title": "Ph II Study to Evaluate Olaparib With Abiraterone in Treating Metastatic Castration Resistant Prostate Cancer."
 			},
 			"Keywords": [
 				"Olaparib",
 				"castration-resistant, metastatic prostate cancer",
 				"Prior Docetaxel Chemotherapy"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -8956,15 +8990,15 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "fit",
+					"ECOG status": "fit",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": false,
 					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				}
 			}
@@ -8983,7 +9017,7 @@
 				"OrgStudyID": "CDR0000455583",
 				"SecondaryID": "EUDRACT-2005-001030-33",
 				"NCTID": "NCT00303784",
-        "Title": "Prostate Adenocarcinoma TransCutaneous Hormones (PATCH)"
+				"Title": "Prostate Adenocarcinoma TransCutaneous Hormones (PATCH)"
 			},
 			"Keywords": [
 				"hot flashes",
@@ -8995,7 +9029,8 @@
 				"stage IV prostate cancer",
 				"adenocarcinoma of the prostate"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "Contact Person",
@@ -9613,7 +9648,7 @@
 				"OrgStudyID": "CDR0000571528",
 				"SecondaryID": "PR13",
 				"NCTID": "NCT00541047",
-        "Title": "Radiation Therapy and Androgen Deprivation Therapy in Treating Patients Who Have Undergone Surgery for Prostate Cancer (RADICALS)"
+				"Title": "Radiation Therapy and Androgen Deprivation Therapy in Treating Patients Who Have Undergone Surgery for Prostate Cancer (RADICALS)"
 			},
 			"Keywords": [
 				"sexual dysfunction",
@@ -9625,7 +9660,8 @@
 				"stage IIA prostate cancer",
 				"stage III prostate cancer"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -10682,13 +10718,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "fit",
+					"ECOG status": "fit",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -10705,30 +10741,32 @@
 				"OrgStudyID": "CRO2017",
 				"SecondaryID": "",
 				"NCTID": "NCT01691976",
-        "Title": "Mild Cognitive Impairment in Men Following Androgen Deprivation"
+				"Title": "Mild Cognitive Impairment in Men Following Androgen Deprivation"
 			},
 			"Keywords": [
 				"Mild cognitive impairment",
 				"Androgen deprivation therapy"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "London",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "W12 0NN"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Imperial College Healthcare NHS Trust"
-				},
-				"Status": "Not yet recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "London",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "W12 0NN"
+						},
+						"Name": "Imperial College Healthcare NHS Trust"
+					},
+					"Status": "Not yet recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms",
 				"Cognitive Dysfunction"
@@ -10742,7 +10780,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": null
@@ -10750,7 +10788,7 @@
 				"Exclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": true
 				}
 			}
@@ -10764,7 +10802,7 @@
 				"OrgStudyID": "BGB-290-103",
 				"SecondaryID": "",
 				"NCTID": "NCT03150810",
-        "Title": "Study to Assess Safety, Tolerability and Clinical Activity of BGB-290 in Combination With Temozolomide (TMZ) in Subjects With Locally Advanced or Metastatic Solid Tumors"
+				"Title": "Study to Assess Safety, Tolerability and Clinical Activity of BGB-290 in Combination With Temozolomide (TMZ) in Subjects With Locally Advanced or Metastatic Solid Tumors"
 			},
 			"Keywords": [
 				"Ovarian cancer",
@@ -10780,7 +10818,8 @@
 				"Poly (ADP-ribose) polymerase inhibitors",
 				"enzyme inhibitors"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -11139,7 +11178,7 @@
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -11156,30 +11195,32 @@
 				"OrgStudyID": "CDR0000684018",
 				"SecondaryID": "EU-21067",
 				"NCTID": "NCT01193855",
-        "Title": "Dutasteride in Treating Patients With Prostate Cancer"
+				"Title": "Dutasteride in Treating Patients With Prostate Cancer"
 			},
 			"Keywords": [
 				"stage IIB prostate cancer",
 				"stage IIA prostate cancer"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "markemberton1@btinternet.com",
-					"Note": "Contact Person",
-					"Phone": "44-207-380-9194",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "London",
-						"Country": "United Kingdom",
-						"State": "England",
-						"Zip": "W1T 7NF"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "markemberton1@btinternet.com",
+						"Note": "Contact Person",
+						"Phone": "44-207-380-9194",
+						"PhoneExt": ""
 					},
-					"Name": "University College of London Hospitals"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "London",
+							"Country": "United Kingdom",
+							"State": "England",
+							"Zip": "W1T 7NF"
+						},
+						"Name": "University College of London Hospitals"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms"
 			],
@@ -11192,7 +11233,7 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -11218,7 +11259,7 @@
 				"OrgStudyID": "CDR0000684020",
 				"SecondaryID": "9945",
 				"NCTID": "NCT01194648",
-        "Title": "Focal Therapy for Prostate Cancer Using HIFU (INDEX)"
+				"Title": "Focal Therapy for Prostate Cancer Using HIFU (INDEX)"
 			},
 			"Keywords": [
 				"urinary incontinence",
@@ -11228,24 +11269,26 @@
 				"stage IIB prostate cancer",
 				"stage IIA prostate cancer"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "situ.index@ucl.ac.uk",
-					"Note": "SITU Trials Unit",
-					"Phone": "+44207 679 9280",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "London",
-						"Country": "United Kingdom",
-						"State": "England",
-						"Zip": "WC1E 6BT"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "situ.index@ucl.ac.uk",
+						"Note": "SITU Trials Unit",
+						"Phone": "+44207 679 9280",
+						"PhoneExt": ""
 					},
-					"Name": "University College London"
-				},
-				"Status": "Recruiting"
-			}],
+					"Facility": {
+						"Address": {
+							"City": "London",
+							"Country": "United Kingdom",
+							"State": "England",
+							"Zip": "WC1E 6BT"
+						},
+						"Name": "University College London"
+					},
+					"Status": "Recruiting"
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms",
 				"Urinary Incontinence",
@@ -11261,15 +11304,15 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				}
 			}
@@ -11285,31 +11328,33 @@
 				"OrgStudyID": "13HH0558",
 				"SecondaryID": "",
 				"NCTID": "NCT02061345",
-        "Title": "PET Imaging in MCI Following ADT for PCa"
+				"Title": "PET Imaging in MCI Following ADT for PCa"
 			},
 			"Keywords": [
 				"Prostate cancer",
 				"Androgen Deprivation Therapy",
 				"Mild Cognitive Impairment"
 			],
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "London",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "W6 8RF"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Imperial College Healthcare NHS Trust"
-				},
-				"Status": ""
-			}],
+					"Facility": {
+						"Address": {
+							"City": "London",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "W6 8RF"
+						},
+						"Name": "Imperial College Healthcare NHS Trust"
+					},
+					"Status": ""
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms",
 				"Cognitive Dysfunction"
@@ -11331,7 +11376,7 @@
 				"Exclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				}
 			}
@@ -11346,12 +11391,13 @@
 				"OrgStudyID": "D9320C00001",
 				"SecondaryID": "",
 				"NCTID": "NCT02991911",
-        "Title": "A Phase 1/1b Study of MEDI3726 in Adults Subjects With Metastatic Castration Resistant Prostate Cancer (MEDI3726)"
+				"Title": "A Phase 1/1b Study of MEDI3726 in Adults Subjects With Metastatic Castration Resistant Prostate Cancer (MEDI3726)"
 			},
 			"Keywords": [
 				"metastatic, prostate cancer"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -11496,7 +11542,7 @@
 				"OrgStudyID": "D4620C00001",
 				"SecondaryID": "",
 				"NCTID": "NCT01884285",
-        "Title": "AZD8186 First Time In Patient Ascending Dose Study"
+				"Title": "AZD8186 First Time In Patient Ascending Dose Study"
 			},
 			"Keywords": [
 				"Advanced Castrate-resistant Prostate Cancer(CRPC)",
@@ -11505,7 +11551,8 @@
 				"PTEN-deficient/mutated Advanced Solid Malignancies",
 				"PIK3CB mutated/amplified advanced solid malignancies"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -11756,13 +11803,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "not fit",
+					"ECOG status": "not fit",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -11779,27 +11826,29 @@
 				"OrgStudyID": "10/S0802/36",
 				"SecondaryID": "",
 				"NCTID": "NCT01233557",
-        "Title": "Biomarkers of Bone Resorption in Metastatic Prostate Cancer"
+				"Title": "Biomarkers of Bone Resorption in Metastatic Prostate Cancer"
 			},
 			"Keywords": null,
-			"Locations": [{
-				"Contact": {
-					"Email": "",
-					"Note": "",
-					"Phone": "",
-					"PhoneExt": ""
-				},
-				"Facility": {
-					"Address": {
-						"City": "Aberdeen",
-						"Country": "United Kingdom",
-						"State": "",
-						"Zip": "AB25 2ZN"
+			"Locations": [
+				{
+					"Contact": {
+						"Email": "",
+						"Note": "",
+						"Phone": "",
+						"PhoneExt": ""
 					},
-					"Name": "Aberdeen Royal Infirmary"
-				},
-				"Status": ""
-			}],
+					"Facility": {
+						"Address": {
+							"City": "Aberdeen",
+							"Country": "United Kingdom",
+							"State": "",
+							"Zip": "AB25 2ZN"
+						},
+						"Name": "Aberdeen Royal Infirmary"
+					},
+					"Status": ""
+				}
+			],
 			"MESHTerms": [
 				"Prostatic Neoplasms",
 				"Bone Resorption"
@@ -11838,7 +11887,7 @@
 				"OrgStudyID": "CDR0000574344",
 				"SecondaryID": "EU-20773",
 				"NCTID": "NCT00561314",
-        "Title": "High-Intensity Focused Ultrasound Ablation in Treating Patients With Localized Prostate Cancer"
+				"Title": "High-Intensity Focused Ultrasound Ablation in Treating Patients With Localized Prostate Cancer"
 			},
 			"Keywords": [
 				"sexual dysfunction",
@@ -11848,7 +11897,8 @@
 				"stage IIB prostate cancer",
 				"stage IIA prostate cancer"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -11899,15 +11949,15 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "not fit",
+					"ECOG status": "not fit",
 					"Gleason": "low risk",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": false,
+					"DiseaseWithinProstate": false,
 					"DiseaseOutsideProstate": true
 				}
 			}
@@ -11922,13 +11972,14 @@
 				"OrgStudyID": "EORTC-22991",
 				"SecondaryID": "EORTC-22991",
 				"NCTID": "NCT00021450",
-        "Title": "Radiation Therapy With or Without Bicalutamide and Goserelin in Treating Patients With Prostate Cancer"
+				"Title": "Radiation Therapy With or Without Bicalutamide and Goserelin in Treating Patients With Prostate Cancer"
 			},
 			"Keywords": [
 				"stage IIB prostate cancer",
 				"stage IIA prostate cancer"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -12301,13 +12352,13 @@
 			},
 			"Eligibility": {
 				"Inclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "low risk",
 					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": true
 				},
 				"Exclusion": {
-          "ECOG status": "",
+					"ECOG status": "",
 					"Gleason": "high risk",
 					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": null
@@ -12324,7 +12375,7 @@
 				"OrgStudyID": "CDR0000066849",
 				"SecondaryID": "EU-98060",
 				"NCTID": "NCT00003734",
-        "Title": "Combination Hormone Therapy Followed by Radiation Therapy in Treating Patients With Prostate Cancer"
+				"Title": "Combination Hormone Therapy Followed by Radiation Therapy in Treating Patients With Prostate Cancer"
 			},
 			"Keywords": [
 				"adenocarcinoma of the prostate",
@@ -12334,7 +12385,8 @@
 				"stage III prostate cancer",
 				"stage IV prostate cancer"
 			],
-			"Locations": [{
+			"Locations": [
+				{
 					"Contact": {
 						"Email": "",
 						"Note": "",
@@ -12565,13 +12617,13 @@
 				"Inclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": true,
+					"DiseaseWithinProstate": true,
 					"DiseaseOutsideProstate": null
 				},
 				"Exclusion": {
 					"ECOG status": "",
 					"Gleason": "",
-          "DiseaseWithinProstate": null,
+					"DiseaseWithinProstate": null,
 					"DiseaseOutsideProstate": false
 				}
 			}

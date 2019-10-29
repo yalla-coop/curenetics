@@ -1,44 +1,35 @@
 import React from 'react';
 import { Document, Page } from '@react-pdf/renderer';
 import { styles } from './pdfStyles';
-
-// import Roboto from '../fonts/Roboto-Regular.ttf';
-// import RobotoBold from '../fonts/Roboto-Bold.ttf';
-
-// import templates for single trial and mulitple trials here:
+import { isPotential, filterByEligibility } from '../../../helpers/eligibility';
 import SingleTrial from './singleTrial';
 
-// Font.register({
-//   family: 'Roboto',
-//   src: Roboto,
-// });
+class PdfTemplate extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    const { data } = this.props;
+    return data !== nextProps.data;
+  }
 
-// Font.register({
-//   family: 'Roboto-bold',
-//   src: RobotoBold,
-// });
+  render() {
+    const { data, patientsInfo, type = 'single' } = this.props;
+    const documentTitle =
+      type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
 
-// data = result data
-// isPotential = green or orange colour
-// type = the type of pdf template to use. Single trial by default
-
-const PdfTemplate = ({ data, isPotential = null, type = 'single' }) => {
-  const documentTitle =
-    type === 'single' ? 'Single Trial Match' : 'Multiple Trial Match';
-    // console.log("data => ", data);
-  return (
-    <Document title={documentTitle} creator="Curenetics Clinical Trials">
-      <>
-      {data.map((item) => {
-        // console.log("item", item.trialInfo)
-        return(
-          <Page style={styles.page}>
-              <SingleTrial data={item} isPotential={item.eligibilityStatus} />
-          </Page>
-        )
-      })}
-      </>
-    </Document>
-  );
-};
+    return (
+      <Document title={documentTitle} creator="Curenetics Clinical Trials">
+        <>
+          {filterByEligibility(data).map(trial => (
+            <Page style={styles.page} key={Date.now() / Math.random()}>
+              <SingleTrial
+                data={trial}
+                patientsInfo={!patientsInfo ? trial.patientInfo : patientsInfo}
+                isPotential={isPotential(trial)}
+              />
+            </Page>
+          ))}
+        </>
+      </Document>
+    );
+  }
+}
 export default PdfTemplate;
