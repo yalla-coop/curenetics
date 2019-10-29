@@ -79,6 +79,9 @@ export const ExportButton = styled(PDFDownloadLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  :hover {
+    color: white;
+  }
 `;
 
 export const HeadPragraph = styled.p`
