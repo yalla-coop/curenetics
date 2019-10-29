@@ -8,7 +8,10 @@ const SingleTrialPdf = ({ data, patientsInfo, isPotential }) => {
 
   return (
     <>
-      <MatchHeader trialInfo={data} />
+      <MatchHeader
+        trialInfo={data}
+        fileReference={patientsInfo.fileReference}
+      />
       <MatchTable trialPatientData={trialPatient} isPotential={isPotential} />
       <Location trialInfo={data} />
     </>
