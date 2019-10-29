@@ -64,6 +64,9 @@ const TopContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media only screen and (max-width: ${breakpoint.small}) {
+    padding: 0.3rem 1rem;
+  }
 `;
 
 const Nav = styled.nav`

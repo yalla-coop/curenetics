@@ -10,7 +10,7 @@ const keysOrder = [
 ];
 
 export const mapKeyToOptions = {
-  gender: ['male', 'female'],
+  gender: ['Male', 'Female'],
   ECOGStatus: [0, 1, 2, 3, 4],
   'Disease within prostate': ['yes', 'no'],
   'Disease outside prostate': ['yes', 'no'],
