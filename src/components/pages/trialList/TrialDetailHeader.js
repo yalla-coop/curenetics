@@ -7,6 +7,7 @@ import { Header } from '../../common/Layout';
 import { IconButton } from '../../common/Buttons';
 import { Title, Paragraph } from '../../common/Typography';
 import ExportLink from '../../common/icons/ExportLink';
+// import { ExportButton } from '../matchTrial/style';
 
 import PdfTemplate from '../../common/pdf/pdfTemplate';
 
@@ -14,6 +15,12 @@ const { Option } = Select;
 
 const ExportButton = styled(IconButton)`
   margin: 2rem auto;
+  & a {
+    color: white;
+  }
+  & svg {
+    margin-left: 1rem;
+  }
 `;
 
 const SortSecation = styled.div`
@@ -51,14 +58,14 @@ class TrialListHeader extends React.Component {
           To export the details of all eligible trials, click the{' '}
           <strong>Export Results</strong> button below.
         </Paragraph>
-        <PDFDownloadLink
-          document={<PdfTemplate data={patientsInfo} type="multiple" />}
-        >
-          <ExportButton isCenter>
+        <ExportButton isCenter>
+          <PDFDownloadLink
+            document={<PdfTemplate data={patientsInfo} type="multiple" />}
+          >
             Export Results
             <ExportLink />
-          </ExportButton>
-        </PDFDownloadLink>
+          </PDFDownloadLink>
+        </ExportButton>
         <SortSecation>
           <Select onChange={this.onChange} defaultValue="sort result">
             {['age', 'gender'].map(value => (
