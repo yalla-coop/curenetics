@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import exclamation from './exclamation.svg';
-import { SubHeading, Paragraph } from '../../common/Typography';
+import { SubHeading, ModParagraph, Paragraph } from '../../common/Typography';
 import { colors, breakpoint } from '../../../styles/globalStyles';
 import { OrangeButton } from '../../common/Buttons';
 
@@ -19,9 +19,14 @@ const Bkground = styled.section`
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
     border-radius: 5px;
-    @media (max-width: ${breakpoint.Xsmall}) {
-      width: 85vw;
-      margin: -9.5vh auto;
+    @media (max-width: 350px) {
+      height: 90vh;
+      width: 90vw;
+      margin: -6.5vh auto;
+      margin-left: 0.5%;
+      padding-left: 3vw;
+      position: absolute;
+      overflow: scroll;
     }
   }
 `;
@@ -35,6 +40,7 @@ const Head = styled.section`
 `;
 const Img = styled.img`
   padding-bottom: 2vh;
+  padding-top: 2vh;
   @media (max-width: ${breakpoint.Xsmall}) {
     margin-top: 1vh;
   }
@@ -49,23 +55,23 @@ const Modual = ({ onClick }) => (
           This website uses local storage and remote data analysis
         </SubHeading>
       </Head>
-      <Paragraph isLight>
+      <ModParagraph isLight>
         Medical professionals must only used this app on a secure or
         trust-approved computer. The uploaded files(s) will be stored locally
         but wiped when you close the app.
-      </Paragraph>
-      <Paragraph isLight>
+      </ModParagraph>
+      <ModParagraph isLight>
         Medical information extracted is immediately pseudo-anonymised and then
         encrypted before analyses. However, please do not use any sensitive
         information within the actual filename.
-      </Paragraph>
-      <Paragraph isLight>
+      </ModParagraph>
+      <ModParagraph isLight>
         This current software iteration is only optimised for scientific and
         research purposes. It must not serve as aid in clinical decision making.
-      </Paragraph>
-      <Paragraph isLight>
+      </ModParagraph>
+      <ModParagraph isLight>
         By using this app you consent to this data use.
-      </Paragraph>
+      </ModParagraph>
       <Head>
         <OrangeButton onClick={e => onClick(e)}>OK</OrangeButton>
       </Head>
