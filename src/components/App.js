@@ -86,18 +86,42 @@ const Nav = styled.nav`
 const App = () => {
   // state from upload file
   const [filenames, setFilenames] = useState([]);
+  const [modal, setModal] = useState(false);
+  const [path, setPath] = useState('/');
+  const [warning, setWarning] = useState(null);
+
+  const aboutModalWarning = e => {
+    e.preventDefault();
+    setModal(true);
+    setPath('/about');
+  };
+  const logoModalWarning = e => {
+    e.preventDefault();
+    setModal(true);
+    setPath('/');
+  };
+  // const aboutSetWarning = () => {
+  //   setWarning(aboutModalWarning);
+  // };
+  // const logoSetWarning = () => {
+  //   setWarning(logoModalWarning);
+  // };
   return (
     <>
       <Router>
         <TopBar>
           <TopContainer>
-            <Link aria-label="Curenetics Clinical Trials" to="/">
+            <Link aria-label="Curenetics Clinical Trials"
+            onClick={logoModalWarning}
+            to="/">
               <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
             </Link>
             <Nav>
               <ul>
                 <li>
-                  <Link to="/about">About</Link>
+                  <Link to="/about" onClick={aboutModalWarning}>
+                    About
+                  </Link>
                 </li>
                 <li>
                   <Link to="/upload">Upload</Link>
@@ -136,7 +160,18 @@ const App = () => {
             />
             <Route path="/trial-list" component={TrialList} />
             <Route path="/match-trial" component={MatchTrial} />
-            <Route path="/enter-patients" component={EnterPatients} />
+            <Route
+              path="/enter-patients"
+              render={props => (
+                <EnterPatients
+                  {...props}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                />
+              )}
+            />
             <Route component={NotFound} />
           </Switch>
         </Main>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import exclamation from './images/exclamation.svg';
@@ -47,10 +47,16 @@ const ConfirmLink = styled(Link)`
   }
 `;
 
-const SmallModal = () => {
-  const closeModule = e => {
-    const parentObj = e.target.parentNode;
-    parentObj.parentNode.parentNode.style.display = 'none';
+const SmallModal = props => {
+  const { modal, setModal, path, setPath } = props;
+  const closeModule = () => {
+    setModal(false);
+    //const parentObj = e.target.parentNode;
+    //parentObj.parentNode.parentNode.style.display = 'none';
+  };
+  const reset = () => {
+    setModal(false);
+    setPath('/');
   };
   return (
     <Bkground>
@@ -64,10 +70,16 @@ const SmallModal = () => {
           and analysed along with any clinical trials found.
         </Paragraph>
         <End>
-          <OrangeButton color onClick={e => closeModule(e)}>
+          <OrangeButton color="red" onClick={e => {closeModule(e)}}>
             Cancel
           </OrangeButton>
-          <ConfirmLink style={{ color: 'white' }} to="/">Confirm</ConfirmLink>
+          <ConfirmLink
+            style={{ color: 'white' }}
+            onClick={reset}
+            to={path}
+          >
+            Confirm
+          </ConfirmLink>
         </End>
       </div>
     </Bkground>

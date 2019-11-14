@@ -4,6 +4,7 @@ import { Select } from "antd";
 import PatientIntro from "./patientIntro";
 import { keysOrder } from "./patientField";
 import PatientCards from "./PatientCards";
+import SmallModal from "../../common/modal";
 
 import { colors } from "../../../styles/globalStyles";
 
@@ -24,7 +25,9 @@ class EnterPatients extends Component {
 
 	componentDidMount() {
 		this.createPatient();
-	}
+		//this.props.action();
+	};
+	
 
 	createPatient = () => {
 		const empty = keysOrder.reduce((result, item) => {
@@ -88,6 +91,7 @@ class EnterPatients extends Component {
 	};
 
 	render() {
+		const {modal, setModal, path, setPath} = this.props;
 		const {
 			renderFieldOptions,
 			handleChange,
@@ -97,6 +101,14 @@ class EnterPatients extends Component {
 		const { list } = this.state;
 		return (
 			<>
+        {modal && (
+          <SmallModal
+            modal={modal}
+            setModal={setModal}
+            path={path}
+            setPath={setPath}
+          />
+        )}
 				<PatientIntro></PatientIntro>
 				<PatientlistContainer>
 					<PatientCards
