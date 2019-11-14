@@ -46,7 +46,6 @@ const ConfirmLink = styled(Link)`
     background-color: ${colors.accent};
   }
 `;
-
 const SmallModal = props => {
   const { modal, setModal, path, setPath } = props;
   const closeModule = () => {
@@ -71,11 +70,7 @@ const SmallModal = props => {
           <OrangeButton color="red" onClick={e => {closeModule(e)}}>
             Cancel
           </OrangeButton>
-          <ConfirmLink
-            style={{ color: 'white' }}
-            onClick={reset}
-            to={path}
-          >
+          <ConfirmLink style={{ color: 'white' }} onClick={reset} to={path}>
             Confirm
           </ConfirmLink>
         </End>

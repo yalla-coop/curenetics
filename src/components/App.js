@@ -86,44 +86,38 @@ const Nav = styled.nav`
 const App = () => {
   // state from upload file
   const [filenames, setFilenames] = useState([]);
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false); // should modal be displayed
   const [path, setPath] = useState('/');
   const [warning, setWarning] = useState(null);
 
-  const simple = () => console.log("learning how it works")
   const aboutModalWarning = e => {
+    // This function is called on the render of the enterPatients page and as an //onClick event there isn't always an e object.
     if (e) {
+      const str = e.target.innerText;
+      const pathStr = str.toLowerCase();
       e.preventDefault();
       setModal(true);
-      setPath('/about');
+      setPath(`/${pathStr}`);
     } else {
       setModal(false);
-      setPath('/about');
     }
   };
-  const logoModalWarning = e => {
-    e.preventDefault();
-    setModal(true);
-    setPath('/');
-  };
   const aboutSetWarning = () => {
-    console.log("I'm here");
     setWarning(() => aboutModalWarning);
   };
   const reset = () => {
     setWarning(null);
   };
-  // const logoSetWarning = () => {
-  //   setWarning(logoModalWarning);
-  // };
   return (
     <>
       <Router>
         <TopBar>
           <TopContainer>
-            <Link aria-label="Curenetics Clinical Trials"
-            onClick={() => console.log("I am here")}
-            to="/">
+            <Link
+              aria-label="Curenetics Clinical Trials"
+              onClick={warning}
+              to="/"
+            >
               <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
             </Link>
             <Nav>
@@ -134,7 +128,9 @@ const App = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/upload">Upload</Link>
+                  <Link to="/upload" onClick={warning}>
+                    Upload
+                  </Link>
                 </li>
                 <li>
                   <Link to="/enter-patients">Enter</Link>
