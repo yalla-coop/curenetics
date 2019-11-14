@@ -51,8 +51,6 @@ const SmallModal = props => {
   const { modal, setModal, path, setPath } = props;
   const closeModule = () => {
     setModal(false);
-    //const parentObj = e.target.parentNode;
-    //parentObj.parentNode.parentNode.style.display = 'none';
   };
   const reset = () => {
     setModal(false);

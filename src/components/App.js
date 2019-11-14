@@ -90,19 +90,29 @@ const App = () => {
   const [path, setPath] = useState('/');
   const [warning, setWarning] = useState(null);
 
+  const simple = () => console.log("learning how it works")
   const aboutModalWarning = e => {
-    e.preventDefault();
-    setModal(true);
-    setPath('/about');
+    if (e) {
+      e.preventDefault();
+      setModal(true);
+      setPath('/about');
+    } else {
+      setModal(false);
+      setPath('/about');
+    }
   };
   const logoModalWarning = e => {
     e.preventDefault();
     setModal(true);
     setPath('/');
   };
-  // const aboutSetWarning = () => {
-  //   setWarning(aboutModalWarning);
-  // };
+  const aboutSetWarning = () => {
+    console.log("I'm here");
+    setWarning(() => aboutModalWarning);
+  };
+  const reset = () => {
+    setWarning(null);
+  };
   // const logoSetWarning = () => {
   //   setWarning(logoModalWarning);
   // };
@@ -112,14 +122,14 @@ const App = () => {
         <TopBar>
           <TopContainer>
             <Link aria-label="Curenetics Clinical Trials"
-            onClick={logoModalWarning}
+            onClick={() => console.log("I am here")}
             to="/">
               <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
             </Link>
             <Nav>
               <ul>
                 <li>
-                  <Link to="/about" onClick={aboutModalWarning}>
+                  <Link to="/about" onClick={warning}>
                     About
                   </Link>
                 </li>
@@ -169,6 +179,8 @@ const App = () => {
                   setModal={setModal}
                   path={path}
                   setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
                 />
               )}
             />

@@ -22,11 +22,19 @@ class EnterPatients extends Component {
 	state = {
 		list: []
 	};
+	
 
 	componentDidMount() {
-		this.createPatient();
-		//this.props.action();
-	};
+	this.createPatient();
+	this.props.aboutSetWarning()
+	}
+;
+	componentWillUnmount(){
+	this.props.reset();
+  }
+
+
+
 	
 
 	createPatient = () => {
@@ -91,7 +99,7 @@ class EnterPatients extends Component {
 	};
 
 	render() {
-		const {modal, setModal, path, setPath} = this.props;
+		const {modal, setModal, path, setPath } = this.props;
 		const {
 			renderFieldOptions,
 			handleChange,
