@@ -15,7 +15,7 @@ Curenetics was awarded funding to continue to develop the App from the Tech for 
 
 
 ## About the client
-Dr Sola Adeleke (MRCP, MBA Oncology Research), the founder of Curenetics, is an oncologist with extensive experience in clinical trials, a clinical research fellow at UCL and is actively involved in cancer research. Sola is devoted to making clinical trials more accessible to both patients and clinicians.
+Dr Sola Adeleke (MRCP, MBA), the founder of Curenetics, is an oncologist with extensive experience in clinical trials, a clinical research fellow at UCL and is actively involved in cancer research. Sola is devoted to making clinical trials more accessible to both patients and clinicians.
 
 ## The background
 Although over 70% of patients say they would like to be offered the opportunity to be involved in a clinical trial, only 4% of patients in the UK, end up being recruited to clinical trials. Two thirds of clinical trials still fail in the UK despite best efforts. We are determined to turn around this trend by improving patient access and engagement with trials.
