@@ -51,16 +51,16 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
               key={Date.now() / Math.random()}
               style={index === 0 ? trialColumn : patientColumn}
             >
-              <Text style={text}>Age: {age}</Text>
-              <Text style={text}>Conditons: {conditons}</Text>
-              <Text style={text}>Gender: {gender}</Text>
-              <Text style={text}>ECOG: {ecog}</Text>
-              <Text style={text}>Gleason Score: {gleason}</Text>
+              <Text style={text}>Age: {age || 'N/A'}</Text>
+              <Text style={text}>Conditons: {conditons || 'N/A'}</Text>
+              <Text style={text}>Gender: {gender || 'N/A'}</Text>
+              <Text style={text}>ECOG: {ecog || 'N/A'}</Text>
+              <Text style={text}>Gleason Score: {gleason || 'N/A'}</Text>
               <Text style={text}>
-                Disease within Prostate: {DiseaseWithinProstate}
+                Disease within Prostate: {DiseaseWithinProstate || 'N/A'}
               </Text>
               <Text style={text}>
-                Disease outside Prostate: {DiseaseOutsideProstate}
+                Disease outside Prostate: {DiseaseOutsideProstate || 'N/A'}
               </Text>
             </View>
           );
