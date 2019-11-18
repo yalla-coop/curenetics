@@ -53,8 +53,8 @@ const matchCard = ({ trial, patientsInfo }) => {
               <Calendar />
             </div>
             <ColumnSection>
-              <DateSpan>Starting Date: {'No data found'}</DateSpan>
-              <span>Finish Date: {'No data found'}</span>
+              <DateSpan>Starting Date: {'N/A'}</DateSpan>
+              <span>Finish Date: {'N/A'}</span>
             </ColumnSection>
           </FieldWrapper>
         </ColumnSection>
@@ -76,7 +76,7 @@ const matchCard = ({ trial, patientsInfo }) => {
           <div>
             <Avatar />
           </div>
-          <span>Enrolled: {'No data found'}</span>
+          <span>Enrolled: {'N/A'}</span>
         </FieldWrapper>
       </ThreeColumnSection>
       <TwoColumnSection>
@@ -84,16 +84,16 @@ const matchCard = ({ trial, patientsInfo }) => {
           <div>
             <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
-          {/* <span>Interventions: {['No data found'].map(i => `${i}, `)}</span> */}
-          <span>Interventions: {'No data found'}</span>
+          {/* <span>Interventions: {['N/A'].map(i => `${i}, `)}</span> */}
+          <span>Interventions: {'N/A'}</span>
         </FieldWrapper>
         <FieldWrapper>
           <div>
             <Plus />
           </div>
           <span>
-            {/* Sponsor/Collaborators: {['No data found'].map(i => `${i}, `)} */}
-            Sponsor/Collaborators: {'No data found'}
+            {/* Sponsor/Collaborators: {['N/A'].map(i => `${i}, `)} */}
+            Sponsor/Collaborators: {'N/A'}
           </span>
         </FieldWrapper>
       </TwoColumnSection>
@@ -101,7 +101,7 @@ const matchCard = ({ trial, patientsInfo }) => {
         <div>
           <Stethiscope />
         </div>
-        <span>Allocation: {'No data found'}</span>
+        <span>Allocation: {'N/A'}</span>
       </FieldWrapper>
       {/* the matching trials table */}
       <Table trial={trial} patientsInfo={patientsInfo} />

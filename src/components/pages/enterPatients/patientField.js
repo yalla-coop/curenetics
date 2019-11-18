@@ -17,6 +17,7 @@ export const keysOrder = [
   'gleasonScore',
   'Disease within prostate',
   'Disease outside prostate',
+  'zip',
 ];
 
 const mapKeyToDisplayField = {
@@ -28,6 +29,7 @@ const mapKeyToDisplayField = {
   gleasonScore: 'Gleason score:',
   'Disease within prostate': 'Disease within prostate:',
   'Disease outside prostate': 'Disease outside prostate:',
+  zip: 'postcode:',
 };
 
 const mapKeyToPlaceHolder = {
@@ -39,7 +41,15 @@ const mapKeyToPlaceHolder = {
   gleasonScore: "Patient's gleason status",
   'Disease within prostate': 'Select relevant terms',
   'Disease outside prostate': 'Select relevant terms ',
+  zip: 'postcode',
 };
+
+const notRelatedToProstateCancer = [
+  'ECOGStatus',
+  'gleasonScore',
+  'Disease within prostate',
+  'Disease outside prostate',
+];
 
 const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
   const { id } = patient;
@@ -61,16 +71,23 @@ const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
           id={id + key}
           onChange={handleChange(id, key)}
           value={patient[key]}
+          type={key === 'age' ? 'number' : 'text'}
+          min="1"
         />
       );
     }
     return (
-      <PatientFormItem key={id + key}>
-        <PatientLabel style={{ width: '45%' }}>
-          {mapKeyToDisplayField[key] || key}
-        </PatientLabel>
-        {fieldType}
-      </PatientFormItem>
+      <>
+        {patient.cancerType.toLowerCase() !== 'prostate cancer' &&
+        notRelatedToProstateCancer.includes(key) ? null : (
+          <PatientFormItem key={id + key}>
+            <PatientLabel style={{ width: '45%' }}>
+              {mapKeyToDisplayField[key] || key}
+            </PatientLabel>
+            {fieldType}
+          </PatientFormItem>
+        )}
+      </>
     );
   });
 };

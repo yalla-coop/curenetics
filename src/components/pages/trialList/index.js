@@ -63,7 +63,7 @@ class TrialList extends Component {
         />
         <CardContainer>
           {patientsInfo.map(patient => (
-            <CardSection key={patient.fileReference} data={patient} />
+            <CardSection key={Date.now() / Math.random()} data={patient} />
           ))}
         </CardContainer>
       </>

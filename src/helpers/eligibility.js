@@ -28,31 +28,31 @@ export const displayInclusionOrExclusion = trial => {
     return {
       ECOGStatus:
         Exclusion['ECOG status'] === ''
-          ? 'No data'
+          ? 'N/A'
           : `excluding ${Exclusion['ECOG status']}`,
       Gleason:
-        Exclusion.Gleason === '' ? 'No data' : `excluding ${Exclusion.Gleason}`,
+        Exclusion.Gleason === '' ? 'N/A' : `excluding ${Exclusion.Gleason}`,
       DiseaseWithinProstate:
         Exclusion.DiseaseWithinProstate === null
-          ? 'No data'
+          ? 'N/A'
           : `excluding ${Exclusion.DiseaseWithinProstate}`,
       DiseaseOutsideProstate:
         Exclusion.DiseaseOutsideProstate === null
-          ? 'No data'
+          ? 'N/A'
           : `excluding ${Exclusion.DiseaseOutsideProstate}`,
     };
   }
   return {
     ECOGStatus:
-      Inclusion['ECOG status'] === '' ? 'No data' : Inclusion['ECOG status'],
-    Gleason: Inclusion.Gleason === '' ? 'No data' : Inclusion.Gleason,
+      Inclusion['ECOG status'] === '' ? 'N/A' : Inclusion['ECOG status'],
+    Gleason: Inclusion.Gleason === '' ? 'N/A' : Inclusion.Gleason,
     DiseaseWithinProstate:
       Inclusion.DiseaseWithinProstate === null
-        ? 'No data'
+        ? 'N/A'
         : `${Inclusion.DiseaseWithinProstate}`,
     DiseaseOutsideProstate:
       Inclusion.DiseaseOutsideProstate === null
-        ? 'No data'
+        ? 'N/A'
         : `${Inclusion.DiseaseOutsideProstate}`,
   };
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import Tick from '../../common/icons/Tick';
 import useIsSmall from '../../common/useIsSmall';
@@ -75,36 +76,40 @@ const Table = ({ trial, patientsInfo }) => {
               <Tick></Tick>
             </span>
           </TableRow>
-          <TableRow>
-            <span>ECOG status: {InclusionOrExclusion.ECOGStatus}</span>
-            <span>
-              <Tick></Tick>
-            </span>
-          </TableRow>
-          <TableRow>
-            <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
-            <span>
-              <Tick></Tick>
-            </span>
-          </TableRow>
-          <TableRow>
-            <span>
-              Disease within prostate:{' '}
-              {InclusionOrExclusion.DiseaseWithinProstate}
-            </span>
-            <span>
-              <Tick></Tick>
-            </span>
-          </TableRow>
-          <TableRow>
-            <span>
-              Disease outside prostate:{' '}
-              {InclusionOrExclusion.DiseaseOutsideProstate}
-            </span>
-            <span>
-              <Tick></Tick>
-            </span>
-          </TableRow>
+          {cancerType.toLowerCase() === 'prostate cancer' && (
+            <>
+              <TableRow>
+                <span>ECOG status: {InclusionOrExclusion.ECOGStatus}</span>
+                <span>
+                  <Tick></Tick>
+                </span>
+              </TableRow>
+              <TableRow>
+                <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
+                <span>
+                  <Tick></Tick>
+                </span>
+              </TableRow>
+              <TableRow>
+                <span>
+                  Disease within prostate:{' '}
+                  {InclusionOrExclusion.DiseaseWithinProstate}
+                </span>
+                <span>
+                  <Tick></Tick>
+                </span>
+              </TableRow>
+              <TableRow>
+                <span>
+                  Disease outside prostate:{' '}
+                  {InclusionOrExclusion.DiseaseOutsideProstate}
+                </span>
+                <span>
+                  <Tick></Tick>
+                </span>
+              </TableRow>
+            </>
+          )}
         </TableBody>
       </TableWrapper>
     );
@@ -122,40 +127,53 @@ const Table = ({ trial, patientsInfo }) => {
           <span>
             Age: {minAgeNum} - {maxAgeNum}
           </span>
-          <span>Age: {ageNearlyEligible ? `${age}*` : age}</span>
+          <span>Age: {!age ? 'N/A' : ageNearlyEligible ? `${age}*` : age}</span>
         </TableRow>
         <TableRow>
           <span>Condition: {Conditions.map(i => `${i}, `)}</span>
-          <span>Condition: {cancerType} </span>
+          <span>Condition: {cancerType || 'N/A'} </span>
         </TableRow>
         <TableRow>
           <span>Gender: {Gender}</span>
-          <span>Gender: {gender}</span>
+          <span>Gender: {gender || 'N/A'}</span>
         </TableRow>
-        <TableRow>
-          <span>ECOG status: {InclusionOrExclusion.ECOGStatus} </span>
-          <span>
-            ECOG status: {ECOGNearlyEligible ? `${ECOGStatus}*` : ECOGStatus}
-          </span>
-        </TableRow>
-        <TableRow>
-          <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
-          <span>Gleason score: {gleasonScore}</span>
-        </TableRow>
-        <TableRow>
-          <span>
-            Disease within prostate:{' '}
-            {InclusionOrExclusion.DiseaseWithinProstate}
-          </span>
-          <span>Disease within prostate: {DiseaseWithinProstate}</span>
-        </TableRow>
-        <TableRow>
-          <span>
-            Disease outside prostate:{' '}
-            {InclusionOrExclusion.DiseaseOutsideProstate}
-          </span>
-          <span>Disease outside prostate: {DiseaseOutsideProstate}</span>
-        </TableRow>
+        {cancerType.toLowerCase() === 'prostate cancer' && (
+          <>
+            <TableRow>
+              <span>ECOG status: {InclusionOrExclusion.ECOGStatus} </span>
+              <span>
+                ECOG status:{' '}
+                {!ECOGStatus
+                  ? 'N/A'
+                  : ECOGNearlyEligible
+                  ? `${ECOGStatus}*`
+                  : ECOGStatus}
+              </span>
+            </TableRow>
+            <TableRow>
+              <span>Gleason score: {InclusionOrExclusion.Gleason}</span>
+              <span>Gleason score: {gleasonScore || 'N/A'}</span>
+            </TableRow>
+            <TableRow>
+              <span>
+                Disease within prostate:{' '}
+                {InclusionOrExclusion.DiseaseWithinProstate}
+              </span>
+              <span>
+                Disease within prostate: {DiseaseWithinProstate || 'N/A'}
+              </span>
+            </TableRow>
+            <TableRow>
+              <span>
+                Disease outside prostate:{' '}
+                {InclusionOrExclusion.DiseaseOutsideProstate}
+              </span>
+              <span>
+                Disease outside prostate: {DiseaseOutsideProstate || 'N/A'}
+              </span>
+            </TableRow>
+          </>
+        )}
       </TableBody>
     </TableWrapper>
   );
