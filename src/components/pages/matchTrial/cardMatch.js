@@ -25,6 +25,7 @@ import {
   ThreeColumnSection,
   TwoColumnSection,
   ViewFullTrial,
+  DateSpan,
 } from './style';
 
 const matchCard = ({ trial, patientsInfo }) => {
@@ -42,7 +43,7 @@ const matchCard = ({ trial, patientsInfo }) => {
           <PrimarySpam>NCT Number: </PrimarySpam>
           <span>{NCTID}</span>
         </div>
-        <PrimarySpam bold>PRONOUNCE</PrimarySpam>
+        <PrimarySpam bold></PrimarySpam>
       </HeadSection>
       <HeadPragraph>{Title}</HeadPragraph>
       <ThreeColumnSection>
@@ -52,7 +53,7 @@ const matchCard = ({ trial, patientsInfo }) => {
               <Calendar />
             </div>
             <ColumnSection>
-              <span>Starting Date: {'N/A'}</span>
+              <DateSpan>Starting Date: {'N/A'}</DateSpan>
               <span>Finish Date: {'N/A'}</span>
             </ColumnSection>
           </FieldWrapper>
