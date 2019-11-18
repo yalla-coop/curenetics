@@ -3,6 +3,10 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import { colors, breakpoint } from '../../../styles/globalStyles';
 
+export const DateSpan = styled.span`
+  padding-bottom: 0.25rem;
+`;
+
 export const Wrapper = styled.section`
   background-color: white;
   color: ${colors.black};

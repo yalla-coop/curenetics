@@ -25,6 +25,7 @@ import {
   ThreeColumnSection,
   TwoColumnSection,
   ViewFullTrial,
+  DateSpan,
 } from './style';
 
 const matchCard = ({ trial, patientsInfo }) => {
@@ -52,7 +53,7 @@ const matchCard = ({ trial, patientsInfo }) => {
               <Calendar />
             </div>
             <ColumnSection>
-              <span>Starting Date: {'No data found'}</span>
+              <DateSpan>Starting Date: {'No data found'}</DateSpan>
               <span>Finish Date: {'No data found'}</span>
             </ColumnSection>
           </FieldWrapper>
