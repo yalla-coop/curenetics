@@ -48,7 +48,7 @@ const notRelatedToProstateCancer = [
   'Disease outside prostate',
 ];
 
-const PatientField = ({ list, patient, handleChange, renderFieldOptions }) => {
+const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
   const { id } = patient;
 
   return keysOrder.map(key => {
@@ -73,7 +73,7 @@ const PatientField = ({ list, patient, handleChange, renderFieldOptions }) => {
     }
     return (
       <>
-        {list[0].cancerType.toLowerCase() !== 'prostate cancer' &&
+        {patient.cancerType.toLowerCase() !== 'prostate cancer' &&
         notRelatedToProstateCancer.includes(key) ? null : (
           <PatientFormItem key={id + key}>
             <PatientLabel style={{ width: '45%' }}>

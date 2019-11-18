@@ -71,8 +71,7 @@ class EnterPatients extends Component {
       optionFilterProp="children"
       onChange={this.handleChange(id, key)}
       filterOption={(inp, opt) =>
-        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0
-      }
+        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0}
     >
       {options.map(value => (
         <Option key={value} value={value}>

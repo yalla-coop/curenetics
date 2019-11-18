@@ -20,7 +20,6 @@ const PatientCards = ({
       <PatientCard key={patient.id}>
         <PatientDetailsGrid>
           <PatientField
-            list={list}
             patient={patient}
             handleChange={handleChange}
             renderFieldOptions={renderFieldOptions}
