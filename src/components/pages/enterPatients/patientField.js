@@ -44,6 +44,13 @@ const mapKeyToPlaceHolder = {
   zip: 'postcode',
 };
 
+const notRelatedToProstateCancer = [
+  'ECOGStatus',
+  'gleasonScore',
+  'Disease within prostate',
+  'Disease outside prostate',
+];
+
 const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
   const { id } = patient;
 
@@ -70,12 +77,17 @@ const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
       );
     }
     return (
-      <PatientFormItem key={id + key}>
-        <PatientLabel style={{ width: '45%' }}>
-          {mapKeyToDisplayField[key] || key}
-        </PatientLabel>
-        {fieldType}
-      </PatientFormItem>
+      <>
+        {patient.cancerType.toLowerCase() !== 'prostate cancer' &&
+        notRelatedToProstateCancer.includes(key) ? null : (
+          <PatientFormItem key={id + key}>
+            <PatientLabel style={{ width: '45%' }}>
+              {mapKeyToDisplayField[key] || key}
+            </PatientLabel>
+            {fieldType}
+          </PatientFormItem>
+        )}
+      </>
     );
   });
 };
