@@ -61,6 +61,8 @@ const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
           id={id + key}
           onChange={handleChange(id, key)}
           value={patient[key]}
+          type={key === 'age' ? 'number' : 'text'}
+          min="1"
         />
       );
     }
