@@ -42,7 +42,7 @@ const matchCard = ({ trial, patientsInfo }) => {
           <PrimarySpam>NCT Number: </PrimarySpam>
           <span>{NCTID}</span>
         </div>
-        <PrimarySpam bold>PRONOUNCE</PrimarySpam>
+        <PrimarySpam bold></PrimarySpam>
       </HeadSection>
       <HeadPragraph>{Title}</HeadPragraph>
       <ThreeColumnSection>
