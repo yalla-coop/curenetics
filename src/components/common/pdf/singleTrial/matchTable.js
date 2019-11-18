@@ -6,6 +6,7 @@ import { colors } from '../../../../styles/globalStyles';
 import renderBasedOnObject from './renderBasedObj-helper';
 
 const MatchTable = ({ trialPatientData, isPotential }) => {
+  const { cancerType } = trialPatientData[1];
   const {
     text,
     matchTable,
@@ -54,14 +55,18 @@ const MatchTable = ({ trialPatientData, isPotential }) => {
               <Text style={text}>Age: {age}</Text>
               <Text style={text}>Conditons: {conditons}</Text>
               <Text style={text}>Gender: {gender}</Text>
-              <Text style={text}>ECOG: {ecog}</Text>
-              <Text style={text}>Gleason Score: {gleason}</Text>
-              <Text style={text}>
-                Disease within Prostate: {DiseaseWithinProstate}
-              </Text>
-              <Text style={text}>
-                Disease outside Prostate: {DiseaseOutsideProstate}
-              </Text>
+              {cancerType.toLowerCase() === 'prostate cancer' && (
+                <>
+                  <Text style={text}>ECOG: {ecog}</Text>
+                  <Text style={text}>Gleason Score: {gleason}</Text>
+                  <Text style={text}>
+                    Disease within Prostate: {DiseaseWithinProstate}
+                  </Text>
+                  <Text style={text}>
+                    Disease outside Prostate: {DiseaseOutsideProstate}
+                  </Text>
+                </>
+              )}
             </View>
           );
         })}
