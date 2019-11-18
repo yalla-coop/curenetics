@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import exclamation from './images/exclamation.svg';
@@ -15,7 +15,7 @@ const Bkground = styled.section`
   div {
     width: 45vw;
     height: auto;
-    margin: -10vh auto;
+    margin: 5vh auto;
     padding: 2vw;
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};

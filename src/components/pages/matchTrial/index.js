@@ -13,6 +13,7 @@ import { BacklinkContainer, Container } from '../../common/Layout';
 import { Title } from '../../common/Typography';
 import { BackLink } from '../../common/Buttons';
 import Chevron from '../../common/icons/Chevron';
+import SmallModal from '../../common/modal';
 
 const LoadingContainer = styled.div`
   display: flex;
@@ -21,14 +22,14 @@ const LoadingContainer = styled.div`
   padding-top: 50vh;
 `;
 
-export default class index extends Component {
+export default class Index extends Component {
   state = {
     loading: true,
     patientsInfo: {},
   };
 
   async componentDidMount() {
-    const { location, history } = this.props;
+    const { location, history, aboutSetWarning } = this.props;
 
     if (location.state && location.state.length > 0) {
       // this is just a temp solution for long time rendering
@@ -43,9 +44,18 @@ export default class index extends Component {
     } else {
       history.push('/');
     }
+
+    // sets state for warning modal
+    aboutSetWarning();
+  }
+
+  componentWillUnmount() {
+    const { reset } = this.props;
+    reset();
   }
 
   render() {
+    const { modal, setModal, path, setPath } = this.props;
     const { loading, patientsInfo } = this.state;
     const { matchedTrials } = patientsInfo;
 
@@ -55,6 +65,14 @@ export default class index extends Component {
       </LoadingContainer>
     ) : (
       <>
+        {modal && (
+          <SmallModal
+            modal={modal}
+            setModal={setModal}
+            path={path}
+            setPath={setPath}
+          />
+        )}
         <BacklinkContainer>
           <BackLink to="/">
             <Chevron width={20} />

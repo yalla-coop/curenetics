@@ -11,7 +11,7 @@ import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import EnterPatients from './pages/enterPatients';
 // pdf example here
-import MatchTrial from './pages/matchTrial';
+import Index from './pages/matchTrial/index';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
@@ -93,8 +93,8 @@ const App = () => {
   const aboutModalWarning = e => {
     // This function is called on the render of the enterPatients page and as an //onClick event there isn't always an e object.
     if (e) {
-      const str = e.target.innerText;
-      const pathStr = str.toLowerCase();
+      const str = e.target.href.split('/');
+      const pathStr = str[str.length - 1];
       e.preventDefault();
       setModal(true);
       setPath(`/${pathStr}`);
@@ -133,7 +133,9 @@ const App = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/enter-patients">Enter</Link>
+                  <Link to="/enter-patients" onClick={warning}>
+                    Enter
+                  </Link>
                 </li>
               </ul>
             </Nav>
@@ -161,11 +163,43 @@ const App = () => {
                   {...props}
                   filenames={filenames}
                   setFilenames={setFilenames}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
                 />
               )}
             />
-            <Route path="/trial-list" component={TrialList} />
-            <Route path="/match-trial" component={MatchTrial} />
+            <Route
+              path="/trial-list"
+              render={props => (
+                <TrialList
+                  {...props}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
+                />
+              )}
+            />
+            <Route
+              path="/match-trial"
+              render={props => (
+                <Index
+                  {...props}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
+                />
+              )}
+            />
             <Route
               path="/enter-patients"
               render={props => (

@@ -5,6 +5,7 @@ import TrialDetailHeader from './TrialDetailHeader';
 import CardSection from './CardSection';
 import { sortList, getFilteredData } from './trialList-helpers';
 import Loading from '../../common/Loading';
+import SmallModal from '../../common/modal';
 
 const CardContainer = styled.div`
   padding: 1rem;
@@ -19,7 +20,8 @@ class TrialList extends Component {
   };
 
   async componentDidMount() {
-    const { history, location } = this.props;
+    const { history, location, aboutSetWarning } = this.props;
+    aboutSetWarning();
 
     if (location.state && location.state.length > 0) {
       const [patientsInfo] = location.state;
@@ -45,6 +47,11 @@ class TrialList extends Component {
     return history.push('/');
   }
 
+  componentWillUnmount() {
+    const { reset } = this.props;
+    reset();
+  }
+
   sortList = value => {
     const { patientsInfo } = this.state;
     const sortedList = sortList(patientsInfo, value);
@@ -52,11 +59,20 @@ class TrialList extends Component {
   };
 
   render() {
+    const { modal, setModal, path, setPath } = this.props;
     const { loading, patientsInfo, formatedPatients } = this.state;
     return loading ? (
       <Loading />
     ) : (
       <>
+        {modal && (
+          <SmallModal
+            modal={modal}
+            setModal={setModal}
+            path={path}
+            setPath={setPath}
+          />
+        )}
         <TrialDetailHeader
           patientsInfo={formatedPatients}
           sortList={this.sortList}

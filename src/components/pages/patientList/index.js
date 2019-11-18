@@ -10,6 +10,7 @@ import { addOptionsFunc } from './addOptionsFunc';
 import { patientDummyData } from './patientDummyData';
 
 import ExternalLink from '../../common/icons/ExternalLink';
+import SmallModal from '../../common/modal';
 import { PatientCard } from '../../common/Layout';
 import { colors } from '../../../styles/globalStyles';
 
@@ -40,7 +41,9 @@ class patientList extends Component {
       location: { state },
       history,
       filenames,
+      aboutSetWarning,
     } = this.props;
+    aboutSetWarning(); // function to set the warning modal
     if (!state) return history.push('/');
     return this.setState({
       list: state.list
@@ -48,6 +51,11 @@ class patientList extends Component {
         : addOptionsFunc(patientDummyData),
       medicalRecords: filenames,
     });
+  }
+
+  componentWillUnmount() {
+    const { reset } = this.props;
+    reset();
   }
 
   handleChange = (key, fileReference) => e => {
@@ -187,10 +195,19 @@ class patientList extends Component {
   };
 
   render() {
+    const { modal, setModal, path, setPath } = this.props;
     const { list, showModal, medicalRecord } = this.state;
     const { handleEditButton, handleChange, renderFieldOptions } = this;
     return (
       <>
+        {modal && (
+          <SmallModal
+            modal={modal}
+            setModal={setModal}
+            path={path}
+            setPath={setPath}
+          />
+        )}
         <PatientOrginalFile
           showModal={showModal}
           medicalRecord={medicalRecord}
