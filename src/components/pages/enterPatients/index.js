@@ -64,7 +64,6 @@ class EnterPatients extends Component {
 
   renderFieldOptions = (key, id, options, defaultValue, placeholder) => (
     <Select
-      hidden
       htmlFor={id}
       showSearch
       placeholder={placeholder}
