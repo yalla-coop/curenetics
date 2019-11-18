@@ -12,9 +12,9 @@ const Bkground = styled.section`
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.4);
   div {
-    width: 65vw;
+    width: 70vw;
     height: auto;
-    margin: -8vh auto;
+    margin: auto auto;
     padding: 2vw;
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
@@ -22,7 +22,7 @@ const Bkground = styled.section`
     @media (max-width: 450px) {
       height: 90vh;
       width: 90vw;
-      margin: -6.5vh auto;
+      margin: auto auto;
       margin-left: 0.5%;
       padding-left: 3vw;
       position: absolute;
@@ -46,9 +46,12 @@ const Img = styled.img`
     margin-top: 1vh;
   }
 `;
+const close = e => {
+  e.target.style.display = 'none';
+};
 
 const Modual = ({ onClick }) => (
-  <Bkground>
+  <Bkground onClick={close}>
     <div>
       <Head>
         <Img src={exclamation} alt="exclamation mark" />
