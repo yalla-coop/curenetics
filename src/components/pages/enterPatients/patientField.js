@@ -17,6 +17,7 @@ export const keysOrder = [
   'gleasonScore',
   'Disease within prostate',
   'Disease outside prostate',
+  'zip',
 ];
 
 const mapKeyToDisplayField = {
@@ -28,6 +29,7 @@ const mapKeyToDisplayField = {
   gleasonScore: 'Gleason score:',
   'Disease within prostate': 'Disease within prostate:',
   'Disease outside prostate': 'Disease outside prostate:',
+  zip: 'postcode:',
 };
 
 const mapKeyToPlaceHolder = {
@@ -39,6 +41,7 @@ const mapKeyToPlaceHolder = {
   gleasonScore: "Patient's gleason status",
   'Disease within prostate': 'Select relevant terms',
   'Disease outside prostate': 'Select relevant terms ',
+  zip: 'postcode',
 };
 
 const PatientField = ({ patient, handleChange, renderFieldOptions }) => {
