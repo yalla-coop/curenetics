@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Home from './pages/home';
-import Loading from './common/Loading';
 import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
