@@ -67,6 +67,10 @@ const TopContainer = styled.div`
   @media only screen and (max-width: ${breakpoint.small}) {
     padding: 0.3rem 1rem;
   }
+  @media only screen and (max-width: ${breakpoint.Xsmall}) {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const Nav = styled.nav`
