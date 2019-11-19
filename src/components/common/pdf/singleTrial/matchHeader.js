@@ -57,7 +57,7 @@ const MatchHeader = ({ trialInfo, fileReference }) => {
         </View>
         <View style={rowContainer}>
           <Image style={icon} src={tickIcon} />
-          <Text style={text}>Recruiting: {OverallStatus}</Text>
+          <Text style={text}>Status: {OverallStatus}</Text>
         </View>
         <View style={rowContainer}>
           <Image style={icon} src={avatarIcon} />

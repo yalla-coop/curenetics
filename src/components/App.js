@@ -67,6 +67,10 @@ const TopContainer = styled.div`
   @media only screen and (max-width: ${breakpoint.small}) {
     padding: 0.3rem 1rem;
   }
+  @media only screen and (max-width: ${breakpoint.Xsmall}) {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const Nav = styled.nav`
@@ -86,6 +90,9 @@ const Nav = styled.nav`
 const App = () => {
   // state from upload file
   const [filenames, setFilenames] = useState([]);
+  const [formatedPatients, setformatedPatients] = useState([]);
+  const [filteredPatientsInfo, setfilteredPatientsInfo] = useState([]);
+
   return (
     <>
       <Router>
@@ -134,7 +141,18 @@ const App = () => {
                 />
               )}
             />
-            <Route path="/trial-list" component={TrialList} />
+            <Route
+              path="/trial-list"
+              render={props => (
+                <TrialList
+                  {...props}
+                  formatedPatients={formatedPatients}
+                  setformatedPatients={setformatedPatients}
+                  filteredPatientsInfo={filteredPatientsInfo}
+                  setfilteredPatientsInfo={setfilteredPatientsInfo}
+                />
+              )}
+            />
             <Route path="/match-trial" component={MatchTrial} />
             <Route path="/enter-patients" component={EnterPatients} />
             <Route component={NotFound} />

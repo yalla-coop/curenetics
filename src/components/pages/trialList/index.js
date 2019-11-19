@@ -13,13 +13,12 @@ const CardContainer = styled.div`
 class TrialList extends Component {
   state = {
     loading: true,
-    patientsInfo: [],
-    formatedPatients: [],
     // trialsArr: [], //if needed
   };
 
   async componentDidMount() {
     const { history, location } = this.props;
+    const { setformatedPatients, setfilteredPatientsInfo } = this.props;
 
     if (location.state && location.state.length > 0) {
       const [patientsInfo] = location.state;
@@ -31,9 +30,10 @@ class TrialList extends Component {
             // trialsArr: originalTrialsArr,
           } = await getFilteredData(patientsInfo);
 
+          setfilteredPatientsInfo(filteredPatientsInfo);
+          setformatedPatients(formatedPatients);
+
           return this.setState({
-            patientsInfo: filteredPatientsInfo,
-            formatedPatients,
             loading: false,
             // trialsArr: originalTrialsArr,
           });
@@ -41,18 +41,26 @@ class TrialList extends Component {
           return message.error('something went wrong! please try again');
         }
       }
+    } else if (this.props.filteredPatientsInfo[0]) {
+      return this.setState({
+        loading: false,
+      });
     }
     return history.push('/');
   }
 
   sortList = value => {
-    const { patientsInfo } = this.state;
+    const {
+      filteredPatientsInfo: patientsInfo,
+      setfilteredPatientsInfo,
+    } = this.props;
     const sortedList = sortList(patientsInfo, value);
-    this.setState({ patientsInfo: sortedList });
+    setfilteredPatientsInfo(sortedList);
   };
 
   render() {
-    const { loading, patientsInfo, formatedPatients } = this.state;
+    const { loading } = this.state;
+    const { filteredPatientsInfo: patientsInfo, formatedPatients } = this.props;
     return loading ? (
       <Loading />
     ) : (

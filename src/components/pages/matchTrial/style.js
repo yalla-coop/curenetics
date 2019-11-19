@@ -39,6 +39,10 @@ export const DetailSection = styled.div`
   }
 `;
 
+export const HeaderItem = styled.div`
+  margin: 1rem 0rem;
+`;
+
 export const HighLight = styled.span`
   color: ${colors.primary};
   text-decoration: underline;
@@ -59,6 +63,7 @@ export const PrimarySpam = styled.span`
 
 export const PrimaryParagraph = styled.p`
   color: ${colors.primary};
+  padding: 1rem 0rem;
 `;
 
 export const BoldParagraph = styled.p`
@@ -84,6 +89,7 @@ export const ExportButton = styled(PDFDownloadLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0.5rem;
   :hover {
     color: white;
   }

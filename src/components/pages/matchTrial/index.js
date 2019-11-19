@@ -61,7 +61,7 @@ export default class index extends Component {
       <>
         <Header>
           <HeaderContainer>
-            <BackLink to="/">
+            <BackLink to="/trial-list">
               <Chevron width={20} />
             </BackLink>
             <Title style={centerP}>Matched trials for patient: </Title>

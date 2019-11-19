@@ -13,7 +13,7 @@ const processTitle = 'Processing....';
 const processPara =
   'We are currently analysing the data to extract the relevant medical entities.';
 const refresh =
-  'This can take a few minutes so please do not refresh this page.';
+  'This can take a few minutes so please do not refresh this page.';
 
 const clinicTitle = 'Finding Clinical Trials....';
 const clinicPara =
