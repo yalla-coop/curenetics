@@ -19,11 +19,7 @@ class TrialList extends Component {
   async componentDidMount() {
     const { history, location } = this.props;
     const { setformatedPatients, setfilteredPatientsInfo } = this.props;
-    if (this.props.filteredPatientsInfo[0]) {
-      return this.setState({
-        loading: false,
-      });
-    }
+
     if (location.state && location.state.length > 0) {
       const [patientsInfo] = location.state;
       if (Array.isArray(patientsInfo)) {
@@ -45,6 +41,10 @@ class TrialList extends Component {
           return message.error('something went wrong! please try again');
         }
       }
+    } else if (this.props.filteredPatientsInfo[0]) {
+      return this.setState({
+        loading: false,
+      });
     }
     return history.push('/');
   }
