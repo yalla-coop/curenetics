@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Home from './pages/home';
+import Loading from './common/Loading';
 import About from './pages/about';
 import NotFound from './pages/notfound';
 import Upload from './pages/upload';
@@ -67,6 +68,10 @@ const TopContainer = styled.div`
   @media only screen and (max-width: ${breakpoint.small}) {
     padding: 0.3rem 1rem;
   }
+  @media only screen and (max-width: ${breakpoint.Xsmall}) {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const Nav = styled.nav`
@@ -114,6 +119,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
+            <Route exact path="/loading" component={Loading} />
             <Route
               path="/upload"
               render={props => (
