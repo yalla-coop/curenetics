@@ -56,7 +56,7 @@ export default class index extends Component {
     ) : (
       <>
         <BacklinkContainer>
-          <BackLink to="/">
+          <BackLink to="/trial-list">
             <Chevron width={20} />
           </BackLink>
         </BacklinkContainer>
