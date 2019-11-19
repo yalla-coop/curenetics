@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Chevron from '../../common/icons/Chevron';
 
-import { BacklinkContainer, Header } from '../../common/Layout';
+import { HeaderContainer, Header } from '../../common/Layout';
 import { Title, Paragraph } from '../../common/Typography';
 import { BackLink, Anchor } from '../../common/Buttons';
 
@@ -15,12 +15,6 @@ const pStyle = {
   textAlign: 'left',
 };
 
-const Container = styled.div`
-  display: flex;
-  margin-top: 1rem;
-  align-items: center;
-`;
-
 const centerP = {
   margin: '0 auto',
 };
@@ -28,12 +22,12 @@ const centerP = {
 const About = () => (
   <>
     <Header isCenter>
-      <Container>
+      <HeaderContainer>
         <BackLink to="/">
           <Chevron width={20} />
         </BackLink>
         <Title style={centerP}>About Curenetics</Title>
-      </Container>
+      </HeaderContainer>
       <Paragraph style={pStyle}>
         Through our AI algorithms, domain expertise and ability to analyse
         complex medical data, we are giving patients hope, from diseases, such
