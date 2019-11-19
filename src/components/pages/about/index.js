@@ -15,15 +15,25 @@ const pStyle = {
   textAlign: 'left',
 };
 
+const Container = styled.div`
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+`;
+
+const centerP = {
+  margin: '0 auto',
+};
+
 const About = () => (
   <>
-    <BacklinkContainer>
-      <BackLink to="/">
-        <Chevron width={20} />
-      </BackLink>
-    </BacklinkContainer>
     <Header isCenter>
-      <Title>About Curenetics</Title>
+      <Container>
+        <BackLink to="/">
+          <Chevron width={20} />
+        </BackLink>
+        <Title style={centerP}>About Curenetics</Title>
+      </Container>
       <Paragraph style={pStyle}>
         Through our AI algorithms, domain expertise and ability to analyse
         complex medical data, we are giving patients hope, from diseases, such
@@ -32,13 +42,13 @@ const About = () => (
         save costs and reduce time to trial completion.
       </Paragraph>
       <Paragraph style={pStyle}>
-        Although over 70% of patients saying they would like to be offered
-        the opportunity to be involved in a clinical trial, only 4% of patients
-        in the UK end up being recruited to clinical trials. Two thirds of
-        clinical trials still fail in the UK despite best efforts. We are
-        determined to turn around this trend by improving patient access and
-        engagement with trials to provide hope of new treatments—and even a
-        cure—for various diseases to millions of people around the world.
+        Although over 70% of patients saying they would like to be offered the
+        opportunity to be involved in a clinical trial, only 4% of patients in
+        the UK end up being recruited to clinical trials. Two thirds of clinical
+        trials still fail in the UK despite best efforts. We are determined to
+        turn around this trend by improving patient access and engagement with
+        trials to provide hope of new treatments—and even a cure—for various
+        diseases to millions of people around the world.
       </Paragraph>
       <HomeAnchor to="/">Back to Home</HomeAnchor>
     </Header>
