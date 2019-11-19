@@ -69,7 +69,7 @@ const matchCard = ({ trial, patientsInfo }) => {
             <div>
               <Tick />
             </div>
-            <span>{OverallStatus}</span>
+            <span>Status: {OverallStatus}</span>
           </FieldWrapper>
         </ColumnSection>
         <FieldWrapper>
