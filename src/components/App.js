@@ -119,7 +119,6 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route exact path="/loading" component={Loading} />
             <Route
               path="/upload"
               render={props => (
