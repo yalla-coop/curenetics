@@ -9,7 +9,7 @@ import MatchCard from './cardMatch';
 
 import { breakpoint } from '../../../styles/globalStyles';
 
-import { BacklinkContainer, Container } from '../../common/Layout';
+import { HeaderContainer, Header, Container } from '../../common/Layout';
 import { Title } from '../../common/Typography';
 import { BackLink } from '../../common/Buttons';
 import Chevron from '../../common/icons/Chevron';
@@ -20,6 +20,10 @@ const LoadingContainer = styled.div`
   align-items: center;
   padding-top: 50vh;
 `;
+
+const centerP = {
+  margin: '0 auto',
+};
 
 export default class index extends Component {
   state = {
@@ -55,12 +59,14 @@ export default class index extends Component {
       </LoadingContainer>
     ) : (
       <>
-        <BacklinkContainer>
-          <BackLink to="/trial-list">
-            <Chevron width={20} />
-          </BackLink>
-        </BacklinkContainer>
-        <Title>Matched trials for patient: </Title>
+        <Header>
+          <HeaderContainer>
+            <BackLink to="/trial-list">
+              <Chevron width={20} />
+            </BackLink>
+            <Title style={centerP}>Matched trials for patient: </Title>
+          </HeaderContainer>
+        </Header>
         <Container style={{ maxWidth: breakpoint.tablet }}>
           <HeaderMatch patientsInfo={patientsInfo} />
           {filterByEligibility(matchedTrials.data).map(trial => {
