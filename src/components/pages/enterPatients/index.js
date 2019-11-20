@@ -7,7 +7,7 @@ import PatientCards from './PatientCards';
 
 import { colors } from '../../../styles/globalStyles';
 
-import AddCercle from '../../common/icons/AddCercle';
+import AddCircle from '../../common/images/plus-cirlcle-primary.svg';
 
 import {
   MatchButton,
@@ -70,7 +70,8 @@ class EnterPatients extends Component {
       optionFilterProp="children"
       onChange={this.handleChange(id, key)}
       filterOption={(inp, opt) =>
-        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0}
+        opt.props.children.toLowerCase().indexOf(inp.toLowerCase()) >= 0
+      }
     >
       {options.map(value => (
         <Option key={value} value={value}>
@@ -110,7 +111,11 @@ class EnterPatients extends Component {
           onClick={this.createPatient}
           isClear
         >
-          <AddCercle fill={colors.lightPrimary} width={24} />
+          <img
+            src={AddCircle}
+            alt="add another record circle icon"
+            style={{ marginRight: '0.5rem' }}
+          />
           Click to add another patient’s medical details
         </ViewFileButton>
         <MatchButton onClick={moveDataToBeFiltered}>
