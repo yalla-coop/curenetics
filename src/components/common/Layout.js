@@ -110,5 +110,6 @@ export const twoColumnGrid = css`
 export const HeaderContainer = styled.div`
   display: flex;
   margin-top: 1rem;
+  margin-bottom: 3rem;
   align-items: center;
 `;
