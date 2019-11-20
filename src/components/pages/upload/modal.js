@@ -47,11 +47,11 @@ const Img = styled.img`
   }
 `;
 const close = e => {
-  e.target.style.display = 'none';
+  if (e.target.id === 'mod') e.target.style.display = 'none';
 };
 
 const Modual = ({ onClick }) => (
-  <Bkground onClick={close}>
+  <Bkground id="mod" onClick={close}>
     <div>
       <Head>
         <Img src={exclamation} alt="exclamation mark" />
