@@ -112,13 +112,14 @@ const matchCard = ({ trial, patientsInfo }) => {
           const {
             Facility: {
               Name,
-              Address: { City, Zip },
+              Address: { City, Zip, distance },
             },
           } = location;
           return (
             <LocationSection key={Date.now() + Zip}>
               <span>
-                <Marker width="14px" />5 miles
+                <Marker width="14px" />
+                {distance || 'N/A'} miles
               </span>
               <span>{`${Name}, ${City} ${Zip}`}</span>
             </LocationSection>
