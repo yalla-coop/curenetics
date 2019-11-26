@@ -31,10 +31,12 @@ class TrialList extends Component {
             // trialsArr: originalTrialsArr,
           } = await getFilteredData(patientsInfo);
           filteredPatientsInfo.forEach(async ({ matchedTrials }, index) => {
-            console.log('index, looping over patients', index);
             // looping over patients
             const filteredPatientsInfoWith = await this.getDistance(
-              matchedTrials.data
+              matchedTrials.data,
+              undefined,
+              filteredPatientsInfo,
+              setfilteredPatientsInfo
             );
           });
 
@@ -60,14 +62,11 @@ class TrialList extends Component {
   getDistance = (filteredPatientsInfo, patientPostcode = 'E1 7AX') => {
     // looping over trail
     filteredPatientsInfo.forEach(({ Locations }, index) => {
-      // console.log('locations => in filterd patients', Locations);
+      // looping over locations of every trail
       const trialPostcodes = Locations.map(obj => {
-        // looping over locations of every trail
         const {
           Facility: {
-            Name,
-            Address,
-            Address: { Country, City, Zip },
+            Address: { Zip },
           },
         } = obj;
         return Zip;
@@ -106,28 +105,18 @@ class TrialList extends Component {
 
           filteredPatientsInfo[index].Locations = Locations.filter(obj => {
             return obj.Facility.Address.distance;
-          }).sort((a, b) => {
-            // console.log("a.Facility.Address.distance", a.Facility.Address.distance);
-            // console.log("b.Facility.Address.distance", b.Facility.Address.distance)
-            // return a.Facility.Address.distance - b.Facility.Address.distance;
-            if (a.Facility.Address.distance > b.Facility.Address.distance) {
-              return 1;
-            }
-            if (b.Facility.Address.distance > a.Facility.Address.distance) {
-              return -1;
-            }
-            return 0;
-          });
-          console.log(filteredPatientsInfo[index].Locations);
+          })
+            .sort((a, b) => {
+              return (
+                +a.Facility.Address.distance - +b.Facility.Address.distance
+              );
+            })
+            .splice(0, 5);
         });
-      // trailLocations.push(Locatioconsole.ns);
     });
-    // console.log('locations => ', trailLocations);
-    // console.log('trialPostcodes', trialPostcodes);
   };
 
   getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-    console.log('getDistanceFfromLatLonInKm', lat1, lon1, lat2, lon2);
     const R = 6371; // Radius of the earth in km
     const dLat = this.deg2rad(lat2 - lat1); // this.deg2rad below
     const dLon = this.deg2rad(lon2 - lon1);
@@ -152,19 +141,17 @@ class TrialList extends Component {
     setfilteredPatientsInfo(sortedList);
   };
 
-  deg2rad(deg) {
+  deg2rad = deg => {
     return deg * (Math.PI / 180);
-  }
+  };
 
-  fetchA(postcodes) {
+  fetchA = postcodes => {
     return axios.post('https://api.postcodes.io/postcodes', { postcodes });
-  }
+  };
 
   splitArrays(arr, tmpNumb, acc = []) {
-    console.log('arr', arr);
     tmpNumb = acc[0] ? tmpNumb - 100 : arr.length;
     acc.push(this.fetchA(arr.splice(0, 100)));
-    // console.log(tmpNumb);
     return tmpNumb > 1 ? this.splitArrays(arr, tmpNumb, acc) : acc;
   }
 

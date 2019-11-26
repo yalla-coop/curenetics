@@ -28,7 +28,7 @@ const centerP = {
 export default class index extends Component {
   state = {
     loading: true,
-    patientsInfo: {},
+    // patientsInfo: {},
   };
 
   async componentDidMount() {
@@ -41,7 +41,7 @@ export default class index extends Component {
         new Promise(res => setTimeout(res, 500)),
       ]);
       this.setState({
-        patientsInfo: location.state[0],
+        // patientsInfo: location.state[0],
         loading: false,
       });
     } else {
@@ -50,7 +50,15 @@ export default class index extends Component {
   }
 
   render() {
-    const { loading, patientsInfo } = this.state;
+    const {
+      location: { state },
+    } = this.props;
+    const { loading /* , patientsInfo */ } = this.state;
+    // const {
+    //  patientsInfo: state[0],
+    //  patientsInfo: { matchedTrials },
+    // } = state;
+    const patientsInfo = state[0];
     const { matchedTrials } = patientsInfo;
 
     return loading ? (
