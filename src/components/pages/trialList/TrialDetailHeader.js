@@ -33,10 +33,10 @@ const SortSecation = styled.div`
 `;
 
 class TrialListHeader extends React.Component {
-  /* shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps) {
     const { patientsInfo } = this.props;
     return patientsInfo === nextProps.patientsInfo;
-  } */
+  }
 
   onChange = value => {
     const { sortList } = this.props;
@@ -45,9 +45,6 @@ class TrialListHeader extends React.Component {
 
   render() {
     const { patientsInfo } = this.props;
-    console.log(111111111111);
-    console.log('patientsInfo', patientsInfo);
-    // console.log(patientsInfo[0].Locations[0].Facility.Address.distance);
     return (
       <Header isCenter>
         <Title>Patient and clinical trial matches index</Title>

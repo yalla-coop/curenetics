@@ -11,7 +11,6 @@ import { TRIAL_API } from '../../../constants/urls';
 // in one array so we can create one pdf file for all
 // of the patients and their matched trial
 export const reformatShape = (patient, matchedTrials) => {
-  // const clonedTrials = cloneDeep(matchedTrials);
   const { matchedTrials: trials, ...patientInfo } = patient;
   return matchedTrials.data.map(trial => {
     /* eslint-disable no-param-reassign */
@@ -43,41 +42,11 @@ const getTrials = async () => {
   return filterByOverallStatus(results);
 };
 
-// leave handling the error to the UI
-export const getFilteredData = async (patientsInfo, cb) => {
-  const formatedPatients = [];
-  const trialsArr = await getTrials();
-  Promise.all(
-    patientsInfo.map(async patient => {
-      const matchedTrials = filterByAllCriteria(trialsArr, patient);
-      console.log('before getDstance');
-      const patientTrials = await getDistance(matchedTrials /* , postcode */);
-
-      console.log('after getDistatnce', patientTrials);
-      // console.log('getfilterdData, ', matchedTrials);
-      formatedPatients.push(...reformatShape(patient, patientTrials));
-      // eslint-disable-next-line no-param-reassign
-      patient.matchedTrials = patientTrials;
-      // console.log('log');
-      return patient;
-    })
-  ).then(arr => {
-    console.log('calling the callback', arr);
-    cb(patientsInfo, formatedPatients);
-  });
-  console.log('calling outside');
-  /* return {
-    patientsInfo,
-    formatedPatients,
-    // trialsArr, //if needed
-  }; */
-};
-
 const deg2rad = deg => {
   return deg * (Math.PI / 180);
 };
 
-const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
+const getDistanceFromLatLonInMiles = (lat1, lon1, lat2, lon2) => {
   const R = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
   const dLon = deg2rad(lon2 - lon1);
@@ -99,16 +68,17 @@ const fetchA = postcodes => {
 
 const splitArrays = async (arr, tmpNumb, acc = []) => {
   tmpNumb = acc[0] ? tmpNumb - 100 : arr.length;
-  const a = await fetchA(arr.splice(0, 100));
-  // console.log('a',a);
-  acc.push(...a.data.result);
+  if (arr.length === 0) return acc;
+  const postCodesDetails = await fetchA(arr.splice(0, 100));
+  acc.push(...postCodesDetails.data.result);
   return tmpNumb > 1 ? splitArrays(arr, tmpNumb, acc) : acc;
 };
 
 function getDistance(patientTrials, patientPostcode = 'E1 7AX') {
   // looping over trail
-
-  return patientTrials.data.map(({ Locations }, index) => {
+  // receive matchedTrials =>>>patientTrials
+  return patientTrials.data.map(async trial => {
+    const { Locations } = trial;
     // looping over locations of every trail
     const trialPostcodes = Locations.map(obj => {
       const {
@@ -118,63 +88,77 @@ function getDistance(patientTrials, patientPostcode = 'E1 7AX') {
       } = obj;
       return Zip;
     });
-    return splitArrays([patientPostcode, ...trialPostcodes])
-      .then(res => {
-        const arr = res.reduce((acc, val) => acc.concat(val), []);
-        // console.log(arr);
-        return arr;
-      })
-      .then(results => {
-        console.log('resilts');
-        const pateintLocation = results.shift();
-        const trailsDistance = {};
-        results.forEach(({ query, result }) => {
-          // if the api didn't find the location for the postcode
-          if (result === null) {
-            return;
-          }
-          const { longitude, latitude } = result;
-          const distance = getDistanceFromLatLonInKm(
-            +pateintLocation.result.latitude,
-            +pateintLocation.result.longitude,
-            +latitude,
-            +longitude
-          );
-          trailsDistance[query] = distance;
-        });
 
-        Locations.forEach(location => {
-          const {
-            Facility: {
-              Address: { Zip },
-            },
-          } = location;
-          location.Facility.Address.distance = trailsDistance[Zip];
-        });
+    let fetchedPostCodes = [];
+    if (trialPostcodes.length > 100) {
+      fetchedPostCodes = await splitArrays([
+        patientPostcode,
+        ...trialPostcodes,
+      ]);
+    } else {
+      fetchedPostCodes = (await fetchA([patientPostcode, ...trialPostcodes]))
+        .data.result;
+    }
 
-        return (patientTrials.data[index].Locations = Locations.filter(obj => {
-          return obj.Facility.Address.distance;
-        })
-          .sort((a, b) => {
-            return +a.Facility.Address.distance - +b.Facility.Address.distance;
-          })
-          .splice(0, 5));
-        // return patientTrials;
-        /* return this.setState({
-          loading: false,
-          trialsArr: originalTrialsArr,
-        }); */
-      });
+    // remove patient location from the array
+    const pateintLocation = fetchedPostCodes.shift();
+
+    fetchedPostCodes.forEach(({ query, result }, index) => {
+      if (result === null) {
+        return;
+      }
+      const { longitude, latitude } = result;
+      const trailsDistance = {};
+      const distance = getDistanceFromLatLonInMiles(
+        +pateintLocation.result.latitude,
+        +pateintLocation.result.longitude,
+        +latitude,
+        +longitude
+      );
+      trailsDistance[query] = distance;
+
+      // the post-codes should be the same length as the locations
+      // so no need for a new loop
+      const CurrentLocation = Locations[index];
+      const {
+        Facility: {
+          Address: { Zip },
+        },
+      } = CurrentLocation;
+      CurrentLocation.Facility.Address.distance = trailsDistance[Zip];
+    });
   });
 }
 
-/*
-function getDistancePatient (patient, matchedTrial) {
-  // Promise.all(
-    //filteredPatientsInfo.map(({ matchedTrials }, index) => {
-      // looping over patients
-      console.log('promise', index);
-      return getDistance(matchedTrials.data );
-   // })
+// leave handling the error to the UI
+export const getFilteredData = async patientsInfo => {
+  const formatedPatients = [];
+  // get json file filtered for recuriting and unknown from github
+  const trialsArr = await getTrials();
+  const clonedPatientInfo = cloneDeep(patientsInfo);
+
+  const patientCloned = await Promise.all(
+    clonedPatientInfo.map(async patient => {
+      // fiter the data basic on the criteria
+      const matchedTrials = filterByAllCriteria(trialsArr, patient);
+      /**
+       *
+       *
+       * WE SHOULD PASS THE PATIENT POSTCODE
+       *
+       * AND SORT FOR  ONLY 5 LOCATIONS
+       */
+      await Promise.all(getDistance(matchedTrials /* , postcode */));
+
+      formatedPatients.push(...reformatShape(patient, matchedTrials));
+      // eslint-disable-next-line no-param-reassign
+      patient.matchedTrials = matchedTrials;
+      return patient;
+    })
+  );
+
+  return {
+    filteredPatientsInfo: patientCloned,
+    formatedPatients,
+  };
 };
-*/

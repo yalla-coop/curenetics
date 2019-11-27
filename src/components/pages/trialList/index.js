@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { message } from 'antd';
 import TrialDetailHeader from './TrialDetailHeader';
 import CardSection from './CardSection';
@@ -19,7 +18,7 @@ class TrialList extends Component {
     // trialsArr: [], //if needed
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { history, location } = this.props;
     // const { setformatedPatients, setfilteredPatientsInfo } = this.props;
 
@@ -27,22 +26,17 @@ class TrialList extends Component {
       const [patientsInfo] = location.state;
       if (Array.isArray(patientsInfo)) {
         try {
-          /* const {
-            patientsInfo: filteredPatientsInfo,
+          const {
+            filteredPatientsInfo,
             formatedPatients,
             // trialsArr: originalTrialsArr,
-          } = */
-          getFilteredData(
-            patientsInfo,
-            (filteredPatientsInfo, formatedPatients) => {
-              console.log('done intro to set state');
-              this.setState({
-                filteredPatientsInfo,
-                formatedPatients,
-                loading: false,
-              });
-            }
-          );
+          } = await getFilteredData(patientsInfo);
+
+          this.setState({
+            filteredPatientsInfo,
+            formatedPatients,
+            loading: false,
+          });
 
           // setformatedPatients(formatedPatients);
           // setfilteredPatientsInfo(filteredPatientsInfo);
@@ -51,13 +45,10 @@ class TrialList extends Component {
         }
       }
     } else if (this.props.filteredPatientsInfo[0]) {
-      console.log('2');
       return this.setState({
         loading: false,
       });
     } else {
-      console.log('3');
-
       return history.push('/');
     }
   }
@@ -77,13 +68,12 @@ class TrialList extends Component {
       filteredPatientsInfo: patientsInfo,
       formatedPatients,
     } = this.state;
-    console.log('loading ', loading);
+
     // const { filteredPatientsInfo: patientsInfo, formatedPatients } = this.props;
     return loading ? (
       <Loading />
     ) : (
       <>
-        {console.log('aaaa', formatedPatients)}
         <TrialDetailHeader
           patientsInfo={formatedPatients}
           sortList={this.sortList}
