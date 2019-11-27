@@ -4,11 +4,11 @@ import { styles } from './pdfStyles';
 import { isPotential, filterByEligibility } from '../../../helpers/eligibility';
 import SingleTrial from './singleTrial';
 
-class PdfTemplate extends React.Component {
-  shouldComponentUpdate(nextProps) {
-    const { data } = this.props;
-    return data !== nextProps.data;
-  }
+class PdfTemplate extends React.React.PureComponent {
+  // shouldComponentUpdate(nextProps) {
+  //   const { data } = this.props;
+  //   return data !== nextProps.data;
+  // }
 
   render() {
     const { data, patientsInfo, type = 'single' } = this.props;

@@ -32,11 +32,11 @@ const SortSecation = styled.div`
   }
 `;
 
-class TrialListHeader extends React.Component {
-  shouldComponentUpdate(nextProps) {
-    const { patientsInfo } = this.props;
-    return patientsInfo === nextProps.patientsInfo;
-  }
+class TrialListHeader extends React.PureComponent {
+  // shouldComponentUpdate(nextProps) {
+  //   const { patientsInfo } = this.props;
+  //   return patientsInfo === nextProps.patientsInfo;
+  // }
 
   onChange = value => {
     const { sortList } = this.props;
