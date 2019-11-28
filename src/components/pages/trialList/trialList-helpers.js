@@ -76,7 +76,6 @@ const splitArrays = async (arr, tmpNumb, acc = []) => {
 
 async function getDistance(patientTrials, patientPostcode) {
   // looping over trail
-  // receive matchedTrials =>>>patientTrials
   const pateintLocation = await fetchA([patientPostcode]);
   if (!pateintLocation.data.result[0].result) {
     return patientTrials.data.map(trail => {
@@ -156,13 +155,6 @@ export const getFilteredData = async patientsInfo => {
     clonedPatientInfo.map(async patient => {
       // fiter the data basic on the criteria
       const matchedTrials = filterByAllCriteria(trialsArr, patient);
-      /**
-       *
-       *
-       * WE SHOULD PASS THE PATIENT POSTCODE
-       *
-       * AND SORT FOR  ONLY 5 LOCATIONS
-       */
       await getDistance(matchedTrials, patient.zip);
 
       formatedPatients.push(...reformatShape(patient, matchedTrials));
