@@ -9,12 +9,15 @@ const Bkground = styled.section`
   width: 100vw;
   height: 100vh;
   position: fixed;
+  left: 0;
+  top: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.4);
   div {
     width: 70vw;
     height: auto;
     margin: auto auto;
+    margin-top: 8vh;
     padding: 2vw;
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
