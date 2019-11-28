@@ -32,6 +32,11 @@ const Bkground = styled.section`
       overflow: scroll;
     }
   }
+  @media (max-width: 450px) {
+    div {
+      margin-left: 5vw;
+    }
+  }
 `;
 const Head = styled.section`
   display: flex;
