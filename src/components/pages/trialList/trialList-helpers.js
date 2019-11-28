@@ -74,10 +74,17 @@ const splitArrays = async (arr, tmpNumb, acc = []) => {
   return tmpNumb > 1 ? splitArrays(arr, tmpNumb, acc) : acc;
 };
 
-function getDistance(patientTrials, patientPostcode = 'E1 7AX') {
+async function getDistance(patientTrials, patientPostcode) {
   // looping over trail
   // receive matchedTrials =>>>patientTrials
-  return patientTrials.data.map(async trial => {
+  const pateintLocation = await fetchA([patientPostcode]);
+  if (!pateintLocation.data.result[0].result) {
+    return patientTrials.data.map(trail => {
+      trail.Locations = trail.Locations.splice(0, 5);
+      return trail;
+    });
+  }
+  const c = patientTrials.data.map(async trial => {
     const { Locations } = trial;
     // looping over locations of every trail
     const trialPostcodes = Locations.map(obj => {
@@ -90,7 +97,7 @@ function getDistance(patientTrials, patientPostcode = 'E1 7AX') {
     });
 
     let fetchedPostCodes = [];
-    if (trialPostcodes.length > 100) {
+    if (trialPostcodes.length >= 100) {
       fetchedPostCodes = await splitArrays([
         patientPostcode,
         ...trialPostcodes,
@@ -127,7 +134,16 @@ function getDistance(patientTrials, patientPostcode = 'E1 7AX') {
       } = CurrentLocation;
       CurrentLocation.Facility.Address.distance = trailsDistance[Zip];
     });
+    trial.Locations = Locations.filter(obj => {
+      return obj.Facility.Address.distance;
+    })
+      .sort((a, b) => {
+        return +a.Facility.Address.distance - +b.Facility.Address.distance;
+      })
+      .splice(0, 5);
   });
+
+  return Promise.all(c);
 }
 
 // leave handling the error to the UI
@@ -136,7 +152,6 @@ export const getFilteredData = async patientsInfo => {
   // get json file filtered for recuriting and unknown from github
   const trialsArr = await getTrials();
   const clonedPatientInfo = cloneDeep(patientsInfo);
-
   const patientCloned = await Promise.all(
     clonedPatientInfo.map(async patient => {
       // fiter the data basic on the criteria
@@ -148,7 +163,7 @@ export const getFilteredData = async patientsInfo => {
        *
        * AND SORT FOR  ONLY 5 LOCATIONS
        */
-      await Promise.all(getDistance(matchedTrials /* , postcode */));
+      await getDistance(matchedTrials, patient.zip);
 
       formatedPatients.push(...reformatShape(patient, matchedTrials));
       // eslint-disable-next-line no-param-reassign
@@ -156,7 +171,6 @@ export const getFilteredData = async patientsInfo => {
       return patient;
     })
   );
-
   return {
     filteredPatientsInfo: patientCloned,
     formatedPatients,

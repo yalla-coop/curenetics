@@ -30,7 +30,7 @@ const Location = ({ trialInfo }) => {
             <View style={rowContainer}>
               <Text style={[text, { lineHeight: 0.5 }]}>{Name}, </Text>
               <Text style={[text, { lineHeight: 0.5 }]}>
-                {distance}
+                {distance || 'N/A'}
                 {' Miles  '}
               </Text>
               <Text style={[text, { lineHeight: 0.5 }]}>
