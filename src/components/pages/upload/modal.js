@@ -35,6 +35,7 @@ const Bkground = styled.section`
   @media (max-width: 450px) {
     div {
       margin-left: 5vw;
+      top: 3vh;
     }
   }
 `;
