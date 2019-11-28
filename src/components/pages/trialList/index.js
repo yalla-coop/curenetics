@@ -25,17 +25,15 @@ class TrialList extends Component {
       if (Array.isArray(patientsInfo)) {
         try {
           const {
-            patientsInfo: filteredPatientsInfo,
+            filteredPatientsInfo,
             formatedPatients,
             // trialsArr: originalTrialsArr,
           } = await getFilteredData(patientsInfo);
-
-          setfilteredPatientsInfo(filteredPatientsInfo);
           setformatedPatients(formatedPatients);
+          setfilteredPatientsInfo(filteredPatientsInfo);
 
-          return this.setState({
+          this.setState({
             loading: false,
-            // trialsArr: originalTrialsArr,
           });
         } catch (err) {
           return message.error('something went wrong! please try again');
@@ -45,8 +43,9 @@ class TrialList extends Component {
       return this.setState({
         loading: false,
       });
+    } else {
+      return history.push('/');
     }
-    return history.push('/');
   }
 
   sortList = value => {
