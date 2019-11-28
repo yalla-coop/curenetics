@@ -13,26 +13,35 @@ const {
 
 const { markerIcon } = icons;
 
-const Location = ({ trialInfo }) => (
-  <View style={[columnContainer, { marginTop: 40 }]}>
-    <Text style={boldText}>Trial Location(s):</Text>
-    {trialInfo.Locations.map(location => {
-      const {
-        Facility: {
-          Name,
-          Address: { City, Zip },
-        },
-      } = location;
-      return (
-        <View style={rowContainer} key={Date.now() / Math.random()}>
-          <Image style={markerIconStyle} src={markerIcon} />
-          <View style={rowContainer}>
-            <Text style={[text, { lineHeight: 0.5 }]}>{Name}, </Text>
-            <Text style={[text, { lineHeight: 0.5 }]}>{(City, Zip)}</Text>
+const Location = ({ trialInfo }) => {
+  return (
+    <View style={[columnContainer, { marginTop: 40 }]}>
+      <Text style={boldText}>Trial Location(s):</Text>
+      {trialInfo.Locations.map(location => {
+        const {
+          Facility: {
+            Name,
+            Address: { City, Zip, distance },
+          },
+        } = location;
+        return (
+          <View style={rowContainer} key={Date.now() / Math.random()}>
+            <Image style={markerIconStyle} src={markerIcon} />
+            <View style={rowContainer}>
+              <Text style={[text, { lineHeight: 0.5 }]}>{Name}, </Text>
+              <Text style={[text, { lineHeight: 0.5 }]}>
+                {distance || 'N/A'}
+                {' Miles  '}
+              </Text>
+              <Text style={[text, { lineHeight: 0.5 }]}>
+                {('  ', City, Zip)}
+              </Text>
+            </View>
           </View>
-        </View>
-      );
-    })}
-  </View>
-);
+        );
+      })}
+    </View>
+  );
+};
+
 export default Location;

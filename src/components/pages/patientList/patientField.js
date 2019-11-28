@@ -29,6 +29,8 @@ const PatientField = ({
         id={fileReference}
         onChange={handleChange(key, fileReference)}
         value={value}
+        type={key === 'age' ? 'number' : 'text'}
+        min="1"
       />
     );
   }

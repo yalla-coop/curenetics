@@ -3,6 +3,10 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import { colors, breakpoint } from '../../../styles/globalStyles';
 
+export const DateSpan = styled.span`
+  padding-bottom: 0.25rem;
+`;
+
 export const Wrapper = styled.section`
   background-color: white;
   color: ${colors.black};
@@ -35,6 +39,10 @@ export const DetailSection = styled.div`
   }
 `;
 
+export const HeaderItem = styled.div`
+  margin: 1rem 0rem;
+`;
+
 export const HighLight = styled.span`
   color: ${colors.primary};
   text-decoration: underline;
@@ -55,6 +63,7 @@ export const PrimarySpam = styled.span`
 
 export const PrimaryParagraph = styled.p`
   color: ${colors.primary};
+  padding: 1rem 0rem;
 `;
 
 export const BoldParagraph = styled.p`
@@ -80,6 +89,7 @@ export const ExportButton = styled(PDFDownloadLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0.5rem;
   :hover {
     color: white;
   }
@@ -87,7 +97,7 @@ export const ExportButton = styled(PDFDownloadLink)`
 
 export const HeadPragraph = styled.p`
   padding: 1rem 0rem;
-  line-height: inherit;
+  line-height: normal;
 `;
 
 export const ColumnSection = styled.div`
@@ -97,6 +107,11 @@ export const ColumnSection = styled.div`
 
 export const ThreeColumnSection = styled.section`
   display: flex;
+  & > div:first-child {
+    flex: 1.2;
+  }
+  font-size: 1rem;
+  line-height: 1.2;
   & > div {
     flex: 1;
   }
@@ -117,8 +132,10 @@ export const TableHeaderText = styled.h2`
 export const TwoColumnSection = styled.section`
   display: flex;
   margin: 1rem 0rem;
+  font-size: 1rem;
+  line-height: 1.2;
   & > div:first-child {
-    flex: 1;
+    flex: 1.2;
   }
   & > div:nth-child(2) {
     flex: 2;
@@ -139,12 +156,12 @@ export const ViewFullTrial = styled.span`
 
 export const FieldWrapper = styled.div`
   display: flex;
-  font-size: smaller;
   & > div:first-child {
     padding-right: 5px;
   }
   @media only screen and (max-width: ${breakpoint.tablet}) {
     font-size: inherit;
+    margin-bottom: 0.7rem;
   }
 `;
 

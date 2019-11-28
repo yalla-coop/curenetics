@@ -9,7 +9,7 @@ import MatchCard from './cardMatch';
 
 import { breakpoint } from '../../../styles/globalStyles';
 
-import { BacklinkContainer, Container } from '../../common/Layout';
+import { HeaderContainer, Header, Container } from '../../common/Layout';
 import { Title } from '../../common/Typography';
 import { BackLink } from '../../common/Buttons';
 import Chevron from '../../common/icons/Chevron';
@@ -22,10 +22,14 @@ const LoadingContainer = styled.div`
   padding-top: 50vh;
 `;
 
-export default class Index extends Component {
+const centerP = {
+  margin: '0 auto',
+};
+
+export default class index extends Component {
   state = {
     loading: true,
-    patientsInfo: {},
+    // patientsInfo: {},
   };
 
   async componentDidMount() {
@@ -38,7 +42,7 @@ export default class Index extends Component {
         new Promise(res => setTimeout(res, 500)),
       ]);
       this.setState({
-        patientsInfo: location.state[0],
+        // patientsInfo: location.state[0],
         loading: false,
       });
     } else {
@@ -55,8 +59,19 @@ export default class Index extends Component {
   }
 
   render() {
-    const { modal, setModal, path, setPath } = this.props;
-    const { loading, patientsInfo } = this.state;
+    const { loading } = this.state;
+    const {
+      location: { state },
+      modal,
+      setModal,
+      path,
+      setPath,
+    } = this.props;
+    // const {
+    //  patientsInfo: state[0],
+    //  patientsInfo: { matchedTrials },
+    // } = state;
+    const patientsInfo = state[0];
     const { matchedTrials } = patientsInfo;
 
     return loading ? (
@@ -73,12 +88,14 @@ export default class Index extends Component {
             setPath={setPath}
           />
         )}
-        <BacklinkContainer>
-          <BackLink to="/">
-            <Chevron width={20} />
-          </BackLink>
-        </BacklinkContainer>
-        <Title>Matched trials for patient: </Title>
+        <Header>
+          <HeaderContainer>
+            <BackLink to="/trial-list">
+              <Chevron width={20} />
+            </BackLink>
+            <Title style={centerP}>Matched trials for patient: </Title>
+          </HeaderContainer>
+        </Header>
         <Container style={{ maxWidth: breakpoint.tablet }}>
           <HeaderMatch patientsInfo={patientsInfo} />
           {filterByEligibility(matchedTrials.data).map(trial => {

@@ -9,6 +9,7 @@ import {
   HighLightNumber,
   DetailSection,
   PrimaryParagraph,
+  HeaderItem,
 } from './style';
 
 import { colors } from '../../../styles/globalStyles';
@@ -38,12 +39,12 @@ const renderHeader = (matchedTrials, patientsInfo, size, fileReference) => {
         <HighLight>File name:</HighLight>
         <HighLightNumber>{fileReference}</HighLightNumber>
       </div>
-      <div>
+      <HeaderItem>
         <HighLight>Potentialy eligible trials:</HighLight>
         <HighLightNumber color={colors.confirm}>
           {potentiallyEligibleTrials}
         </HighLightNumber>
-      </div>
+      </HeaderItem>
       <DetailSection>
         <div>
           <HighLight>Nearly eligible Trials:</HighLight>

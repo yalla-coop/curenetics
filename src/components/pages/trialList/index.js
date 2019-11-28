@@ -14,13 +14,17 @@ const CardContainer = styled.div`
 class TrialList extends Component {
   state = {
     loading: true,
-    patientsInfo: [],
-    formatedPatients: [],
     // trialsArr: [], //if needed
   };
 
   async componentDidMount() {
-    const { history, location, aboutSetWarning } = this.props;
+    const {
+      history,
+      location,
+      aboutSetWarning,
+      setformatedPatients,
+      setfilteredPatientsInfo,
+    } = this.props;
     aboutSetWarning();
 
     if (location.state && location.state.length > 0) {
@@ -28,23 +32,27 @@ class TrialList extends Component {
       if (Array.isArray(patientsInfo)) {
         try {
           const {
-            patientsInfo: filteredPatientsInfo,
+            filteredPatientsInfo,
             formatedPatients,
             // trialsArr: originalTrialsArr,
           } = await getFilteredData(patientsInfo);
+          setformatedPatients(formatedPatients);
+          setfilteredPatientsInfo(filteredPatientsInfo);
 
-          return this.setState({
-            patientsInfo: filteredPatientsInfo,
-            formatedPatients,
+          this.setState({
             loading: false,
-            // trialsArr: originalTrialsArr,
           });
         } catch (err) {
           return message.error('something went wrong! please try again');
         }
       }
+    } else if (this.props.filteredPatientsInfo[0]) {
+      return this.setState({
+        loading: false,
+      });
+    } else {
+      return history.push('/');
     }
-    return history.push('/');
   }
 
   componentWillUnmount() {
@@ -53,14 +61,24 @@ class TrialList extends Component {
   }
 
   sortList = value => {
-    const { patientsInfo } = this.state;
+    const {
+      filteredPatientsInfo: patientsInfo,
+      setfilteredPatientsInfo,
+    } = this.props;
     const sortedList = sortList(patientsInfo, value);
-    this.setState({ patientsInfo: sortedList });
+    setfilteredPatientsInfo(sortedList);
   };
 
   render() {
-    const { modal, setModal, path, setPath } = this.props;
-    const { loading, patientsInfo, formatedPatients } = this.state;
+    const { loading } = this.state;
+    const {
+      modal,
+      setModal,
+      path,
+      setPath,
+      filteredPatientsInfo: patientsInfo,
+      formatedPatients,
+    } = this.props;
     return loading ? (
       <Loading />
     ) : (
@@ -79,7 +97,7 @@ class TrialList extends Component {
         />
         <CardContainer>
           {patientsInfo.map(patient => (
-            <CardSection key={patient.fileReference} data={patient} />
+            <CardSection key={Date.now() / Math.random()} data={patient} />
           ))}
         </CardContainer>
       </>

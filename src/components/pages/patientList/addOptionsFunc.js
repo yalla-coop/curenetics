@@ -6,7 +6,7 @@ const keysOrder = [
   'gender',
   'Keywords',
   'cancerType',
-  'postcode',
+  'zip',
 ];
 
 export const mapKeyToOptions = {
@@ -63,7 +63,7 @@ export const mapKeyToOptions = {
 const mapKeyToDisplayField = {
   age: 'Age:',
   gender: 'Gender:',
-  postcode: 'Postcode:',
+  zip: 'Postcode:',
   cancerType: 'Type of Cancer:',
   fileReference: 'File name:',
   ECOGStatus: 'ECOG status:',

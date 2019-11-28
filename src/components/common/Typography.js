@@ -54,6 +54,17 @@ export const Paragraph = styled.p`
   text-align: ${(props) => props.textAlign};
 `;
 
+export const ModParagraph = styled.p`
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+  font-weight: 400;
+  margin-bottom: 1rem;
+  font-size: ${font.Xsmall};
+  ${(props) => (props.isLight ? 'font-weight: 300' : '')};
+  @media only screen and (min-width: 300px) {
+    font-size: ${font.Xsmall};
+  }
+`;
+
 export const OL = styled.ol`
   margin: 1rem 0;
   padding-left: 1rem;

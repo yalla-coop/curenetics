@@ -45,8 +45,8 @@ const MatchHeader = ({ trialInfo, fileReference }) => {
       <View style={rowContainer}>
         <Image style={icon} src={calendarIcon} />
         <View style={columnContainer}>
-          <Text style={text}>Starting Date: {'No data found'}</Text>
-          <Text style={text}>Finish Date: {'No data found'}</Text>
+          <Text style={text}>Starting Date: {'N/A'}</Text>
+          <Text style={text}>Finish Date: {'N/A'}</Text>
         </View>
       </View>
 
@@ -57,33 +57,33 @@ const MatchHeader = ({ trialInfo, fileReference }) => {
         </View>
         <View style={rowContainer}>
           <Image style={icon} src={tickIcon} />
-          <Text style={text}>Recruiting: {OverallStatus}</Text>
+          <Text style={text}>Status: {OverallStatus}</Text>
         </View>
         <View style={rowContainer}>
           <Image style={icon} src={avatarIcon} />
-          <Text style={text}>Enrolled: {'No data found'}</Text>
+          <Text style={text}>Enrolled: {'N/A'}</Text>
         </View>
       </View>
 
       <View style={rowContainer}>
         <Image style={icon} src={testTubeIcon} />
         <Text style={text}>
-          {/* Interventions: {['No data found'].map(i => `${i}, `)} */}
-          Interventions: {'No data found'}
+          {/* Interventions: {['N/A'].map(i => `${i}, `)} */}
+          Interventions: {'N/A'}
         </Text>
       </View>
 
       <View style={rowContainer}>
         <Image style={icon} src={plusIcon} />
         <Text style={text}>
-          {/* Sponsors: {['No data found'].map(i => `${i}, `)} */}
-          Sponsors: {'No data found'}
+          {/* Sponsors: {['N/A'].map(i => `${i}, `)} */}
+          Sponsors: {'N/A'}
         </Text>
       </View>
 
       <View style={rowContainer}>
         <Image style={icon} src={stethiscopeIcon} />
-        <Text style={text}>Allocation: {'No data found'}</Text>
+        <Text style={text}>Allocation: {'N/A'}</Text>
       </View>
     </View>
   );

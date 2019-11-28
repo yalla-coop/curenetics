@@ -25,6 +25,7 @@ import {
   ThreeColumnSection,
   TwoColumnSection,
   ViewFullTrial,
+  DateSpan,
 } from './style';
 
 const matchCard = ({ trial, patientsInfo }) => {
@@ -42,7 +43,7 @@ const matchCard = ({ trial, patientsInfo }) => {
           <PrimarySpam>NCT Number: </PrimarySpam>
           <span>{NCTID}</span>
         </div>
-        <PrimarySpam bold>PRONOUNCE</PrimarySpam>
+        <PrimarySpam bold></PrimarySpam>
       </HeadSection>
       <HeadPragraph>{Title}</HeadPragraph>
       <ThreeColumnSection>
@@ -52,8 +53,8 @@ const matchCard = ({ trial, patientsInfo }) => {
               <Calendar />
             </div>
             <ColumnSection>
-              <span>Starting Date: {'No data found'}</span>
-              <span>Finish Date: {'No data found'}</span>
+              <DateSpan>Starting Date: {'N/A'}</DateSpan>
+              <span>Finish Date: {'N/A'}</span>
             </ColumnSection>
           </FieldWrapper>
         </ColumnSection>
@@ -68,14 +69,14 @@ const matchCard = ({ trial, patientsInfo }) => {
             <div>
               <Tick />
             </div>
-            <span>{OverallStatus}</span>
+            <span>Status: {OverallStatus}</span>
           </FieldWrapper>
         </ColumnSection>
         <FieldWrapper>
           <div>
             <Avatar />
           </div>
-          <span>Enrolled: {'No data found'}</span>
+          <span>Enrolled: {'N/A'}</span>
         </FieldWrapper>
       </ThreeColumnSection>
       <TwoColumnSection>
@@ -83,16 +84,16 @@ const matchCard = ({ trial, patientsInfo }) => {
           <div>
             <TestTube width="24px" style={{ height: '24px' }}></TestTube>
           </div>
-          {/* <span>Interventions: {['No data found'].map(i => `${i}, `)}</span> */}
-          <span>Interventions: {'No data found'}</span>
+          {/* <span>Interventions: {['N/A'].map(i => `${i}, `)}</span> */}
+          <span>Interventions: {'N/A'}</span>
         </FieldWrapper>
         <FieldWrapper>
           <div>
             <Plus />
           </div>
           <span>
-            {/* Sponsor/Collaborators: {['No data found'].map(i => `${i}, `)} */}
-            Sponsor/Collaborators: {'No data found'}
+            {/* Sponsor/Collaborators: {['N/A'].map(i => `${i}, `)} */}
+            Sponsor/Collaborators: {'N/A'}
           </span>
         </FieldWrapper>
       </TwoColumnSection>
@@ -100,7 +101,7 @@ const matchCard = ({ trial, patientsInfo }) => {
         <div>
           <Stethiscope />
         </div>
-        <span>Allocation: {'No data found'}</span>
+        <span>Allocation: {'N/A'}</span>
       </FieldWrapper>
       {/* the matching trials table */}
       <Table trial={trial} patientsInfo={patientsInfo} />
@@ -111,13 +112,14 @@ const matchCard = ({ trial, patientsInfo }) => {
           const {
             Facility: {
               Name,
-              Address: { City, Zip },
+              Address: { City, Zip, distance },
             },
           } = location;
           return (
             <LocationSection key={Date.now() + Zip}>
               <span>
-                <Marker width="14px" />5 miles
+                <Marker width="14px" />
+                {distance || 'N/A'} miles
               </span>
               <span>{`${Name}, ${City} ${Zip}`}</span>
             </LocationSection>
