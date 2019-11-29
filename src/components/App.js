@@ -11,7 +11,7 @@ import TrialList from './pages/trialList';
 import PatientList from './pages/patientList';
 import EnterPatients from './pages/enterPatients';
 // pdf example here
-import MatchTrial from './pages/matchTrial';
+import Index from './pages/matchTrial/index';
 
 import cureneticsLogo from './common/images/curenetics-logo.png';
 import { breakpoint, colors, fontFamily } from '../styles/globalStyles';
@@ -92,25 +92,57 @@ const App = () => {
   const [filenames, setFilenames] = useState([]);
   const [formatedPatients, setformatedPatients] = useState([]);
   const [filteredPatientsInfo, setfilteredPatientsInfo] = useState([]);
+  const [modal, setModal] = useState(false); // should modal be displayed
+  const [path, setPath] = useState('/');
+  const [warning, setWarning] = useState(null);
+
+  const aboutModalWarning = e => {
+    // This function is called on the render of the enterPatients page and as an //onClick event there isn't always an e object.
+    if (e) {
+      const str = e.target.href.split('/');
+      const pathStr = str[str.length - 1];
+      e.preventDefault();
+      setModal(true);
+      setPath(`/${pathStr}`);
+    } else {
+      setModal(false);
+    }
+  };
+  const aboutSetWarning = () => {
+    setWarning(() => aboutModalWarning);
+  };
+  const reset = () => {
+    setWarning(null);
+  };
 
   return (
     <>
       <Router>
         <TopBar>
           <TopContainer>
-            <Link aria-label="Curenetics Clinical Trials" to="/">
+            <Link
+              aria-label="Curenetics Clinical Trials"
+              onClick={warning}
+              to="/"
+            >
               <Logo src={cureneticsLogo} alt="Curenetics Clinical Trials" />
             </Link>
             <Nav>
               <ul>
                 <li>
-                  <Link to="/about">About</Link>
+                  <Link to="/about" onClick={warning}>
+                    About
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/upload">Upload</Link>
+                  <Link to="/upload" onClick={warning}>
+                    Upload
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/enter-patients">Enter</Link>
+                  <Link to="/enter-patients" onClick={warning}>
+                    Enter
+                  </Link>
                 </li>
               </ul>
             </Nav>
@@ -138,6 +170,40 @@ const App = () => {
                   {...props}
                   filenames={filenames}
                   setFilenames={setFilenames}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
+                />
+              )}
+            />
+            <Route
+              path="/match-trial"
+              render={props => (
+                <Index
+                  {...props}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
+                />
+              )}
+            />
+            <Route
+              path="/enter-patients"
+              render={props => (
+                <EnterPatients
+                  {...props}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
                 />
               )}
             />
@@ -150,11 +216,15 @@ const App = () => {
                   setformatedPatients={setformatedPatients}
                   filteredPatientsInfo={filteredPatientsInfo}
                   setfilteredPatientsInfo={setfilteredPatientsInfo}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
                 />
               )}
             />
-            <Route path="/match-trial" component={MatchTrial} />
-            <Route path="/enter-patients" component={EnterPatients} />
             <Route component={NotFound} />
           </Switch>
         </Main>

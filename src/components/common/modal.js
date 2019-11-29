@@ -15,7 +15,7 @@ const Bkground = styled.section`
   div {
     width: 45vw;
     height: auto;
-    margin: -10vh auto;
+    margin: 5vh auto;
     padding: 2vw;
     background-color: ${colors.white};
     border: 3px solid ${colors.accent};
@@ -46,11 +46,14 @@ const ConfirmLink = styled(Link)`
     background-color: ${colors.accent};
   }
 `;
-
-const SmallModal = () => {
-  const closeModule = e => {
-    const parentObj = e.target.parentNode;
-    parentObj.parentNode.parentNode.style.display = 'none';
+const SmallModal = props => {
+  const { modal, setModal, path, setPath } = props;
+  const closeModule = () => {
+    setModal(false);
+  };
+  const reset = () => {
+    setModal(false);
+    setPath('/');
   };
   return (
     <Bkground>
@@ -64,10 +67,12 @@ const SmallModal = () => {
           and analysed along with any clinical trials found.
         </Paragraph>
         <End>
-          <OrangeButton color onClick={e => closeModule(e)}>
+          <OrangeButton color="red" onClick={e => {closeModule(e)}}>
             Cancel
           </OrangeButton>
-          <ConfirmLink style={{ color: 'white' }} to="/">Confirm</ConfirmLink>
+          <ConfirmLink style={{ color: 'white' }} onClick={reset} to={path}>
+            Confirm
+          </ConfirmLink>
         </End>
       </div>
     </Bkground>

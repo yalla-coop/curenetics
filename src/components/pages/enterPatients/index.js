@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Select } from 'antd';
 
+import SmallModal from '../../common/modal';
 import PatientIntro from './patientIntro';
 import { keysOrder } from './patientField';
 import PatientCards from './PatientCards';
 
 import { colors } from '../../../styles/globalStyles';
 
-import AddCircle from '../../common/images/plus-cirlcle-primary.svg';
+import AddCercle from '../../common/icons/AddCercle';
 
 import {
   MatchButton,
@@ -24,6 +25,11 @@ class EnterPatients extends Component {
 
   componentDidMount() {
     this.createPatient();
+    this.props.aboutSetWarning();
+  }
+
+  componentWillUnmount() {
+    this.props.reset();
   }
 
   createPatient = () => {
@@ -88,6 +94,7 @@ class EnterPatients extends Component {
   };
 
   render() {
+    const { modal, setModal, path, setPath } = this.props;
     const {
       renderFieldOptions,
       handleChange,
@@ -97,6 +104,14 @@ class EnterPatients extends Component {
     const { list } = this.state;
     return (
       <>
+        {modal && (
+          <SmallModal
+            modal={modal}
+            setModal={setModal}
+            path={path}
+            setPath={setPath}
+          />
+        )}
         <PatientIntro></PatientIntro>
         <PatientlistContainer>
           <PatientCards
@@ -111,11 +126,7 @@ class EnterPatients extends Component {
           onClick={this.createPatient}
           isClear
         >
-          <img
-            src={AddCircle}
-            alt="add another record circle icon"
-            style={{ marginRight: '0.5rem' }}
-          />
+          <AddCercle fill={colors.lightPrimary} width={24} />
           Click to add another patient’s medical details
         </ViewFileButton>
         <MatchButton onClick={moveDataToBeFiltered}>

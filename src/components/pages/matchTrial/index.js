@@ -13,6 +13,7 @@ import { HeaderContainer, Header, Container } from '../../common/Layout';
 import { Title } from '../../common/Typography';
 import { BackLink } from '../../common/Buttons';
 import Chevron from '../../common/icons/Chevron';
+import SmallModal from '../../common/modal';
 
 const LoadingContainer = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ export default class index extends Component {
   };
 
   async componentDidMount() {
-    const { location, history } = this.props;
+    const { location, history, aboutSetWarning } = this.props;
 
     if (location.state && location.state.length > 0) {
       // this is just a temp solution for long time rendering
@@ -47,13 +48,25 @@ export default class index extends Component {
     } else {
       history.push('/');
     }
+
+    // sets state for warning modal
+    aboutSetWarning();
+  }
+
+  componentWillUnmount() {
+    const { reset } = this.props;
+    reset();
   }
 
   render() {
+    const { loading } = this.state;
     const {
       location: { state },
+      modal,
+      setModal,
+      path,
+      setPath,
     } = this.props;
-    const { loading /* , patientsInfo */ } = this.state;
     // const {
     //  patientsInfo: state[0],
     //  patientsInfo: { matchedTrials },
@@ -67,6 +80,14 @@ export default class index extends Component {
       </LoadingContainer>
     ) : (
       <>
+        {modal && (
+          <SmallModal
+            modal={modal}
+            setModal={setModal}
+            path={path}
+            setPath={setPath}
+          />
+        )}
         <Header>
           <HeaderContainer>
             <BackLink to="/trial-list">

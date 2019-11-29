@@ -11,6 +11,7 @@ const HomeAnchor = styled(Anchor)`
   margin: 2rem auto;
   display: block;
 `;
+
 const pStyle = {
   textAlign: 'left',
 };
