@@ -180,20 +180,6 @@ const App = () => {
               )}
             />
             <Route
-              path="/trial-list"
-              render={props => (
-                <TrialList
-                  {...props}
-                  modal={modal}
-                  setModal={setModal}
-                  path={path}
-                  setPath={setPath}
-                  aboutSetWarning={aboutSetWarning}
-                  reset={reset}
-                />
-              )}
-            />
-            <Route
               path="/match-trial"
               render={props => (
                 <Index
@@ -230,10 +216,15 @@ const App = () => {
                   setformatedPatients={setformatedPatients}
                   filteredPatientsInfo={filteredPatientsInfo}
                   setfilteredPatientsInfo={setfilteredPatientsInfo}
+                  modal={modal}
+                  setModal={setModal}
+                  path={path}
+                  setPath={setPath}
+                  aboutSetWarning={aboutSetWarning}
+                  reset={reset}
                 />
               )}
             />
-            <Route path="/enter-patients" component={EnterPatients} />
             <Route component={NotFound} />
           </Switch>
         </Main>
